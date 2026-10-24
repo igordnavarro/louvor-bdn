@@ -190,6 +190,86 @@ input[type=range]{width:150px;accent-color:var(--accent)}
   .group label{display:none}
 }
 
+
+.icon-btn.prof{font-weight:700;font-size:15px;background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips .spacer{flex:1}
+.btn.new{height:36px;padding:0 14px;border-radius:999px;font-size:14px}
+.btn.edit{height:48px}
+.btn.danger{background:transparent;border-color:#c0392b;color:#c0392b}
+.tag.mine{color:var(--accent)}
+.fact.mine{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.fact span{margin-right:2px}
+.toast{position:fixed;left:50%;bottom:110px;transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:60;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.plist{display:grid;gap:8px;margin-bottom:12px}
+.prow{display:flex;gap:6px;align-items:center}
+.prow .pick{flex:1;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:8px 10px;text-align:left}
+.prow.on .pick{border-color:var(--accent)}
+.prow .av{width:30px;height:30px;border-radius:9px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700}
+.prow .nm{flex:1;font-weight:600}
+.addrow,.linkrow{display:flex;gap:8px;margin:8px 0 14px}
+.addrow input,.linkrow input,.f input,.f select,.f textarea{width:100%;min-width:0;height:44px;border-radius:11px;border:1px solid var(--line);background:var(--surface-2);padding:0 12px;font-size:15px;outline:none}
+.addrow input:focus,.linkrow input:focus,.f input:focus,.f select:focus,textarea:focus{border-color:var(--accent)}
+.panel.big .card{width:min(1100px,100%);max-height:94vh}
+.ed-head{display:flex;align-items:center;justify-content:space-between}
+.ed-head h3{margin:0 0 12px}
+.import{border:1px dashed color-mix(in srgb,var(--accent) 50%,var(--line));border-radius:16px;padding:12px;margin-bottom:10px;background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.imp-title{font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.imp{display:flex;flex-direction:column;align-items:center;gap:2px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 6px}
+.imp span{font-size:22px}.imp b{font-size:14px}.imp small{font-size:11.5px;color:var(--muted)}
+.imp:hover{border-color:var(--accent)}
+.linkrow{margin:10px 0 0}
+.status{min-height:1.2em;font-size:13.5px;color:var(--accent);margin:4px 2px 10px;font-weight:500}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.f{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);font-weight:500}
+.f.wide{grid-column:span 2}
+#edBasic .f.wide{grid-column:span 2}
+.edsplit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+#edBody{height:46vh;min-height:260px;padding:10px 12px;font-family:var(--mono);font-size:13.5px;line-height:1.38;white-space:pre;overflow:auto;resize:vertical;color:var(--text)}
+.edprev{height:46vh;min-height:260px;overflow:auto;border:1px solid var(--line);border-radius:11px;padding:10px 12px;background:var(--surface)}
+.edprev .cifra{font-size:13.5px}
+.ed-actions{display:flex;gap:8px;align-items:center;margin-top:14px;position:sticky;bottom:-22px;background:var(--surface);padding:10px 0 4px}
+@media (max-width:760px){
+  .fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .edsplit{grid-template-columns:1fr}
+  #edBody,.edprev{height:34vh}
+  .chips .spacer{display:none}
+  .btn.new{width:100%;justify-content:center;height:44px;border-radius:12px}
+}
+
+.ytbox{position:fixed;right:12px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:35;background:#000;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);display:none;width:160px}
+.ytbox.show{display:block}
+.ytbox iframe{display:block;width:160px;height:90px}
+.ytbar{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;color:#fff;font-size:12px;font-weight:600;background:#e62117}
+.ytbar button{border:0;background:transparent;color:#fff;font-size:13px}
+@media (min-width:561px){ .ytbox{bottom:96px} }
+
+.seg.tabs{display:flex;margin:2px 0 14px;width:100%}
+.seg.tabs button{flex:1;padding:10px 8px;font-size:15px}
+.plhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.plhead b{display:block;font-size:17px}.plhead small{color:var(--muted);font-size:13px}
+.k.cal{flex-direction:column;display:flex;align-items:center;justify-content:center;line-height:1}
+.k.cal b{font-size:17px}.k.cal small{font-size:10.5px;text-transform:uppercase;color:var(--muted);font-family:var(--sans);margin-top:2px}
+.k.cal.sm{font-size:12px;width:auto;padding:0 8px;height:34px;border-radius:9px;background:var(--surface-2);display:grid;place-items:center;font-family:var(--mono);font-weight:700;color:var(--accent)}
+.plbar{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--note-bg);color:var(--note-ink);border-radius:12px;padding:6px 6px 6px 12px;margin:12px 0 -4px;font-size:14px}
+.plitems{display:grid;gap:6px;margin:4px 0 8px}
+.plrow{display:flex;align-items:center;gap:6px;background:var(--surface-2);border-radius:12px;padding:6px}
+.plrow .n{width:24px;text-align:center;font-weight:700;color:var(--muted)}
+.plrow .go{flex:1;min-width:0;text-align:left;border:0;background:transparent;padding:2px 4px}
+.plrow .go b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:15px}
+.plrow .go small{display:block;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kctl{display:flex;align-items:center;gap:3px}
+.kctl .kv{min-width:38px;text-align:center;font-family:var(--mono);font-weight:700;color:var(--accent)}
+.mini:disabled{opacity:.35}
+.presults{display:grid;gap:6px;max-height:40vh;overflow:auto;margin-bottom:8px}
+.pres{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 10px}
+.pres .k{font-family:var(--mono);font-weight:700;color:var(--accent);min-width:34px}
+.pres .t{flex:1;min-width:0}.pres .t b{display:block;font-size:14.5px}.pres .t small{color:var(--muted);font-size:12px}
+.pres .add{font-size:20px;color:var(--accent);font-weight:700}
+.keygrp{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+@media (max-width:560px){ .plrow{flex-wrap:wrap} .plrow .go{flex:1 1 calc(100% - 34px)} .plrow .kctl{margin-left:30px;margin-right:auto} .keygrp label{display:block!important} .plrow .kctl .mini{width:28px;height:28px} .plhead{flex-direction:column;align-items:stretch} }
+
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
 </style>
 </head>
@@ -200,6 +280,7 @@ input[type=range]{width:150px;accent-color:var(--accent)}
     <div class="brand"><div class="logo">♪</div><div>Louvor BDN<small>cifras · tom · bpm · pad</small></div></div>
     <div class="top-title"><b id="tTitle"></b><span id="tArtist"></span></div>
     <div class="spacer"></div>
+    <button class="icon-btn prof" id="profBtn" aria-label="Usuário">P</button>
     <button class="icon-btn" id="themeBtn" aria-label="Alternar tema claro/escuro" title="Tema claro/escuro">
       <svg id="icoMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       <svg id="icoSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -209,6 +290,8 @@ input[type=range]{width:150px;accent-color:var(--accent)}
 
 <main class="wrap">
   <section id="library">
+    <div class="seg tabs" id="viewTabs"><button data-v="songs" aria-pressed="true">🎵 Músicas</button><button data-v="pl" aria-pressed="false">📋 Playlists / Escalas</button></div>
+    <div id="songsView">
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Buscar música ou artista…" autocomplete="off" enterkeyhint="search">
@@ -218,9 +301,17 @@ input[type=range]{width:150px;accent-color:var(--accent)}
       <button class="chip" data-f="all" aria-pressed="true">Todas</button>
       <button class="chip" data-f="cifra" aria-pressed="false">Com cifra</button>
       <button class="chip" data-f="ficha" aria-pressed="false">Só tom/BPM</button>
+      <button class="chip" data-f="minhas" aria-pressed="false">Minhas / editadas</button>
+      <span class="spacer"></span>
+      <button class="btn primary new" id="newBtn">＋ Nova música</button>
     </div>
     <div class="count" id="count"></div>
     <div class="list" id="list"></div>
+    </div>
+    <div id="plView" style="display:none">
+      <div class="plhead"><div><b>Escalas do louvor</b><small>Monte a playlist do culto com a ordem e o tom de cada música.</small></div><button class="btn primary" id="plNew">＋ Nova playlist</button></div>
+      <div class="list" id="plList"></div>
+    </div>
   </section>
 
   <section id="song" aria-live="polite">
@@ -230,8 +321,9 @@ input[type=range]{width:150px;accent-color:var(--accent)}
       <div class="facts" id="facts"></div>
       <div id="sNote"></div>
     </div>
+    <div class="plbar" id="plBar" style="display:none"></div>
     <div class="tools">
-      <div class="group" title="Tom">
+      <div class="group keygrp" title="Mudar o tom da música">
         <label>Tom</label>
         <button class="g-btn" id="keyDown" aria-label="Meio tom abaixo">−</button>
         <select class="key-select" id="keySel" aria-label="Escolher tom"></select>
@@ -242,6 +334,8 @@ input[type=range]{width:150px;accent-color:var(--accent)}
         <button class="g-btn" id="fontDown" aria-label="Diminuir fonte">A−</button>
         <button class="g-btn" id="fontUp" aria-label="Aumentar fonte">A+</button>
       </div>
+      <button class="btn edit" id="editBtn">✎ Editar tom, capo, BPM…</button>
+      <button class="btn edit" id="addPlBtn">＋ Playlist</button>
       <button class="reset" id="resetBtn">Restaurar original</button>
     </div>
     <div class="capo-info" id="capoInfo"></div>
@@ -284,7 +378,7 @@ input[type=range]{width:150px;accent-color:var(--accent)}
     <div class="row"><div class="l">Toque no ritmo<small>Toque 4× ou mais no tempo da música</small></div><button class="btn" id="tapBtn">Tap</button></div>
     <div class="row"><div class="l">Compasso</div><div class="seg" id="sigSeg"><button data-v="4">4/4</button><button data-v="3">3/4</button><button data-v="6">6/8</button><button data-v="2">2/4</button></div></div>
     <div class="row"><div class="l">Subdivisão</div><div class="seg" id="subSeg"><button data-v="1">♩</button><button data-v="2">♪♪</button></div></div>
-    <div class="row"><div class="l">Som</div><div class="seg" id="sndSeg"><button data-v="click">Click</button><button data-v="wood">Madeira</button><button data-v="beep">Bip</button></div></div>
+    <div class="row"><div class="l">Som</div><div class="seg" id="sndSeg"><button data-v="click">Click</button><button data-v="cowbell">Cowbell</button><button data-v="block">Bloco</button><button data-v="beep">Bip</button></div></div>
     <div class="row"><div class="l">Volume</div><input type="range" id="metroVol" min="0" max="1" step="0.01"></div>
     <div class="close-row"><button class="btn primary" data-close>Pronto</button></div>
   </div>
@@ -294,367 +388,90 @@ input[type=range]{width:150px;accent-color:var(--accent)}
   <div class="card">
     <h3>Pad de fundo</h3>
     <div class="row"><div class="l">Nota do pad<small>Acompanha o tom escolhido na cifra</small></div><div class="seg" id="padChoice"></div></div>
-    <div class="row"><div class="l">Timbre</div><div class="seg" id="toneSeg"><button data-v="warm">Quente</button><button data-v="air">Etéreo</button><button data-v="organ">Órgão</button></div></div>
-    <div class="row"><div class="l">Incluir 3ª<small>Desligado = só tônica e 5ª (combina com qualquer acorde)</small></div><div class="seg" id="thirdSeg"><button data-v="0">Não</button><button data-v="1">Sim</button></div></div>
+    <div class="row"><div class="l">Som do pad<small class="yt-only">Vídeos de pad (1 hora) do YouTube no tom da música — precisa de internet</small><small class="synth-only">Gerado no aparelho — funciona sem internet</small></div><div class="seg" id="padSrcSeg"><button data-v="deep">YouTube · Deep</button><button data-v="shimmer">YouTube · Shimmer</button><button data-v="synth">Sintetizado</button></div></div>
+    <div class="row synth-only"><div class="l">Timbre</div><div class="seg" id="toneSeg"><button data-v="warm">Quente</button><button data-v="air">Etéreo</button><button data-v="organ">Órgão</button></div></div>
+    <div class="row synth-only"><div class="l">Incluir 3ª<small>Desligado = só tônica e 5ª (combina com qualquer acorde)</small></div><div class="seg" id="thirdSeg"><button data-v="0">Não</button><button data-v="1">Sim</button></div></div>
     <div class="row"><div class="l">Volume</div><input type="range" id="padVol" min="0" max="1" step="0.01"></div>
     <div class="close-row"><button class="btn primary" data-close>Pronto</button></div>
   </div>
 </div>
 
+
+<div class="panel" id="profPanel" role="dialog" aria-modal="true" aria-label="Usuários">
+  <div class="card">
+    <h3>Usuários deste aparelho</h3>
+    <p class="src" style="margin:-6px 0 12px">Cada usuário tem seus próprios tons, capos, BPMs e músicas criadas. Para levar seus ajustes a outro aparelho, use Exportar/Importar.</p>
+    <div id="profList" class="plist"></div>
+    <div class="addrow"><input id="profName" placeholder="Nome do novo usuário (ex.: Igor, Violão, Teclado)" maxlength="30"><button class="btn primary" id="profAdd">Adicionar</button></div>
+    <div class="row"><div class="l">Backup<small>Salva/recupera tudo deste usuário num arquivo</small></div><div style="display:flex;gap:8px"><button class="btn" id="exportBtn">Exportar</button><button class="btn" id="importBtn">Importar</button></div></div>
+    <input type="file" id="importFile" accept=".json,application/json" hidden>
+    <div class="close-row"><button class="btn primary" data-close>Fechar</button></div>
+  </div>
+</div>
+
+<div class="panel big" id="editPanel" role="dialog" aria-modal="true" aria-label="Editar música">
+  <div class="card">
+    <div class="ed-head"><h3 id="edTitle">Editar</h3><button class="icon-btn" data-close aria-label="Fechar">✕</button></div>
+    <p class="src" id="edHint" style="margin:-6px 0 12px"></p>
+
+    <div id="edImport" class="import">
+      <div class="imp-title">Importar cifra</div>
+      <div class="imp-grid">
+        <button class="imp" id="edPdf"><span>📄</span><b>PDF</b><small>arquivo da cifra</small></button>
+        <button class="imp" id="edImg"><span>🖼️</span><b>Print / foto</b><small>uma ou mais imagens</small></button>
+        <button class="imp" id="edPaste"><span>📋</span><b>Colar</b><small>texto copiado</small></button>
+      </div>
+      <div class="linkrow"><input id="edLink" type="url" inputmode="url" placeholder="Link do Cifra Club (https://www.cifraclub.com.br/…)"><button class="btn" id="edLinkGo">Abrir</button></div>
+      <input type="file" id="pdfFile" accept="application/pdf,.pdf" hidden>
+      <input type="file" id="imgFile" accept="image/*" multiple hidden>
+    </div>
+    <div class="status" id="edStatus" aria-live="polite"></div>
+
+    <div id="edBasic" class="fgrid">
+      <label class="f wide">Nome da música<input id="edT" maxlength="120"></label>
+      <label class="f wide">Artista / ministério<input id="edA" maxlength="120"></label>
+    </div>
+    <div class="fgrid">
+      <label class="f">Tom<select id="edKey"></select><small id="edKeyHint" class="src"></small></label>
+      <label class="f">Capotraste<select id="edCapo"></select></label>
+      <label class="f">BPM<input id="edBpm" type="number" inputmode="numeric" min="30" max="260" placeholder="ex.: 132"></label>
+      <label class="f">Pad<select id="edPad"></select></label>
+      <label class="f wide">Observação<input id="edNote" maxlength="300" placeholder="ex.: bateria entra no refrão, repetir ponte 2x"></label>
+      <label class="f wide">Vídeo do YouTube (link)<input id="edYt" type="url" inputmode="url" placeholder="https://www.youtube.com/watch?v=…"></label>
+    </div>
+    <div id="edBodyWrap">
+      <div class="f wide"><span>Cifra <small class="src">— acordes numa linha, letra na linha de baixo. Use [Refrão] para seções e ! para observações.</small></span>
+        <div class="edsplit"><textarea id="edBody" spellcheck="false" placeholder="[Intro] G  D  Em  C&#10;&#10;[Primeira Parte]&#10;G            D&#10;  Letra da música aqui..."></textarea>
+        <div class="edprev"><div class="cifra" id="edPreview"></div></div></div>
+      </div>
+    </div>
+    <div class="ed-actions"><button class="btn danger" id="edDelete">Excluir música</button><span class="spacer"></span><button class="btn" data-close>Cancelar</button><button class="btn primary" id="edSave">Salvar</button></div>
+  </div>
+</div>
+
+<div class="panel big" id="plPanel" role="dialog" aria-modal="true" aria-label="Playlist">
+  <div class="card">
+    <div class="ed-head"><h3>Playlist / escala</h3><button class="icon-btn" data-close aria-label="Fechar">✕</button></div>
+    <div class="fgrid"><label class="f wide">Nome<input id="plName" maxlength="80"></label><label class="f">Data do culto<input id="plDate" type="date"></label><div class="f"><span>&nbsp;</span><span id="plCount" class="src"></span></div></div>
+    <div class="plitems" id="plItems"></div>
+    <div class="linkrow"><input id="plQ" type="search" placeholder="Buscar música para adicionar…" autocomplete="off"></div>
+    <div class="presults" id="plResults"></div>
+    <div class="ed-actions"><button class="btn danger" id="plDel">Excluir</button><span class="spacer"></span><button class="btn" id="plShare">Compartilhar (WhatsApp)</button><button class="btn primary" id="plStart">▶ Começar</button></div>
+  </div>
+</div>
+<div class="panel" id="addPlPanel" role="dialog" aria-modal="true" aria-label="Adicionar à playlist">
+  <div class="card">
+    <h3>Adicionar à playlist</h3>
+    <p class="src" style="margin:-6px 0 10px">A música entra no tom que está agora.</p>
+    <div class="presults" id="addPlList"></div>
+    <div class="addrow"><input id="addPlName" maxlength="80"><button class="btn primary" id="addPlCreate">Criar nova</button></div>
+    <div class="close-row"><button class="btn" data-close>Cancelar</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="ytbox" id="ytBox"><div id="ytPlayer"></div><div class="ytbar"><span id="ytKey">Pad</span><button id="ytStop" aria-label="Parar pad">■</button></div></div>
+
 <script src="songs.js"></script>
-<script>
-(function(){
-"use strict";
-const SONGS = (window.SONGS||[]).slice();
-const $ = s => document.querySelector(s);
-
-/* ---------- storage (best effort) ---------- */
-const store = {
-  get(k, d){ try{ const v = localStorage.getItem('bdn:'+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
-  set(k, v){ try{ localStorage.setItem('bdn:'+k, JSON.stringify(v)); }catch(e){} }
-};
-
-/* ---------- theme ---------- */
-function applyTheme(t){
-  if(t) document.documentElement.setAttribute('data-theme', t); else document.documentElement.removeAttribute('data-theme');
-  const dark = t ? t==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  $('#icoMoon').style.display = dark ? 'none' : '';
-  $('#icoSun').style.display = dark ? '' : 'none';
-}
-applyTheme(store.get('theme', null));
-$('#themeBtn').onclick = () => {
-  const cur = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
-  const nxt = cur==='dark' ? 'light' : 'dark'; store.set('theme', nxt); applyTheme(nxt);
-};
-
-/* ---------- music theory ---------- */
-const SHARP=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
-const FLAT =['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
-const IDX={C:0,'C#':1,Db:1,D:2,'D#':3,Eb:3,E:4,Fb:4,'E#':5,F:5,'F#':6,Gb:6,G:7,'G#':8,Ab:8,A:9,'A#':10,Bb:10,B:11,Cb:11,'B#':0};
-const FLAT_MAJ=new Set([5,10,3,8,1]);          // F Bb Eb Ab Db
-const FLAT_MIN=new Set([2,7,0,5,10,3]);        // Dm Gm Cm Fm Bbm Ebm
-function parseKey(k){ const m=/^([A-G][#b]?)(m?)/.exec(k||''); if(!m) return null; return {r:IDX[m[1]], minor:!!m[2]}; }
-function useFlats(r, minor){ return minor ? FLAT_MIN.has(r) : FLAT_MAJ.has(r); }
-function keyName(r, minor){ const fl=useFlats(r,minor); return (fl?FLAT:SHARP)[((r%12)+12)%12] + (minor?'m':''); }
-const CHORD_RE=/^[A-G][#b]?(?:maj|min|dim|aug|sus|add|m|M|º|°|\+|-|[0-9]|\(|\)|#|b)*(?:\/[A-G][#b]?[0-9]?)?$/;
-function isChordTok(t){ const c=t.replace(/^[\(\[]+|[\)\]]+$/g,''); return c && CHORD_RE.test(c); }
-function isMarkTok(t){ return /^[\(\)\|\-–—\/]+$/.test(t) || /^\(?\d+\s?[xX]\)?$/.test(t) || /^[xX]\d+$/.test(t); }
-function isChordLine(s){ const t=s.trim().split(/\s+/); if(!t[0]) return false; let n=0; for(const x of t){ if(isChordTok(x)) n++; else if(!isMarkTok(x)) return false; } return n>0; }
-function trChord(tok, semi, flats){
-  return tok.replace(/([A-G][#b]?)/g, (m, n, off, str) => {
-    // only transpose note names at chord root or after '/'
-    const prev = off===0 ? '' : str[off-1];
-    if(off!==0 && prev!=='/' && prev!=='(' && prev!=='[') return m;
-    const i=IDX[n]; if(i==null) return m;
-    return (flats?FLAT:SHARP)[(((i+semi)%12)+12)%12];
-  });
-}
-function trLine(line, semi, flats){
-  if(!semi && !flats) return line;
-  let out='', re=/\S+/g, m, last=0;
-  while((m=re.exec(line))){
-    let pos=m.index; const tok=isChordTok(m[0]) ? trChord(m[0],semi,flats) : m[0];
-    if(pos < out.length+ (out.length?1:0) && out.length) pos = out.length+1;
-    out += ' '.repeat(Math.max(0,pos-out.length)) + tok;
-    last = pos+tok.length;
-  }
-  return out;
-}
-
-/* ---------- state ---------- */
-const prefs = store.get('prefs', {font:15, sig:4, sub:1, snd:'click', mvol:.7, pvol:.55, tone:'warm', third:0});
-function savePrefs(){ store.set('prefs', prefs); }
-document.documentElement.style.setProperty('--fs', prefs.font+'px');
-let overrides = store.get('overrides', {});   // id -> {semi, bpm}
-let cur = null;        // current song
-let semi = 0;          // transposition semitones vs original
-let bpm = 120;
-let filter = 'all';
-let visible = [];
-
-/* ---------- library ---------- */
-const norm = s => (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-SONGS.forEach(s => { s._q = norm(s.title+' '+s.artist); s._has = !!(s.body && s.body.trim()); });
-SONGS.sort((a,b)=> a.title.localeCompare(b.title,'pt',{sensitivity:'base'}) || a.artist.localeCompare(b.artist,'pt'));
-
-function renderList(){
-  const q = norm($('#q').value.trim());
-  $('#qClear').style.display = q ? 'block':'none';
-  const words = q.split(/\s+/).filter(Boolean);
-  visible = SONGS.filter(s => (filter==='all' || (filter==='cifra'? s._has : !s._has)) && words.every(w => s._q.includes(w)));
-  $('#count').textContent = visible.length + (visible.length===1?' música':' músicas');
-  const L = $('#list'); L.innerHTML='';
-  if(!visible.length){ L.innerHTML = '<div class="empty">Nenhuma música encontrada.<br>Tente outro nome ou artista.</div>'; return; }
-  const frag=document.createDocumentFragment();
-  for(const s of visible){
-    const o = overrides[s.id]||{};
-    const pk = parseKey(s.key);
-    const k = pk ? keyName(pk.r+(o.semi||0), pk.minor) : '–';
-    const b = o.bpm || s.bpm;
-    const el=document.createElement('button'); el.className='item';
-    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span></div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>'}</div>`;
-    el.querySelector('b').textContent = s.title;
-    el.querySelector('.t span').textContent = s.artist || '—';
-    el.onclick = () => openSong(s.id);
-    frag.appendChild(el);
-  }
-  L.appendChild(frag);
-}
-$('#q').addEventListener('input', renderList);
-$('#qClear').onclick = () => { $('#q').value=''; renderList(); $('#q').focus(); };
-$('#chips').onclick = e => { const b=e.target.closest('.chip'); if(!b) return; filter=b.dataset.f; document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b)); renderList(); };
-
-/* ---------- song view ---------- */
-function openSong(id, push=true){
-  const s = SONGS.find(x=>x.id===id); if(!s) return;
-  cur = s; const o = overrides[s.id]||{};
-  semi = o.semi||0; bpm = o.bpm || s.bpm || 120;
-  document.body.classList.add('song-open');
-  if(push) history.pushState({id}, '', '#m'+id);
-  $('#tTitle').textContent = s.title; $('#tArtist').textContent = s.artist;
-  $('#sTitle').textContent = s.title; $('#sArtist').textContent = s.artist;
-  document.title = s.title + ' · Louvor BDN';
-  buildKeySelect(); renderSong(); updateBpm(false); updatePadLabel();
-  window.scrollTo(0,0);
-  if(pad.on) pad.retune(true);
-}
-function closeSong(push=true){
-  document.body.classList.remove('song-open'); cur=null; document.title='Louvor BDN';
-  if(push) history.pushState({}, '', location.pathname+location.search);
-  metro.stop(); pad.stop();
-  renderList();
-}
-$('#backBtn').onclick = () => { if(history.state && history.state.id) history.back(); else closeSong(); };
-window.addEventListener('popstate', e => { const id = e.state && e.state.id; if(id) openSong(id,false); else if(cur) closeSong(false); });
-
-function curKey(){ const pk=parseKey(cur.key); return pk ? {r:pk.r+semi, minor:pk.minor} : null; }
-function writtenFlats(){
-  const pk=parseKey(cur.key); if(!pk) return false;
-  return useFlats(pk.r+semi-(cur.capo||0), pk.minor);
-}
-function buildKeySelect(){
-  const sel=$('#keySel'); sel.innerHTML='';
-  const pk=parseKey(cur.key);
-  const has=!!pk;
-  ['#keyDown','#keyUp','#keySel'].forEach(q=>$(q).disabled=!has);
-  if(!has){ sel.innerHTML='<option>–</option>'; return; }
-  for(let i=-6;i<=6;i++){
-    if(i===-6) continue;
-    const op=document.createElement('option'); op.value=i;
-    op.textContent = keyName(pk.r+i, pk.minor) + (i===0?' ★':'');
-    sel.appendChild(op);
-  }
-  sel.value = String(((semi+6)%12+12)%12-6 === -6 ? 6 : ((semi+6)%12+12)%12-6);
-}
-$('#keySel').onchange = e => setSemi(parseInt(e.target.value,10));
-$('#keyDown').onclick = () => setSemi(semi-1);
-$('#keyUp').onclick = () => setSemi(semi+1);
-function setSemi(v){
-  v = ((v+6)%12+12)%12-6; if(v===-6) v=6;
-  semi=v; saveOverride(); buildKeySelect(); renderSong(); updatePadLabel(); if(pad.on) pad.retune();
-}
-$('#resetBtn').onclick = () => { delete overrides[cur.id]; store.set('overrides',overrides); semi=0; bpm=cur.bpm||120; buildKeySelect(); renderSong(); updateBpm(true); updatePadLabel(); if(pad.on) pad.retune(); };
-function saveOverride(){
-  const o={}; if(semi) o.semi=semi; if(cur.bpm ? bpm!==cur.bpm : bpm!==120) o.bpm=bpm;
-  if(Object.keys(o).length) overrides[cur.id]=o; else delete overrides[cur.id];
-  store.set('overrides', overrides);
-}
-$('#fontDown').onclick = () => setFont(prefs.font-1);
-$('#fontUp').onclick = () => setFont(prefs.font+1);
-function setFont(v){ prefs.font=Math.max(10,Math.min(30,v)); savePrefs(); document.documentElement.style.setProperty('--fs', prefs.font+'px'); }
-
-const YT_ICO='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>';
-function ytUrl(s){
-  if(s.youtube) return /^https?:/.test(s.youtube) ? s.youtube : 'https://www.youtube.com/watch?v='+s.youtube;
-  const t=s.title.replace(/\((simplificada)\)/i,'').replace(/\s+/g,' ').trim();
-  return 'https://www.youtube.com/results?search_query='+encodeURIComponent(t+' '+(s.artist||'')).replace(/%20/g,'+');
-}
-function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
-function chordHTML(line){ return esc(line).replace(/\S+/g, t => isChordTok(t.replace(/&amp;/g,'&')) ? `<span class="ch">${t}</span>` : t); }
-function renderSong(){
-  const s=cur, f=$('#facts');
-  const k=curKey();
-  const facts=[];
-  facts.push(['Tom', k? keyName(k.r,k.minor) + (semi? '':'') : '—']);
-  if(semi) facts.push(['Original', keyName(parseKey(s.key).r, parseKey(s.key).minor)]);
-  facts.push(['BPM', bpm + (s.bpm? '' : '*')]);
-  facts.push(['Pad', padNote()||'—']);
-  if(s.capo) facts.push(['Capo', s.capo+'ª casa']);
-  f.innerHTML = facts.map(([a,b])=>`<div class="fact">${a}<b>${esc(String(b))}</b></div>`).join('');
-  $('#sNote').innerHTML = s.note ? `<div class="notebox">${esc(s.note)}</div>` : '';
-  const ci=$('#capoInfo');
-  if(s.capo && k){ const wk=keyName(k.r-s.capo, k.minor); ci.innerHTML=`Cifra em formas de <b>${wk}</b> com capotraste na <b>${s.capo}ª casa</b> (soa em ${keyName(k.r,k.minor)}).`; }
-  else ci.innerHTML='';
-  const box=$('#cifra'); box.innerHTML='';
-  if(!s._has){
-    box.parentElement.style.overflowX='visible';
-    box.innerHTML = `<div class="nocifra"><div class="big">Cifra ainda não cadastrada</div>Tom, BPM e pad já estão prontos aqui embaixo.<br>Para ver a cifra, abra no Cifra Club.</div>`;
-  } else {
-    box.parentElement.style.overflowX='';
-    const flats=writtenFlats();
-    const out=[];
-    for(const raw of s.body.split('\n')){
-      const line=raw.replace(/\s+$/,'');
-      if(!line.trim()){ out.push('<div class="gap"></div>'); continue; }
-      if(line.startsWith('!')){ out.push(`<div class="ln"><span class="nt">${esc(line.slice(1).trim())}</span></div>`); continue; }
-      const sm=/^\s*\[([^\]]+)\]\s*(.*)$/.exec(line);
-      if(sm){
-        let rest=sm[2]||'', restHTML='';
-        const repM=/^(.*?)(\(?\s*\d+\s?[xX]\s*\)?|\d+\s*VEZES?|\d+ª? ?VEZ(ES)?)\s*$/i.exec(rest);
-        if(rest && isChordLine(rest)) restHTML=`<span class="rest">${chordHTML(trLine(rest,semi,flats))}</span>`;
-        else if(rest) restHTML=`<span class="rep">${esc(rest)}</span>`;
-        out.push(`<div class="sec">${esc(sm[1])}${restHTML}</div>`); continue;
-      }
-      if(isChordLine(line)){ out.push(`<div class="ln">${chordHTML(trLine(line,semi,flats))}</div>`); continue; }
-      out.push(`<div class="ln ly">${esc(line)}</div>`);
-    }
-    box.innerHTML=out.join('');
-  }
-  // links
-  const q=encodeURIComponent((s.title.replace(/\(.*?\)/g,'')+' '+s.artist).trim());
-  const yt = ytUrl(s);
-  $('#ytTop').href = yt;
-  $('#links').innerHTML = `<a class="btn yt" href="${yt}" target="_blank" rel="noopener">${YT_ICO} Ver no YouTube</a>
-    <a class="btn" href="https://www.cifraclub.com.br/?q=${q}" target="_blank" rel="noopener">Abrir no Cifra Club ↗</a>
-    <a class="btn" href="https://www.google.com/search?q=${q}+site%3Asongbpm.com" target="_blank" rel="noopener">Conferir BPM no SongBPM ↗</a>`;
-  // pager
-  const list = visible.length ? visible : SONGS; const i=list.findIndex(x=>x.id===s.id);
-  const p=list[i-1], n=list[i+1];
-  $('#pager').innerHTML = (p?`<button data-id="${p.id}"><small>← Anterior</small><b></b></button>`:'<span></span>') + (n?`<button data-id="${n.id}"><small>Próxima →</small><b></b></button>`:'<span></span>');
-  const bs=$('#pager').querySelectorAll('button'); let j=0;
-  if(p){ bs[j].querySelector('b').textContent=p.title; j++; } if(n){ bs[j].querySelector('b').textContent=n.title; }
-  bs.forEach(b=> b.onclick=()=>openSong(+b.dataset.id));
-}
-
-/* ---------- audio ---------- */
-let AC=null, master=null;
-function ctx(){
-  if(!AC){ AC = new (window.AudioContext||window.webkitAudioContext)(); master=AC.createGain(); master.gain.value=1; master.connect(AC.destination); }
-  if(AC.state==='suspended') AC.resume();
-  return AC;
-}
-
-/* metronome */
-const metro = {
-  on:false, next:0, beat:0, timer:null, queue:[], gain:null, raf:0,
-  start(){ const a=ctx(); if(!this.gain){ this.gain=a.createGain(); this.gain.connect(master); } this.gain.gain.value=prefs.mvol;
-    this.on=true; this.beat=0; this.next=a.currentTime+0.06; this.queue=[];
-    this.timer=setInterval(()=>this.tick(),25); this.tick(); this.draw(); setPlay('#metroBtn',true); },
-  stop(){ this.on=false; clearInterval(this.timer); cancelAnimationFrame(this.raf); setPlay('#metroBtn',false); drawBeats(-1); },
-  toggle(){ this.on?this.stop():this.start(); },
-  tick(){ const a=AC; const spb=60/bpm/prefs.sub; const per=prefs.sig*prefs.sub;
-    while(this.next < a.currentTime+0.12){
-      const b=this.beat%per; const main = b%prefs.sub===0; const beatNo = Math.floor(b/prefs.sub);
-      const lvl = b===0 ? 2 : (prefs.sig===6 && beatNo===3 && main ? 1.5 : (main?1:0.45));
-      this.click(this.next, lvl); if(main) this.queue.push({t:this.next, b:beatNo});
-      this.next += spb; this.beat++; }
-  },
-  click(t, lvl){ const a=AC; const o=a.createOscillator(), g=a.createGain(); let f, d=0.035, type='square';
-    if(prefs.snd==='beep'){ type='sine'; f = lvl>=2?1320:(lvl>1?1100:880); d=0.06; }
-    else if(prefs.snd==='wood'){ type='triangle'; f = lvl>=2?1050:(lvl>1?900:760); d=0.05; }
-    else { type='square'; f = lvl>=2?2000:(lvl>1?1700:1400); d=0.022; }
-    o.type=type; o.frequency.setValueAtTime(f,t);
-    const peak = (lvl>=2?0.9:lvl>1?0.7:lvl>=1?0.55:0.25)*(type==='square'?0.35:1);
-    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+0.002); g.gain.exponentialRampToValueAtTime(0.0001,t+d);
-    o.connect(g); g.connect(this.gain); o.start(t); o.stop(t+d+0.02);
-  },
-  draw(){ if(!this.on) return; const a=AC; let shown=null;
-    while(this.queue.length && this.queue[0].t <= a.currentTime){ shown=this.queue.shift(); }
-    if(shown) drawBeats(shown.b);
-    this.raf=requestAnimationFrame(()=>this.draw()); }
-};
-function drawBeats(b){ const el=$('#beats'); if(el.children.length!==prefs.sig){ el.innerHTML=''; for(let i=0;i<prefs.sig;i++){ const d=document.createElement('i'); if(i===0) d.className='first'; el.appendChild(d);} }
-  [...el.children].forEach((d,i)=>d.classList.toggle('on', i===b)); }
-function setPlay(sel,on){ const b=$(sel); b.classList.toggle('on',on); b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.5" height="14" rx="1"/><rect x="13.5" y="5" width="4.5" height="14" rx="1"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'; b.setAttribute('aria-label', on?'Parar':'Tocar'); }
-$('#metroBtn').onclick = () => metro.toggle();
-function updateBpm(save=true){ bpm=Math.max(30,Math.min(260,Math.round(bpm))); $('#bpmVal').textContent=bpm; $('#bpmInput').value=bpm;
-  $('#bpmSrc').textContent = cur ? (cur.bpm ? (bpm===cur.bpm ? (cur.bpmSrc==='songbpm'?'Original (via songbpm.com — confira)':'Original da setlist') : `Original: ${cur.bpm}`) : 'Música sem BPM na setlist — ajuste aqui') : '';
-  if(save && cur){ saveOverride(); renderFactsOnly(); } drawBeats(-1); }
-function renderFactsOnly(){ if(!cur) return; const facts=$('#facts').querySelectorAll('.fact b'); facts.forEach(b=>{ if(b.parentElement.firstChild.textContent==='BPM') b.textContent=bpm+(cur.bpm?'':'*'); }); }
-$('#bpmDown').onclick = () => { bpm--; updateBpm(); };
-$('#bpmUp').onclick = () => { bpm++; updateBpm(); };
-document.querySelectorAll('[data-bpm]').forEach(b=> b.onclick = () => { bpm += +b.dataset.bpm; updateBpm(); });
-$('#bpmInput').addEventListener('change', e => { const v=parseInt(e.target.value,10); if(v) { bpm=v; updateBpm(); } });
-let taps=[];
-$('#tapBtn').onclick = () => { const t=performance.now(); taps=taps.filter(x=>t-x<2500); taps.push(t);
-  if(taps.length>=3){ const d=[]; for(let i=1;i<taps.length;i++) d.push(taps[i]-taps[i-1]); const avg=d.reduce((a,b)=>a+b)/d.length; bpm=60000/avg; updateBpm(); } };
-function seg(id, key, cb){ const el=$(id); const sync=()=>el.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.v)===String(prefs[key])));
-  el.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; const v=b.dataset.v; prefs[key]= isNaN(+v)? v : +v; savePrefs(); sync(); cb&&cb(); }; sync(); }
-seg('#sigSeg','sig',()=>drawBeats(-1)); seg('#subSeg','sub'); seg('#sndSeg','snd');
-$('#metroVol').value=prefs.mvol; $('#metroVol').oninput=e=>{ prefs.mvol=+e.target.value; savePrefs(); if(metro.gain) metro.gain.gain.value=prefs.mvol; };
-
-/* pad */
-function padRoot(){ // returns {r, minor} for current pad (follows transposition)
-  if(!cur) return null;
-  const choice = store.get('padchoice:'+cur.id, 0);
-  const list=[cur.pad, ...(cur.padAlt||[])].filter(Boolean);
-  const base = parseKey(list[choice]||list[0]||cur.key);
-  if(!base) return null; return {r:base.r+semi, minor:base.minor};
-}
-function padNote(){ const p=padRoot(); return p? keyName(p.r,p.minor) : ''; }
-function updatePadLabel(){ $('#padVal').textContent = padNote()||'—'; $('#padBtn').disabled = !padRoot();
-  const pc=$('#padChoice'); const list=[cur.pad, ...(cur.padAlt||[])].filter(Boolean);
-  if(!list.length && cur.key) list.push(cur.key);
-  const choice=store.get('padchoice:'+cur.id,0);
-  pc.innerHTML = list.map((p,i)=>{ const k=parseKey(p); return `<button data-v="${i}" aria-pressed="${i===choice}">${k?keyName(k.r+semi,k.minor):p}</button>`; }).join('') || '<span class="src">—</span>';
-  pc.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; store.set('padchoice:'+cur.id, +b.dataset.v); updatePadLabel(); renderSong(); if(pad.on) pad.retune(); };
-}
-function makeReverb(a, secs=4.5){ const len=a.sampleRate*secs, buf=a.createBuffer(2,len,a.sampleRate);
-  for(let c=0;c<2;c++){ const d=buf.getChannelData(c); for(let i=0;i<len;i++){ d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.6); } }
-  const cv=a.createConvolver(); cv.buffer=buf; return cv; }
-const pad = {
-  on:false, voices:null, out:null, rev:null,
-  ensure(){ const a=ctx(); if(!this.out){ this.out=a.createGain(); this.out.gain.value=prefs.pvol; this.rev=makeReverb(a); const wet=a.createGain(); wet.gain.value=.55; const dry=a.createGain(); dry.gain.value=.6;
-      this.bus=a.createGain(); this.bus.connect(dry); this.bus.connect(this.rev); this.rev.connect(wet); dry.connect(this.out); wet.connect(this.out); this.out.connect(master); } },
-  build(root){ const a=AC; const t=a.currentTime;
-    const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(1,t+2.2);
-    const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.Q.value=0.6;
-    const base = prefs.tone==='air'? 2600 : prefs.tone==='organ'? 1800 : 1100;
-    lp.frequency.value=base;
-    const lfo=a.createOscillator(), lg=a.createGain(); lfo.frequency.value=0.09; lg.gain.value=base*0.35; lfo.connect(lg); lg.connect(lp.frequency); lfo.start();
-    lp.connect(g); g.connect(this.bus);
-    const f0 = 440*Math.pow(2,((root.r%12+12)%12 - 9)/12) /2; // root in octave 3 (A3=220)
-    const rootF = f0 < 120 ? f0*2 : f0; // keep roughly between ~120 and ~240 Hz
-    const iv=[[ -12,.55],[0,.75],[7,.5],[12,.42],[19,.18],[24,.12]];
-    if(prefs.third) iv.push([root.minor?15:16,.22]);
-    const oscs=[lfo];
-    for(const [st,amp] of iv){
-      const f=rootF*Math.pow(2,st/12);
-      const types = prefs.tone==='organ' ? ['sine','triangle'] : prefs.tone==='air' ? ['triangle','sawtooth'] : ['sawtooth','sawtooth'];
-      [-7,7].forEach((det,ix)=>{ const o=a.createOscillator(); o.type=types[ix]; o.frequency.value=f; o.detune.value=det + (Math.random()*4-2);
-        const vg=a.createGain(); vg.gain.value=amp*(types[ix]==='sawtooth'?0.06:0.12); o.connect(vg); vg.connect(lp); o.start(t); oscs.push(o); });
-    }
-    return {g,oscs};
-  },
-  start(){ const p=padRoot(); if(!p) return; this.ensure(); this.out.gain.value=prefs.pvol; this.voices=this.build(p); this.on=true; $('#padUnit').classList.add('pad-on'); setPlay('#padBtn',true); },
-  fade(v,dur=2.5){ if(!v) return; const t=AC.currentTime; v.g.gain.cancelScheduledValues(t); v.g.gain.setValueAtTime(Math.max(v.g.gain.value,0.0001),t); v.g.gain.exponentialRampToValueAtTime(0.0001,t+dur); v.oscs.forEach(o=>{ try{o.stop(t+dur+0.1);}catch(e){} }); },
-  stop(){ if(!this.on) return; this.fade(this.voices,2.2); this.voices=null; this.on=false; $('#padUnit').classList.remove('pad-on'); setPlay('#padBtn',false); },
-  retune(fast){ if(!this.on) return; const old=this.voices; const p=padRoot(); if(!p){ this.stop(); return; } this.voices=this.build(p); this.fade(old, fast?1.2:2.4); },
-  toggle(){ this.on?this.stop():this.start(); }
-};
-$('#padBtn').onclick = () => pad.toggle();
-seg('#toneSeg','tone',()=>pad.retune()); seg('#thirdSeg','third',()=>pad.retune());
-$('#padVol').value=prefs.pvol; $('#padVol').oninput=e=>{ prefs.pvol=+e.target.value; savePrefs(); if(pad.out) pad.out.gain.setTargetAtTime(prefs.pvol, AC.currentTime, .05); };
-
-/* panels */
-function openPanel(id){ $(id).classList.add('open'); }
-document.querySelectorAll('.panel').forEach(p=> p.addEventListener('click', e=>{ if(e.target===p || e.target.closest('[data-close]')) p.classList.remove('open'); }));
-$('#metroMore').onclick = () => { updateBpm(false); openPanel('#metroPanel'); };
-$('#padMore').onclick = () => openPanel('#padPanel');
-document.addEventListener('keydown', e=>{
-  if(e.key==='Escape'){ document.querySelectorAll('.panel.open').forEach(p=>p.classList.remove('open')); return; }
-  if(!cur || /input|select|textarea/i.test(e.target.tagName)) return;
-  if(e.key===' '){ e.preventDefault(); metro.toggle(); }
-  else if(e.key==='p') pad.toggle();
-  else if(e.key==='ArrowUp'){ bpm++; updateBpm(); } else if(e.key==='ArrowDown'){ bpm--; updateBpm(); }
-});
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && AC && AC.state==='suspended' && (metro.on||pad.on)) AC.resume(); });
-
-/* init */
-renderList(); drawBeats(-1);
-const m=/^#m(\d+)/.exec(location.hash); if(m){ history.replaceState({id:+m[1]},'',location.hash); openSong(+m[1], false); }
-if('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
-})();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
