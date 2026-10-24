@@ -18,6 +18,7 @@ App web do ministério de louvor (Bola de Neve) com **cifras, tom, BPM e pads de
 - **Nova música**: importe de um **PDF**, de um **print/foto** (leitura automática de texto) ou cole a cifra copiada do **Cifra Club**.
 - **Playlists / escalas do dia**: data, ordem e tom de cada música; botão de compartilhar manda a escala com link para o WhatsApp.
 - **Pads do YouTube** (vídeos de pad de 1 hora em cada tom, séries "Deep Worship Pads" e "Ambient Shimmer Pads") ou pad sintetizado offline.
+- **Caber na tela** (Encaixe ▦): a música inteira aparece na tela sem rolar, em colunas, com a maior letra possível (A+/A− ainda ajustam). Pedal Bluetooth de virar página também funciona (PageDown/setas).
 - **Tela cheia** (⛶) só com a cifra: letra maior/menor, ajustar à largura, rolagem automática e metrônomo.
 - **Medleys**: crie a partir de qualquer música, juntando refrão, ponte ou qualquer trecho de outras; escolha o rótulo (refrão, ponte…), quantas vezes repete, e tudo é transposto para o tom do medley.
 - **Sugestões de medley** em cada música: músicas do repertório no mesmo tom (ou relativo) e com BPM próximo.

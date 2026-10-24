@@ -203,8 +203,10 @@ function setSemi(v){ semi=normSemi(v); if(plCtx){ plCtx.pl.items[plCtx.idx].semi
 $('#resetBtn').onclick = () => { if(!overrides[cur.id]) return toast('Já está no original');
   if(!confirm('Voltar tom, capo, BPM, pad e observação para o original da setlist?')) return;
   delete overrides[cur.id]; saveOverrides(); const pc=uget('padchoice',{}); delete pc[cur.id]; uset('padchoice',pc); openSong(cur.id,false); toast('Original restaurado'); };
-$('#fontDown').onclick = () => setFont(prefs.font-1);
-$('#fontUp').onclick = () => setFont(prefs.font+1);
+$('#fontDown').onclick = () => prefs.layout==='fit' ? fitAdj(-1) : setFont(prefs.font-1);
+$('#fontUp').onclick = () => prefs.layout==='fit' ? fitAdj(1) : setFont(prefs.font+1);
+function fitAdj(d){ prefs.fitAdj=Math.max(-12,Math.min(30,prefs.fitAdj+d)); savePrefs(); applySongLayout(); if(prefs.fitAdj>0) toast('Letra maior que o encaixe — pode ficar uma parte fora da tela ('+(prefs.fitAdj>0?'+':'')+prefs.fitAdj+')'); }
+$('#layoutSeg').onclick=e=>{ const b=e.target.closest('button'); if(b) setLayout(b.dataset.v); };
 function setFont(v){ prefs.font=Math.max(10,Math.min(32,v)); savePrefs(); document.documentElement.style.setProperty('--fs', prefs.font+'px'); }
 
 const YT_ICO='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>';
@@ -217,20 +219,72 @@ function ytUrl(s){
 function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function chordHTML(line){ return esc(line).replace(/\S+/g, t => isChordTok(t.replace(/&amp;/g,'&')) ? `<span class="ch">${t}</span>` : t); }
 function renderCifra(body, shift, flats){
-  const out=[];
+  const items=[];
   for(const raw of body.split('\n')){
     const line=raw.replace(/\s+$/,'');
-    if(!line.trim()){ out.push('<div class="gap"></div>'); continue; }
-    if(line.startsWith('!')){ out.push(`<div class="ln"><span class="nt">${esc(line.slice(1).trim())}</span></div>`); continue; }
+    if(!line.trim()){ items.push({t:'gap', h:'<div class="gap"></div>'}); continue; }
+    if(line.startsWith('!')){ items.push({t:'nt', h:`<div class="ln"><span class="nt">${esc(line.slice(1).trim())}</span></div>`}); continue; }
     const sm=/^\s*\[([^\]]+)\]\s*(.*)$/.exec(line);
     if(sm){ const rest=sm[2]||''; let r='';
       if(rest && isChordLine(rest)) r=`<span class="rest">${chordHTML(trLine(rest,shift,flats))}</span>`; else if(rest) r=`<span class="rep">${esc(rest)}</span>`;
-      out.push(`<div class="sec">${esc(sm[1])}${r}</div>`); continue; }
-    if(isChordLine(line)){ out.push(`<div class="ln">${chordHTML(trLine(line,shift,flats))}</div>`); continue; }
-    out.push(`<div class="ln ly">${esc(line)}</div>`);
+      items.push({t:'sec', h:`<div class="sec">${esc(sm[1])}${r}</div>`}); continue; }
+    if(isChordLine(line)){ items.push({t:'ch', h:`<div class="ln">${chordHTML(trLine(line,shift,flats))}</div>`}); continue; }
+    items.push({t:'ly', h:`<div class="ln ly">${esc(line)}</div>`});
+  }
+  // keep a chord line glued to its lyric line (and a section title to what follows) so columns never split them
+  const out=[];
+  for(let i=0;i<items.length;i++){
+    const it=items[i];
+    if(it.t==='ch' && items[i+1] && items[i+1].t==='ly'){ out.push('<div class="pair">'+it.h+items[i+1].h+'</div>'); i++; continue; }
+    out.push(it.h);
   }
   return out.join('');
 }
+
+/* ---------- encaixe: rolar vs. caber na tela ---------- */
+if(!prefs.layout) prefs.layout='scroll';
+if(prefs.fitAdj==null) prefs.fitAdj=0;
+if(prefs.stageLayout==null) prefs.stageLayout='fit';
+// Finds the largest font (and number of columns) that shows the whole song inside box w×h.
+function fitInto(el, w, h, adj){
+  el.classList.add('fit'); el.style.height=h+'px'; el.style.width=w+'px';
+  // widest chord/lyric line, in characters (monospace)
+  const maxChars=Math.max(8,...[...el.querySelectorAll('.ln')].map(l=>l.textContent.replace(/\s+$/,'').length));
+  const probe=document.createElement('span'); probe.textContent='0'.repeat(20); probe.style.cssText='position:absolute;visibility:hidden;white-space:pre;font-family:var(--mono)'; el.appendChild(probe);
+  const charW=f=>{ el.style.fontSize=f+'px'; return probe.getBoundingClientRect().width/20; };
+  const tryF=(f,n)=>{ const cw=charW(f); el.style.columnCount=n; const gap=1.6*f, colW=(el.clientWidth-gap*(n-1))/n;
+    if(maxChars*cw > colW) return false; return el.scrollWidth<=el.clientWidth+1; };
+  let best=null;
+  for(let n=1;n<=6;n++){
+    let lo=7, hi=56; if(!tryF(lo,n)) continue;
+    while(hi-lo>0.5){ const mid=(lo+hi)/2; if(tryF(mid,n)) lo=mid; else hi=mid; }
+    if(!best || lo>best.f+0.4) best={f:lo,n};
+  }
+  let ok=true;
+  if(!best){ ok=false; const cw=charW(9); best={f:9, n:Math.max(1,Math.floor((el.clientWidth+14)/(maxChars*cw+14)))}; }
+  probe.remove();
+  const f=Math.max(7, Math.floor((best.f+adj)*2)/2);
+  el.style.fontSize=f+'px'; el.style.columnCount=best.n;
+  el.classList.toggle('overflow', !ok || adj>0);
+  el.dataset.fit=`${best.n} coluna${best.n>1?'s':''} · ${f}px`+(ok?'':' (música longa: arraste para o lado)');
+  return best;
+}
+function unfit(el){ el.classList.remove('fit'); el.style.height=''; el.style.width=''; el.style.fontSize=''; el.style.columnCount=''; }
+function applySongLayout(){
+  const el=$('#cifra'), sheet=el.parentElement; if(!cur) return;
+  document.body.classList.toggle('fitmode', prefs.layout==='fit');
+  $$('#layoutSeg button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===prefs.layout));
+  if(prefs.layout!=='fit' || !cur._has){ unfit(el); sheet.style.height=''; $('#fitInfo').textContent=''; return; }
+  const top=$('.top').getBoundingClientRect().height, dock=$('#dock').getBoundingClientRect().height||0;
+  const H=Math.max(220, window.innerHeight-top-dock-18);
+  sheet.style.height=H+'px';
+  const cs=getComputedStyle(sheet), padX=parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight), padY=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);
+  const r=fitInto(el, sheet.clientWidth-padX, H-padY-2, prefs.fitAdj);
+  $('#fitInfo').textContent='Encaixado: '+el.dataset.fit;
+}
+function scrollToSheet(){ const sh=$('.sheet'); const top=$('.top').getBoundingClientRect().height; window.scrollTo({top: sh.getBoundingClientRect().top+window.scrollY-top-8, behavior:'smooth'}); }
+function setLayout(v){ prefs.layout=v; savePrefs(); applySongLayout(); if(v==='fit') scrollToSheet(); }
+let fitT=0; window.addEventListener('resize',()=>{ clearTimeout(fitT); fitT=setTimeout(()=>{ if(cur) applySongLayout(); if($('#stage').classList.contains('open')) applyStageLayout(); },150); });
 function renderSong(){
   const s=cur, k=curKey(), capo=capoOf(s), o=ov(s);
   const facts=[['Tom', k? keyName(k.r,k.minor) : '—']];
@@ -247,6 +301,7 @@ function renderSong(){
   if(!s._has){
     box.innerHTML = `<div class="nocifra"><div class="big">Cifra ainda não cadastrada</div>Tom, BPM e pad já estão prontos aqui embaixo.<br>Abra no Cifra Club ou ${s.custom?'edite a música':'crie sua versão'} em “Editar”.</div>`;
   } else box.innerHTML = renderCifra(s.body, displayShift(), writtenFlats());
+  requestAnimationFrame(applySongLayout);
   const q=encodeURIComponent((s.title.replace(/\(.*?\)/g,'')+' '+(s.artist||'')).trim());
   const yt = ytUrl(s); $('#ytTop').href = yt;
   $('#links').innerHTML = `<a class="btn yt" href="${yt}" target="_blank" rel="noopener">${YT_ICO} Ver no YouTube</a>
@@ -555,11 +610,16 @@ function openStage(){
   $('#stageTitle').textContent=cur.title; $('#stageKey').textContent=(curKey()?keyName(curKey().r,curKey().minor):'')+(capoOf(cur)?' · capo '+capoOf(cur):'')+' · '+bpm+' bpm';
   $('#stageCifra').innerHTML = cur._has ? renderCifra(cur.body, displayShift(), writtenFlats()) : '<div class="nocifra"><div class="big">Sem cifra</div></div>';
   st.style.setProperty('--sfs', prefs.stageFont+'px'); st.classList.add('open'); document.body.classList.add('modal');
-  st.scrollTop=0; syncStageMetro();
+  st.scrollTop=0; syncStageMetro(); applyStageLayout();
   const el=document.documentElement; if(el.requestFullscreen && !document.fullscreenElement) el.requestFullscreen().catch(()=>{});
 }
 function closeStage(){ $('#stage').classList.remove('open'); document.body.classList.remove('modal'); stopScroll(); if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{}); }
 function stageFont(v){ prefs.stageFont=Math.max(12,Math.min(64,v)); savePrefs(); $('#stage').style.setProperty('--sfs', prefs.stageFont+'px'); }
+function applyStageLayout(){ const st=$('#stage'), el=$('#stageCifra'); const fit=prefs.stageLayout==='fit'; st.classList.toggle('fitmode',fit); $('#stageLayout').classList.toggle('on',fit);
+  $('#stageLayout').textContent = fit ? '▦ Encaixado' : '☰ Rolando';
+  if(!fit){ unfit(el); return; }
+  const bar=$('.stage-bar').getBoundingClientRect().height; const W=st.clientWidth-28, H=window.innerHeight-bar-20;
+  fitInto(el, W, H, prefs.stageFitAdj||0); }
 function fitStage(){ const box=$('#stageCifra'), st=$('#stage'); const lines=[...box.querySelectorAll('.ln')].map(l=>l.textContent.length); const maxc=Math.max(20,...lines);
   const w=st.clientWidth-40; stageFont(Math.floor(w/(maxc*0.62))); toast('Fonte ajustada à largura da tela'); }
 function startScroll(){ scrollOn=true; scrollLast=performance.now(); $('#stageScroll').classList.add('on'); const st=$('#stage'); let acc=0;
@@ -569,14 +629,25 @@ function stopScroll(){ scrollOn=false; cancelAnimationFrame(scrollRAF); const b=
 function syncStageMetro(){ const b=$('#stageMetro'); if(b) b.classList.toggle('on', metro.on); }
 $('#stageBtn').onclick=openStage;
 $('#stageClose').onclick=closeStage;
-$('#stageFDown').onclick=()=>stageFont(prefs.stageFont-2);
-$('#stageFUp').onclick=()=>stageFont(prefs.stageFont+2);
-$('#stageFit').onclick=fitStage;
+$('#stageFDown').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=(prefs.stageFitAdj||0)-1; savePrefs(); applyStageLayout(); } else stageFont(prefs.stageFont-2); };
+$('#stageFUp').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=(prefs.stageFitAdj||0)+1; savePrefs(); applyStageLayout(); } else stageFont(prefs.stageFont+2); };
+$('#stageLayout').onclick=()=>{ prefs.stageLayout = prefs.stageLayout==='fit'?'scroll':'fit'; savePrefs(); applyStageLayout(); toast(prefs.stageLayout==='fit'?'Música inteira na tela':'Modo rolagem'); };
+$('#stageFit').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=0; savePrefs(); applyStageLayout(); toast('Encaixe automático'); } else fitStage(); };
 $('#stageScroll').onclick=()=> scrollOn?stopScroll():startScroll();
 $('#stageSlower').onclick=()=>{ prefs.scrollSpeed=Math.max(5,(prefs.scrollSpeed||30)-5); savePrefs(); toast('Rolagem: '+prefs.scrollSpeed); };
 $('#stageFaster').onclick=()=>{ prefs.scrollSpeed=Math.min(200,(prefs.scrollSpeed||30)+5); savePrefs(); toast('Rolagem: '+prefs.scrollSpeed); };
 $('#stageMetro').onclick=()=>{ metro.toggle(); syncStageMetro(); };
 document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement && $('#stage').classList.contains('open')){} });
+
+/* page turner: Bluetooth pedals send PageDown/PageUp or arrow keys */
+function turnPage(dir){
+  const stage=$('#stage').classList.contains('open');
+  const el = stage ? $('#stageCifra') : $('#cifra');
+  const fit = el.classList.contains('fit');
+  if(fit){ const sc = stage ? el : el.parentElement; const box = el.classList.contains('overflow') ? el : sc; box.scrollBy({left: dir*box.clientWidth*0.95, behavior:'smooth'}); return; }
+  if(stage){ const st=$('#stage'); st.scrollBy({top: dir*(st.clientHeight-80), behavior:'smooth'}); }
+  else window.scrollBy({top: dir*(window.innerHeight-200), behavior:'smooth'});
+}
 
 /* ================= sugestões de medley ================= */
 const tonalId = k => k ? mod12(k.minor ? k.r+3 : k.r) : null;   // relative major shares the same notes
@@ -873,6 +944,8 @@ $('#metroMore').onclick=()=>{ updateBpm(false); openPanel('#metroPanel'); };
 $('#padMore').onclick=()=>openPanel('#padPanel');
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){ if($('#stage').classList.contains('open')) closeStage(); closePanels(); return; }
+  const pageKeys={PageDown:1,ArrowDown:1,ArrowRight:1,Enter:1,PageUp:-1,ArrowUp:-1,ArrowLeft:-1};
+  if(($('#stage').classList.contains('open') || prefs.layout==='fit') && pageKeys[e.key] && !document.body.classList.contains('modal') || ($('#stage').classList.contains('open') && pageKeys[e.key])){ e.preventDefault(); turnPage(pageKeys[e.key]); return; }
   if($('#stage').classList.contains('open')){ if(e.key===' '){ e.preventDefault(); scrollOn?stopScroll():startScroll(); } else if(e.key==='+'||e.key==='=') stageFont(prefs.stageFont+2); else if(e.key==='-') stageFont(prefs.stageFont-2); return; }
   if(!cur || document.body.classList.contains('modal') || /input|select|textarea/i.test(e.target.tagName)) return;
   if(e.key===' '){ e.preventDefault(); metro.toggle(); } else if(e.key==='p') pad.toggle();

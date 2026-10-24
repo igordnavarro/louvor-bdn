@@ -318,6 +318,22 @@ input[type=range]{width:150px;accent-color:var(--accent)}
 
 .seg.wrap{flex-wrap:wrap;justify-content:flex-end;max-width:260px}
 .snd-row{align-items:flex-start}
+
+.pair{break-inside:avoid;-webkit-column-break-inside:avoid}
+.cifra .sec{break-after:avoid;-webkit-column-break-after:avoid}
+.cifra.fit{column-gap:1.6em;column-fill:auto;overflow:hidden;min-width:0;line-height:1.3}
+.cifra.fit.overflow{overflow-x:auto}
+body.fitmode .sheet{overflow-x:auto}
+.cifra.fit .sec:first-child{margin-top:0}
+.cifra.fit .gap{height:.45em}
+body.fitmode .sheet{overflow:hidden;padding:12px 14px}
+.sheet .cifra.fit{column-rule:1px solid var(--line)}
+.fit-info{margin:-6px 0 8px;font-size:12px}
+.stage.fitmode{overflow:hidden}
+.stage.fitmode .stage-cifra{padding:10px 14px;min-width:0}
+.stage.fitmode .stage-cifra.fit{column-rule:1px solid var(--line)}
+.sbtn.wide{padding:0 10px;white-space:nowrap}
+
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
 </style>
 </head>
@@ -386,9 +402,14 @@ input[type=range]{width:150px;accent-color:var(--accent)}
       <button class="btn edit" id="editBtn">✎ Editar tom, capo, BPM…</button>
       <button class="btn edit" id="addPlBtn">＋ Playlist</button>
       <button class="btn edit primary" id="stageBtn" title="Mostrar a cifra na tela toda">⛶ Tela cheia</button>
+      <div class="group" title="Como a cifra aparece na tela">
+        <label>Encaixe</label>
+        <div class="seg" id="layoutSeg"><button data-v="scroll">☰ Rolar</button><button data-v="fit">▦ Caber na tela</button></div>
+      </div>
       <button class="reset" id="resetBtn">Restaurar original</button>
     </div>
     <div class="capo-info" id="capoInfo"></div>
+    <div class="fit-info src" id="fitInfo"></div>
     <div class="sheet"><div class="cifra" id="cifra"></div></div>
     <div class="links" id="links"></div>
     <div class="pager" id="pager"></div>
@@ -527,7 +548,8 @@ input[type=range]{width:150px;accent-color:var(--accent)}
     <div class="stage-t"><b id="stageTitle"></b><span id="stageKey"></span></div>
     <button class="sbtn" id="stageFDown" aria-label="Diminuir letra">A−</button>
     <button class="sbtn" id="stageFUp" aria-label="Aumentar letra">A+</button>
-    <button class="sbtn" id="stageFit" title="Ajustar à largura">↔</button>
+    <button class="sbtn wide" id="stageLayout" title="Alternar: música inteira na tela / rolar">▦ Encaixado</button>
+    <button class="sbtn" id="stageFit" title="Ajustar">↔</button>
     <button class="sbtn" id="stageSlower" title="Rolagem mais lenta">«</button>
     <button class="sbtn" id="stageScroll" title="Rolagem automática">⇣</button>
     <button class="sbtn" id="stageFaster" title="Rolagem mais rápida">»</button>
