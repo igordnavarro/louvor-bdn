@@ -1,0 +1,36 @@
+@title Grito dos Aflitos
+@artist Denise Seixas
+@tom E
+@tomsrc cifra
+@pad 
+@bpm 94
+@bpmsrc songbpm
+
+[Intro]  C#m  E  B  F#m
+C#m              E
+Ouça o grito dos aflitos,
+B              F#m
+Cansados e oprimidos
+                C#m
+Almas sedentas por Deus
+                 E
+Ouça o grito das nações,
+B                     F#m
+Famintas e sem esperança, tão longes de
+A              F#m
+Me solta, tempo que passou
+             C#m               B
+E me paralisou, minha missão eu vou cum
+A              F#m
+Tempo que me escravizou
+             C#m              B
+E me desanimou, agora não me prende mai
+
+C#m
+Livre, pra cumprir o meu chamado vou!
+E
+Livre, restaurado por tua glória vou!
+B
+Livre, pra me alegrar em tua presença v
+F#m
+Linha de frente agora eu sou...

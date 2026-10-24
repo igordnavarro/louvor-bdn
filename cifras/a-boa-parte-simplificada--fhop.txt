@@ -1,0 +1,23 @@
+@title A Boa Parte (Simplificada)
+@artist Fhop
+@tom E
+@pad E
+@bpm 145
+@note Forma de D · capotraste na 2ª casa
+
+[Passagem] Bm G9 D (2x)
+
+[Ponte] A G D (2x)
+A
+Como Maria, que estava aos seus pés
+G                  D                 A
+E dissestes a ela: Essa é a boa parte
+G                    D
+Que nunca, nunca será tirada
+A
+Como Maria, que estava aos seus pés
+G                  D                 A
+E dissestes a ela: Essa é a boa parte
+G                    D
+Que nunca, nunca será tirada
+! Refrão 1x

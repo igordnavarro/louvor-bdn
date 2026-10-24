@@ -1,0 +1,7 @@
+@title Tu És a Fogueira
+@artist Jhonas Serra
+@tom D
+@pad Bm
+@bpm 137
+
+

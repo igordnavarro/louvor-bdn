@@ -1,0 +1,7 @@
+@title Meus Votos
+@artist Morada
+@tom C
+@pad C
+@bpm 140
+
+

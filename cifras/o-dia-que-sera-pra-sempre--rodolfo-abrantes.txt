@@ -1,0 +1,7 @@
+@title O Dia que Será pra Sempre
+@artist Rodolfo Abrantes
+@tom C
+@pad Am
+@bpm 190
+
+

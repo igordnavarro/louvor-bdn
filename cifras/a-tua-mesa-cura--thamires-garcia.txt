@@ -1,0 +1,9 @@
+@title A Tua Mesa Cura
+@artist Thamires Garcia
+@tom C
+@tomsrc songbpm
+@pad 
+@bpm 132
+@bpmsrc songbpm
+
+

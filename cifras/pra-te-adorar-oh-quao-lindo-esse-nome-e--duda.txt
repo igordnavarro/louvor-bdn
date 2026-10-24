@@ -1,0 +1,7 @@
+@title Pra Te Adorar / Oh Quão Lindo Esse Nome É
+@artist Duda
+@tom C
+@pad C
+@bpm 130
+
+

@@ -1,0 +1,7 @@
+@title Os Sonhos de Deus
+@artist Preto no Branco
+@tom G
+@pad G
+@bpm 140
+
+

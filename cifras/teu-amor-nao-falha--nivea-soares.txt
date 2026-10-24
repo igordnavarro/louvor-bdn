@@ -1,0 +1,7 @@
+@title Teu Amor Não Falha
+@artist Nívea Soares
+@tom C
+@pad C
+@bpm 114
+
+

@@ -1,0 +1,7 @@
+@title Tu És Tudo
+@artist Alessandro Vilas Boas
+@tom D
+@pad D
+@bpm 126
+
+

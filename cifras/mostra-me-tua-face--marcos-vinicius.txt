@@ -1,0 +1,8 @@
+@title Mostra-me Tua Face
+@artist Marcos Vinicius
+@tom E
+@pad E
+@bpm 135
+
+! A B C#m G#m (2x)
+! C D Em G

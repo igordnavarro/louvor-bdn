@@ -1,0 +1,8 @@
+@title Pedra Preciosa
+@artist Morada
+@tom D
+@pad D
+@bpm 136
+@note Primeira parte 1x · Segunda parte 2x · Refrão 2x
+
+

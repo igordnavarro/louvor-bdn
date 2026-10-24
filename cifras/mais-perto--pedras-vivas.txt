@@ -1,0 +1,7 @@
+@title Mais Perto
+@artist Pedras Vivas
+@tom E
+@pad C#m
+@bpm 140
+
+

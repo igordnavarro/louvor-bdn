@@ -1,0 +1,7 @@
+@title Ao Único / Louvor ao Rei
+@artist Dunamis Music
+@tom D
+@pad D
+@bpm 124
+
+

@@ -1,0 +1,7 @@
+@title Tua Alegria É a Minha Força
+@artist Isadora Pompeo
+@tom E
+@pad E
+@bpm 148
+
+

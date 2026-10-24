@@ -1,0 +1,7 @@
+@title Som do Céu
+@artist Adoração Central
+@tom D
+@pad Bm
+@bpm 144
+
+

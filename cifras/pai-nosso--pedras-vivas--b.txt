@@ -1,0 +1,7 @@
+@title Pai Nosso
+@artist Pedras Vivas
+@tom B
+@pad B ou G#m
+@bpm 134
+
+

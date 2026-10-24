@@ -1,0 +1,7 @@
+@title Escudo
+@artist Voz da Verdade
+@tom D
+@pad D
+@bpm 140
+
+

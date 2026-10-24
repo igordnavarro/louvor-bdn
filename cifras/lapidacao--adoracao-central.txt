@@ -1,0 +1,7 @@
+@title Lapidação
+@artist Adoração Central
+@tom A
+@pad F#m
+@bpm 135
+
+

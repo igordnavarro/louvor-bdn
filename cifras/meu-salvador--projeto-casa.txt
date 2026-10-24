@@ -1,0 +1,27 @@
+@title Meu Salvador
+@artist Projeto Casa
+@tom B
+@pad G#m
+@bpm 84
+
+[Intro] G#m  E  B  F#
+
+[Primeira Parte]
+   G#m          E      B     F#
+Descanso em Tua presença
+   G#m             E          B   F#
+Teus braços guiam-me por onde for
+   G#m             E      B   F#
+Eu tenho fé na Tua palavra
+   G#m          E          B    F#
+Eu sou somente Teu Senhor Jesus
+
+[Refrão]
+    C#m          E
+Meu salvador meu redentor
+       B          F#
+Eu sou Teu somente Teu
+    C#m           E
+Me libertou me transformou
+      B             F#
+Estou aqui e eu sou Teu

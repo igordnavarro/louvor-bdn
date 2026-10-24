@@ -1,0 +1,7 @@
+@title Ekballo
+@artist Alessandro Vilas Boas
+@tom C
+@pad Am
+@bpm 130
+
+

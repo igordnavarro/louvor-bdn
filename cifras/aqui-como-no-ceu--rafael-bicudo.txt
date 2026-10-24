@@ -1,0 +1,7 @@
+@title Aqui Como no Céu
+@artist Rafael Bicudo
+@tom G
+@pad Em ou G
+@bpm 139
+
+

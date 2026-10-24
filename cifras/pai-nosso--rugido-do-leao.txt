@@ -1,0 +1,42 @@
+@title Pai Nosso
+@artist Rugido do Leão
+@tom E
+@pad C#m
+@bpm 135
+
+[Primeira Parte]
+C#m7                   B
+   Pai nosso que estás nos céus
+A                    B
+   Santificado seja Teu nome
+C#m7                   B
+   Pai nosso que estás nos céus
+A                 B               C#m7
+   Santificado seja nesse lugar
+
+                B           A
+Santificado seja nesse lugar
+               B
+Santificado seja
+
+C#m7             B/D#      A
+Venha o Teu reino na terra
+            F#m
+Como nos céus
+
+[Refrão]
+                       C#m7
+Que venha e permaneça
+                          B/D#
+Teu reino inabalável
+                       A
+Que venha e permaneça
+                         F#m
+Teu reino inabalável
+
+C#m7
+  Venha o teu reino sobre nós
+B
+  Faça Tua vontade
+A                       G#m
+  Venha o teu reino.

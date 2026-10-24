@@ -1,0 +1,7 @@
+@title Bondade de Deus
+@artist Isaías Saad
+@tom C
+@pad Am ou C
+@bpm 136
+
+

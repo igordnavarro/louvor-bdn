@@ -1,0 +1,7 @@
+@title Abba
+@artist Laura Souguellis
+@tom C
+@pad C ou Am
+@bpm 137
+
+

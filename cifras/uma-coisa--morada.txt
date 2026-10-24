@@ -1,0 +1,7 @@
+@title Uma Coisa
+@artist Morada
+@tom 
+@pad 
+@bpm 
+
+

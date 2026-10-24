@@ -1,0 +1,7 @@
+@title Parecido Contigo
+@artist Rodolfo Abrantes
+@tom G
+@pad G ou Em
+@bpm 107
+
+

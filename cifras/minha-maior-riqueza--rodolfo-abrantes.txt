@@ -1,0 +1,32 @@
+@title Minha Maior Riqueza
+@artist Rodolfo Abrantes
+@tom E
+@pad E
+@bpm 163
+@note BPM 163 / 165
+
+[Refrão]
+      F#m       C#m              E              B
+Hoje vou descansar o filho não se sente só na presença do pai
+F#m     C#m         A
+ só Jesus me faz filho de Deus
+
+F#m       C#m                      E                B
+    Conheci     a fonte que alimenta o sol e me enche de paz
+F#m       A         B
+ me entrego pois sou todo teu
+
+E        G#m        C#m           A         E        G#m
+    Poderoso pra me transformar a cada dia,  como estrela
+        C#m   A
+ vem brilhar
+E            G#m     C#m         A            E
+   Do teu santo trono faz jorrar o rio da vida ,onde eu
+G#m        C#m  A
+quero mergulhar
+
+[Ponte]
+G#m                      C#m   G#m                      C#m
+     Pra sermos como um só    Vem ser o centro da vida
+A                     E             B
+     e tudo ao meu redor     vai incendiar Quando ele derramar

@@ -1,0 +1,7 @@
+@title Em Teus Braços
+@artist Laura Souguellis
+@tom C
+@pad C
+@bpm 134
+
+

@@ -1,0 +1,7 @@
+@title Caótica
+@artist Palankin
+@tom G
+@pad Em
+@bpm 117
+
+

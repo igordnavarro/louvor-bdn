@@ -1,0 +1,7 @@
+@title Era Eu
+@artist Casa Worship
+@tom G
+@pad Em
+@bpm 132
+
+

@@ -1,0 +1,11 @@
+@title Ruja o Leão
+@artist Fhop
+@tom Dm
+@pad Dm
+@bpm 138
+@note Capotraste na 5ª casa
+
+[Intro] Am G Dm Am  Am G Dm Am
+! Primeira parte 1x · Refrão 4x
+[Passagem] Am G Dm Am (4x)
+! Primeira parte · Refrão 2x · Refrão 1x

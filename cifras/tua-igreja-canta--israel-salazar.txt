@@ -1,0 +1,7 @@
+@title Tua Igreja Canta
+@artist Israel Salazar
+@tom E
+@pad C#m
+@bpm 111
+
+

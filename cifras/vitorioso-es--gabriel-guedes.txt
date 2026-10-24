@@ -1,0 +1,7 @@
+@title Vitorioso És
+@artist Gabriel Guedes
+@tom D
+@pad Bm
+@bpm 140
+
+

@@ -1,0 +1,8 @@
+@title É Ele
+@artist Drops
+@tom A
+@pad F#m
+@bpm 140
+@note Também tocada em C (pad Am)
+
+

@@ -1,0 +1,7 @@
+@title Estamos de Pé
+@artist Marcus Salles
+@tom A
+@pad A
+@bpm 104
+
+

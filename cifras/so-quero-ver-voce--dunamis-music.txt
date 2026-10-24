@@ -1,0 +1,7 @@
+@title Só Quero Ver Você
+@artist Dunamis Music
+@tom C
+@pad C
+@bpm 128
+
+

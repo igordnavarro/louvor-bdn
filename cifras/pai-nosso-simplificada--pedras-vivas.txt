@@ -1,0 +1,7 @@
+@title Pai Nosso (Simplificada)
+@artist Pedras Vivas
+@tom G
+@pad G
+@bpm 134
+
+[Intro] G Em C (2x)

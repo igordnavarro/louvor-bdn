@@ -1,0 +1,7 @@
+@title Vou Te Alegrar
+@artist Abdiel Arsenio
+@tom B
+@pad B
+@bpm 134
+
+

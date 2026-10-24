@@ -1,0 +1,48 @@
+@title Agnus Dei
+@artist Gabriela Rocha
+@tom G
+@pad G
+@bpm 135
+
+[Intro] Am7  C
+
+[Refrão]
+G  C  G
+Aleluia!
+G  C  D   Em
+Ale-lu-ui-a
+      D        C         G
+Poderoso é o Senhor nosso Deus
+
+G  C  G
+Aleluia!
+G  C  D   Em
+Ale-lu-ui-a
+      D        C         G
+Poderoso é o Senhor nosso Deus
+
+G  C  D   Em
+Ale-lu-ui-a
+C  D  G   C   G
+Sa-an-to, san-to
+        C  G        Em  D
+É o Senhor Deus, poderoso
+            Am              C   D
+Digno de louvor, digno de louvor
+   G
+Amém
+
+[Ponte] Em  Am7
+         G    C   G
+Tu és santo, san-to
+       C   G          D
+É o Senhor Deus, podero-so
+         Am                 C
+Digno de louvor, Digno de louvor
+
+      D   G    C   G
+Tu és san-to, san-to
+       C   G          D
+É o Senhor Deus, podero-so
+         Am                 C
+Digno de louvor, Digno de louvor

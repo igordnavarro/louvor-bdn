@@ -1,0 +1,9 @@
+@title Teu Toque
+@artist Gabi Sampaio
+@tom Bb
+@pad 
+@bpm 68
+@note Forma de G · capotraste na 3ª casa
+
+[Intro] C D Em7 G
+! 1ª parte · Pré-refrão · Refrão · 2ª parte · Pré-refrão 1x · Refrão 1x ("ô ô ô" 2x) · Ponte 2x

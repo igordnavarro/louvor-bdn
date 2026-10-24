@@ -1,0 +1,7 @@
+@title Rasgue os Céus
+@artist Denise Seixas
+@tom A
+@pad F#m
+@bpm 150
+
+

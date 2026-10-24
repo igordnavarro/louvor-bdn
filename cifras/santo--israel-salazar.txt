@@ -1,0 +1,7 @@
+@title Santo
+@artist Israel Salazar
+@tom C
+@pad Am
+@bpm 136
+
+

@@ -1,0 +1,8 @@
+@title Como Nunca Antes
+@artist Isadora Pompeo
+@tom E
+@tomsrc songbpm
+@pad C#m
+@bpm 142
+
+

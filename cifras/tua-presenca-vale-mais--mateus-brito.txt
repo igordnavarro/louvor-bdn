@@ -1,0 +1,8 @@
+@title Tua Presença Vale Mais
+@artist Mateus Brito
+@tom G
+@pad G
+@bpm 132
+@note Capotraste na 3ª casa
+
+

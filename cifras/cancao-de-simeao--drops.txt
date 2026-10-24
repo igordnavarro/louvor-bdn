@@ -1,0 +1,7 @@
+@title Canção de Simeão
+@artist Drops
+@tom A
+@pad A
+@bpm 140
+
+

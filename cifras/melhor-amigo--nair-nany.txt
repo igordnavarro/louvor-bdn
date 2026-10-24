@@ -1,0 +1,7 @@
+@title Melhor Amigo
+@artist Nair Nany
+@tom C
+@pad C
+@bpm 126
+
+

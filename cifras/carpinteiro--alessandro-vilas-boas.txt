@@ -1,0 +1,92 @@
+@title Carpinteiro
+@artist Alessandro Vilas Boas
+@tom E
+@pad C#m
+@bpm 132
+
+[Intro] C#m7  B  A
+        C#m7  B  A  A9
+
+[Primeira Parte]
+               C#m7              B
+Esconda-me em ti, esconda-me em ti
+                  A9
+Nas asas do teu amor
+               C#m7              B
+Esconda-me em ti, esconda-me em ti
+                  A9
+Nas asas do teu amor
+               C#m7              B4
+Esconda-me em ti, esconda-me em ti
+                  A9
+Nas asas do teu amor
+               C#m7              B
+Esconda-me em ti, esconda-me em ti
+                  A9
+Nas asas do teu amor
+
+[Segunda Parte]
+C#m7
+     Como eu amo seu nome
+B
+  Tens o nome mais lindo que eu conheço
+A9
+   Como eu amo seu nome
+C#m7
+     Como eu amo seu nome
+B                                     A9
+  Tens o nome mais lindo que eu conheço
+
+  C#5
+Qual é o som, qual é o som
+        B5
+Quando Deus desce na terra?
+  A5
+Qual é o som, qual é o som?
+  C#5
+Qual é o som, qual é o som
+        B5
+Quando Deus desce na terra?
+  A5
+Qual é o som, qual é o som?
+  C#5
+Qual é o som, qual é o som
+        B5
+Quando Deus desce na terra?
+  A5
+Qual é o som, qual é o som?
+
+[Refrão]
+            C#m7
+E esse é o som
+                         B4
+O carpinteiro batendo a porta
+                         A9
+O carpinteiro batendo a porta
+             C#m7
+E esse é o som
+                         B/D#
+O carpinteiro batendo a porta
+                         A9
+O carpinteiro batendo a porta
+C#m7
+E esse é o som
+                             B4
+Do lado de dentro eu abro a porta
+                             A
+Do lado de dentro eu abro a porta
+
+              C#m7
+E este é meu som
+                             B4
+Do lado de dentro eu abro a porta
+                             A9
+Do lado de dentro eu abro a porta
+              C#m7
+E este é meu som
+                             B4
+Do lado de dentro eu abro a porta
+                             A9
+Do lado de dentro eu abro a porta
+[Interlúdio] C#m7  B4  A9
+             C#m7  B4  A9

@@ -1,0 +1,7 @@
+@title Somos Um
+@artist Salzaband
+@tom B
+@pad G#m
+@bpm 165
+
+

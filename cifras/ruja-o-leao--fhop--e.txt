@@ -1,0 +1,7 @@
+@title Ruja o Leão
+@artist Fhop
+@tom E
+@pad C#m
+@bpm 138
+
+

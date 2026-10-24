@@ -1,0 +1,100 @@
+@title Pai Nosso
+@artist Pedras Vivas
+@tom E
+@pad C#m
+@bpm 134
+
+[Intro] E9  C#m7  A
+        E9  C#m7  A
+
+[Primeira Parte]
+     E9
+Pai nosso, nos céus
+ A             B
+Santo é o teu nome
+     E9
+Teu reino buscamos
+        A         B
+Tua vontade seja feita
+
+[Refrão]
+    A       E/G# F#m7 C#m7
+Na terra como é, nos céus
+         B
+Deixe o céu descer
+    A       E/G# F#m7 C#m
+Na terra como é, nos céus
+         B
+Deixe o céu descer
+
+( E9  C#m7  A )
+( E9  C#m7  A )
+
+[Segunda Parte]
+     E9
+Pai nosso, nos céus
+ A             B
+Santo é o teu nome
+     E9
+Teu reino buscamos
+        A         B
+Tua vontade seja feita
+
+[Refrão]
+    A       E/G# F#m7 C#m7
+Na terra como é, nos céus
+         B
+Deixe o céu descer
+    A       E/G# F#m7 C#m
+Na terra como é, nos céus
+         B     A
+Deixe o céu descer
+
+           C#m7  B
+Deixe o céu descer
+                A
+Deixe o céu descer
+           C#m7  B
+Deixe o céu descer
+                A
+Deixe o céu descer
+           C#m7  B
+Deixe o céu descer
+                A
+Deixe o céu descer
+           C#m7  B
+Deixe o céu descer
+
+ A        E/G# F#m
+Teu é o reino, Teu o poder
+C#m                 G#m7
+Tua é a glória pra sempre, amém
+ A        E/G# F#m
+Teu é o reino, Teu o poder
+C#m                 G#m7
+Tua é a glória pra sempre, amém
+ A        E/G# F#m
+Teu é o reino, Teu o poder
+C#m                 G#m7
+Tua é a glória pra sempre, amém
+ A
+Teu é o reino, Teu o poder
+ C#m                G#m7     A
+Tua é a glória pra sempre, amém
+
+! Transição de música
+( C#m  D#  A  F#m )
+( C#m  D#  A  F#m )
+
+C#m7        D#         A
+Venha o Teu reino na terra
+           F#m
+Como nos céus
+             C#m7
+Que venha e permaneça
+B/D#
+Teu reino inabalável
+             A
+Que venha e permaneça
+                 F#m
+Teu reino inabalável

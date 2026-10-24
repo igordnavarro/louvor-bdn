@@ -1,0 +1,7 @@
+@title A Boa Parte
+@artist Fhop
+@tom E
+@pad E
+@bpm 145
+
+

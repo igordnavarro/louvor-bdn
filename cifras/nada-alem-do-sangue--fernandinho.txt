@@ -1,0 +1,9 @@
+@title Nada Além do Sangue
+@artist Fernandinho
+@tom Bb
+@pad 
+@bpm 144
+@bpmsrc songbpm
+@note Forma dos acordes no tom de A · capotraste na 1ª casa
+
+

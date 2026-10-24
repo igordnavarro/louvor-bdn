@@ -1,0 +1,7 @@
+@title Tudo É Teu
+@artist Drops
+@tom A
+@pad A
+@bpm 67
+
+

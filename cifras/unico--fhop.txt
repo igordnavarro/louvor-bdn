@@ -1,0 +1,100 @@
+@title Único
+@artist Fhop
+@tom G
+@pad Em
+@bpm 140
+
+[Intro] C7M  D  Em7  G9/B
+        C7M  D  Em7  G
+
+[Primeira Parte]
+C7M                   D
+Veja, a vida está tão perto
+  Em7                      G9/B
+Prove, a paz não está tão longe
+ C7M                        D
+Cadê as sombras que nos seguiam?
+  Em7                         G
+Quebrou o cristal do nosso orgulho
+C       D
+Ao chão
+   Em7
+Ao      chão
+
+C7M                   D
+Veja, a vida está tão perto
+  Em7                      G9/B
+Prove, a paz não está tão longe
+ C7M                        D
+Cadê as sombras que nos seguiam?
+  Em7                         G
+Quebrou o cristal do nosso orgulho
+
+[Refrão] 2X
+C9                D
+Veja os tronos de outros reis
+ Em7
+Dobrados ao chão
+  G
+Até meu coração se deu
+C9            D
+Eita, tudo se rendeu
+  Em7
+Quem não louvará?
+  G
+Quem não temerá o Rei?
+
+[Ponte] 2X
+C9                   D
+   Importa que Ele cresça
+Em7                 G/B
+    Maior que toda sombra
+                 C9
+Que a gente projetou
+                 D
+Importa que Ele seja
+Em7             G
+    O único Senhor
+
+[Refrão] 2X
+C9                D
+Veja os tronos de outros reis
+ Em7
+Dobrados ao chão
+  G
+Até meu coração se deu
+C9            D
+Eita, tudo se rendeu
+  Em7
+Quem não louvará?
+  G
+Quem não temerá o Rei?
+
+[Solo] C  D  Em  G
+       C  D  Em  G
+
+[Ponte] 2X
+C9                   D
+   Importa que Ele cresça
+Em7                 G/B
+    Maior que toda sombra
+                 C9
+Que a gente projetou
+                 D
+Importa que Ele seja
+Em7             G
+    O único Senhor
+
+[Refrão Final] 2X
+C9                D
+Veja os tronos de outros reis
+ Em7
+Dobrados ao chão
+  G
+Até meu coração se deu
+C9            D
+Eita, tudo se rendeu
+  Em7
+Quem não louvará?
+  G
+Quem não temerá o Rei?

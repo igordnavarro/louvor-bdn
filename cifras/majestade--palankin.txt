@@ -1,0 +1,7 @@
+@title Majestade
+@artist Palankin
+@tom A
+@pad F#m
+@bpm 147
+
+

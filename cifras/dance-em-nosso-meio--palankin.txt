@@ -1,0 +1,7 @@
+@title Dance em Nosso Meio
+@artist Palankin
+@tom A
+@pad F#m
+@bpm 144
+
+

@@ -1,0 +1,69 @@
+@title Leão
+@artist Gabriela Rocha
+@tom E
+@pad E
+@bpm 134
+
+[Intro] E  A  C#m  A
+
+[Primeira Parte]
+            E
+Abram as portas
+ A                  C#m A
+Para que entre o rei
+          E
+O invencível
+ A                     C#m
+Senhor das guerras, Jesus
+              A
+Seu nome é Jesus
+
+[Pré-Refrão]
+ B          C#m                 A
+Já posso ouvir o seu rugido aqui
+B          C#m                 A
+Em teu nome os gigantes cairão
+ B          C#m                 A
+Já posso ouvir o seu rugido aqui
+B          C#m                 A
+Em teu nome os gigantes cairão
+
+[Refrão]
+ A          C#m  B
+Meu Deus é o leão
+                 C#m7 A
+Da tribo de Judá
+                   C#m
+A morte não venceu
+B
+Ele é o rei
+B         C#m
+Ele é o rei
+
+( E  A  C#m  A )
+
+[Pré-Refrão]
+[Refrão]
+
+( A  C#m  B  E  A )
+( A  C#m  B  E  A )
+
+[Interlúdio] 2 VEZES
+A
+Ouço seus passos
+    C#m
+Sim, Ele vem
+  B
+Clamo o seu nome
+ E
+Não temerei
+ A
+Sinto o seu fogo
+  C#m
+Queimando aqui
+B
+O rei chegou
+            E
+O rei chegou
+
+[Refrão]

@@ -1,0 +1,7 @@
+@title Furioso Oceano
+@artist 
+@tom A
+@pad F#m
+@bpm 137
+
+

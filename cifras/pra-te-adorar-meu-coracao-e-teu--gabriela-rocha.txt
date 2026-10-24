@@ -1,0 +1,9 @@
+@title Pra Te Adorar / Meu Coração É Teu
+@artist Gabriela Rocha
+@tom E
+@pad 
+@bpm 132
+@bpmsrc songbpm
+@note Capotraste na 2ª casa · Bateria entra marcando só no ride → marchinha → groove
+
+

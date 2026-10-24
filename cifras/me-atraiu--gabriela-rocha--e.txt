@@ -1,0 +1,7 @@
+@title Me Atraiu
+@artist Gabriela Rocha
+@tom E
+@pad C#m
+@bpm 128
+
+

@@ -1,0 +1,81 @@
+@title Emaús
+@artist Morada
+@tom E
+@pad E
+@bpm 140
+@note Versão Alessandra
+
+[Intro] A  C#m  B  E/G#
+        A  C#m  B
+
+[Primeira Parte]
+       A                      E
+Quem é esse que vem, nos abraçando
+       A
+Quem é esse que vem
+             E             B
+Nos constrangendo com o olhar
+           A           B
+Ele é tão sábio ensina em amor
+           A               B
+Ele é tão manso cuida dos corações
+
+  C#m B         A           E
+Quem é esse que vem, nos abraçando
+  C#m B         A
+Quem é esse que vem
+             E             B
+Nos constrangendo com o olhar
+           A           B
+Ele é tão sábio ensina em amor
+           A               B
+Ele é tão manso cuida dos corações
+
+[Pré-Refrão]
+        A
+Ele entrou em casa
+       B
+Ele está à mesa
+        C#m
+Ele nos observa
+             B/D#
+Sabe que o esperamos
+
+[Refrão]
+          F#m                E/G#
+E ao partir o pão os nossos olhos se abrem
+          A            B
+E reconhecemos quem Tú és
+          F#m                E/G#
+Ao som da Tua voz, os nossos corações
+             A                B
+Queimam de amor, queimam de amor
+          F#m                E/G#
+E ao partir o pão os nossos olhos se abrem
+          A            B
+E reconhecemos quem Tú és
+          F#m                E/G#
+Ao som da Tua voz, os nossos corações
+             A                B
+Queimam de amor, queimam de amor
+
+[Segunda Parte]
+A                  C#m
+  Nós arrumamos a casa
+B                 E/G#
+  Perfumamos ela toda
+A                   C#m
+  Nós preparamos a mesa
+B                 E/G#
+  Tome o lugar de honra
+A                  C#m
+  Nós arrumamos a casa
+B                 E/G#
+  Perfumamos ela toda
+A                   C#m
+  Nós preparamos a mesa
+B                 E/G#
+  Tome o lugar de honra
+
+( A  C#m  B  E/G# )
+( A  C#m  B )

@@ -1,0 +1,7 @@
+@title Para Ti Eu Vou
+@artist Central 3
+@tom C
+@pad C
+@bpm 134
+
+

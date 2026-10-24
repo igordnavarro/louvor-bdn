@@ -1,0 +1,7 @@
+@title Quem É Aquele
+@artist Drops
+@tom A
+@pad F#m
+@bpm 146
+
+

@@ -1,0 +1,7 @@
+@title Oh Quão Lindo Esse Nome É
+@artist Ana Nóbrega
+@tom C
+@pad C
+@bpm 136
+
+

@@ -1,0 +1,7 @@
+@title Amar Como Você
+@artist José Jr
+@tom G
+@pad G
+@bpm 111
+
+

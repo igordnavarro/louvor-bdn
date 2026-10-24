@@ -1,0 +1,7 @@
+@title Eu Era Órfão
+@artist Cia Salt
+@tom A
+@pad F#m
+@bpm 142
+
+

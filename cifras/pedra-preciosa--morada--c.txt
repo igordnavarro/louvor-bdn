@@ -1,0 +1,7 @@
+@title Pedra Preciosa
+@artist Morada
+@tom C
+@pad Am
+@bpm 136
+
+
