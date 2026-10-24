@@ -1,5 +1,5 @@
 // Cache simples para funcionar offline (ex.: igreja sem internet)
-const CACHE = 'louvor-bdn-v1';
+const CACHE = 'louvor-bdn-v2';
 const FILES = ['./', 'index.html', 'songs.js', 'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });

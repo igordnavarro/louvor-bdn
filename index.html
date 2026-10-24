@@ -94,6 +94,10 @@ body.song-open #library{display:none}
 #song{display:none;padding:14px 0 150px}
 body.song-open #song{display:block}
 .song-head h1{font-size:clamp(22px,5vw,30px);line-height:1.15;margin:4px 0 2px;letter-spacing:-.3px}
+.artist-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.yt-top{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:#e62117;color:#fff;font-weight:600;font-size:13.5px;text-decoration:none}
+.yt-top:hover{filter:brightness(1.08)}
+.btn.yt{background:#e62117;border-color:#e62117;color:#fff}
 .song-head .artist{color:var(--accent);font-weight:600;font-size:15px}
 .facts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
 .fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px;color:var(--muted)}
@@ -222,7 +226,7 @@ input[type=range]{width:150px;accent-color:var(--accent)}
   <section id="song" aria-live="polite">
     <div class="song-head">
       <h1 id="sTitle"></h1>
-      <div class="artist" id="sArtist"></div>
+      <div class="artist-row"><div class="artist" id="sArtist"></div><a class="yt-top" id="ytTop" target="_blank" rel="noopener" aria-label="Ver vídeo no YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>YouTube</a></div>
       <div class="facts" id="facts"></div>
       <div id="sNote"></div>
     </div>
@@ -459,6 +463,12 @@ $('#fontDown').onclick = () => setFont(prefs.font-1);
 $('#fontUp').onclick = () => setFont(prefs.font+1);
 function setFont(v){ prefs.font=Math.max(10,Math.min(30,v)); savePrefs(); document.documentElement.style.setProperty('--fs', prefs.font+'px'); }
 
+const YT_ICO='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>';
+function ytUrl(s){
+  if(s.youtube) return /^https?:/.test(s.youtube) ? s.youtube : 'https://www.youtube.com/watch?v='+s.youtube;
+  const t=s.title.replace(/\((simplificada)\)/i,'').replace(/\s+/g,' ').trim();
+  return 'https://www.youtube.com/results?search_query='+encodeURIComponent(t+' '+(s.artist||'')).replace(/%20/g,'+');
+}
 function esc(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 function chordHTML(line){ return esc(line).replace(/\S+/g, t => isChordTok(t.replace(/&amp;/g,'&')) ? `<span class="ch">${t}</span>` : t); }
 function renderSong(){
@@ -502,7 +512,10 @@ function renderSong(){
   }
   // links
   const q=encodeURIComponent((s.title.replace(/\(.*?\)/g,'')+' '+s.artist).trim());
-  $('#links').innerHTML = `<a class="btn" href="https://www.cifraclub.com.br/?q=${q}" target="_blank" rel="noopener">Abrir no Cifra Club ↗</a>
+  const yt = ytUrl(s);
+  $('#ytTop').href = yt;
+  $('#links').innerHTML = `<a class="btn yt" href="${yt}" target="_blank" rel="noopener">${YT_ICO} Ver no YouTube</a>
+    <a class="btn" href="https://www.cifraclub.com.br/?q=${q}" target="_blank" rel="noopener">Abrir no Cifra Club ↗</a>
     <a class="btn" href="https://www.google.com/search?q=${q}+site%3Asongbpm.com" target="_blank" rel="noopener">Conferir BPM no SongBPM ↗</a>`;
   // pager
   const list = visible.length ? visible : SONGS; const i=list.findIndex(x=>x.id===s.id);

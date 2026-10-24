@@ -9,6 +9,7 @@ Formato de cada arquivo:
   @bpm 132
   @capo 2           (opcional)
   @note Observação  (opcional)
+  @youtube ID ou link do vídeo (opcional; sem isso o botão abre a busca no YouTube)
 
   [Refrão]
   G        A      Bm
@@ -39,7 +40,7 @@ for i, f in enumerate(sorted(glob.glob(os.path.join(ROOT, 'cifras', '*.txt')))):
         pad=pads[0] if pads else '', padAlt=pads[1:],
         bpm=int(bpm.group(0)) if bpm else None, bpmSrc=meta.get('bpmsrc', 'setlist' if bpm else ''),
         capo=int(meta['capo']) if meta.get('capo', '').isdigit() else 0,
-        note=meta.get('note', ''), body='\n'.join(body)))
+        note=meta.get('note', ''), youtube=meta.get('youtube', ''), body='\n'.join(body)))
 with open(os.path.join(ROOT, 'songs.js'), 'w', encoding='utf-8') as out:
     out.write('// Gerado por tools/build.py a partir de cifras/*.txt — edite os .txt e rode o script.\n')
     out.write('window.SONGS = ' + json.dumps(songs, ensure_ascii=False, separators=(',', ':')) + ';\n')
