@@ -28,6 +28,9 @@ App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** —
 - **Importar PowerPoint** (.pptx): lê o texto e as imagens dos slides; vários slides viram várias músicas.
 - **Instalar como app**: aviso na primeira vez e botão ⬇ no topo.
 - Metrônomo com sons de **click, cowbell, bloco sonoro e bip**.
+- **Capotraste** (− / + ao lado do tom): ao mudar a casa, os acordes da cifra mudam para as formas certas e a música continua soando no mesmo tom (ex.: tom G com capo 2 → acordes em F).
+- **Tela cheia** com botões de **Pad** e **Metrônomo** (tocar/pausar) e, dentro de uma playlist, **⏮ anterior / ⏭ próxima**.
+- **Pads offline já incluídos** (A, B, C#, D, E, G, Cm, Em, Bm): tocam em **loop contínuo** até pausar; os outros tons usam o pad mais próximo com a afinação ajustada.
 
 Dica: no celular, use "Adicionar à tela inicial" para abrir como app.
 Atalhos no computador: **espaço** liga/desliga o metrônomo, **P** o pad, **↑/↓** ajusta o BPM.

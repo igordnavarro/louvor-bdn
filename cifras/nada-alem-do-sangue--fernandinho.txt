@@ -3,6 +3,7 @@
 @tom Bb
 @pad 
 @bpm 144
+@capo 1
 @bpmsrc songbpm
 @note Forma dos acordes no tom de A · capotraste na 1ª casa
 

@@ -3,6 +3,7 @@
 @tom Bb
 @pad 
 @bpm 68
+@capo 3
 @note Forma de G · capotraste na 3ª casa
 
 [Intro] C D Em7 G

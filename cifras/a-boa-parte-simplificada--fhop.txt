@@ -3,6 +3,7 @@
 @tom E
 @pad E
 @bpm 145
+@capo 2
 @note Forma de D · capotraste na 2ª casa
 
 [Passagem] Bm G9 D (2x)

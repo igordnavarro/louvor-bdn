@@ -2,6 +2,7 @@
 "use strict";
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
+const SP_PLAY='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>', SP_PAUSE='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>';
 
 /* ================= storage ================= */
 // migrate data saved by older versions of the app (legacy key prefix)
@@ -247,6 +248,11 @@ const normSemi = v => { v = mod12(v+5)-5; return v; };
 $('#keySel').onchange = e => setSemi(parseInt(e.target.value,10));
 $('#keyDown').onclick = () => setSemi(semi-1);
 $('#keyUp').onclick = () => setSemi(semi+1);
+/* capotraste: o tom que soa não muda; os acordes viram as formas do tom − casas */
+function setCapo(v){ if(!cur) return; v=Math.max(0,Math.min(11,v)); setOv(cur.id,{capo: v!==(cur.capo||0)?v:undefined}); renderSong(); if($('#stage').classList.contains('open')) stageRender();
+  const k=curKey(), wk=shapesKey(); if(k) toast(v?`Capo na ${v}ª casa: acordes em ${keyName(wk.r,wk.minor)} (soa em ${keyName(k.r,k.minor)})`:`Sem capotraste: acordes em ${keyName(k.r,k.minor)}`); }
+$('#capoDown').onclick=()=>setCapo(capoOf(cur)-1);
+$('#capoUp').onclick=()=>setCapo(capoOf(cur)+1);
 function setSemi(v){ semi=normSemi(v); if(plCtx){ plCtx.pl.items[plCtx.idx].semi=semi; savePlaylists(); } else setOv(cur.id,{semi: semi||undefined}); buildKeySelect(); renderSong(); updatePadLabel(); if(pad.on) pad.retune(); }
 $('#resetBtn').onclick = () => { if(!overrides[cur.id]) return toast('Já está no original');
   if(!confirm('Voltar tom, capo, BPM, pad e observação para o original da setlist?')) return;
@@ -343,8 +349,9 @@ function renderSong(){
   $('#facts').innerHTML = facts.map(([a,b])=>`<div class="fact"><span>${a}</span><b>${esc(b)}</b></div>`).join('') + (overrides[s.id]?'<div class="fact mine">✎ personalizado por '+esc(profile)+'</div>':'');
   const note=noteOf(s);
   $('#sNote').innerHTML = note ? `<div class="notebox">${esc(note)}</div>` : '';
+  $('#capoVal').textContent=capo; $('#capoDown').disabled=capo<=0;
   const ci=$('#capoInfo');
-  if(capo && k){ const wk=shapesKey(); ci.innerHTML=`Formas de <b>${keyName(wk.r,wk.minor)}</b> com capotraste na <b>${capo}ª casa</b> (soa em ${keyName(k.r,k.minor)}).`; } else ci.innerHTML='';
+  if(capo && k){ const wk=shapesKey(); ci.innerHTML=`Acordes em <b>${keyName(wk.r,wk.minor)}</b> com capotraste na <b>${capo}ª casa</b> — soa em <b>${keyName(k.r,k.minor)}</b>.`; } else if(k && (s.capo||0)) ci.innerHTML=`Acordes reais (sem capotraste), soando em <b>${keyName(k.r,k.minor)}</b>.`; else ci.innerHTML='';
   const box=$('#cifra');
   if(!s._has){
     box.innerHTML = `<div class="nocifra"><div class="big">Cifra ainda não cadastrada</div>Tom, BPM e pad já estão prontos aqui embaixo.<br>Abra no Cifra Club ou ${s.custom?'edite a música':'crie sua versão'} em “Editar”.</div>`;
@@ -718,18 +725,27 @@ function checkSharedPlaylist(){ const m=/#pl=([\w-]+)/.exec(location.hash); if(!
 /* ================= tela cheia (stage) ================= */
 if(prefs.stageFont==null) prefs.stageFont=24;
 let scrollRAF=0, scrollOn=false, scrollLast=0;
+function stageRender(){ if(!cur) return; const st=$('#stage');
+  $('#stageTitle').textContent=cur.title; $('#stageKey').textContent=(curKey()?keyName(curKey().r,curKey().minor):'')+(capoOf(cur)?' · capo '+capoOf(cur):'')+' · '+bpm+' bpm'+(plCtx?` · ${plCtx.idx+1}/${plCtx.pl.items.length}`:'');
+  $('#stageCifra').innerHTML = cur._has ? renderCifra(cur.body, displayShift(), writtenFlats()) : '<div class="nocifra"><div class="big">Sem cifra</div></div>';
+  st.classList.toggle('inpl', !!plCtx);
+  if(plCtx){ $('#stagePrev').disabled=plCtx.idx<=0; $('#stageNext').disabled=plCtx.idx>=plCtx.pl.items.length-1; }
+  $('#stagePad').disabled=!padRoot(); st.scrollTop=0; syncStageMetro(); applyStageLayout(); }
+function stageGo(dir){ if(!plCtx) return; const j=plCtx.idx+dir, it=plCtx.pl.items[j]; if(!it) return toast(dir>0?'Última música da playlist':'Primeira música da playlist');
+  stopScroll(); openSong(it.id,true,{pl:plCtx.pl, idx:j}); stageRender(); }
+$('#stagePrev').onclick=()=>stageGo(-1);
+$('#stageNext').onclick=()=>stageGo(1);
+$('#stagePad').onclick=()=>pad.toggle();
 function openStage(){
   if(!cur) return; const st=$('#stage');
-  $('#stageTitle').textContent=cur.title; $('#stageKey').textContent=(curKey()?keyName(curKey().r,curKey().minor):'')+(capoOf(cur)?' · capo '+capoOf(cur):'')+' · '+bpm+' bpm';
-  $('#stageCifra').innerHTML = cur._has ? renderCifra(cur.body, displayShift(), writtenFlats()) : '<div class="nocifra"><div class="big">Sem cifra</div></div>';
   st.style.setProperty('--sfs', prefs.stageFont+'px'); st.classList.add('open'); document.body.classList.add('modal');
-  st.scrollTop=0; syncStageMetro(); applyStageLayout();
+  stageRender();
   const el=document.documentElement; if(el.requestFullscreen && !document.fullscreenElement) el.requestFullscreen().catch(()=>{});
 }
 function closeStage(){ $('#stage').classList.remove('open'); document.body.classList.remove('modal'); stopScroll(); if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{}); }
 function stageFont(v){ prefs.stageFont=Math.max(12,Math.min(64,v)); savePrefs(); $('#stage').style.setProperty('--sfs', prefs.stageFont+'px'); }
 function applyStageLayout(){ const st=$('#stage'), el=$('#stageCifra'); const fit=prefs.stageLayout==='fit'; st.classList.toggle('fitmode',fit); $('#stageLayout').classList.toggle('on',fit);
-  $('#stageLayout').textContent = fit ? '▦ Encaixado' : '☰ Rolando';
+  $('#stageLayout').innerHTML = fit ? '▦<span class="lbl"> Encaixado</span>' : '☰<span class="lbl"> Rolando</span>';
   if(!fit){ unfit(el); return; }
   const bar=$('.stage-bar').getBoundingClientRect().height; const W=st.clientWidth-28, H=window.innerHeight-bar-20;
   fitInto(el, W, H, prefs.stageFitAdj||0); }
@@ -739,7 +755,8 @@ function startScroll(){ scrollOn=true; scrollLast=performance.now(); $('#stageSc
   const step=t=>{ if(!scrollOn) return; const dt=(t-scrollLast)/1000; scrollLast=t; acc+=dt*(prefs.scrollSpeed||30); const px=Math.floor(acc); if(px){ st.scrollTop+=px; acc-=px; }
     if(st.scrollTop+st.clientHeight>=st.scrollHeight-2){ stopScroll(); return; } scrollRAF=requestAnimationFrame(step); }; scrollRAF=requestAnimationFrame(step); }
 function stopScroll(){ scrollOn=false; cancelAnimationFrame(scrollRAF); const b=$('#stageScroll'); if(b) b.classList.remove('on'); }
-function syncStageMetro(){ const b=$('#stageMetro'); if(b) b.classList.toggle('on', metro.on); }
+function stageBtnState(sel,on,label){ const b=$(sel); if(!b) return; b.classList.toggle('on',on); b.innerHTML=(on?SP_PAUSE:SP_PLAY)+label; b.setAttribute('aria-label',(on?'Pausar ':'Tocar ')+(label==='Pad'?'o pad':'o metrônomo')); }
+function syncStageMetro(){ stageBtnState('#stageMetro', metro.on, '♩'); stageBtnState('#stagePad', !!(typeof pad!=='undefined' && pad.on), 'Pad'); }
 $('#stageBtn').onclick=openStage;
 $('#stageClose').onclick=closeStage;
 $('#stageFDown').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=(prefs.stageFitAdj||0)-1; savePrefs(); applyStageLayout(); } else stageFont(prefs.stageFont-2); };
@@ -957,7 +974,7 @@ const metro = {
   draw(){ if(!this.on) return; let shown=null; while(this.queue.length && this.queue[0].t<=AC.currentTime) shown=this.queue.shift(); if(shown) drawBeats(shown.b); this.raf=requestAnimationFrame(()=>this.draw()); }
 };
 function drawBeats(b){ const el=$('#beats'); if(el.children.length!==prefs.sig){ el.innerHTML=''; for(let i=0;i<prefs.sig;i++){ const d=document.createElement('i'); if(!i) d.className='first'; el.appendChild(d);} } [...el.children].forEach((d,i)=>d.classList.toggle('on',i===b)); }
-function setPlay(sel,on){ const b=$(sel); b.classList.toggle('on',on); b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.5" height="14" rx="1"/><rect x="13.5" y="5" width="4.5" height="14" rx="1"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'; b.setAttribute('aria-label', on?'Parar':'Tocar'); }
+function setPlay(sel,on){ const b=$(sel); if(sel==='#padBtn') stageBtnState('#stagePad',on,'Pad'); if(sel==='#metroBtn') stageBtnState('#stageMetro',on,'♩'); b.classList.toggle('on',on); b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.5" height="14" rx="1"/><rect x="13.5" y="5" width="4.5" height="14" rx="1"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'; b.setAttribute('aria-label', on?'Parar':'Tocar'); }
 $('#metroBtn').onclick=()=>{ metro.toggle(); if(typeof syncStageMetro==='function') syncStageMetro(); };
 function updateBpm(save=true){ bpm=Math.max(30,Math.min(260,Math.round(bpm))); $('#bpmVal').textContent=bpm; $('#bpmInput').value=bpm;
   if(cur){ const orig=cur.bpm; $('#bpmSrc').textContent = orig ? (bpm===orig ? (cur.bpmSrc==='songbpm'?'Original (via songbpm.com — confira)':'Original da setlist') : `Original: ${orig}`) : 'Música sem BPM na setlist — ajuste aqui'; }
@@ -1036,7 +1053,7 @@ const ytPad={ on:false, player:null, vid:null, fadeT:0,
     if(!this.player){ await new Promise(ok=>{ this.player=new YT.Player('ytPlayer',{ width:'160', height:'90', videoId:id,
         playerVars:{autoplay:1, controls:0, start:45, playsinline:1, modestbranding:1, rel:0, disablekb:1},
         events:{ onReady:e=>{ e.target.setVolume(0); e.target.playVideo(); this.fadeTo(prefs.pvol*100,2500); ok(); },
-                 onStateChange:e=>{ if(e.data===YT.PlayerState.ENDED) e.target.seekTo(45,true); } } }); }); this.vid=id; }
+                 onStateChange:e=>{ if(e.data===YT.PlayerState.ENDED && ytPad.on){ e.target.seekTo(45,true); e.target.playVideo(); } } } }); }); this.vid=id; }
     else { this.player.setVolume(0); if(this.vid!==id){ this.player.loadVideoById({videoId:id,startSeconds:45}); this.vid=id; } else this.player.playVideo(); this.fadeTo(prefs.pvol*100,2500); } },
   fadeTo(target,ms,done){ clearInterval(this.fadeT); if(!this.player||!this.player.getVolume) return done&&done(); const from=this.player.getVolume(), steps=Math.max(1,Math.round(ms/80)); let i=0;
     this.fadeT=setInterval(()=>{ i++; const v=from+(target-from)*i/steps; try{ this.player.setVolume(Math.round(v)); }catch(e){} if(i>=steps){ clearInterval(this.fadeT); done&&done(); } },80); },
@@ -1060,25 +1077,42 @@ const padDB = { db:null,
   async all(){ const db=await this.open(); return new Promise((ok,err)=>{ const q=db.transaction('pads').objectStore('pads').getAll(); q.onsuccess=()=>ok(q.result||[]); q.onerror=()=>err(q.error); }); },
   async put(rec){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').put(rec); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); },
   async del(id){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').delete(id); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); } };
-let padFiles=[]; const bufCache=new Map();
-async function loadPadFiles(){ try{ padFiles=await padDB.all(); }catch(e){ padFiles=[]; } renderPadFiles(); }
-function pickPadFile(r){ r=mod12(r); if(!padFiles.length) return null;
-  const exact=padFiles.find(f=>f.root===r); if(exact) return {f:exact, shift:0};
-  // nearest file, pitch-shifted (fine for sustained pads, ±6 semitones max)
-  let best=null; padFiles.filter(f=>f.root!=null).forEach(f=>{ const d=normSemi(r-f.root); if(!best||Math.abs(d)<Math.abs(best.shift)) best={f,shift:d}; });
-  return best || {f:padFiles[0], shift:0}; }
+/* pads que já vêm no app (pasta pads/, ficam guardados para uso offline) — tônica+5ª servem p/ maior e menor */
+const BUILTIN_PADS=[['A',9,false],['B',11,false],['Cs',1,false],['D',2,false],['E',4,false],['G',7,false],
+  ['Cm',0,true],['Em-2',4,true,'Em'],['Em',4,true,'Em (variação)'],['Bm',11,true]]
+  .map(([f,root,minor,nm])=>({id:'app:'+f, name:'Pad '+(nm||(f==='Cs'?'C#':f)), root, minor, builtin:true, url:'pads/'+f+'.m4a'}));
+let userPadFiles=[], padFiles=BUILTIN_PADS.slice(); const bufCache=new Map();
+async function loadPadFiles(){ try{ userPadFiles=await padDB.all(); }catch(e){ userPadFiles=[]; } padFiles=userPadFiles.concat(BUILTIN_PADS); renderPadFiles(); }
+async function padBytes(f){ if(f.blob) return f.blob.arrayBuffer(); const r=await fetch(f.url); if(!r.ok) throw new Error('pad não encontrado'); return r.arrayBuffer(); }
+async function padBuffer(f){ let b=bufCache.get(f.id); if(!b){ b=await ctx().decodeAudioData(await padBytes(f)); bufCache.set(f.id,b); } return b; }
+function pickPadFile(r, minor){ r=mod12(r); const list=padFiles.filter(f=>f.root!=null); if(!list.length) return padFiles[0]?{f:padFiles[0],shift:0}:null;
+  const fav=(prefs.padPick||{})[r+(minor?'m':'')]; const favF=fav && list.find(f=>f.id===fav); if(favF) return {f:favF, shift:0};
+  // menor distância (ajuste de afinação) + evitar pad menor em música maior; arquivos do usuário têm preferência
+  let best=null; list.forEach(f=>{ const d=normSemi(r-f.root); let sc=Math.abs(d)*10;
+    if(f.minor){ sc+= minor ? -2 : 25; } if(!f.builtin) sc-=1;
+    if(!best||sc<best.sc) best={f,shift:d,sc}; });
+  return best; }
 const filePad={ on:false, voice:null,
-  async voiceFor(r){ const a=ctx(); const pick=pickPadFile(r); if(!pick) throw new Error('nenhum áudio de pad salvo');
-    let buf=bufCache.get(pick.f.id); if(!buf){ buf=await a.decodeAudioData(await pick.f.blob.arrayBuffer()); bufCache.set(pick.f.id,buf); }
-    synth.ensure(); const src=a.createBufferSource(); src.buffer=buf; src.loop=true; const d=buf.duration;
-    if(d>12){ src.loopStart=Math.min(4,d*0.1); src.loopEnd=d-Math.min(4,d*0.1); }
-    src.playbackRate.value=Math.pow(2,pick.shift/12);
-    const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(1,a.currentTime+2.5);
-    src.connect(g); g.connect(synth.out); src.start(a.currentTime, d>12?Math.min(4,d*0.1):0); return {src,g}; },
-  fade(v,dur){ if(!v) return; const t=AC.currentTime; v.g.gain.cancelScheduledValues(t); v.g.gain.setValueAtTime(Math.max(v.g.gain.value,0.0001),t); v.g.gain.exponentialRampToValueAtTime(0.0001,t+dur); try{ v.src.stop(t+dur+0.1); }catch(e){} },
-  async start(){ const p=padRoot(); if(!p) return; this.on=true; synth.ensure(); synth.out.gain.value=prefs.pvol; this.voice=await this.voiceFor(p.r); },
+  /* toca em loop sem fim: trechos que se sobrepõem com crossfade suave, até apertar pausa */
+  async voiceFor(r, minor){ const a=ctx(); const pick=pickPadFile(r, minor); if(!pick) throw new Error('nenhum áudio de pad salvo');
+    const buf=await padBuffer(pick.f); synth.ensure();
+    const rate=Math.pow(2,pick.shift/12), d=buf.duration;
+    const X=Math.min(6, d/4);                        // duração do crossfade
+    const a0=d>20?Math.min(3,d*0.05):0, a1=d>20?d-Math.min(3,d*0.05):d; // pula entrada/saída do arquivo
+    const segLen=(a1-a0)/rate;                       // tempo real de cada passada
+    const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(1,a.currentTime+2.5); g.connect(synth.out);
+    const v={g, srcs:new Set(), timer:null, alive:true, file:pick.f};
+    const play=(t, first)=>{ if(!v.alive) return; const src=a.createBufferSource(); src.buffer=buf; src.playbackRate.value=rate;
+      const sg=a.createGain(); src.connect(sg); sg.connect(g);
+      if(first) sg.gain.setValueAtTime(1,t); else { sg.gain.setValueAtTime(0,t); sg.gain.linearRampToValueAtTime(1,t+X); }
+      const end=t+segLen; sg.gain.setValueAtTime(1,end-X); sg.gain.linearRampToValueAtTime(0,end);
+      src.start(t, a0, a1-a0); src.stop(end+0.05); v.srcs.add(src); src.onended=()=>v.srcs.delete(src);
+      const nextAt=end-X; v.timer=setTimeout(()=>play(nextAt,false), Math.max(0,(nextAt-a.currentTime-1.5)*1000)); };
+    play(a.currentTime+0.02, true); return v; },
+  fade(v,dur){ if(!v) return; v.alive=false; clearTimeout(v.timer); const t=AC.currentTime; v.g.gain.cancelScheduledValues(t); v.g.gain.setValueAtTime(Math.max(v.g.gain.value,0.0001),t); v.g.gain.exponentialRampToValueAtTime(0.0001,t+dur); v.srcs.forEach(src=>{ try{ src.stop(t+dur+0.1); }catch(e){} }); },
+  async start(){ const p=padRoot(); if(!p) return; this.on=true; synth.ensure(); synth.out.gain.value=prefs.pvol; this.voice=await this.voiceFor(p.r, p.minor); },
   stop(){ if(!this.on) return; this.fade(this.voice,2.2); this.voice=null; this.on=false; },
-  async retune(){ if(!this.on) return; const p=padRoot(); if(!p) return this.stop(); const old=this.voice; try{ this.voice=await this.voiceFor(p.r); }catch(e){} this.fade(old,2.4); } };
+  async retune(){ if(!this.on) return; const p=padRoot(); if(!p) return this.stop(); const old=this.voice; try{ this.voice=await this.voiceFor(p.r, p.minor); }catch(e){} this.fade(old,2.4); } };
 
 const pad={ get on(){ return synth.on||ytPad.on||filePad.on; },
   async start(){ if(!padRoot()) return; setPlay('#padBtn',true); $('#padUnit').classList.add('pad-on');
@@ -1091,7 +1125,7 @@ const pad={ get on(){ return synth.on||ytPad.on||filePad.on; },
   toggle(){ this.on?this.stop():this.start(); } };
 $('#padBtn').onclick=()=>pad.toggle();
 seg('#toneSeg','tone',()=>synth.retune()); seg('#thirdSeg','third',()=>synth.retune());
-if(!prefs.padSrc) prefs.padSrc='deep';
+if(!prefs.padSrc || !prefs.padMig2){ prefs.padSrc='files'; prefs.padMig2=1; savePrefs(); }
 seg('#padSrcSeg','padSrc',()=>{ syncPadRows(); pad.restart(); });
 function syncPadRows(){ const v=prefs.padSrc;
   $$('.synth-only').forEach(r=>r.style.display=v==='synth'?'':'none');
@@ -1105,17 +1139,22 @@ $('#padVol').value=prefs.pvol; $('#padVol').oninput=e=>{ prefs.pvol=+e.target.va
 /* pad files UI */
 function keySelectHTML(v){ return '<option value="">Tom?</option>'+SHARP.map((n,i)=>`<option value="${i}" ${v===i?'selected':''}>${keyName(i,false)}</option>`).join(''); }
 function renderPadFiles(){ const L=$('#padFileList'); if(!L) return; L.innerHTML='';
-  if(!padFiles.length){ L.innerHTML='<div class="src">Nenhum áudio salvo. Adicione MP3/M4A/WAV de pads — eles ficam guardados neste aparelho e tocam sem internet. Se tiver só alguns tons, o app ajusta a afinação para os outros.</div>'; return; }
   const covered=new Set(padFiles.map(f=>f.root));
-  padFiles.slice().sort((a,b)=>(a.root??99)-(b.root??99)).forEach(f=>{ const row=document.createElement('div'); row.className='pfrow';
-    row.innerHTML=`<select>${keySelectHTML(f.root)}</select><span class="nm"></span><span class="src">${(f.size/1048576).toFixed(1)} MB</span><button class="mini" aria-label="Ouvir">▶</button><button class="mini" aria-label="Excluir">✕</button>`;
+  const head=t=>{ const h=document.createElement('div'); h.className='src pfhead'; h.textContent=t; L.appendChild(h); };
+  const rowFor=f=>{ const row=document.createElement('div'); row.className='pfrow'+(f.builtin?' builtin':'');
+    const pk=(prefs.padPick||{})[f.root+(f.minor?'m':'')]===f.id;
+    row.innerHTML=(f.builtin?`<b class="kk">${keyName(f.root,!!f.minor)}</b>`:`<select>${keySelectHTML(f.root)}</select>`)+`<span class="nm"></span><span class="src">${f.builtin?'no app':(f.size/1048576).toFixed(1)+' MB'}</span><button class="mini star" aria-label="Usar sempre este para ${keyName(f.root??0,!!f.minor)}" aria-pressed="${pk}" title="Usar sempre este neste tom">${pk?'★':'☆'}</button><button class="mini" aria-label="Ouvir">▶</button>`+(f.builtin?'':`<button class="mini" aria-label="Excluir">✕</button>`);
     row.querySelector('.nm').textContent=f.name;
-    row.querySelector('select').onchange=async e=>{ f.root=e.target.value===''?null:+e.target.value; await padDB.put(f); renderPadFiles(); if(filePad.on) filePad.retune(); };
-    const [play,del]=row.querySelectorAll('button');
-    play.onclick=async()=>{ const a=ctx(); try{ let buf=bufCache.get(f.id); if(!buf){ buf=await a.decodeAudioData(await f.blob.arrayBuffer()); bufCache.set(f.id,buf);} const s=a.createBufferSource(); s.buffer=buf; const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(prefs.pvol,a.currentTime+0.5); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+4); s.connect(g); g.connect(master); s.start(a.currentTime, Math.min(5,buf.duration/3)); s.stop(a.currentTime+4.1); }catch(e){ toast('Não consegui tocar este arquivo'); } };
-    del.onclick=async()=>{ if(!confirm('Excluir o áudio "'+f.name+'"?')) return; await padDB.del(f.id); bufCache.delete(f.id); loadPadFiles(); };
-    L.appendChild(row); });
-  const miss=SHARP.map((n,i)=>i).filter(i=>!covered.has(i)); $('#padFileInfo').textContent = miss.length ? `Sem arquivo próprio: ${miss.map(i=>keyName(i,false)).join(', ')} (usa o mais próximo ajustando a afinação)` : 'Todos os 12 tons cobertos ✔';
+    const sel=row.querySelector('select'); if(sel) sel.onchange=async e=>{ f.root=e.target.value===''?null:+e.target.value; await padDB.put(f); renderPadFiles(); if(filePad.on) filePad.retune(); };
+    const [star,play,del]=row.querySelectorAll('button');
+    star.onclick=()=>{ if(f.root==null) return toast('Escolha o tom do arquivo primeiro'); prefs.padPick=prefs.padPick||{}; const k=f.root+(f.minor?'m':''); if(prefs.padPick[k]===f.id) delete prefs.padPick[k]; else prefs.padPick[k]=f.id; savePrefs(); renderPadFiles(); if(filePad.on) filePad.retune(); };
+    play.onclick=async()=>{ const a=ctx(); try{ const buf=await padBuffer(f); const s=a.createBufferSource(); s.buffer=buf; const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(prefs.pvol,a.currentTime+0.5); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+4); s.connect(g); g.connect(master); s.start(a.currentTime, Math.min(5,buf.duration/3)); s.stop(a.currentTime+4.1); }catch(e){ toast('Não consegui tocar este arquivo'); } };
+    if(del) del.onclick=async()=>{ if(!confirm('Excluir o áudio "'+f.name+'"?')) return; await padDB.del(f.id); bufCache.delete(f.id); loadPadFiles(); };
+    L.appendChild(row); };
+  head('Pads que vêm no app (funcionam offline)'); BUILTIN_PADS.forEach(rowFor);
+  head('Meus áudios'); if(!userPadFiles.length){ const e=document.createElement('div'); e.className='src'; e.textContent='Nenhum ainda. Adicione MP3/M4A/WAV — ficam guardados neste aparelho e têm preferência sobre os do app.'; L.appendChild(e); }
+  userPadFiles.slice().sort((a,b)=>(a.root??99)-(b.root??99)).forEach(rowFor);
+  const miss=SHARP.map((n,i)=>i).filter(i=>!covered.has(i)); $('#padFileInfo').textContent = (miss.length ? `Tons sem arquivo (${miss.map(i=>keyName(i,false)).join(', ')}) usam o mais próximo com a afinação ajustada.` : 'Todos os 12 tons cobertos ✔')+' O pad toca em loop até você pausar.';
 }
 $('#padFileAdd').onclick=()=>$('#padFileInput').click();
 $('#padFileInput').onchange=async e=>{ const files=[...e.target.files]; e.target.value=''; let n=0;
@@ -1167,6 +1206,7 @@ document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && 
 /* ================= init ================= */
 renderProfileBtn(); renderList(); drawBeats(-1); setView(store.get('view','songs'));
 if(!checkSharedPlaylist()){ const m=/^#m([\w]+)/.exec(location.hash); if(m){ history.replaceState({id:m[1]},'',location.hash); openSong(m[1],false); } }
+{ const sp=document.getElementById('splash'), t0=performance.timing?performance.timing.navigationStart:Date.now(); if(sp) setTimeout(()=>{ sp.classList.add('hide'); setTimeout(()=>sp.remove(),600); }, Math.max(0, 900-(Date.now()-t0))); }
 if('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
 /* ---- instalar como app ---- */
 let installEvt=null;

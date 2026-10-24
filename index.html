@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Worship Church</title>
 <meta name="description" content="Worship Church — cifras, tom, BPM e pads do louvor">
-<meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f1ea" media="(prefers-color-scheme: light)">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="icon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Worship Church">
 <meta name="application-name" content="Worship Church">
@@ -281,9 +282,15 @@ input[type=range]{width:150px;accent-color:var(--accent)}
 .stage-bar{position:sticky;top:0;display:flex;align-items:center;gap:6px;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:2;opacity:.35;transition:opacity .2s}
 .stage-bar:hover,.stage-bar:focus-within,.stage:not(.scrolling) .stage-bar{opacity:1}
 .stage-t{flex:1;min-width:0}
-@media (max-width:560px){ .stage-bar{flex-wrap:wrap} .stage-t{order:-1;flex:1 1 calc(100% - 50px)} .sbtn{flex:1;min-width:0;padding:0} #stageClose{flex:0 0 38px;order:-2} }.stage-t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage-t span{font-size:12px;color:var(--muted)}
-.sbtn{min-width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:700}
+@media (max-width:560px){ .stage-bar{flex-wrap:wrap;gap:5px} .stage-t{order:-2;flex:1 1 calc(100% - 140px);min-width:0} .sbtn{flex:1 1 0;min-width:32px;padding:0 2px} .sbtn.sp{padding:0 4px;font-size:12px} #stageClose{flex:0 0 38px;order:-4} #stagePrev{order:-3;flex:0 0 38px} #stageNext{order:-1;flex:0 0 38px} .sbtn .lbl{display:none} .capogrp label{display:block!important} }.stage-t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage-t span{font-size:12px;color:var(--muted)}
+.sbtn{min-width:34px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:700}
 .sbtn.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.sbtn.sp svg{width:13px;height:13px;flex:none}
+.sbtn.sp{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:0 9px;font-size:13px;white-space:nowrap}
+.sbtn.pl-nav{display:none;font-size:15px}
+.stage.inpl .sbtn.pl-nav{display:inline-flex;align-items:center;justify-content:center}
+.sbtn:disabled{opacity:.35}
+.capo-val{min-width:22px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
 .stage-cifra{font-size:var(--sfs);padding:18px 20px 60vh;min-width:max-content}
 .suggest{margin-top:22px;border-top:1px solid var(--line);padding-top:16px}
 .sg-head b{display:block;font-size:16px}.sg-head small{color:var(--muted);font-size:13px}
@@ -368,13 +375,20 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 @media (max-width:560px){ .installbar{flex-wrap:wrap} .installbar div{flex:1 1 calc(100% - 60px)} .installbar .btn{flex:1} }
 @media (max-width:560px){ .padsrc-row{flex-direction:column;align-items:stretch} .padsrc-row .seg.wrap{max-width:none;justify-content:flex-start} .plb-auto{flex:1} }
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
+#splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(circle at 50% 38%,#26272b,#0b0b0c 55%,#000);color:#e8eaed;transition:opacity .45s ease,visibility .45s}
+#splash img{border-radius:30px;box-shadow:0 18px 50px rgba(0,0,0,.6);animation:splashIn .7s ease both}
+#splash b{font:700 24px/1.1 Outfit,system-ui,sans-serif;letter-spacing:.5px;margin-top:14px;background:linear-gradient(180deg,#fff,#a9acb2 60%,#e5e7ea);-webkit-background-clip:text;background-clip:text;color:transparent}
+#splash small{font:500 12px Outfit,system-ui,sans-serif;color:#8d9096;letter-spacing:2px;text-transform:uppercase}
+#splash.hide{opacity:0;visibility:hidden}
+@keyframes splashIn{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div id="splash" aria-hidden="true"><img src="icon.svg?v=2" alt="" width="132" height="132"><b>Worship Church</b><small>cifras · tom · bpm · pad</small></div>
 <header class="top">
   <div class="wrap">
     <button class="icon-btn back" id="backBtn" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-    <div class="brand"><img class="logo" src="icon.svg" alt="" width="34" height="34"><div>Worship Church<small>cifras · tom · bpm · pad</small></div></div>
+    <div class="brand"><img class="logo" src="icon.svg?v=2" alt="" width="34" height="34"><div>Worship Church<small>cifras · tom · bpm · pad</small></div></div>
     <div class="top-title"><b id="tTitle"></b><span id="tArtist"></span></div>
     <div class="spacer"></div>
     <button class="icon-btn install-btn" title="Instalar como app" aria-label="Instalar como app" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
@@ -430,6 +444,12 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
         <button class="g-btn" id="keyDown" aria-label="Meio tom abaixo">−</button>
         <select class="key-select" id="keySel" aria-label="Escolher tom"></select>
         <button class="g-btn" id="keyUp" aria-label="Meio tom acima">+</button>
+      </div>
+      <div class="group capogrp" title="Capotraste: muda a casa e os acordes da cifra mudam junto (o som continua no mesmo tom)">
+        <label>Capo</label>
+        <button class="g-btn" id="capoDown" aria-label="Capotraste uma casa abaixo">−</button>
+        <span class="capo-val" id="capoVal">0</span>
+        <button class="g-btn" id="capoUp" aria-label="Capotraste uma casa acima">+</button>
       </div>
       <div class="group" title="Tamanho da fonte">
         <label>Fonte</label>
@@ -498,8 +518,8 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
   <div class="card">
     <h3>Pad de fundo</h3>
     <div class="row"><div class="l">Nota do pad<small>Acompanha o tom escolhido na cifra</small></div><div class="seg" id="padChoice"></div></div>
-    <div class="row padsrc-row"><div class="l">Som do pad<small class="yt-only">Vídeos do YouTube no tom da música — precisa de internet</small><small class="synth-only">Gerado no aparelho — funciona sem internet</small><small class="files-only">Seus arquivos, guardados no aparelho — funciona sem internet</small></div><div class="seg wrap" id="padSrcSeg"><button data-v="files">Meus áudios (offline)</button><button data-v="mine">Meu YouTube</button><button data-v="deep">YouTube · Deep</button><button data-v="shimmer">YouTube · Shimmer</button><button data-v="synth">Sintetizado</button></div></div>
-    <div class="row files-only col"><div class="l">Meus áudios de pad<small id="padFileInfo"></small></div>
+    <div class="row padsrc-row"><div class="l">Som do pad<small class="yt-only">Vídeos do YouTube no tom da música — precisa de internet</small><small class="synth-only">Gerado no aparelho — funciona sem internet</small><small class="files-only">Pads do app + seus arquivos, tocando em loop — funciona sem internet</small></div><div class="seg wrap" id="padSrcSeg"><button data-v="files">Pads offline</button><button data-v="mine">Meu YouTube</button><button data-v="deep">YouTube · Deep</button><button data-v="shimmer">YouTube · Shimmer</button><button data-v="synth">Sintetizado</button></div></div>
+    <div class="row files-only col"><div class="l">Pads offline<small id="padFileInfo"></small></div>
       <div id="padFileList" class="pflist"></div>
       <button class="btn primary" id="padFileAdd">＋ Adicionar áudio (MP3, M4A, WAV…)</button><input type="file" id="padFileInput" accept="audio/*,.mp3,.m4a,.wav,.ogg,.aac" multiple hidden></div>
     <div class="row mine-only col"><div class="l">Minha playlist de pads do YouTube<small>Cole o link da playlist: o app reconhece o tom pelo título de cada vídeo. Precisa de internet.</small></div>
@@ -590,15 +610,18 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 <div class="stage" id="stage" role="dialog" aria-modal="true" aria-label="Cifra em tela cheia">
   <div class="stage-bar">
     <button class="sbtn" id="stageClose" aria-label="Sair da tela cheia">✕</button>
+    <button class="sbtn pl-nav" id="stagePrev" aria-label="Música anterior da playlist" title="Anterior na playlist">⏮</button>
     <div class="stage-t"><b id="stageTitle"></b><span id="stageKey"></span></div>
+    <button class="sbtn pl-nav" id="stageNext" aria-label="Próxima música da playlist" title="Próxima na playlist">⏭</button>
+    <button class="sbtn sp" id="stagePad" title="Tocar/pausar o pad"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Pad</button>
+    <button class="sbtn sp" id="stageMetro" title="Tocar/pausar o metrônomo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>♩</button>
     <button class="sbtn" id="stageFDown" aria-label="Diminuir letra">A−</button>
     <button class="sbtn" id="stageFUp" aria-label="Aumentar letra">A+</button>
-    <button class="sbtn wide" id="stageLayout" title="Alternar: música inteira na tela / rolar">▦ Encaixado</button>
+    <button class="sbtn wide" id="stageLayout" title="Alternar: música inteira na tela / rolar">▦<span class="lbl"> Encaixado</span></button>
     <button class="sbtn" id="stageFit" title="Ajustar">↔</button>
     <button class="sbtn" id="stageSlower" title="Rolagem mais lenta">«</button>
     <button class="sbtn" id="stageScroll" title="Rolagem automática">⇣</button>
     <button class="sbtn" id="stageFaster" title="Rolagem mais rápida">»</button>
-    <button class="sbtn" id="stageMetro" title="Metrônomo">♩</button>
   </div>
   <div class="cifra stage-cifra" id="stageCifra"></div>
 </div>
@@ -620,7 +643,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
     <div class="ed-actions"><button class="btn" id="mdPreviewBtn">👁 Pré-visualizar</button><span class="spacer"></span><button class="btn" data-close>Cancelar</button><button class="btn primary" id="mdSave">Salvar medley</button></div>
   </div>
 </div>
-<div class="installbar" id="installBar"><img src="icon.svg" alt="" width="40" height="40"><div><b>Instalar o Worship Church</b><small>Abre como app, em tela cheia, e funciona sem internet.</small></div><button class="btn" id="installNo">Agora não</button><button class="btn primary" id="installYes">Instalar</button></div>
+<div class="installbar" id="installBar"><img src="icon.svg?v=2" alt="" width="40" height="40"><div><b>Instalar o Worship Church</b><small>Abre como app, em tela cheia, e funciona sem internet.</small></div><button class="btn" id="installNo">Agora não</button><button class="btn primary" id="installYes">Instalar</button></div>
 <div class="panel" id="installPanel" role="dialog" aria-modal="true" aria-label="Instalar app">
   <div class="card">
     <h3>Instalar como app</h3>
@@ -632,7 +655,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 <div class="toast" id="toast" role="status"></div>
 <div class="ytbox" id="ytBox"><div id="ytPlayer"></div><div class="ytbar"><span id="ytKey">Pad</span><button id="ytStop" aria-label="Parar pad">■</button></div></div>
 
-<script src="songs.js?v=11"></script>
-<script src="app.js?v=11"></script>
+<script src="songs.js?v=12"></script>
+<script src="app.js?v=12"></script>
 </body>
 </html>
