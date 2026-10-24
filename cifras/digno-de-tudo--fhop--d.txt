@@ -1,5 +1,5 @@
 @title Digno de Tudo
-@artist Fhop Repete Desde o Início
+@artist Fhop
 @tom D
 @pad D
 @bpm 128

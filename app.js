@@ -261,6 +261,7 @@ function renderSong(){
   else { const list = visible.length && visible.some(x=>x.id===s.id) ? visible : SONGS; const i=list.findIndex(x=>x.id===s.id); p=list[i-1]; n=list[i+1]; go=x=>openSong(x.id); }
   [[p,'← Anterior',-1],[n,'Próxima →',1]].forEach(([x,l,dir])=>{ if(!x){ pg.appendChild(document.createElement('span')); return; }
     const b=document.createElement('button'); b.innerHTML=`<small>${l}${plCtx?' na playlist':''}</small><b></b>`; b.querySelector('b').textContent=x.title; b.onclick=()=>go(x,dir); pg.appendChild(b); });
+  renderSuggest();
 }
 
 /* ================= edit panel (per user) ================= */
@@ -269,7 +270,7 @@ function keyOptions(minorFirst){
   return opts;
 }
 function fillSelect(sel, opts, val, blank){ sel.innerHTML=(blank?`<option value="">${blank}</option>`:'')+opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join(''); sel.value=val||''; }
-$('#editBtn').onclick=()=>openEditor(cur);
+$('#editBtn').onclick=()=> cur.medley ? openMedley(cur) : openEditor(cur);
 function openEditor(s){
   // s = song to edit, or null for a brand-new song
   const isNew=!s, isCustom = isNew || s.custom;
@@ -545,6 +546,179 @@ function checkSharedPlaylist(){ const m=/#pl=([\w-]+)/.exec(location.hash); if(!
   catch(e){ toast('Link de playlist inválido'); }
   return true; }
 
+
+/* ================= tela cheia (stage) ================= */
+if(prefs.stageFont==null) prefs.stageFont=24;
+let scrollRAF=0, scrollOn=false, scrollLast=0;
+function openStage(){
+  if(!cur) return; const st=$('#stage');
+  $('#stageTitle').textContent=cur.title; $('#stageKey').textContent=(curKey()?keyName(curKey().r,curKey().minor):'')+(capoOf(cur)?' · capo '+capoOf(cur):'')+' · '+bpm+' bpm';
+  $('#stageCifra').innerHTML = cur._has ? renderCifra(cur.body, displayShift(), writtenFlats()) : '<div class="nocifra"><div class="big">Sem cifra</div></div>';
+  st.style.setProperty('--sfs', prefs.stageFont+'px'); st.classList.add('open'); document.body.classList.add('modal');
+  st.scrollTop=0; syncStageMetro();
+  const el=document.documentElement; if(el.requestFullscreen && !document.fullscreenElement) el.requestFullscreen().catch(()=>{});
+}
+function closeStage(){ $('#stage').classList.remove('open'); document.body.classList.remove('modal'); stopScroll(); if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{}); }
+function stageFont(v){ prefs.stageFont=Math.max(12,Math.min(64,v)); savePrefs(); $('#stage').style.setProperty('--sfs', prefs.stageFont+'px'); }
+function fitStage(){ const box=$('#stageCifra'), st=$('#stage'); const lines=[...box.querySelectorAll('.ln')].map(l=>l.textContent.length); const maxc=Math.max(20,...lines);
+  const w=st.clientWidth-40; stageFont(Math.floor(w/(maxc*0.62))); toast('Fonte ajustada à largura da tela'); }
+function startScroll(){ scrollOn=true; scrollLast=performance.now(); $('#stageScroll').classList.add('on'); const st=$('#stage'); let acc=0;
+  const step=t=>{ if(!scrollOn) return; const dt=(t-scrollLast)/1000; scrollLast=t; acc+=dt*(prefs.scrollSpeed||30); const px=Math.floor(acc); if(px){ st.scrollTop+=px; acc-=px; }
+    if(st.scrollTop+st.clientHeight>=st.scrollHeight-2){ stopScroll(); return; } scrollRAF=requestAnimationFrame(step); }; scrollRAF=requestAnimationFrame(step); }
+function stopScroll(){ scrollOn=false; cancelAnimationFrame(scrollRAF); const b=$('#stageScroll'); if(b) b.classList.remove('on'); }
+function syncStageMetro(){ const b=$('#stageMetro'); if(b) b.classList.toggle('on', metro.on); }
+$('#stageBtn').onclick=openStage;
+$('#stageClose').onclick=closeStage;
+$('#stageFDown').onclick=()=>stageFont(prefs.stageFont-2);
+$('#stageFUp').onclick=()=>stageFont(prefs.stageFont+2);
+$('#stageFit').onclick=fitStage;
+$('#stageScroll').onclick=()=> scrollOn?stopScroll():startScroll();
+$('#stageSlower').onclick=()=>{ prefs.scrollSpeed=Math.max(5,(prefs.scrollSpeed||30)-5); savePrefs(); toast('Rolagem: '+prefs.scrollSpeed); };
+$('#stageFaster').onclick=()=>{ prefs.scrollSpeed=Math.min(200,(prefs.scrollSpeed||30)+5); savePrefs(); toast('Rolagem: '+prefs.scrollSpeed); };
+$('#stageMetro').onclick=()=>{ metro.toggle(); syncStageMetro(); };
+document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement && $('#stage').classList.contains('open')){} });
+
+/* ================= sugestões de medley ================= */
+const tonalId = k => k ? mod12(k.minor ? k.r+3 : k.r) : null;   // relative major shares the same notes
+function effKey(s){ const pk=parseKey(s.key); if(!pk) return null; const it = (cur===s) ? semi : (ov(s).semi||0); return {r:pk.r+it, minor:pk.minor}; }
+function renderSuggest(){
+  const box=$('#suggest'); if(!cur){ box.innerHTML=''; return; }
+  const k=curKey(); const b=bpm;
+  if(!k){ box.innerHTML=''; return; }
+  const tid=tonalId(k);
+  const cands=SONGS.filter(s=>s.id!==cur.id && !s.medley).map(s=>{ const ek=effKey(s); if(!ek) return null; const sb=bpmOf(s);
+      const same=tonalId(ek)===tid, exact=same && mod12(ek.r)===mod12(k.r) && ek.minor===k.minor;
+      const d=sb?Math.abs(sb-b):99; const half=sb?Math.min(Math.abs(sb*2-b),Math.abs(sb/2-b)):99;
+      return {s,ek,sb,same,exact,d,half}; }).filter(Boolean);
+  const top=cands.filter(c=>c.same && (c.d<=8 || c.half<=4)).sort((a,b)=>(a.d-b.d)||(b.exact-a.exact)||(b.s._has-a.s._has)).slice(0,10);
+  const near=cands.filter(c=>c.same && !(c.d<=8||c.half<=4)).sort((a,b)=>a.d-b.d).slice(0,6);
+  const row=c=>`<div class="sg"><button class="sg-open" data-id="${c.s.id}"><span class="k">${keyName(c.ek.r,c.ek.minor)}</span><span class="t"><b>${esc(c.s.title)}</b><small>${esc(c.s.artist||'')}${c.sb?' · '+c.sb+' bpm':''}${c.d<=8?(c.d===0?' · mesmo BPM':` · ${c.d} bpm de diferença`):(c.half<=4?' · BPM em meio tempo/dobro':'')}${c.exact?'':' · tom relativo'}${c.s._has?'':' · sem cifra'}</small></span></button><button class="mini sg-add" data-id="${c.s.id}" title="Criar medley com esta música" aria-label="Criar medley">＋</button></div>`;
+  box.innerHTML = `<div class="sg-head"><b>Sugestões de medley</b><small>Músicas do repertório no tom ${keyName(k.r,k.minor)} (ou relativo ${keyName(k.minor?k.r+3:k.r-3,!k.minor)}) com BPM próximo de ${b}</small></div>`+
+    (top.length? top.map(row).join('') : '<div class="src" style="padding:6px 2px">Nenhuma música com tom e BPM parecidos.</div>')+
+    (near.length? `<details class="sg-more"><summary>Mesmo tom, BPM diferente (${near.length})</summary>${near.map(row).join('')}</details>`:'')+
+    `<button class="btn" id="sgMedley" style="margin-top:10px">🎼 Criar medley a partir desta música</button>`;
+  box.querySelectorAll('.sg-open').forEach(x=>x.onclick=()=>openSong(x.dataset.id));
+  box.querySelectorAll('.sg-add').forEach(x=>x.onclick=()=>openMedley(null, cur, SONGS.find(s=>s.id===x.dataset.id)));
+  $('#sgMedley').onclick=()=>openMedley(null, cur);
+}
+
+/* ================= medleys ================= */
+const LABELS=['Intro','Primeira Parte','Segunda Parte','Verso','Pré-Refrão','Refrão','Ponte','Solo','Interlúdio','Transição','Final'];
+function splitSections(body){
+  const out=[]; let curS=null;
+  (body||'').split('\n').forEach(l=>{ const m=/^\s*\[([^\]]+)\]\s*(.*)$/.exec(l);
+    if(m){ curS={name:m[1].trim(), lines:[]}; out.push(curS); const rest=(m[2]||'').trim(); if(rest && isChordLine(rest)) curS.lines.push(rest); else if(rest) curS.rep=rest; return; }
+    if(!curS){ curS={name:'Início', lines:[]}; out.push(curS); } curS.lines.push(l); });
+  out.forEach(s=>{ while(s.lines.length && !s.lines[s.lines.length-1].trim()) s.lines.pop(); while(s.lines.length && !s.lines[0].trim()) s.lines.shift(); s.text=s.lines.join('\n'); });
+  return out.filter(s=>s.text.trim() || s.rep!==undefined || true);
+}
+function guessLabel(name){ const n=norm(name); if(/refr/.test(n)) return 'Refrão'; if(/pre/.test(n)) return 'Pré-Refrão'; if(/ponte|bridge/.test(n)) return 'Ponte'; if(/intro/.test(n)) return 'Intro';
+  if(/solo/.test(n)) return 'Solo'; if(/final|fim/.test(n)) return 'Final'; if(/segunda/.test(n)) return 'Segunda Parte'; if(/primeira|verso|estrofe/.test(n)) return 'Primeira Parte'; if(/interl/.test(n)) return 'Interlúdio'; if(/transi|passagem/.test(n)) return 'Transição'; return name; }
+function writtenKeyOf(s){ const pk=parseKey(s.key); if(!pk) return null; return {r:pk.r-(s.capo||0), minor:pk.minor}; }
+function autoSemi(s, mk){ const wk=writtenKeyOf(s); if(!wk||!mk) return 0; return normSemi(tonalId(mk)-tonalId(wk)); }
+let MD=null; // medley being edited
+function openMedley(existing, base, also){
+  if(existing && existing.medley){ MD=JSON.parse(JSON.stringify(existing.medley)); MD.id=existing.id; MD.title=existing.title; MD.bpm=existing.bpm; }
+  else {
+    const k = base ? (base===cur? curKey() : effKey(base)) : null;
+    MD={ id:null, title:'Medley: '+(base?base.title:'')+(also?' + '+also.title:''), key:k?SHARP[mod12(k.r)]+(k.minor?'m':''):'C', bpm: base? (base===cur?bpm:bpmOf(base)) : null, parts:[] };
+    const addAll = s => splitSections(s.body).forEach(sec=>{ if(!sec.text.trim()) return; MD.parts.push({songId:s.id, from:sec.name, label:guessLabel(sec.name), reps:repsOf(sec.rep), text:sec.text, semi:autoSemi(s,parseKey(MD.key)), auto:true}); });
+    if(base) addAll(base); if(also) addAll(also);
+  }
+  $('#mdTitle').value=MD.title; fillSelect($('#mdKey'), keyOptions(), MD.key); $('#mdBpm').value=MD.bpm||'';
+  $('#mdQ').value=''; $('#mdSrc').innerHTML=''; mdSrcSong=null;
+  renderMdParts(); renderMdSearch(); openPanel('#medleyPanel');
+}
+function repsOf(rep){ const m=/(\d+)\s*[xX]|(\d+)\s*vez/i.exec(rep||''); return m? +(m[1]||m[2]) : 1; }
+$('#mdTitle').oninput=e=>{ MD.title=e.target.value; };
+$('#mdBpm').oninput=e=>{ MD.bpm=parseInt(e.target.value,10)||null; };
+$('#mdKey').onchange=e=>{ MD.key=e.target.value; MD.parts.forEach(p=>{ if(p.auto){ const s=SONGS.find(x=>x.id===p.songId); if(s) p.semi=autoSemi(s,parseKey(MD.key)); } }); renderMdParts(); };
+function partHTML(p){ const mk=parseKey(MD.key); return renderCifra(p.text, p.semi||0, mk?useFlats(mk.r,mk.minor):false); }
+function renderMdParts(){
+  const L=$('#mdParts'); L.innerHTML='';
+  if(!MD.parts.length) L.innerHTML='<div class="src" style="padding:12px 4px">Nenhuma parte ainda. Escolha uma música ao lado e adicione refrão, ponte ou um trecho selecionado.</div>';
+  MD.parts.forEach((p,i)=>{ const s=SONGS.find(x=>x.id===p.songId); const wk=s?writtenKeyOf(s):null; const mk=parseKey(MD.key);
+    const el=document.createElement('div'); el.className='mdp';
+    el.innerHTML=`<div class="mdp-h"><span class="n">${i+1}</span>
+      <select class="lab">${[...new Set(LABELS.concat([p.label]))].map(l=>`<option ${l===p.label?'selected':''}>${esc(l)}</option>`).join('')}</select>
+      <label class="reps">×<input type="number" min="1" max="12" value="${p.reps||1}"></label>
+      <span class="spacer"></span>
+      <button class="mini" data-a="up" ${i?'':'disabled'} aria-label="Subir">↑</button><button class="mini" data-a="dn" ${i<MD.parts.length-1?'':'disabled'} aria-label="Descer">↓</button><button class="mini" data-a="rm" aria-label="Remover">✕</button></div>
+      <div class="mdp-src"><span></span><span class="tr"><button class="mini" data-a="td" aria-label="Meio tom abaixo">−</button><b>${wk&&mk?keyName(wk.r+(p.semi||0),wk.minor):'—'}</b><button class="mini" data-a="tu" aria-label="Meio tom acima">+</button></span></div>
+      <div class="cifra mdp-body">${partHTML(p)}</div>`;
+    el.querySelector('.mdp-src span').textContent=(s?s.title:'?')+' — '+(p.from||'trecho')+(wk?` (original ${keyName(wk.r,wk.minor)})`:'');
+    el.querySelector('.lab').onchange=e=>{ p.label=e.target.value; };
+    el.querySelector('.reps input').oninput=e=>{ p.reps=Math.max(1,Math.min(12,parseInt(e.target.value,10)||1)); };
+    el.onclick=e=>{ const b=e.target.closest('[data-a]'); if(!b) return; const a=b.dataset.a, P=MD.parts;
+      if(a==='rm') P.splice(i,1); else if(a==='up') [P[i-1],P[i]]=[P[i],P[i-1]]; else if(a==='dn') [P[i+1],P[i]]=[P[i],P[i+1]];
+      else if(a==='tu'||a==='td'){ p.semi=normSemi((p.semi||0)+(a==='tu'?1:-1)); p.auto=false; }
+      renderMdParts(); };
+    L.appendChild(el); });
+  $('#mdCount').textContent=MD.parts.length?`${MD.parts.length} parte${MD.parts.length>1?'s':''}`:'';
+}
+let mdSrcSong=null;
+function renderMdSearch(){ const q=norm($('#mdQ').value.trim()), R=$('#mdResults'); R.innerHTML=''; if(!q) return;
+  const w=q.split(/\s+/); const mk=parseKey(MD.key);
+  SONGS.filter(s=>s._has && !s.medley && w.every(x=>s._q.includes(x))).slice(0,20).forEach(s=>{ const ek=effKey(s); const b=document.createElement('button'); b.className='pres';
+    b.innerHTML=`<span class="k">${ek?keyName(ek.r,ek.minor):'–'}</span><span class="t"><b></b><small></small></span><span class="add">›</span>`; b.querySelector('b').textContent=s.title;
+    b.querySelector('small').textContent=(s.artist||'')+(bpmOf(s)?' · '+bpmOf(s)+' bpm':'')+(ek&&mk&&tonalId(ek)===tonalId(mk)?' · mesmo tom ✓':'');
+    b.onclick=()=>pickMdSource(s); R.appendChild(b); }); }
+$('#mdQ').addEventListener('input', renderMdSearch);
+function pickMdSource(s){ mdSrcSong=s; $('#mdResults').innerHTML=''; $('#mdQ').value='';
+  const secs=splitSections(s.body); const box=$('#mdSrc');
+  box.innerHTML=`<div class="mds-h"><b></b><button class="mini" id="mdSrcClose" aria-label="Fechar">✕</button></div>
+   <div class="mds-secs"></div>
+   <div class="mds-free"><div class="src">Ou selecione um trecho no texto abaixo (arraste com o dedo ou o mouse) e toque em “Adicionar trecho”:</div>
+   <textarea id="mdFree" readonly spellcheck="false"></textarea>
+   <div class="mds-row"><select id="mdFreeLab">${LABELS.map(l=>`<option ${l==='Refrão'?'selected':''}>${l}</option>`).join('')}</select><label class="reps">×<input id="mdFreeReps" type="number" min="1" max="12" value="1"></label><button class="btn primary" id="mdFreeAdd">＋ Adicionar trecho</button></div></div>
+   <button class="btn" id="mdAll" style="margin-top:8px">＋ Música inteira</button>`;
+  box.querySelector('.mds-h b').textContent=s.title+(s.artist?' — '+s.artist:'');
+  const SS=box.querySelector('.mds-secs');
+  secs.forEach(sec=>{ if(!sec.text.trim()) return; const d=document.createElement('div'); d.className='mds';
+    d.innerHTML=`<div class="mds-t"><b></b><button class="btn sm">＋ Adicionar</button></div><div class="cifra mds-body"></div>`;
+    d.querySelector('b').textContent=sec.name+(sec.rep?' · '+sec.rep:''); d.querySelector('.mds-body').innerHTML=renderCifra(sec.text,0,false);
+    d.querySelector('button').onclick=()=>addPart(s, sec.name, guessLabel(sec.name), repsOf(sec.rep), sec.text); SS.appendChild(d); });
+  $('#mdFree').value=s.body;
+  $('#mdSrcClose').onclick=()=>{ box.innerHTML=''; mdSrcSong=null; };
+  $('#mdAll').onclick=()=>secs.forEach(sec=>{ if(sec.text.trim()) addPart(s, sec.name, guessLabel(sec.name), repsOf(sec.rep), sec.text, true); });
+  $('#mdFreeAdd').onclick=()=>{ const ta=$('#mdFree'); let t=ta.value.slice(ta.selectionStart, ta.selectionEnd);
+    if(!t.trim()) return toast('Selecione um trecho do texto primeiro');
+    // expand selection to whole lines so chords stay aligned
+    let st=ta.value.lastIndexOf('\n', ta.selectionStart-1)+1; let en=ta.value.indexOf('\n', ta.selectionEnd-1); if(en<0) en=ta.value.length;
+    // if the first line is lyrics, bring the chord line above it too
+    const firstLine=ta.value.slice(st, (ta.value.indexOf('\n',st)+1||ta.value.length+1)-1);
+    if(!isChordLine(firstLine) && st>0){ const ps=ta.value.lastIndexOf('\n', st-2)+1; const prev=ta.value.slice(ps, st-1); if(isChordLine(prev)) st=ps; }
+    t=ta.value.slice(st,en);
+    t=t.split('\n').filter(l=>!/^\s*\[[^\]]+\]\s*$/.test(l)).join('\n').replace(/^\s*\n|\n\s*$/g,'');
+    addPart(s, 'trecho', $('#mdFreeLab').value, parseInt($('#mdFreeReps').value,10)||1, t); };
+  box.scrollIntoView({block:'nearest'});
+}
+function addPart(s, from, label, reps, text, quiet){ MD.parts.push({songId:s.id, from, label, reps:reps||1, text, semi:autoSemi(s,parseKey(MD.key)), auto:true}); renderMdParts(); if(!quiet) toast(`${label} de "${s.title}" adicionado`);
+  const L=$('#mdParts'); L.scrollTop=L.scrollHeight; }
+function medleyBody(){
+  const mk=parseKey(MD.key), fl=mk?useFlats(mk.r,mk.minor):false; const out=[]; let last=null;
+  MD.parts.forEach(p=>{ const s=SONGS.find(x=>x.id===p.songId);
+    out.push(`[${p.label}]${p.reps>1?' '+p.reps+'x':''}`);
+    if(p.songId!==last && s) out.push('! '+s.title+(s.artist?' — '+s.artist:''));
+    last=p.songId;
+    out.push(p.text.split('\n').map(l=>isChordLine(l)?trLine(l,p.semi||0,fl):l).join('\n'), ''); });
+  return out.join('\n').replace(/\n+$/,'');
+}
+$('#mdSave').onclick=()=>{
+  if(!MD.parts.length) return toast('Adicione pelo menos uma parte');
+  const title=($('#mdTitle').value||'').trim()||'Medley';
+  const titles=[...new Set(MD.parts.map(p=>{ const s=SONGS.find(x=>x.id===p.songId); return s?s.title:''; }).filter(Boolean))];
+  const song={ id: MD.id || 'u'+Date.now().toString(36), custom:true, title, artist:'Medley · '+titles.join(' + '), key:MD.key, pad:'', padAlt:[], bpm:MD.bpm||null, capo:0,
+    note:'', youtube:'', body:medleyBody(), medley:{key:MD.key, parts:MD.parts} };
+  if(MD.id) custom=custom.map(c=>c.id===song.id?song:c); else custom.push(song);
+  delete overrides[song.id]; saveOverrides();
+  if(!uset('custom',custom)) return toast('Sem espaço no aparelho');
+  rebuild(); closePanels(); openSong(song.id, !MD.id); toast('Medley salvo ✔');
+};
+$('#mdPreviewBtn').onclick=()=>{ const w=$('#mdPreview'); const on=w.style.display==='none'||!w.style.display; w.style.display=on?'block':'none';
+  if(on){ const mk=parseKey(MD.key); w.innerHTML='<div class="cifra">'+renderCifra(medleyBody(),0,false)+'</div>'; } };
+$('#newMedleyBtn').onclick=()=>openMedley(null, null);
+
 /* ================= helpers ================= */
 function slug(s){ return norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
 function download(name, text, type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },500); }
@@ -587,7 +761,7 @@ const metro = {
 };
 function drawBeats(b){ const el=$('#beats'); if(el.children.length!==prefs.sig){ el.innerHTML=''; for(let i=0;i<prefs.sig;i++){ const d=document.createElement('i'); if(!i) d.className='first'; el.appendChild(d);} } [...el.children].forEach((d,i)=>d.classList.toggle('on',i===b)); }
 function setPlay(sel,on){ const b=$(sel); b.classList.toggle('on',on); b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.5" height="14" rx="1"/><rect x="13.5" y="5" width="4.5" height="14" rx="1"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'; b.setAttribute('aria-label', on?'Parar':'Tocar'); }
-$('#metroBtn').onclick=()=>metro.toggle();
+$('#metroBtn').onclick=()=>{ metro.toggle(); if(typeof syncStageMetro==='function') syncStageMetro(); };
 function updateBpm(save=true){ bpm=Math.max(30,Math.min(260,Math.round(bpm))); $('#bpmVal').textContent=bpm; $('#bpmInput').value=bpm;
   if(cur){ const orig=cur.bpm; $('#bpmSrc').textContent = orig ? (bpm===orig ? (cur.bpmSrc==='songbpm'?'Original (via songbpm.com — confira)':'Original da setlist') : `Original: ${orig}`) : 'Música sem BPM na setlist — ajuste aqui'; }
   if(save && cur){ setOv(cur.id,{bpm: bpm!==(cur.bpm||120) ? bpm : undefined}); const f=$$('#facts .fact'); f.forEach(x=>{ if(x.firstChild && x.firstChild.textContent==='BPM') x.querySelector('b').textContent=bpm; }); }
@@ -686,7 +860,8 @@ $$('.panel').forEach(p=>p.addEventListener('click',e=>{ if(e.target===p || e.tar
 $('#metroMore').onclick=()=>{ updateBpm(false); openPanel('#metroPanel'); };
 $('#padMore').onclick=()=>openPanel('#padPanel');
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){ closePanels(); return; }
+  if(e.key==='Escape'){ if($('#stage').classList.contains('open')) closeStage(); closePanels(); return; }
+  if($('#stage').classList.contains('open')){ if(e.key===' '){ e.preventDefault(); scrollOn?stopScroll():startScroll(); } else if(e.key==='+'||e.key==='=') stageFont(prefs.stageFont+2); else if(e.key==='-') stageFont(prefs.stageFont-2); return; }
   if(!cur || document.body.classList.contains('modal') || /input|select|textarea/i.test(e.target.tagName)) return;
   if(e.key===' '){ e.preventDefault(); metro.toggle(); } else if(e.key==='p') pad.toggle();
   else if(e.key==='ArrowUp'){ bpm++; updateBpm(); } else if(e.key==='ArrowDown'){ bpm--; updateBpm(); } });

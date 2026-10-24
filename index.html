@@ -270,6 +270,52 @@ input[type=range]{width:150px;accent-color:var(--accent)}
 .keygrp{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
 @media (max-width:560px){ .plrow{flex-wrap:wrap} .plrow .go{flex:1 1 calc(100% - 34px)} .plrow .kctl{margin-left:30px;margin-right:auto} .keygrp label{display:block!important} .plrow .kctl .mini{width:28px;height:28px} .plhead{flex-direction:column;align-items:stretch} }
 
+
+.btn.edit.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.sm{height:32px;padding:0 10px;font-size:13px}
+.stage{position:fixed;inset:0;z-index:70;background:var(--bg);overflow:auto;display:none;-webkit-overflow-scrolling:touch;--sfs:24px}
+.stage.open{display:block}
+.stage-bar{position:sticky;top:0;display:flex;align-items:center;gap:6px;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:2;opacity:.35;transition:opacity .2s}
+.stage-bar:hover,.stage-bar:focus-within,.stage:not(.scrolling) .stage-bar{opacity:1}
+.stage-t{flex:1;min-width:0}
+@media (max-width:560px){ .stage-bar{flex-wrap:wrap} .stage-t{order:-1;flex:1 1 calc(100% - 50px)} .sbtn{flex:1;min-width:0;padding:0} #stageClose{flex:0 0 38px;order:-2} }.stage-t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage-t span{font-size:12px;color:var(--muted)}
+.sbtn{min-width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:700}
+.sbtn.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.stage-cifra{font-size:var(--sfs);padding:18px 20px 60vh;min-width:max-content}
+.suggest{margin-top:22px;border-top:1px solid var(--line);padding-top:16px}
+.sg-head b{display:block;font-size:16px}.sg-head small{color:var(--muted);font-size:13px}
+.sg-head{margin-bottom:10px}
+.sg{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.sg-open{flex:1;min-width:0;display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 10px}
+.sg-open .k{font-family:var(--mono);font-weight:700;color:var(--accent);min-width:36px}
+.sg-open .t{min-width:0}.sg-open b{display:block;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sg-open small{display:block;color:var(--muted);font-size:12px}
+.sg-more summary{cursor:pointer;color:var(--muted);font-size:13.5px;margin:8px 0}
+.mdgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mdcol{min-width:0;display:flex;flex-direction:column}
+.mdcol-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.mdparts{display:grid;gap:8px;max-height:52vh;overflow:auto;padding-right:2px}
+.mdp{border:1px solid var(--line);border-radius:12px;background:var(--surface-2);padding:8px}
+.mdp-h{display:flex;align-items:center;gap:6px}
+.mdp-h .n{font-weight:700;color:var(--muted);width:20px;text-align:center}
+.mdp-h select{height:34px;border-radius:9px;border:1px solid var(--line);background:var(--surface);padding:0 6px;font-weight:600;max-width:150px}
+.reps{display:inline-flex;align-items:center;gap:3px;font-weight:700;color:var(--muted)}
+.reps input{width:46px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--surface);text-align:center;font-weight:700}
+.mdp-src{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin:6px 0 4px}
+.mdp-src .tr{display:flex;align-items:center;gap:3px}.mdp-src .tr b{font-family:var(--mono);color:var(--accent);min-width:34px;text-align:center}
+.mdp-body,.mds-body{font-size:12px;max-height:150px;overflow:auto;background:var(--surface);border-radius:8px;padding:6px 8px}
+.mdq{width:100%;height:44px;border-radius:11px;border:1px solid var(--line);background:var(--surface-2);padding:0 12px;font-size:15px;margin-bottom:6px;outline:none}
+#mdSrc{max-height:52vh;overflow:auto}
+.mds-h{display:flex;justify-content:space-between;align-items:center;margin:4px 0 8px}
+.mds{border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:8px;background:var(--surface)}
+.mds-t{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:13.5px}
+.mds-body{background:var(--surface-2)}
+.mds-free textarea{width:100%;height:220px;margin:6px 0;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);font-family:var(--mono);font-size:12.5px;line-height:1.35;padding:8px;white-space:pre;overflow:auto;color:var(--text)}
+.mds-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mds-row select{height:40px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);padding:0 8px}
+.mdprev{margin-top:10px;max-height:40vh;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface)}
+.mdprev .cifra{font-size:13px}
+@media (max-width:760px){ .mdgrid{grid-template-columns:1fr} .mdparts,#mdSrc{max-height:none} }
+
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
 </style>
 </head>
@@ -303,6 +349,7 @@ input[type=range]{width:150px;accent-color:var(--accent)}
       <button class="chip" data-f="ficha" aria-pressed="false">Só tom/BPM</button>
       <button class="chip" data-f="minhas" aria-pressed="false">Minhas / editadas</button>
       <span class="spacer"></span>
+      <button class="btn new" id="newMedleyBtn">🎼 Novo medley</button>
       <button class="btn primary new" id="newBtn">＋ Nova música</button>
     </div>
     <div class="count" id="count"></div>
@@ -336,12 +383,14 @@ input[type=range]{width:150px;accent-color:var(--accent)}
       </div>
       <button class="btn edit" id="editBtn">✎ Editar tom, capo, BPM…</button>
       <button class="btn edit" id="addPlBtn">＋ Playlist</button>
+      <button class="btn edit primary" id="stageBtn" title="Mostrar a cifra na tela toda">⛶ Tela cheia</button>
       <button class="reset" id="resetBtn">Restaurar original</button>
     </div>
     <div class="capo-info" id="capoInfo"></div>
     <div class="sheet"><div class="cifra" id="cifra"></div></div>
     <div class="links" id="links"></div>
     <div class="pager" id="pager"></div>
+    <div class="suggest" id="suggest"></div>
   </section>
 </main>
 
@@ -466,6 +515,39 @@ input[type=range]{width:150px;accent-color:var(--accent)}
     <div class="presults" id="addPlList"></div>
     <div class="addrow"><input id="addPlName" maxlength="80"><button class="btn primary" id="addPlCreate">Criar nova</button></div>
     <div class="close-row"><button class="btn" data-close>Cancelar</button></div>
+  </div>
+</div>
+
+<div class="stage" id="stage" role="dialog" aria-modal="true" aria-label="Cifra em tela cheia">
+  <div class="stage-bar">
+    <button class="sbtn" id="stageClose" aria-label="Sair da tela cheia">✕</button>
+    <div class="stage-t"><b id="stageTitle"></b><span id="stageKey"></span></div>
+    <button class="sbtn" id="stageFDown" aria-label="Diminuir letra">A−</button>
+    <button class="sbtn" id="stageFUp" aria-label="Aumentar letra">A+</button>
+    <button class="sbtn" id="stageFit" title="Ajustar à largura">↔</button>
+    <button class="sbtn" id="stageSlower" title="Rolagem mais lenta">«</button>
+    <button class="sbtn" id="stageScroll" title="Rolagem automática">⇣</button>
+    <button class="sbtn" id="stageFaster" title="Rolagem mais rápida">»</button>
+    <button class="sbtn" id="stageMetro" title="Metrônomo">♩</button>
+  </div>
+  <div class="cifra stage-cifra" id="stageCifra"></div>
+</div>
+
+<div class="panel big" id="medleyPanel" role="dialog" aria-modal="true" aria-label="Editor de medley">
+  <div class="card">
+    <div class="ed-head"><h3>🎼 Editor de medley</h3><button class="icon-btn" data-close aria-label="Fechar">✕</button></div>
+    <p class="src" style="margin:-6px 0 10px">Monte o medley juntando partes de várias músicas. Cada parte é transposta automaticamente para o tom do medley (dá pra ajustar com − / +). Salvo no usuário atual.</p>
+    <div class="fgrid"><label class="f wide">Nome do medley<input id="mdTitle" maxlength="120"></label><label class="f">Tom do medley<select id="mdKey"></select></label><label class="f">BPM<input id="mdBpm" type="number" inputmode="numeric" min="30" max="260"></label></div>
+    <div class="mdgrid">
+      <div class="mdcol"><div class="mdcol-h"><b>Partes do medley</b><span class="src" id="mdCount"></span></div><div class="mdparts" id="mdParts"></div></div>
+      <div class="mdcol"><div class="mdcol-h"><b>Adicionar de outra música</b></div>
+        <input id="mdQ" type="search" placeholder="Buscar música…" autocomplete="off" class="mdq">
+        <div class="presults" id="mdResults"></div>
+        <div id="mdSrc"></div>
+      </div>
+    </div>
+    <div class="mdprev" id="mdPreview" style="display:none"></div>
+    <div class="ed-actions"><button class="btn" id="mdPreviewBtn">👁 Pré-visualizar</button><span class="spacer"></span><button class="btn" data-close>Cancelar</button><button class="btn primary" id="mdSave">Salvar medley</button></div>
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
