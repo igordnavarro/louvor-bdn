@@ -72,7 +72,9 @@ let overrides = uget('overrides', {});
 const norm = s => (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function rebuild(){
   SONGS = BASE.concat(custom);
-  SONGS.forEach(s => { s._q = norm(s.title+' '+s.artist); s._has = !!(s.body && s.body.trim()); });
+  SONGS.forEach(s => { s._q = norm(s.title+' '+s.artist); s._has = !!(s.body && s.body.trim());
+    s._lines = s._has ? s.body.split('\n').filter(l=>l.trim() && !isChordLine(l) && !/^\s*\[[^\]]*\]\s*$/.test(l)).map(l=>l.replace(/^!\s*/,'').trim()) : [];
+    s._lyr = norm(s._lines.join(' ')).replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' '); });
   SONGS.sort((a,b)=> a.title.localeCompare(b.title,'pt',{sensitivity:'base'}) || (a.artist||'').localeCompare(b.artist||'','pt'));
 }
 rebuild();
@@ -131,26 +133,47 @@ $('#importFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value='
 
 /* ================= library ================= */
 function renderList(){
-  const q = norm($('#q').value.trim());
+  const raw=$('#q').value.trim(), q = norm(raw);
   $('#qClear').style.display = q ? 'block':'none';
   const words = q.split(/\s+/).filter(Boolean);
-  visible = SONGS.filter(s => (filter==='all' || (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has)) && words.every(w => s._q.includes(w)));
-  $('#count').textContent = visible.length + (visible.length===1?' música':' músicas') + (profiles.length>1?` · usuário ${profile}`:'');
+  const okFilter = s => filter==='all' || (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has);
+  const byTitle = SONGS.filter(s => okFilter(s) && words.every(w => s._q.includes(w)));
+  // search inside the lyrics (phrase first, then all words)
+  let byLyric=[];
+  const phrase = q.replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();
+  if(phrase.length>=3){ const ids=new Set(byTitle.map(s=>s.id));
+    byLyric = SONGS.filter(s => !ids.has(s.id) && okFilter(s) && s._lyr && (s._lyr.includes(phrase) || words.every(w=>s._lyr.includes(w)))); }
+  visible = byTitle.concat(byLyric);
+  $('#count').textContent = (q ? `${byTitle.length} no título/artista` + (byLyric.length?` · ${byLyric.length} na letra`:'') : visible.length + (visible.length===1?' música':' músicas')) + (profiles.length>1?` · usuário ${profile}`:'');
   const L = $('#list'); L.innerHTML='';
-  if(!visible.length){ L.innerHTML = '<div class="empty">Nenhuma música encontrada.<br>Tente outro nome ou artista — ou crie uma nova no botão “Nova música”.</div>'; return; }
+  if(!visible.length){ L.innerHTML = '<div class="empty">Nenhuma música encontrada — nem no título nem na letra.<br>Tente outra palavra, ou crie uma nova no botão “Nova música”.</div>'; return; }
   const frag=document.createDocumentFragment();
-  for(const s of visible){
+  const item = (s, snippet) => {
     const o = ov(s), pk = parseKey(s.key);
     const k = pk ? keyName(pk.r+(o.semi||0), pk.minor) : '–';
     const b = bpmOf(s);
     const el=document.createElement('button'); el.className='item';
-    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span></div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.custom?'<span class="tag mine">minha</span>':(s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>')}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}</div>`;
+    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span>${snippet?'<em class="snip"></em>':''}</div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.medley?'<span class="tag mine">medley</span>':s.custom?'<span class="tag mine">minha</span>':(s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>')}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}</div>`;
     el.querySelector('b').textContent = s.title;
     el.querySelector('.t span').textContent = s.artist || '—';
+    if(snippet) el.querySelector('.snip').innerHTML = snippet;
     el.onclick = () => openSong(s.id);
     frag.appendChild(el);
-  }
+  };
+  byTitle.forEach(s=>item(s));
+  if(byLyric.length){ const h=document.createElement('div'); h.className='list-h'; h.textContent=`Encontrado na letra (${byLyric.length})`; frag.appendChild(h);
+    byLyric.forEach(s=>item(s, lyricSnippet(s, phrase, words))); }
   L.appendChild(frag);
+}
+function lyricSnippet(s, phrase, words){
+  const clean = l => norm(l).replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ');
+  let line = s._lines.find(l=>clean(l).includes(phrase)) || s._lines.find(l=>words.some(w=>clean(l).includes(w))) || '';
+  let h=esc(line);
+  // highlight matched words (accent-insensitive)
+  const n=norm(line); const marks=[];
+  (n.includes(phrase)?[phrase]:words).forEach(w=>{ let i=n.indexOf(w); while(i>=0 && w){ marks.push([i,i+w.length]); i=n.indexOf(w,i+w.length); } });
+  if(marks.length && n.length===line.length){ marks.sort((a,b)=>a[0]-b[0]); let out='',p=0; marks.forEach(([a,b])=>{ if(a<p) return; out+=esc(line.slice(p,a))+'<mark>'+esc(line.slice(a,b))+'</mark>'; p=b; }); h=out+esc(line.slice(p)); }
+  return '“'+h+'”';
 }
 $('#q').addEventListener('input', renderList);
 $('#qClear').onclick = () => { $('#q').value=''; renderList(); $('#q').focus(); };
@@ -796,6 +819,37 @@ function download(name, text, type){ const a=document.createElement('a'); a.href
 function songToTxt(s){ return [`@title ${s.title}`,`@artist ${s.artist||''}`,`@tom ${s.key||''}`,`@pad ${s.pad||''}`,`@bpm ${s.bpm||''}`].concat(s.capo?[`@capo ${s.capo}`]:[]).concat(s.note?[`@note ${s.note}`]:[]).concat(s.youtube?[`@youtube ${s.youtube}`]:[]).join('\n')+'\n\n'+(s.body||'')+'\n'; }
 let toastT=0; function toast(t){ const el=$('#toast'); el.textContent=t; el.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),2200); }
 
+
+/* ----- metronome sounds (synthesized; accent = higher & louder) ----- */
+window.__metroSound=(...a)=>metroSound(...a);
+function metroSound(a, out, t, lvl, kind){
+  const acc=lvl>=2, mid=lvl>1&&!acc, sub=lvl<1, vol = acc?1 : mid?.8 : sub?.3 : .62;
+  const gainEnv=(peak,att,dec)=>{ const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(Math.max(peak,0.0002),t+att); g.gain.exponentialRampToValueAtTime(0.0001,t+dec); g.connect(out); return g; };
+  const osc=(type,f,dest,dur,f2,glide)=>{ const o=a.createOscillator(); o.type=type; o.frequency.setValueAtTime(f,t); if(f2) o.frequency.exponentialRampToValueAtTime(f2,t+(glide||0.03)); o.connect(dest); o.start(t); o.stop(t+dur); return o; };
+  const noise=(dur,dest,fType,fFreq,q)=>{ const len=Math.max(1,Math.floor(a.sampleRate*dur)), buf=a.createBuffer(1,len,a.sampleRate), d=buf.getChannelData(0); for(let i=0;i<len;i++) d[i]=Math.random()*2-1;
+    const n=a.createBufferSource(); n.buffer=buf; const fl=a.createBiquadFilter(); fl.type=fType; fl.frequency.value=fFreq; fl.Q.value=q||1; n.connect(fl); fl.connect(dest); n.start(t); };
+  switch(kind){
+    case 'soft': { // marimba-like: warm sine with its octave, slow-ish attack, no sharp transient
+      const f=acc?523:440; const g=gainEnv(0.9*vol,0.008,0.22); const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=1500; lp.connect(g);
+      osc('sine',f,lp,0.25); const g2=a.createGain(); g2.gain.value=0.18; g2.connect(lp); osc('sine',f*4,g2,0.06); return; }
+    case 'low': { // deep, padded kick-drum "tum"
+      const f=acc?150:110; const g=gainEnv(1.1*vol,0.003,0.2); osc('sine',f*2.2,g,0.22,f,0.045);
+      const gn=gainEnv(0.25*vol,0.001,0.02); noise(0.02,gn,'lowpass',900); return; }
+    case 'cowbell': { // acoustic cowbell "sharp hit": metallic inharmonic partials + stick click
+      const k=acc?1.12:1; const hp=a.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=380; hp.connect(out);
+      const body=a.createGain(); body.gain.setValueAtTime(0.0001,t); body.gain.exponentialRampToValueAtTime(0.75*vol,t+0.0015); body.gain.exponentialRampToValueAtTime(0.22*vol,t+0.045); body.gain.exponentialRampToValueAtTime(0.0001,t+0.38); body.connect(hp);
+      [[587,1],[845,.85],[1580,.35],[2390,.22],[3150,.12]].forEach(([f,amp],i)=>{ const g=a.createGain(); g.gain.value=amp*(i<2?0.5:0.35); g.connect(body); osc(i<2?'square':'sine',f*k,g,0.42); });
+      const bp=a.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2600*k; bp.Q.value=2.5; const gn=gainEnv(0.5*vol,0.0008,0.012); bp.connect(gn); noise(0.012,bp,'highpass',1500); return; }
+    case 'block': { // wood block: hollow resonant knock
+      const f=acc?1180:880; const g=gainEnv(0.95*vol,0.0015,0.075); const bp=a.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=f; bp.Q.value=6; bp.connect(g);
+      osc('sine',f*1.18,bp,0.09,f,0.01); osc('triangle',f,bp,0.09); const gn=gainEnv(0.3*vol,0.0008,0.012); noise(0.012,gn,'bandpass',f*2.5,3); return; }
+    case 'beep': { const g=gainEnv(0.7*vol,0.002,0.08); osc('sine',acc?1320:990,g,0.1); return; }
+    default: { // click: very short bright tick
+      const g=gainEnv(0.6*vol,0.0005,0.012); const hp=a.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=acc?2500:1800; hp.connect(g); noise(0.012,hp,'bandpass',acc?5200:4000,1.2);
+      const g2=gainEnv(0.25*vol,0.0005,0.02); osc('square',acc?3000:2200,g2,0.03); }
+  }
+}
+
 /* ================= audio ================= */
 let AC=null, master=null;
 function ctx(){ if(!AC){ AC=new (window.AudioContext||window.webkitAudioContext)(); master=AC.createGain(); master.connect(AC.destination); } if(AC.state==='suspended') AC.resume(); return AC; }
@@ -809,37 +863,7 @@ const metro = {
     while(this.next < a.currentTime+0.12){ const b=this.beat%per, main=b%prefs.sub===0, bn=Math.floor(b/prefs.sub);
       const lvl = !main ? 0.45 : (!prefs.accent ? 1 : (b===0 ? 2 : (prefs.sig===6 && bn===3 ? 1.5 : 1)));
       this.click(this.next,lvl); if(main) this.queue.push({t:this.next,b:bn}); this.next+=spb; this.beat++; } },
-  click(t,lvl){ const a=AC, out=this.gain, acc=lvl>=2, mid=lvl>1 && !acc, vol=(acc?1:mid?.8:lvl>=1?.62:.28);
-    const env=(node,peak,dec)=>{ const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+0.002); g.gain.exponentialRampToValueAtTime(0.0001,t+dec); node.connect(g); g.connect(out); return g; };
-    if(prefs.snd==='soft'){
-      // soft, low tick: rounded sine with gentle attack, filtered
-      const o=a.createOscillator(); o.type='sine'; const fq=acc?620:(mid?560:520); o.frequency.value=fq;
-      const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=1400; o.connect(lp);
-      const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.85*vol,t+0.006); g.gain.exponentialRampToValueAtTime(0.0001,t+0.11);
-      lp.connect(g); g.connect(out); o.start(t); o.stop(t+0.13); return; }
-    if(prefs.snd==='low'){
-      // deep "tok" like a soft tom / rim on a cushion
-      const o=a.createOscillator(); o.type='triangle'; const fq=acc?260:(mid?230:210); o.frequency.setValueAtTime(fq*1.6,t); o.frequency.exponentialRampToValueAtTime(fq,t+0.03);
-      const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=900; o.connect(lp);
-      const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(1.0*vol,t+0.004); g.gain.exponentialRampToValueAtTime(0.0001,t+0.16);
-      lp.connect(g); g.connect(out); o.start(t); o.stop(t+0.18); return; }
-    if(prefs.snd==='cowbell'){
-      // classic 2-oscillator cowbell (808 style) through a band-pass
-      const bp=a.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=acc?1100:950; bp.Q.value=1.4;
-      const k=acc?1.06:1; [562*k,845*k].forEach(fq=>{ const o=a.createOscillator(); o.type='square'; o.frequency.value=fq; o.connect(bp); o.start(t); o.stop(t+0.5); });
-      const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.55*vol,t+0.002); g.gain.exponentialRampToValueAtTime(0.18*vol,t+0.06); g.gain.exponentialRampToValueAtTime(0.0001,t+0.42);
-      bp.connect(g); g.connect(out); return; }
-    if(prefs.snd==='block'){
-      // wood block: short resonant tone + tiny noise transient
-      const o=a.createOscillator(); o.type='sine'; const fq=acc?2050:(mid?1800:1600); o.frequency.setValueAtTime(fq*1.25,t); o.frequency.exponentialRampToValueAtTime(fq,t+0.012);
-      env(o,0.9*vol,0.07); o.start(t); o.stop(t+0.09);
-      const o2=a.createOscillator(); o2.type='triangle'; o2.frequency.value=fq*2.7; env(o2,0.18*vol,0.03); o2.start(t); o2.stop(t+0.05);
-      const len=Math.floor(a.sampleRate*0.012), buf=a.createBuffer(1,len,a.sampleRate), d=buf.getChannelData(0); for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*(1-i/len);
-      const n=a.createBufferSource(); n.buffer=buf; const bp=a.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=3200; bp.Q.value=2; n.connect(bp); env(bp,0.35*vol,0.015); n.start(t); return; }
-    const o=a.createOscillator(); let f,dd,type;
-    if(prefs.snd==='beep'){ type='sine'; f=acc?1320:(mid?1100:880); dd=0.06; }
-    else { type='square'; f=acc?2000:(mid?1700:1400); dd=0.022; }
-    o.type=type; o.frequency.setValueAtTime(f,t); env(o,vol*(type==='square'?0.32:0.9),dd); o.start(t); o.stop(t+dd+0.02); },
+  click(t,lvl,ctxOverride,outOverride){ return metroSound(ctxOverride||AC, outOverride||this.gain, t, lvl, prefs.snd); },
   draw(){ if(!this.on) return; let shown=null; while(this.queue.length && this.queue[0].t<=AC.currentTime) shown=this.queue.shift(); if(shown) drawBeats(shown.b); this.raf=requestAnimationFrame(()=>this.draw()); }
 };
 function drawBeats(b){ const el=$('#beats'); if(el.children.length!==prefs.sig){ el.innerHTML=''; for(let i=0;i<prefs.sig;i++){ const d=document.createElement('i'); if(!i) d.className='first'; el.appendChild(d);} } [...el.children].forEach((d,i)=>d.classList.toggle('on',i===b)); }
@@ -857,7 +881,7 @@ let taps=[];
 $('#tapBtn').onclick=()=>{ const t=performance.now(); taps=taps.filter(x=>t-x<2500); taps.push(t); if(taps.length>=3){ const d=[]; for(let i=1;i<taps.length;i++) d.push(taps[i]-taps[i-1]); bpm=60000/(d.reduce((a,b)=>a+b)/d.length); updateBpm(); } };
 function seg(id,key,cb){ const el=$(id); const sync=()=>el.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.v)===String(prefs[key])));
   el.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; const v=b.dataset.v; prefs[key]=isNaN(+v)?v:+v; savePrefs(); sync(); cb&&cb(); }; sync(); }
-seg('#sigSeg','sig',()=>drawBeats(-1)); seg('#subSeg','sub'); seg('#sndSeg','snd',()=>{ if(!metro.on){ const a=ctx(); if(!metro.gain){ metro.gain=a.createGain(); metro.gain.connect(master);} metro.gain.gain.value=prefs.mvol; metro.click(a.currentTime+0.02, prefs.accent?2:1); } }); seg('#accSeg','accent');
+seg('#sigSeg','sig',()=>drawBeats(-1)); seg('#subSeg','sub'); seg('#sndSeg','snd',()=>{ if(!metro.on){ const a=ctx(); if(!metro.gain){ metro.gain=a.createGain(); metro.gain.connect(master);} metro.gain.gain.value=prefs.mvol; metro.click(a.currentTime+0.02, prefs.accent?2:1); metro.click(a.currentTime+0.02+60/bpm, 1); } }); seg('#accSeg','accent');
 $('#metroVol').value=prefs.mvol; $('#metroVol').oninput=e=>{ prefs.mvol=+e.target.value; savePrefs(); if(metro.gain) metro.gain.gain.value=prefs.mvol; };
 
 /* pad */
