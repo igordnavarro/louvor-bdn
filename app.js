@@ -89,7 +89,7 @@ function setOv(id, patch){ const o={...(overrides[id]||{}), ...patch};
 /* ================= prefs / state ================= */
 const prefs = store.get('prefs', {});
 if(prefs.snd==='wood') prefs.snd='block';
-Object.entries({font:15, sig:4, sub:1, snd:'click', mvol:.7, pvol:.55, tone:'warm', third:0}).forEach(([k,v])=>{ if(prefs[k]==null) prefs[k]=v; });
+Object.entries({font:15, sig:4, sub:1, snd:'soft', accent:1, mvol:.7, pvol:.55, tone:'warm', third:0}).forEach(([k,v])=>{ if(prefs[k]==null) prefs[k]=v; });
 function savePrefs(){ store.set('prefs', prefs); }
 document.documentElement.style.setProperty('--fs', prefs.font+'px');
 let cur=null, semi=0, bpm=120, filter='all', visible=[];
@@ -736,10 +736,22 @@ const metro = {
   toggle(){ this.on?this.stop():this.start(); },
   tick(){ const a=AC, spb=60/bpm/prefs.sub, per=prefs.sig*prefs.sub;
     while(this.next < a.currentTime+0.12){ const b=this.beat%per, main=b%prefs.sub===0, bn=Math.floor(b/prefs.sub);
-      const lvl = b===0 ? 2 : (prefs.sig===6 && bn===3 && main ? 1.5 : (main?1:0.45));
+      const lvl = !main ? 0.45 : (!prefs.accent ? 1 : (b===0 ? 2 : (prefs.sig===6 && bn===3 ? 1.5 : 1)));
       this.click(this.next,lvl); if(main) this.queue.push({t:this.next,b:bn}); this.next+=spb; this.beat++; } },
   click(t,lvl){ const a=AC, out=this.gain, acc=lvl>=2, mid=lvl>1 && !acc, vol=(acc?1:mid?.8:lvl>=1?.62:.28);
     const env=(node,peak,dec)=>{ const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+0.002); g.gain.exponentialRampToValueAtTime(0.0001,t+dec); node.connect(g); g.connect(out); return g; };
+    if(prefs.snd==='soft'){
+      // soft, low tick: rounded sine with gentle attack, filtered
+      const o=a.createOscillator(); o.type='sine'; const fq=acc?620:(mid?560:520); o.frequency.value=fq;
+      const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=1400; o.connect(lp);
+      const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.85*vol,t+0.006); g.gain.exponentialRampToValueAtTime(0.0001,t+0.11);
+      lp.connect(g); g.connect(out); o.start(t); o.stop(t+0.13); return; }
+    if(prefs.snd==='low'){
+      // deep "tok" like a soft tom / rim on a cushion
+      const o=a.createOscillator(); o.type='triangle'; const fq=acc?260:(mid?230:210); o.frequency.setValueAtTime(fq*1.6,t); o.frequency.exponentialRampToValueAtTime(fq,t+0.03);
+      const lp=a.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=900; o.connect(lp);
+      const g=a.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(1.0*vol,t+0.004); g.gain.exponentialRampToValueAtTime(0.0001,t+0.16);
+      lp.connect(g); g.connect(out); o.start(t); o.stop(t+0.18); return; }
     if(prefs.snd==='cowbell'){
       // classic 2-oscillator cowbell (808 style) through a band-pass
       const bp=a.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=acc?1100:950; bp.Q.value=1.4;
@@ -774,7 +786,7 @@ let taps=[];
 $('#tapBtn').onclick=()=>{ const t=performance.now(); taps=taps.filter(x=>t-x<2500); taps.push(t); if(taps.length>=3){ const d=[]; for(let i=1;i<taps.length;i++) d.push(taps[i]-taps[i-1]); bpm=60000/(d.reduce((a,b)=>a+b)/d.length); updateBpm(); } };
 function seg(id,key,cb){ const el=$(id); const sync=()=>el.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.v)===String(prefs[key])));
   el.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; const v=b.dataset.v; prefs[key]=isNaN(+v)?v:+v; savePrefs(); sync(); cb&&cb(); }; sync(); }
-seg('#sigSeg','sig',()=>drawBeats(-1)); seg('#subSeg','sub'); seg('#sndSeg','snd');
+seg('#sigSeg','sig',()=>drawBeats(-1)); seg('#subSeg','sub'); seg('#sndSeg','snd',()=>{ if(!metro.on){ const a=ctx(); if(!metro.gain){ metro.gain=a.createGain(); metro.gain.connect(master);} metro.gain.gain.value=prefs.mvol; metro.click(a.currentTime+0.02, prefs.accent?2:1); } }); seg('#accSeg','accent');
 $('#metroVol').value=prefs.mvol; $('#metroVol').oninput=e=>{ prefs.mvol=+e.target.value; savePrefs(); if(metro.gain) metro.gain.gain.value=prefs.mvol; };
 
 /* pad */

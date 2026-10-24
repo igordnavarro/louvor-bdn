@@ -316,6 +316,8 @@ input[type=range]{width:150px;accent-color:var(--accent)}
 .mdprev .cifra{font-size:13px}
 @media (max-width:760px){ .mdgrid{grid-template-columns:1fr} .mdparts,#mdSrc{max-height:none} }
 
+.seg.wrap{flex-wrap:wrap;justify-content:flex-end;max-width:260px}
+.snd-row{align-items:flex-start}
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
 </style>
 </head>
@@ -427,7 +429,8 @@ input[type=range]{width:150px;accent-color:var(--accent)}
     <div class="row"><div class="l">Toque no ritmo<small>Toque 4× ou mais no tempo da música</small></div><button class="btn" id="tapBtn">Tap</button></div>
     <div class="row"><div class="l">Compasso</div><div class="seg" id="sigSeg"><button data-v="4">4/4</button><button data-v="3">3/4</button><button data-v="6">6/8</button><button data-v="2">2/4</button></div></div>
     <div class="row"><div class="l">Subdivisão</div><div class="seg" id="subSeg"><button data-v="1">♩</button><button data-v="2">♪♪</button></div></div>
-    <div class="row"><div class="l">Som</div><div class="seg" id="sndSeg"><button data-v="click">Click</button><button data-v="cowbell">Cowbell</button><button data-v="block">Bloco</button><button data-v="beep">Bip</button></div></div>
+    <div class="row snd-row"><div class="l">Som<small>Toque para ouvir</small></div><div class="seg wrap" id="sndSeg"><button data-v="soft">Suave</button><button data-v="low">Grave</button><button data-v="block">Bloco</button><button data-v="cowbell">Cowbell</button><button data-v="click">Click</button><button data-v="beep">Bip</button></div></div>
+    <div class="row"><div class="l">Acentuar o 1º tempo<small>Desligado = todas as batidas com o mesmo som</small></div><div class="seg" id="accSeg"><button data-v="1">Sim</button><button data-v="0">Não</button></div></div>
     <div class="row"><div class="l">Volume</div><input type="range" id="metroVol" min="0" max="1" step="0.01"></div>
     <div class="close-row"><button class="btn primary" data-close>Pronto</button></div>
   </div>
