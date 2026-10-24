@@ -22,6 +22,11 @@ App web do ministério de louvor (Bola de Neve) com **cifras, tom, BPM e pads de
 - **Tela cheia** (⛶) só com a cifra: letra maior/menor, ajustar à largura, rolagem automática e metrônomo.
 - **Medleys**: crie a partir de qualquer música, juntando refrão, ponte ou qualquer trecho de outras; escolha o rótulo (refrão, ponte…), quantas vezes repete, e tudo é transposto para o tom do medley.
 - **Sugestões de medley** em cada música: músicas do repertório no mesmo tom (ou relativo) e com BPM próximo.
+- **Pads offline**: suba seus arquivos de áudio (MP3/M4A/WAV) — ficam guardados no aparelho; se faltar algum tom, o app ajusta a afinação do mais próximo. Também dá pra usar **sua playlist de pads do YouTube** (o app reconhece o tom pelo título).
+- **Playlist ao vivo**: botão "Próxima", e chaves "Pad segue / Metrônomo segue" — ao trocar de música eles continuam tocando no novo tom/BPM (ou param, se desligado).
+- **Favoritas** por usuário, e lista **agrupada por artista**.
+- **Importar PowerPoint** (.pptx): lê o texto e as imagens dos slides; vários slides viram várias músicas.
+- **Instalar como app**: aviso na primeira vez e botão ⬇ no topo.
 - Metrônomo com sons de **click, cowbell, bloco sonoro e bip**.
 
 Dica: no celular, use "Adicionar à tela inicial" para abrir como app.

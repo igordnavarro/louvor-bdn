@@ -69,6 +69,8 @@ const BASE = (window.SONGS||[]).map(s => ({...s, id:String(s.id)}));
 let custom = uget('custom', []);
 let SONGS = [];
 let overrides = uget('overrides', {});
+let favs = new Set(uget('favs', []));
+function toggleFav(id){ favs.has(id)?favs.delete(id):favs.add(id); uset('favs',[...favs]); }
 const norm = s => (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function rebuild(){
   SONGS = BASE.concat(custom);
@@ -106,27 +108,28 @@ function renderProfiles(){
     row.querySelector('.av').textContent=(p[0]||'?').toUpperCase(); row.querySelector('.nm').textContent=p;
     row.querySelector('.pick').onclick=()=>switchProfile(p);
     row.querySelector('.ren').onclick=()=>{ const n=(prompt('Novo nome do usuário:', p)||'').trim(); if(!n||n===p) return; if(profiles.includes(n)) return toast('Já existe um usuário com esse nome');
-      ['overrides','custom','padchoice','playlists'].forEach(k=>{ const v=store.get('u:'+p+':'+k,null); if(v!=null){ store.set('u:'+n+':'+k,v); store.del('u:'+p+':'+k);} });
+      ['overrides','custom','padchoice','playlists','favs'].forEach(k=>{ const v=store.get('u:'+p+':'+k,null); if(v!=null){ store.set('u:'+n+':'+k,v); store.del('u:'+p+':'+k);} });
       profiles=profiles.map(x=>x===p?n:x); store.set('profiles',profiles); if(profile===p){ profile=n; store.set('profile',n);} renderProfiles(); renderProfileBtn(); };
     const d=row.querySelector('.del'); if(d) d.onclick=()=>{ if(!confirm(`Excluir o usuário "${p}" e tudo que ele salvou neste aparelho?`)) return;
-      ['overrides','custom','padchoice','playlists'].forEach(k=>store.del('u:'+p+':'+k)); profiles=profiles.filter(x=>x!==p); store.set('profiles',profiles);
+      ['overrides','custom','padchoice','playlists','favs'].forEach(k=>store.del('u:'+p+':'+k)); profiles=profiles.filter(x=>x!==p); store.set('profiles',profiles);
       if(profile===p) switchProfile(profiles[0]); else renderProfiles(); };
     L.appendChild(row);
   });
 }
-function switchProfile(p){ profile=p; store.set('profile',p); overrides=uget('overrides',{}); custom=uget('custom',[]); playlists=uget('playlists',[]); plCtx=null; rebuild(); if(view==='pl') renderPlaylists();
+function switchProfile(p){ profile=p; store.set('profile',p); overrides=uget('overrides',{}); favs=new Set(uget('favs',[])); custom=uget('custom',[]); playlists=uget('playlists',[]); plCtx=null; rebuild(); if(view==='pl') renderPlaylists();
   renderProfileBtn(); renderProfiles(); if(cur){ const id=cur.id; const s=SONGS.find(x=>x.id===id); if(s) openSong(id,false); else closeSong(); } else renderList(); toast('Usuário: '+p); }
 $('#profBtn').onclick=()=>{ renderProfiles(); openPanel('#profPanel'); };
 $('#profAdd').onclick=()=>{ const n=($('#profName').value||'').trim(); if(!n) return; if(profiles.includes(n)) return toast('Esse nome já existe');
   profiles.push(n); store.set('profiles',profiles); $('#profName').value=''; switchProfile(n); };
 $('#profName').addEventListener('keydown',e=>{ if(e.key==='Enter') $('#profAdd').click(); });
-$('#exportBtn').onclick=()=>{ const data={app:'louvor-bdn', v:2, profile, overrides, custom, playlists, padchoice:uget('padchoice',{}), exported:new Date().toISOString()};
+$('#exportBtn').onclick=()=>{ const data={app:'louvor-bdn', v:2, profile, overrides, custom, playlists, favs:[...favs], padchoice:uget('padchoice',{}), exported:new Date().toISOString()};
   download(`louvor-bdn-${slug(profile)}.json`, JSON.stringify(data,null,1), 'application/json'); };
 $('#importBtn').onclick=()=>$('#importFile').click();
 $('#importFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(!f) return;
   try{ const d=JSON.parse(await f.text()); if(d.app!=='louvor-bdn') throw 0;
     if(!confirm(`Importar os dados de "${d.profile}" para o usuário "${profile}"? Os ajustes deste usuário serão mesclados.`)) return;
     overrides={...overrides, ...(d.overrides||{})}; const ids=new Set(custom.map(c=>c.id)); (d.custom||[]).forEach(c=>{ if(!ids.has(c.id)) custom.push(c); });
+    (d.favs||[]).forEach(x=>favs.add(x)); uset('favs',[...favs]);
     const pids=new Set(playlists.map(p=>p.id)); (d.playlists||[]).forEach(p=>{ if(!pids.has(p.id)) playlists.push(p); }); savePlaylists();
     uset('overrides',overrides); uset('custom',custom); uset('padchoice',{...uget('padchoice',{}), ...(d.padchoice||{})}); rebuild(); renderList(); toast('Dados importados ✔');
   }catch(err){ toast('Arquivo inválido'); } };
@@ -139,7 +142,7 @@ function renderList(){
   const words = q.split(/\s+/).filter(Boolean);
   const kf=$('#keyFilter').value;
   const keyOk = s => { if(!kf) return true; const ek=effKey(s); if(!ek) return false; if(kf.startsWith('~')){ const k=parseKey(kf.slice(1)); return tonalId(ek)===tonalId(k); } const k=parseKey(kf); return mod12(ek.r)===mod12(k.r) && ek.minor===k.minor; };
-  const okFilter0 = s => filter==='all' || (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has);
+  const okFilter0 = s => filter==='all' || (filter==='fav' ? favs.has(s.id) : (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has));
   const okFilter = s => okFilter0(s) && keyOk(s);
   const byTitle = SONGS.filter(s => okFilter(s) && words.every(w => s._q.includes(w)));
   // search inside the lyrics (phrase first, then all words)
@@ -158,13 +161,17 @@ function renderList(){
     const b = bpmOf(s);
     const el=document.createElement('button'); el.className='item';
     el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span>${snippet?'<em class="snip"></em>':''}</div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.medley?'<span class="tag mine">medley</span>':s.custom?'<span class="tag mine">minha</span>':(s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>')}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}</div>`;
-    el.querySelector('b').textContent = s.title;
+    el.querySelector('b').textContent = s.title; if(favs.has(s.id)) el.querySelector('b').insertAdjacentHTML('afterbegin','<span class="favstar">★</span> ');
     el.querySelector('.t span').textContent = s.artist || '—';
     if(snippet) el.querySelector('.snip').innerHTML = snippet;
     el.onclick = () => openSong(s.id);
     frag.appendChild(el);
   };
-  byTitle.forEach(s=>item(s));
+  if(prefs.groupArtist && !q){
+    const groups=new Map(); byTitle.forEach(s=>{ const a=(s.medley?'Medleys':(s.artist||'Sem artista')).trim(); const k=norm(a); if(!groups.has(k)) groups.set(k,{name:a,list:[]}); groups.get(k).list.push(s); });
+    [...groups.values()].sort((a,b)=>a.name.localeCompare(b.name,'pt',{sensitivity:'base'})).forEach(g=>{
+      const h=document.createElement('div'); h.className='list-h art'; h.innerHTML=`<b></b><span>${g.list.length}</span>`; h.querySelector('b').textContent=g.name; frag.appendChild(h); g.list.forEach(s=>item(s)); });
+  } else byTitle.forEach(s=>item(s));
   if(byLyric.length){ const h=document.createElement('div'); h.className='list-h'; h.textContent=`Encontrado na letra (${byLyric.length})`; frag.appendChild(h);
     byLyric.forEach(s=>item(s, lyricSnippet(s, phrase, words))); }
   L.appendChild(frag);
@@ -184,6 +191,9 @@ $('#q').addEventListener('input', renderList);
   for(let i=0;i<12;i++) h+=`<option value="${SHARP[i]}">${keyName(i,false)}</option>`; for(let i=0;i<12;i++) h+=`<option value="${SHARP[i]}m">${keyName(i,true)}</option>`;
   h+='</optgroup><optgroup label="Tom + relativo (mesmas notas)">'; for(let i=0;i<12;i++) h+=`<option value="~${SHARP[i]}">${keyName(i,false)} / ${keyName(i-3,true)}</option>`; h+='</optgroup>';
   sel.innerHTML=h; sel.value=store.get('keyFilter',''); sel.onchange=()=>{ store.set('keyFilter',sel.value); renderList(); }; })();
+$('#groupBtn').onclick=()=>{ prefs.groupArtist=prefs.groupArtist?0:1; savePrefs(); syncGroupBtn(); renderList(); };
+function syncGroupBtn(){ $('#groupBtn').setAttribute('aria-pressed', !!prefs.groupArtist); }
+syncGroupBtn();
 $('#qClear').onclick = () => { $('#q').value=''; renderList(); $('#q').focus(); };
 $('#chips').onclick = e => { const b=e.target.closest('.chip'); if(!b) return; filter=b.dataset.f; $$('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b)); renderList(); };
 
@@ -192,6 +202,7 @@ let plCtx=null; // {pl, idx} when a song is opened from a playlist
 function openSong(id, push=true, ctxPl){
   id=String(id); const s = SONGS.find(x=>x.id===id); if(!s) return;
   if(ctxPl!==undefined) plCtx=ctxPl; else if(plCtx && !(plCtx.pl.items[plCtx.idx] && plCtx.pl.items[plCtx.idx].id===id)) plCtx=null;
+  const wasSong = cur ? cur.id : null;
   cur = s; const o = ov(s);
   const it = plCtx ? plCtx.pl.items[plCtx.idx] : null;
   semi = it && it.semi!=null ? it.semi : (o.semi||0); bpm = bpmOf(s) || 120;
@@ -203,7 +214,10 @@ function openSong(id, push=true, ctxPl){
   document.title = s.title + ' · Louvor BDN';
   buildKeySelect(); renderSong(); updateBpm(false); updatePadLabel();
   window.scrollTo(0,0);
-  if(pad.on) pad.retune(true);
+  if(plCtx && wasSong && wasSong!==s.id){ // moving inside a playlist
+    if(pad.on){ if(prefs.autoPad) pad.retune(true); else pad.stop(); }
+    if(metro.on && !prefs.autoMetro){ metro.stop(); if(typeof syncStageMetro==='function') syncStageMetro(); }
+  } else if(pad.on) pad.retune(true);
 }
 function closeSong(push=true){
   document.body.classList.remove('song-open'); cur=null; document.title='Louvor BDN';
@@ -335,6 +349,7 @@ function renderSong(){
   requestAnimationFrame(applySongLayout);
   const q=encodeURIComponent((s.title.replace(/\(.*?\)/g,'')+' '+(s.artist||'')).trim());
   const yt = ytUrl(s); $('#ytTop').href = yt;
+  const fb=$('#favBtn'); fb.classList.toggle('on',favs.has(s.id)); fb.textContent=favs.has(s.id)?'★ Favorita':'☆ Favoritar'; fb.onclick=()=>{ toggleFav(s.id); renderSong(); toast(favs.has(s.id)?'Adicionada às favoritas de '+profile:'Removida das favoritas'); };
   $('#links').innerHTML = `<a class="btn yt" href="${yt}" target="_blank" rel="noopener">${YT_ICO} Ver no YouTube</a>
     <a class="btn" href="https://www.cifraclub.com.br/?q=${q}" target="_blank" rel="noopener">Abrir no Cifra Club ↗</a>
     <a class="btn" href="https://www.google.com/search?q=${q}+site%3Asongbpm.com" target="_blank" rel="noopener">Conferir BPM no SongBPM ↗</a>
@@ -522,6 +537,63 @@ async function ocrImage(canvas){
   return fixOcrChords(alignLines(lines).join('\n'));
 }
 
+
+/* --- PowerPoint (.pptx) --- */
+const JSZIP='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+function extractMeta(text){ // pure version of cleanImported: returns fields + body
+  const out={key:'',bpm:null,pad:'',capo:0,title:'',artist:''}; const keep=[];
+  for(const l of text.replace(/\r/g,'').split('\n')){ let m;
+    if((m=/^\s*tom\s*[:;\-]\s*([A-G][#b]?m?)/i.exec(l))){ if(!out.key) out.key=m[1]; const c=/capo[^0-9]*(\d+)/i.exec(l); if(c) out.capo=+c[1]; continue; }
+    if((m=/^\s*bpm\s*[:\-]?\s*(\d{2,3})/i.exec(l))){ if(!out.bpm) out.bpm=+m[1]; continue; }
+    if(/^\s*bpm\s*:?\s*$/i.test(l) || /^\s*(tom|pad)\s*:?\s*$/i.test(l)) continue;
+    if((m=/^\s*capo(?:traste)?\s*(?:na|:)?\s*(\d+)/i.exec(l))){ out.capo=+m[1]; continue; }
+    if((m=/^\s*pad\s*:\s*([A-G][#b]?m?)/i.exec(l))){ out.pad=m[1]; continue; }
+    keep.push(l.replace(/\s+$/,'')); }
+  let lines=keep.join('\n').replace(/\n{3,}/g,'\n\n').trim().split('\n');
+  const cand=[]; for(const l of lines){ if(!l.trim()) continue; if(isChordLine(l)||/^\s*[\[!(]/.test(l)) break; cand.push(l.trim()); if(cand.length>=2) break; }
+  if(cand[0] && cand[0].length<70){ out.title=cand[0]; lines.splice(lines.findIndex(l=>l.trim()===cand[0]),1); }
+  if(cand[1] && cand[1].length<60 && !/[.,!?]$/.test(cand[1])){ out.artist=cand[1]; lines.splice(lines.findIndex(l=>l.trim()===cand[1]),1); }
+  out.body=lines.join('\n').replace(/^\s*\n+/,'').trim(); return out; }
+async function readPptx(file){
+  await loadScript(JSZIP); const zip=await JSZip.loadAsync(await file.arrayBuffer());
+  const slides=Object.keys(zip.files).filter(n=>/^ppt\/slides\/slide\d+\.xml$/.test(n)).sort((a,b)=>(+a.match(/\d+/g).pop())-(+b.match(/\d+/g).pop()));
+  const P=new DOMParser(), res=[];
+  for(let si=0; si<slides.length; si++){ status(`Lendo slide ${si+1}/${slides.length}…`);
+    const xml=P.parseFromString(await zip.file(slides[si]).async('string'),'application/xml');
+    const relsF=zip.file(slides[si].replace('slides/','slides/_rels/')+'.rels'); const rels={};
+    if(relsF){ const rx=P.parseFromString(await relsF.async('string'),'application/xml'); [...rx.getElementsByTagName('Relationship')].forEach(r=>rels[r.getAttribute('Id')]=r.getAttribute('Target')); }
+    const items=[];
+    const pos=el=>{ const off=el.getElementsByTagName('a:off')[0]; return off?{x:+off.getAttribute('x'),y:+off.getAttribute('y')}:{x:0,y:0}; };
+    [...xml.getElementsByTagName('p:sp')].forEach(sp=>{ const tx=sp.getElementsByTagName('p:txBody')[0]; if(!tx) return;
+      const paras=[...tx.getElementsByTagName('a:p')].map(p=>{ let t=''; [...p.childNodes].forEach(n=>{ if(n.nodeName==='a:r'||n.nodeName==='a:fld'){ const tt=n.getElementsByTagName('a:t')[0]; if(tt) t+=tt.textContent; } else if(n.nodeName==='a:br') t+='\n'; }); return t; });
+      const text=paras.join('\n').replace(/ /g,' '); if(text.trim()) items.push({...pos(sp), text}); });
+    for(const pic of [...xml.getElementsByTagName('p:pic')]){ const bl=pic.getElementsByTagName('a:blip')[0]; if(!bl) continue;
+      const rid=bl.getAttribute('r:embed'); const tgt=rels[rid]; if(!tgt) continue; const path='ppt/'+tgt.replace(/^\.\.\//,''); const zf=zip.file(path); if(!zf) continue;
+      const ext=(path.split('.').pop()||'').toLowerCase(); if(!/png|jpe?g|gif|bmp|webp/.test(ext)) continue;
+      const blob=new Blob([await zf.async('uint8array')],{type:'image/'+(ext==='jpg'?'jpeg':ext)});
+      items.push({...pos(pic), img:blob}); }
+    // reading order: columns (left→right), then top→bottom
+    const W=Math.max(1,...items.map(i=>i.x)); items.sort((a,b)=>{ const ca=Math.floor(a.x/(W/3+1)), cb=Math.floor(b.x/(W/3+1)); return ca-cb || a.y-b.y; });
+    const parts=[];
+    for(const it of items){ if(it.text) parts.push(it.text); else { status(`Slide ${si+1}: lendo imagem…`); try{ const c=await fileToCanvas(it.img); if(c.width>120&&c.height>60) parts.push(await ocrImage(c)); }catch(e){} } }
+    const txt=parts.join('\n\n').trim(); if(txt) res.push(txt); }
+  return res; }
+$('#edPpt').onclick=()=>$('#pptFile').click();
+$('#pptFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(!f) return;
+  try{ status('Abrindo PowerPoint…'); const slides=await readPptx(f);
+    if(!slides.length) return status('Não encontrei texto nem imagens de cifra nesse arquivo.');
+    if(slides.length>1 && confirm(`O arquivo tem ${slides.length} slides. Criar uma música para cada slide?\n\nOK = ${slides.length} músicas separadas\nCancelar = juntar tudo numa música só`)){
+      let n=0; slides.forEach((t,i)=>{ const m=extractMeta(t); const pk=parseKey(m.key); const pp=parseKey(m.pad);
+        custom.push({ id:'u'+Date.now().toString(36)+i, custom:true, title:m.title||('Slide '+(i+1)), artist:m.artist, key:pk?SHARP[pk.r]+(pk.minor?'m':''):(firstChord(m.body).match(/^[A-G][#b]?m?(?!aj)/)||[''])[0],
+          pad:pp?SHARP[pp.r]+(pp.minor?'m':''):'', padAlt:[], bpm:m.bpm, capo:m.capo, note:'', youtube:'', body:m.body }); n++; });
+      if(!uset('custom',custom)) return status('Sem espaço no aparelho para salvar.');
+      rebuild(); closePanels(); filter='minhas'; $$('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.f==='minhas')); renderList(); toast(`${n} músicas importadas ✔ (aba “Minhas”) — confira os acordes`); return; }
+    const m=extractMeta(slides.join('\n\n')); if(!$('#edT').value && m.title) $('#edT').value=m.title; if(!$('#edA').value && m.artist) $('#edA').value=m.artist;
+    if(m.key && !$('#edKey').value){ const pk=parseKey(m.key); if(pk) $('#edKey').value=SHARP[pk.r]+(pk.minor?'m':''); } if(m.bpm && !$('#edBpm').value) $('#edBpm').value=m.bpm; if(m.capo) $('#edCapo').value=m.capo;
+    if(m.pad){ const pk=parseKey(m.pad); if(pk) $('#edPad').value=SHARP[pk.r]+(pk.minor?'m':''); }
+    setBody(m.body); status('PowerPoint importado ✔ Confira a pré-visualização.');
+  }catch(err){ status('Não consegui ler o PowerPoint: '+err.message); } };
+
 /* --- PDF --- */
 $('#edPdf').onclick=()=>$('#pdfFile').click();
 $('#pdfFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(!f) return;
@@ -608,9 +680,16 @@ $('#plShare').onclick=async()=>{
   const text=`🎵 ${plEd.name}${plEd.date?' ('+fmtDate(plEd.date)+')':''}\n${lines.join('\n')}\n\nAbrir no app: ${url}`;
   if(navigator.share){ try{ await navigator.share({title:plEd.name, text}); return; }catch(e){ if(e.name==='AbortError') return; } }
   try{ await navigator.clipboard.writeText(text); toast('Escala copiada — cole no WhatsApp ✔'); }catch(e){ prompt('Copie a escala:', text); } };
+if(prefs.autoPad==null) prefs.autoPad=1; if(prefs.autoMetro==null) prefs.autoMetro=1;
 function renderPlBar(){ const b=$('#plBar'); if(!plCtx){ b.style.display='none'; return; }
-  b.style.display=''; b.innerHTML=`<span>▶ <b></b> · ${plCtx.idx+1} de ${plCtx.pl.items.length}</span><button class="mini" id="plBarOpen" aria-label="Ver playlist">☰</button>`;
-  b.querySelector('b').textContent=plCtx.pl.name; $('#plBarOpen').onclick=()=>openPlEditor(plCtx.pl); }
+  const nx=plCtx.pl.items[plCtx.idx+1]; const ns=nx?SONGS.find(x=>x.id===nx.id):null;
+  b.style.display=''; b.innerHTML=`<div class="plb-t"><span>▶ <b></b> · ${plCtx.idx+1} de ${plCtx.pl.items.length}</span>${ns?`<small>Próxima: <i></i> (${songKeyLabel(ns,nx.semi)}${bpmOf(ns)?' · '+bpmOf(ns)+' bpm':''})</small>`:'<small>Última música</small>'}</div>
+    <div class="plb-auto"><span>Ao trocar:</span><button class="tg ${prefs.autoPad?'on':''}" data-k="autoPad" title="Pad continua tocando e muda de tom sozinho">Pad ${prefs.autoPad?'segue':'para'}</button><button class="tg ${prefs.autoMetro?'on':''}" data-k="autoMetro" title="Metrônomo continua tocando com o novo BPM">Metrônomo ${prefs.autoMetro?'segue':'para'}</button></div>
+    ${ns?'<button class="btn primary sm" id="plNext">Próxima ›</button>':''}<button class="mini" id="plBarOpen" aria-label="Ver playlist">☰</button>`;
+  b.querySelector('b').textContent=plCtx.pl.name; if(ns) b.querySelector('i').textContent=ns.title;
+  $('#plBarOpen').onclick=()=>openPlEditor(plCtx.pl);
+  if(ns) $('#plNext').onclick=()=>openSong(ns.id,true,{pl:plCtx.pl, idx:plCtx.idx+1});
+  b.querySelectorAll('.tg').forEach(t=>t.onclick=()=>{ prefs[t.dataset.k]=prefs[t.dataset.k]?0:1; savePrefs(); renderPlBar(); }); }
 /* add current song to a playlist */
 $('#addPlBtn').onclick=()=>{ const L=$('#addPlList'); L.innerHTML='';
   const sorted=[...playlists].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
@@ -927,15 +1006,28 @@ const YT_PADS = {
   deep:    {name:'Deep Worship Pads', ids:{1:'FBF0WKzk9Ag',2:'oOY8_eUalDA',4:'kEhHYrG4zMI',5:'qG5qM02UOhc',6:'diePwkBKCTU',7:'1hdfzFgQqjw',8:'efMdOJJoIjc',9:'gCl4MYnn6Sk',11:'83Z9g-PHaOA'}},
   shimmer: {name:'Ambient Shimmer Pads', ids:{0:'2wVGy1jcpGA',2:'--FfDXmoL1U',3:'JxhoKHDWfwU',4:'v5-JyS7Y6jg',7:'bsU7Kr4iJxI',9:'FwukygTzCoc',10:'cR-nbUpRbtA',11:'aDPTPnt_pEE'}}
 };
-function ytPadId(r){ r=mod12(r); const first=YT_PADS[prefs.padSrc==='shimmer'?'shimmer':'deep'], other=YT_PADS[prefs.padSrc==='shimmer'?'deep':'shimmer'];
+let myYt = store.get('myYtPads', {});   // {root: videoId}
+const ytIdOf = u => { const m=/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/.exec(u||''); return m?m[1]:(/^[\w-]{11}$/.test(u||'')?u:null); };
+function ytPadId(r){ r=mod12(r);
+  if(prefs.padSrc==='mine') return myYt[r] || null;
+  const first=YT_PADS[prefs.padSrc==='shimmer'?'shimmer':'deep'], other=YT_PADS[prefs.padSrc==='shimmer'?'deep':'shimmer'];
   return first.ids[r] || other.ids[r] || null; }
+/* key detection from a title or file name: "Pad C#", "Key of Bb", "Tom de Ré", "pad_em_F_sustenido" */
+function keyFromText(t){
+  const s=' '+(t||'').replace(/[_\-.]+/g,' ')+' ';
+  const sol={'do':0,'dó':0,'re':2,'ré':2,'mi':4,'fa':5,'fá':5,'sol':7,'la':9,'lá':9,'si':11};
+  let m=/\b(?:key of|tom de|tom|em|in|pad)\s+([A-G])\s*(#|b|♯|♭|sustenido|bemol)?(?!\w)/i.exec(s) || /(?:^|\s)([A-G])(#|b|♯|♭)?(?:\s*(?:\/|maior|major|m(?:enor)?\b))?(?=\s)/.exec(s);
+  if(m){ let r=IDX[m[1].toUpperCase()]; const acc=(m[2]||'').toLowerCase(); if(/#|♯|sust/.test(acc)) r++; else if(/^b$|♭|bemol/.test(acc)) r--; return mod12(r); }
+  m=/\b(dó|do|ré|re|mi|fá|fa|sol|lá|la|si)\s*(#|sustenido|b|bemol)?\b/i.exec(s);
+  if(m){ let r=sol[m[1].toLowerCase()]; if(m[2]){ if(/#|sust/i.test(m[2])) r++; else r--; } return mod12(r); }
+  return null; }
 let ytApi=null;
 function loadYT(){ if(ytApi) return ytApi; ytApi=new Promise((ok,err)=>{ if(window.YT && YT.Player) return ok();
   const prev=window.onYouTubeIframeAPIReady; window.onYouTubeIframeAPIReady=()=>{ prev&&prev(); ok(); };
   const sc=document.createElement('script'); sc.src='https://www.youtube.com/iframe_api'; sc.onerror=()=>{ ytApi=null; err(new Error('sem internet')); }; document.head.appendChild(sc);
   setTimeout(()=>{ if(!(window.YT&&YT.Player)){ ytApi=null; err(new Error('YouTube não respondeu')); } },9000); }); return ytApi; }
 const ytPad={ on:false, player:null, vid:null, fadeT:0,
-  async start(){ const p=padRoot(); if(!p) return; const id=ytPadId(p.r); if(!id) throw new Error('sem vídeo para este tom');
+  async start(){ const p=padRoot(); if(!p) return; const id=ytPadId(p.r); if(!id) throw new Error('sem vídeo para o tom '+keyName(p.r,false));
     this.on=true; $('#ytBox').classList.add('show'); $('#ytKey').textContent='Pad '+keyName(p.r,p.minor);
     await loadYT(); if(!this.on) return;
     if(!this.player){ await new Promise(ok=>{ this.player=new YT.Player('ytPlayer',{ width:'160', height:'90', videoId:id,
@@ -946,27 +1038,103 @@ const ytPad={ on:false, player:null, vid:null, fadeT:0,
   fadeTo(target,ms,done){ clearInterval(this.fadeT); if(!this.player||!this.player.getVolume) return done&&done(); const from=this.player.getVolume(), steps=Math.max(1,Math.round(ms/80)); let i=0;
     this.fadeT=setInterval(()=>{ i++; const v=from+(target-from)*i/steps; try{ this.player.setVolume(Math.round(v)); }catch(e){} if(i>=steps){ clearInterval(this.fadeT); done&&done(); } },80); },
   stop(){ if(!this.on) return; this.on=false; this.fadeTo(0,1500,()=>{ try{ this.player.pauseVideo(); }catch(e){} $('#ytBox').classList.remove('show'); }); },
-  retune(){ if(!this.on||!this.player) return; const p=padRoot(); if(!p) return this.stop(); const id=ytPadId(p.r); $('#ytKey').textContent='Pad '+keyName(p.r,p.minor); if(id===this.vid) return;
+  retune(){ if(!this.on||!this.player) return; const p=padRoot(); if(!p) return this.stop(); const id=ytPadId(p.r); $('#ytKey').textContent='Pad '+keyName(p.r,p.minor); if(!id){ this.stop(); toast('Sem vídeo de pad para '+keyName(p.r,false)); return; } if(id===this.vid) return;
     this.fadeTo(0,1200,()=>{ if(!this.on) return; this.player.loadVideoById({videoId:id,startSeconds:45}); this.vid=id; this.fadeTo(prefs.pvol*100,2200); }); },
   volume(){ if(this.on&&this.player&&this.player.setVolume) this.player.setVolume(Math.round(prefs.pvol*100)); } };
 
-const pad={ get on(){ return synth.on||ytPad.on; },
-  useYT(){ return prefs.padSrc!=='synth'; },
+/* --- pads from the user's own audio files (stored offline in IndexedDB) --- */
+const padDB = { db:null,
+  open(){ if(this.db) return Promise.resolve(this.db); return new Promise((ok,err)=>{ const r=indexedDB.open('louvor-bdn',1); r.onupgradeneeded=()=>{ r.result.createObjectStore('pads',{keyPath:'id'}); }; r.onsuccess=()=>{ this.db=r.result; ok(this.db); }; r.onerror=()=>err(r.error); }); },
+  async all(){ const db=await this.open(); return new Promise((ok,err)=>{ const q=db.transaction('pads').objectStore('pads').getAll(); q.onsuccess=()=>ok(q.result||[]); q.onerror=()=>err(q.error); }); },
+  async put(rec){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').put(rec); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); },
+  async del(id){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').delete(id); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); } };
+let padFiles=[]; const bufCache=new Map();
+async function loadPadFiles(){ try{ padFiles=await padDB.all(); }catch(e){ padFiles=[]; } renderPadFiles(); }
+function pickPadFile(r){ r=mod12(r); if(!padFiles.length) return null;
+  const exact=padFiles.find(f=>f.root===r); if(exact) return {f:exact, shift:0};
+  // nearest file, pitch-shifted (fine for sustained pads, ±6 semitones max)
+  let best=null; padFiles.filter(f=>f.root!=null).forEach(f=>{ const d=normSemi(r-f.root); if(!best||Math.abs(d)<Math.abs(best.shift)) best={f,shift:d}; });
+  return best || {f:padFiles[0], shift:0}; }
+const filePad={ on:false, voice:null,
+  async voiceFor(r){ const a=ctx(); const pick=pickPadFile(r); if(!pick) throw new Error('nenhum áudio de pad salvo');
+    let buf=bufCache.get(pick.f.id); if(!buf){ buf=await a.decodeAudioData(await pick.f.blob.arrayBuffer()); bufCache.set(pick.f.id,buf); }
+    synth.ensure(); const src=a.createBufferSource(); src.buffer=buf; src.loop=true; const d=buf.duration;
+    if(d>12){ src.loopStart=Math.min(4,d*0.1); src.loopEnd=d-Math.min(4,d*0.1); }
+    src.playbackRate.value=Math.pow(2,pick.shift/12);
+    const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(1,a.currentTime+2.5);
+    src.connect(g); g.connect(synth.out); src.start(a.currentTime, d>12?Math.min(4,d*0.1):0); return {src,g}; },
+  fade(v,dur){ if(!v) return; const t=AC.currentTime; v.g.gain.cancelScheduledValues(t); v.g.gain.setValueAtTime(Math.max(v.g.gain.value,0.0001),t); v.g.gain.exponentialRampToValueAtTime(0.0001,t+dur); try{ v.src.stop(t+dur+0.1); }catch(e){} },
+  async start(){ const p=padRoot(); if(!p) return; this.on=true; synth.ensure(); synth.out.gain.value=prefs.pvol; this.voice=await this.voiceFor(p.r); },
+  stop(){ if(!this.on) return; this.fade(this.voice,2.2); this.voice=null; this.on=false; },
+  async retune(){ if(!this.on) return; const p=padRoot(); if(!p) return this.stop(); const old=this.voice; try{ this.voice=await this.voiceFor(p.r); }catch(e){} this.fade(old,2.4); } };
+
+const pad={ get on(){ return synth.on||ytPad.on||filePad.on; },
   async start(){ if(!padRoot()) return; setPlay('#padBtn',true); $('#padUnit').classList.add('pad-on');
-    if(this.useYT()){ try{ await ytPad.start(); return; }catch(e){ ytPad.on=false; $('#ytBox').classList.remove('show'); toast('Pad do YouTube indisponível ('+e.message+') — usando pad sintetizado'); } }
+    if(prefs.padSrc==='files'){ try{ await filePad.start(); return; }catch(e){ filePad.on=false; toast('Pad: '+e.message+' — usando pad sintetizado'); } }
+    else if(prefs.padSrc!=='synth'){ try{ await ytPad.start(); return; }catch(e){ ytPad.on=false; $('#ytBox').classList.remove('show'); toast('Pad do YouTube indisponível ('+e.message+') — usando pad sintetizado'); } }
     synth.start(); },
-  stop(){ synth.stop(); ytPad.stop(); setPlay('#padBtn',false); $('#padUnit').classList.remove('pad-on'); },
-  retune(fast){ if(ytPad.on) ytPad.retune(); if(synth.on) synth.retune(fast); },
-  restart(){ if(this.on){ synth.stop(); ytPad.on=false; try{ ytPad.player&&ytPad.player.pauseVideo(); }catch(e){} $('#ytBox').classList.remove('show'); this.start(); } },
+  stop(){ synth.stop(); ytPad.stop(); filePad.stop(); setPlay('#padBtn',false); $('#padUnit').classList.remove('pad-on'); },
+  retune(fast){ if(ytPad.on) ytPad.retune(); if(synth.on) synth.retune(fast); if(filePad.on) filePad.retune(); },
+  restart(){ if(this.on){ synth.stop(); filePad.stop(); ytPad.on=false; try{ ytPad.player&&ytPad.player.pauseVideo(); }catch(e){} $('#ytBox').classList.remove('show'); this.start(); } },
   toggle(){ this.on?this.stop():this.start(); } };
 $('#padBtn').onclick=()=>pad.toggle();
 seg('#toneSeg','tone',()=>synth.retune()); seg('#thirdSeg','third',()=>synth.retune());
 if(!prefs.padSrc) prefs.padSrc='deep';
 seg('#padSrcSeg','padSrc',()=>{ syncPadRows(); pad.restart(); });
-function syncPadRows(){ $$('.synth-only').forEach(r=>r.style.display=prefs.padSrc==='synth'?'':'none'); $$('.yt-only').forEach(r=>r.style.display=prefs.padSrc==='synth'?'none':''); }
+function syncPadRows(){ const v=prefs.padSrc;
+  $$('.synth-only').forEach(r=>r.style.display=v==='synth'?'':'none');
+  $$('.yt-only').forEach(r=>r.style.display=(v==='deep'||v==='shimmer'||v==='mine')?'':'none');
+  $$('.mine-only').forEach(r=>r.style.display=v==='mine'?'':'none');
+  $$('.files-only').forEach(r=>r.style.display=v==='files'?'':'none'); }
 syncPadRows();
 $('#ytStop').onclick=()=>pad.stop();
 $('#padVol').value=prefs.pvol; $('#padVol').oninput=e=>{ prefs.pvol=+e.target.value; savePrefs(); if(synth.out) synth.out.gain.setTargetAtTime(prefs.pvol,AC.currentTime,.05); ytPad.volume(); };
+
+/* pad files UI */
+function keySelectHTML(v){ return '<option value="">Tom?</option>'+SHARP.map((n,i)=>`<option value="${i}" ${v===i?'selected':''}>${keyName(i,false)}</option>`).join(''); }
+function renderPadFiles(){ const L=$('#padFileList'); if(!L) return; L.innerHTML='';
+  if(!padFiles.length){ L.innerHTML='<div class="src">Nenhum áudio salvo. Adicione MP3/M4A/WAV de pads — eles ficam guardados neste aparelho e tocam sem internet. Se tiver só alguns tons, o app ajusta a afinação para os outros.</div>'; return; }
+  const covered=new Set(padFiles.map(f=>f.root));
+  padFiles.slice().sort((a,b)=>(a.root??99)-(b.root??99)).forEach(f=>{ const row=document.createElement('div'); row.className='pfrow';
+    row.innerHTML=`<select>${keySelectHTML(f.root)}</select><span class="nm"></span><span class="src">${(f.size/1048576).toFixed(1)} MB</span><button class="mini" aria-label="Ouvir">▶</button><button class="mini" aria-label="Excluir">✕</button>`;
+    row.querySelector('.nm').textContent=f.name;
+    row.querySelector('select').onchange=async e=>{ f.root=e.target.value===''?null:+e.target.value; await padDB.put(f); renderPadFiles(); if(filePad.on) filePad.retune(); };
+    const [play,del]=row.querySelectorAll('button');
+    play.onclick=async()=>{ const a=ctx(); try{ let buf=bufCache.get(f.id); if(!buf){ buf=await a.decodeAudioData(await f.blob.arrayBuffer()); bufCache.set(f.id,buf);} const s=a.createBufferSource(); s.buffer=buf; const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(prefs.pvol,a.currentTime+0.5); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+4); s.connect(g); g.connect(master); s.start(a.currentTime, Math.min(5,buf.duration/3)); s.stop(a.currentTime+4.1); }catch(e){ toast('Não consegui tocar este arquivo'); } };
+    del.onclick=async()=>{ if(!confirm('Excluir o áudio "'+f.name+'"?')) return; await padDB.del(f.id); bufCache.delete(f.id); loadPadFiles(); };
+    L.appendChild(row); });
+  const miss=SHARP.map((n,i)=>i).filter(i=>!covered.has(i)); $('#padFileInfo').textContent = miss.length ? `Sem arquivo próprio: ${miss.map(i=>keyName(i,false)).join(', ')} (usa o mais próximo ajustando a afinação)` : 'Todos os 12 tons cobertos ✔';
+}
+$('#padFileAdd').onclick=()=>$('#padFileInput').click();
+$('#padFileInput').onchange=async e=>{ const files=[...e.target.files]; e.target.value=''; let n=0;
+  for(const f of files){ if(f.size>80*1048576){ toast(f.name+' é grande demais (máx. 80 MB)'); continue; }
+    try{ await padDB.put({id:'f'+Date.now().toString(36)+Math.random().toString(36).slice(2,6), name:f.name, root:keyFromText(f.name), size:f.size, type:f.type, blob:f}); n++; }catch(err){ toast('Sem espaço para salvar '+f.name); } }
+  if(navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{});
+  await loadPadFiles(); if(n) toast(n+' áudio(s) salvo(s) para uso offline ✔'); };
+loadPadFiles();
+
+/* my YouTube pads (user's own playlist / links per key) */
+function renderMyYt(){ const L=$('#myYtList'); if(!L) return; L.innerHTML='';
+  for(let i=0;i<12;i++){ const row=document.createElement('div'); row.className='pfrow';
+    row.innerHTML=`<b class="kk">${keyName(i,false)}</b><input type="url" placeholder="link do vídeo do pad em ${keyName(i,false)}" value="${myYt[i]?'https://youtu.be/'+myYt[i]:''}">`;
+    row.querySelector('input').onchange=e=>{ const id=ytIdOf(e.target.value.trim()); if(id) myYt[i]=id; else delete myYt[i]; store.set('myYtPads',myYt); if(ytPad.on) ytPad.retune(); };
+    L.appendChild(row); } }
+renderMyYt();
+$('#myYtImport').onclick=async()=>{ const u=$('#myYtPl').value.trim(); const m=/list=([\w-]+)/.exec(u); if(!m) return toast('Cole o link da playlist (com list=…)');
+  $('#myYtStatus').textContent='Lendo playlist…';
+  try{ await loadYT();
+    const host=document.createElement('div'); host.id='ytScan'; host.style.cssText='position:fixed;left:-9999px;top:0;width:200px;height:120px'; document.body.appendChild(host);
+    const found={}; let n=0;
+    await new Promise((ok,err)=>{ let p; const to=setTimeout(()=>err(new Error('YouTube não respondeu')),20000);
+      p=new YT.Player('ytScan',{width:'200',height:'120',playerVars:{listType:'playlist',list:m[1],autoplay:0,mute:1},events:{onReady:async e=>{
+        let ids=e.target.getPlaylist()||[]; for(let k=0;!ids.length&&k<20;k++){ await new Promise(r=>setTimeout(r,300)); ids=e.target.getPlaylist()||[]; }
+        for(let i=0;i<ids.length;i++){ e.target.cueVideoById(ids[i]); await new Promise(r=>setTimeout(r,700)); const t=(e.target.getVideoData()||{}).title||''; const r=keyFromText(t); n++;
+          $('#myYtStatus').textContent=`Lendo ${i+1}/${ids.length}: ${t}`; if(r!=null && found[r]==null) found[r]=ids[i]; }
+        clearTimeout(to); try{ e.target.destroy(); }catch(x){} host.remove(); ok(); }}}); });
+    Object.assign(myYt,found); store.set('myYtPads',myYt); renderMyYt();
+    $('#myYtStatus').textContent=`${n} vídeos lidos · ${Object.keys(found).length} tons reconhecidos pelo título. Confira e complete abaixo.`;
+    prefs.padSrc='mine'; savePrefs(); $$('#padSrcSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==='mine')); syncPadRows();
+  }catch(e){ $('#myYtStatus').textContent='Não consegui ler a playlist ('+e.message+'). Cole os links de cada tom abaixo.'; } };
 
 /* ================= panels / keys ================= */
 function openPanel(id){ $(id).classList.add('open'); document.body.classList.add('modal'); }
@@ -988,4 +1156,21 @@ document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && 
 renderProfileBtn(); renderList(); drawBeats(-1); setView(store.get('view','songs'));
 if(!checkSharedPlaylist()){ const m=/^#m([\w]+)/.exec(location.hash); if(m){ history.replaceState({id:m[1]},'',location.hash); openSong(m[1],false); } }
 if('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
+/* ---- instalar como app ---- */
+let installEvt=null;
+const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone===true;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+function syncInstall(){ const show=!isStandalone(); $$('.install-btn').forEach(b=>b.style.display=show?'':'none'); }
+window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); installEvt=e; syncInstall(); maybeInstallBanner(); });
+window.addEventListener('appinstalled', ()=>{ installEvt=null; $('#installBar').classList.remove('show'); syncInstall(); toast('App instalado ✔'); });
+async function doInstall(){
+  if(installEvt){ installEvt.prompt(); const r=await installEvt.userChoice.catch(()=>null); installEvt=null; $('#installBar').classList.remove('show'); if(r&&r.outcome==='accepted') toast('Instalando…'); return; }
+  openPanel('#installPanel'); }
+$$('.install-btn').forEach(b=>b.onclick=doInstall);
+$('#installYes').onclick=doInstall;
+$('#installNo').onclick=()=>{ store.set('installDismissed', Date.now()); $('#installBar').classList.remove('show'); };
+$('#installIos').style.display = isIOS ? '' : 'none'; $('#installOther').style.display = isIOS ? 'none' : '';
+function maybeInstallBanner(){ if(isStandalone()) return; const d=store.get('installDismissed',0); if(d && Date.now()-d < 7*864e5) return;
+  if(installEvt || isIOS) $('#installBar').classList.add('show'); }
+syncInstall(); setTimeout(maybeInstallBanner, 1500);
 })();

@@ -215,7 +215,8 @@ input[type=range]{width:150px;accent-color:var(--accent)}
 .ed-head h3{margin:0 0 12px}
 .import{border:1px dashed color-mix(in srgb,var(--accent) 50%,var(--line));border-radius:16px;padding:12px;margin-bottom:10px;background:color-mix(in srgb,var(--accent) 5%,transparent)}
 .imp-title{font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.imp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:560px){ .imp-grid{grid-template-columns:repeat(2,1fr)} }
 .imp{display:flex;flex-direction:column;align-items:center;gap:2px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 6px}
 .imp span{font-size:22px}.imp b{font-size:14px}.imp small{font-size:11.5px;color:var(--muted)}
 .imp:hover{border-color:var(--accent)}
@@ -340,6 +341,30 @@ body.fitmode .sheet{overflow:hidden;padding:12px 14px}
 input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
 .keyfilter{height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);padding:0 14px;font-weight:600;margin:0 0 10px;font-size:14px;color:var(--text)}
 .keyfilter.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.row.col{flex-direction:column;align-items:stretch}
+.pflist{display:grid;gap:6px;margin:8px 0}
+.pfrow{display:flex;align-items:center;gap:6px;background:var(--surface-2);border-radius:10px;padding:5px 6px}
+.pfrow select{height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-family:var(--mono);color:var(--accent)}
+.pfrow .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px}
+.pfrow .kk{width:34px;text-align:center;font-family:var(--mono);color:var(--accent)}
+.pfrow input{flex:1;min-width:0;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);padding:0 8px;font-size:13px}
+.favbtn{height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:13.5px}
+.favbtn.on{background:#f5b301;border-color:#f5b301;color:#1b1300}
+.favstar{color:#f5b301}
+.list-h.art{display:flex;justify-content:space-between;align-items:baseline;text-transform:none;letter-spacing:0;font-size:14px;color:var(--text);border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:18px}
+.list-h.art span{color:var(--muted);font-size:12px}
+.plbar{flex-wrap:wrap}
+.plb-t{flex:1 1 100%;min-width:0}.plb-t small{display:block;opacity:.85;font-size:12px}
+.plb-auto{display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.tg{height:30px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;padding:0 10px;font-size:12px;font-weight:600;opacity:.75}
+.tg.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);opacity:1}
+.installbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:65;display:none;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 12px;box-shadow:var(--shadow);max-width:620px;margin:0 auto}
+.installbar.show{display:flex}
+.installbar img{border-radius:10px}
+.installbar div{flex:1;min-width:0}.installbar small{display:block;color:var(--muted);font-size:12.5px}
+#installPanel ol{margin:6px 0 12px 18px;line-height:1.7}
+@media (max-width:560px){ .installbar{flex-wrap:wrap} .installbar div{flex:1 1 calc(100% - 60px)} .installbar .btn{flex:1} }
+@media (max-width:560px){ .padsrc-row{flex-direction:column;align-items:stretch} .padsrc-row .seg.wrap{max-width:none;justify-content:flex-start} .plb-auto{flex:1} }
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
 </style>
 </head>
@@ -350,6 +375,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
     <div class="brand"><img class="logo" src="icon.svg" alt="" width="34" height="34"><div>Louvor BDN<small>cifras · tom · bpm · pad</small></div></div>
     <div class="top-title"><b id="tTitle"></b><span id="tArtist"></span></div>
     <div class="spacer"></div>
+    <button class="icon-btn install-btn" title="Instalar como app" aria-label="Instalar como app" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
     <button class="icon-btn prof" id="profBtn" aria-label="Usuário">P</button>
     <button class="icon-btn" id="themeBtn" aria-label="Alternar tema claro/escuro" title="Tema claro/escuro">
       <svg id="icoMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -372,7 +398,9 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
       <button class="chip" data-f="all" aria-pressed="true">Todas</button>
       <button class="chip" data-f="cifra" aria-pressed="false">Com cifra</button>
       <button class="chip" data-f="ficha" aria-pressed="false">Só tom/BPM</button>
+      <button class="chip" data-f="fav" aria-pressed="false">★ Favoritas</button>
       <button class="chip" data-f="minhas" aria-pressed="false">Minhas / editadas</button>
+      <button class="chip" id="groupBtn" aria-pressed="false" title="Agrupar a lista por artista">👥 Por artista</button>
       <span class="spacer"></span>
       <button class="btn new" id="newMedleyBtn">🎼 Novo medley</button>
       <button class="btn primary new" id="newBtn">＋ Nova música</button>
@@ -389,7 +417,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
   <section id="song" aria-live="polite">
     <div class="song-head">
       <h1 id="sTitle"></h1>
-      <div class="artist-row"><div class="artist" id="sArtist"></div><a class="yt-top" id="ytTop" target="_blank" rel="noopener" aria-label="Ver vídeo no YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>YouTube</a></div>
+      <div class="artist-row"><div class="artist" id="sArtist"></div><button class="favbtn" id="favBtn">☆ Favoritar</button><a class="yt-top" id="ytTop" target="_blank" rel="noopener" aria-label="Ver vídeo no YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>YouTube</a></div>
       <div class="facts" id="facts"></div>
       <div id="sNote"></div>
     </div>
@@ -468,7 +496,13 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
   <div class="card">
     <h3>Pad de fundo</h3>
     <div class="row"><div class="l">Nota do pad<small>Acompanha o tom escolhido na cifra</small></div><div class="seg" id="padChoice"></div></div>
-    <div class="row"><div class="l">Som do pad<small class="yt-only">Vídeos de pad (1 hora) do YouTube no tom da música — precisa de internet</small><small class="synth-only">Gerado no aparelho — funciona sem internet</small></div><div class="seg" id="padSrcSeg"><button data-v="deep">YouTube · Deep</button><button data-v="shimmer">YouTube · Shimmer</button><button data-v="synth">Sintetizado</button></div></div>
+    <div class="row padsrc-row"><div class="l">Som do pad<small class="yt-only">Vídeos do YouTube no tom da música — precisa de internet</small><small class="synth-only">Gerado no aparelho — funciona sem internet</small><small class="files-only">Seus arquivos, guardados no aparelho — funciona sem internet</small></div><div class="seg wrap" id="padSrcSeg"><button data-v="files">Meus áudios (offline)</button><button data-v="mine">Meu YouTube</button><button data-v="deep">YouTube · Deep</button><button data-v="shimmer">YouTube · Shimmer</button><button data-v="synth">Sintetizado</button></div></div>
+    <div class="row files-only col"><div class="l">Meus áudios de pad<small id="padFileInfo"></small></div>
+      <div id="padFileList" class="pflist"></div>
+      <button class="btn primary" id="padFileAdd">＋ Adicionar áudio (MP3, M4A, WAV…)</button><input type="file" id="padFileInput" accept="audio/*,.mp3,.m4a,.wav,.ogg,.aac" multiple hidden></div>
+    <div class="row mine-only col"><div class="l">Minha playlist de pads do YouTube<small>Cole o link da playlist: o app reconhece o tom pelo título de cada vídeo. Precisa de internet.</small></div>
+      <div class="linkrow"><input id="myYtPl" type="url" placeholder="https://music.youtube.com/playlist?list=…" value="https://music.youtube.com/playlist?list=PLiwIL30R32_MHPvGvPSLmGi4Gs7k6rlI4"><button class="btn" id="myYtImport">Ler</button></div>
+      <div class="src" id="myYtStatus"></div><div id="myYtList" class="pflist"></div></div>
     <div class="row synth-only"><div class="l">Timbre</div><div class="seg" id="toneSeg"><button data-v="warm">Quente</button><button data-v="air">Etéreo</button><button data-v="organ">Órgão</button></div></div>
     <div class="row synth-only"><div class="l">Incluir 3ª<small>Desligado = só tônica e 5ª (combina com qualquer acorde)</small></div><div class="seg" id="thirdSeg"><button data-v="0">Não</button><button data-v="1">Sim</button></div></div>
     <div class="row"><div class="l">Volume</div><input type="range" id="padVol" min="0" max="1" step="0.01"></div>
@@ -498,10 +532,12 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
       <div class="imp-title">Importar cifra</div>
       <div class="imp-grid">
         <button class="imp" id="edPdf"><span>📄</span><b>PDF</b><small>arquivo da cifra</small></button>
+        <button class="imp" id="edPpt"><span>📊</span><b>PowerPoint</b><small>.pptx (um ou vários slides)</small></button>
         <button class="imp" id="edImg"><span>🖼️</span><b>Print / foto</b><small>uma ou mais imagens</small></button>
         <button class="imp" id="edPaste"><span>📋</span><b>Colar</b><small>texto copiado</small></button>
       </div>
       <div class="linkrow"><input id="edLink" type="url" inputmode="url" placeholder="Link do Cifra Club (https://www.cifraclub.com.br/…)"><button class="btn" id="edLinkGo">Abrir</button></div>
+      <input type="file" id="pptFile" accept=".pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden>
       <input type="file" id="pdfFile" accept="application/pdf,.pdf" hidden>
       <input type="file" id="imgFile" accept="image/*" multiple hidden>
     </div>
@@ -582,10 +618,19 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
     <div class="ed-actions"><button class="btn" id="mdPreviewBtn">👁 Pré-visualizar</button><span class="spacer"></span><button class="btn" data-close>Cancelar</button><button class="btn primary" id="mdSave">Salvar medley</button></div>
   </div>
 </div>
+<div class="installbar" id="installBar"><img src="icon.svg" alt="" width="40" height="40"><div><b>Instalar o Louvor BDN</b><small>Abre como app, em tela cheia, e funciona sem internet.</small></div><button class="btn" id="installNo">Agora não</button><button class="btn primary" id="installYes">Instalar</button></div>
+<div class="panel" id="installPanel" role="dialog" aria-modal="true" aria-label="Instalar app">
+  <div class="card">
+    <h3>Instalar como app</h3>
+    <div id="installIos"><p>No iPhone/iPad (Safari):</p><ol><li>Toque em <b>Compartilhar</b> <span class="src">(quadrado com seta ↑, na barra do Safari)</span></li><li>Escolha <b>Adicionar à Tela de Início</b></li><li>Toque em <b>Adicionar</b></li></ol></div>
+    <div id="installOther"><p>No Android / computador (Chrome ou Edge):</p><ol><li>Abra o menu <b>⋮</b> do navegador</li><li>Toque em <b>Instalar app</b> ou <b>Adicionar à tela inicial</b></li></ol><p class="src">Se o botão Instalar não aparecer direto, é porque o navegador ainda não liberou — use o menu.</p></div>
+    <div class="close-row"><button class="btn primary" data-close>Entendi</button></div>
+  </div>
+</div>
 <div class="toast" id="toast" role="status"></div>
 <div class="ytbox" id="ytBox"><div id="ytPlayer"></div><div class="ytbar"><span id="ytKey">Pad</span><button id="ytStop" aria-label="Parar pad">■</button></div></div>
 
-<script src="songs.js?v=9"></script>
-<script src="app.js?v=9"></script>
+<script src="songs.js?v=10"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>
