@@ -135,8 +135,12 @@ $('#importFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value='
 function renderList(){
   const raw=$('#q').value.trim(), q = norm(raw);
   $('#qClear').style.display = q ? 'block':'none';
+  const kfOn=!!$('#keyFilter').value; $('#keyFilter').classList.toggle('on',kfOn);
   const words = q.split(/\s+/).filter(Boolean);
-  const okFilter = s => filter==='all' || (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has);
+  const kf=$('#keyFilter').value;
+  const keyOk = s => { if(!kf) return true; const ek=effKey(s); if(!ek) return false; if(kf.startsWith('~')){ const k=parseKey(kf.slice(1)); return tonalId(ek)===tonalId(k); } const k=parseKey(kf); return mod12(ek.r)===mod12(k.r) && ek.minor===k.minor; };
+  const okFilter0 = s => filter==='all' || (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has);
+  const okFilter = s => okFilter0(s) && keyOk(s);
   const byTitle = SONGS.filter(s => okFilter(s) && words.every(w => s._q.includes(w)));
   // search inside the lyrics (phrase first, then all words)
   let byLyric=[];
@@ -144,7 +148,7 @@ function renderList(){
   if(phrase.length>=3){ const ids=new Set(byTitle.map(s=>s.id));
     byLyric = SONGS.filter(s => !ids.has(s.id) && okFilter(s) && s._lyr && (s._lyr.includes(phrase) || words.every(w=>s._lyr.includes(w)))); }
   visible = byTitle.concat(byLyric);
-  $('#count').textContent = (q ? `${byTitle.length} no título/artista` + (byLyric.length?` · ${byLyric.length} na letra`:'') : visible.length + (visible.length===1?' música':' músicas')) + (profiles.length>1?` · usuário ${profile}`:'');
+  $('#count').textContent = (kfOn && !q ? `${visible.length} música${visible.length===1?'':'s'} em ${$('#keyFilter').selectedOptions[0].textContent}` : q ? `${byTitle.length} no título/artista` + (byLyric.length?` · ${byLyric.length} na letra`:'') : visible.length + (visible.length===1?' música':' músicas')) + (profiles.length>1?` · usuário ${profile}`:'');
   const L = $('#list'); L.innerHTML='';
   if(!visible.length){ L.innerHTML = '<div class="empty">Nenhuma música encontrada — nem no título nem na letra.<br>Tente outra palavra, ou crie uma nova no botão “Nova música”.</div>'; return; }
   const frag=document.createDocumentFragment();
@@ -176,6 +180,10 @@ function lyricSnippet(s, phrase, words){
   return '“'+h+'”';
 }
 $('#q').addEventListener('input', renderList);
+(function(){ const sel=$('#keyFilter'); let h='<option value="">Todos os tons</option><optgroup label="Tom exato">';
+  for(let i=0;i<12;i++) h+=`<option value="${SHARP[i]}">${keyName(i,false)}</option>`; for(let i=0;i<12;i++) h+=`<option value="${SHARP[i]}m">${keyName(i,true)}</option>`;
+  h+='</optgroup><optgroup label="Tom + relativo (mesmas notas)">'; for(let i=0;i<12;i++) h+=`<option value="~${SHARP[i]}">${keyName(i,false)} / ${keyName(i-3,true)}</option>`; h+='</optgroup>';
+  sel.innerHTML=h; sel.value=store.get('keyFilter',''); sel.onchange=()=>{ store.set('keyFilter',sel.value); renderList(); }; })();
 $('#qClear').onclick = () => { $('#q').value=''; renderList(); $('#q').focus(); };
 $('#chips').onclick = e => { const b=e.target.closest('.chip'); if(!b) return; filter=b.dataset.f; $$('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b)); renderList(); };
 
