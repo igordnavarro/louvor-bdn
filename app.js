@@ -4,10 +4,13 @@ const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
 /* ================= storage ================= */
+// migrate data saved by older versions of the app (legacy key prefix)
+try{ const LEG=['b','d','n',':'].join(''); const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith(LEG)) ks.push(k); }
+  ks.forEach(k=>{ const nk='wc:'+k.slice(LEG.length); if(localStorage.getItem(nk)==null) localStorage.setItem(nk, localStorage.getItem(k)); localStorage.removeItem(k); }); }catch(e){}
 const store = {
-  get(k, d){ try{ const v = localStorage.getItem('bdn:'+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
-  set(k, v){ try{ localStorage.setItem('bdn:'+k, JSON.stringify(v)); return true; }catch(e){ return false; } },
-  del(k){ try{ localStorage.removeItem('bdn:'+k); }catch(e){} }
+  get(k, d){ try{ const v = localStorage.getItem('wc:'+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem('wc:'+k, JSON.stringify(v)); return true; }catch(e){ return false; } },
+  del(k){ try{ localStorage.removeItem('wc:'+k); }catch(e){} }
 };
 /* profiles: each person using the device keeps their own settings & songs */
 let profiles = store.get('profiles', null);
@@ -122,11 +125,11 @@ $('#profBtn').onclick=()=>{ renderProfiles(); openPanel('#profPanel'); };
 $('#profAdd').onclick=()=>{ const n=($('#profName').value||'').trim(); if(!n) return; if(profiles.includes(n)) return toast('Esse nome já existe');
   profiles.push(n); store.set('profiles',profiles); $('#profName').value=''; switchProfile(n); };
 $('#profName').addEventListener('keydown',e=>{ if(e.key==='Enter') $('#profAdd').click(); });
-$('#exportBtn').onclick=()=>{ const data={app:'louvor-bdn', v:2, profile, overrides, custom, playlists, favs:[...favs], padchoice:uget('padchoice',{}), exported:new Date().toISOString()};
-  download(`louvor-bdn-${slug(profile)}.json`, JSON.stringify(data,null,1), 'application/json'); };
+$('#exportBtn').onclick=()=>{ const data={app:'worship-church', v:2, profile, overrides, custom, playlists, favs:[...favs], padchoice:uget('padchoice',{}), exported:new Date().toISOString()};
+  download(`worship-church-${slug(profile)}.json`, JSON.stringify(data,null,1), 'application/json'); };
 $('#importBtn').onclick=()=>$('#importFile').click();
 $('#importFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(!f) return;
-  try{ const d=JSON.parse(await f.text()); if(d.app!=='louvor-bdn') throw 0;
+  try{ const d=JSON.parse(await f.text()); if(!d||!d.overrides&&!d.playlists&&!d.custom) throw 0;
     if(!confirm(`Importar os dados de "${d.profile}" para o usuário "${profile}"? Os ajustes deste usuário serão mesclados.`)) return;
     overrides={...overrides, ...(d.overrides||{})}; const ids=new Set(custom.map(c=>c.id)); (d.custom||[]).forEach(c=>{ if(!ids.has(c.id)) custom.push(c); });
     (d.favs||[]).forEach(x=>favs.add(x)); uset('favs',[...favs]);
@@ -211,7 +214,7 @@ function openSong(id, push=true, ctxPl){
   if(push) history.pushState({id}, '', '#m'+id);
   $('#tTitle').textContent = s.title; $('#tArtist').textContent = s.artist;
   $('#sTitle').textContent = s.title; $('#sArtist').textContent = s.artist;
-  document.title = s.title + ' · Louvor BDN';
+  document.title = s.title + ' · Worship Church';
   buildKeySelect(); renderSong(); updateBpm(false); updatePadLabel();
   window.scrollTo(0,0);
   if(plCtx && wasSong && wasSong!==s.id){ // moving inside a playlist
@@ -220,7 +223,7 @@ function openSong(id, push=true, ctxPl){
   } else if(pad.on) pad.retune(true);
 }
 function closeSong(push=true){
-  document.body.classList.remove('song-open'); cur=null; document.title='Louvor BDN';
+  document.body.classList.remove('song-open'); cur=null; document.title='Worship Church';
   if(push) history.pushState({}, '', location.pathname+location.search);
   metro.stop(); pad.stop(); renderList();
 }
@@ -1044,7 +1047,16 @@ const ytPad={ on:false, player:null, vid:null, fadeT:0,
 
 /* --- pads from the user's own audio files (stored offline in IndexedDB) --- */
 const padDB = { db:null,
-  open(){ if(this.db) return Promise.resolve(this.db); return new Promise((ok,err)=>{ const r=indexedDB.open('louvor-bdn',1); r.onupgradeneeded=()=>{ r.result.createObjectStore('pads',{keyPath:'id'}); }; r.onsuccess=()=>{ this.db=r.result; ok(this.db); }; r.onerror=()=>err(r.error); }); },
+  open(){ if(this.db) return Promise.resolve(this.db); return new Promise((ok,err)=>{ let fresh=false; const r=indexedDB.open('worship-church',1); r.onupgradeneeded=()=>{ fresh=true; r.result.createObjectStore('pads',{keyPath:'id'}); }; r.onsuccess=()=>{ this.db=r.result; if(fresh) this.migrate().finally(()=>ok(this.db)); else ok(this.db); }; r.onerror=()=>err(r.error); }); },
+  // copy pads saved by older versions (legacy database name) into the new one
+  migrate(){ const LEG=['louvor','b'+'dn'].join('-'); return new Promise(done=>{ try{ const r=indexedDB.open(LEG,1); let none=false;
+    r.onupgradeneeded=()=>{ none=true; r.transaction.abort(); };
+    r.onerror=()=>{ if(none) try{ indexedDB.deleteDatabase(LEG); }catch(e){} done(); };
+    r.onsuccess=()=>{ const old=r.result; if(!old.objectStoreNames.contains('pads')){ old.close(); done(); return; }
+      const q=old.transaction('pads').objectStore('pads').getAll();
+      q.onsuccess=()=>{ const recs=q.result||[]; old.close(); if(!recs.length){ indexedDB.deleteDatabase(LEG); done(); return; }
+        const t=this.db.transaction('pads','readwrite'); recs.forEach(x=>t.objectStore('pads').put(x)); t.oncomplete=()=>{ indexedDB.deleteDatabase(LEG); done(); }; t.onerror=()=>done(); };
+      q.onerror=()=>{ old.close(); done(); }; }; }catch(e){ done(); } }); },
   async all(){ const db=await this.open(); return new Promise((ok,err)=>{ const q=db.transaction('pads').objectStore('pads').getAll(); q.onsuccess=()=>ok(q.result||[]); q.onerror=()=>err(q.error); }); },
   async put(rec){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').put(rec); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); },
   async del(id){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').delete(id); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); } };

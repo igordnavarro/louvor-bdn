@@ -23,8 +23,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def key(k):
     m = re.match(r'^([A-G][#b]?)(m?)', (k or '').strip())
     return (m.group(1)+m.group(2)) if m else ''
+# ids estáveis: cada arquivo mantém o mesmo id para sempre (ajustes e playlists dos usuários usam o id)
+IDS = os.path.join(ROOT, 'tools', 'ids.json')
+ids = json.load(open(IDS, encoding='utf-8')) if os.path.exists(IDS) else {}
 songs = []
-for i, f in enumerate(sorted(glob.glob(os.path.join(ROOT, 'cifras', '*.txt')))):
+for f in sorted(glob.glob(os.path.join(ROOT, 'cifras', '*.txt'))):
+    fn = os.path.basename(f)
+    if fn not in ids: ids[fn] = max(ids.values(), default=0) + 1
     meta = {}; body = []
     for line in open(f, encoding='utf-8').read().split('\n'):
         m = re.match(r'^@(\w+)\s?(.*)$', line)
@@ -35,12 +40,13 @@ for i, f in enumerate(sorted(glob.glob(os.path.join(ROOT, 'cifras', '*.txt')))):
     pads = [key(p) for p in re.split(r'\s+ou\s+', meta.get('pad', '')) if key(p)]
     bpm = re.match(r'\d+', meta.get('bpm', ''))
     songs.append(dict(
-        id=i+1, file=os.path.basename(f), title=meta.get('title', ''), artist=meta.get('artist', ''),
+        id=ids[fn], file=fn, title=meta.get('title', ''), artist=meta.get('artist', ''),
         key=key(meta.get('tom', '')), keySrc=meta.get('tomsrc', 'setlist' if meta.get('tom') else ''),
         pad=pads[0] if pads else '', padAlt=pads[1:],
         bpm=int(bpm.group(0)) if bpm else None, bpmSrc=meta.get('bpmsrc', 'setlist' if bpm else ''),
         capo=int(meta['capo']) if meta.get('capo', '').isdigit() else 0,
         note=meta.get('note', ''), youtube=meta.get('youtube', ''), body='\n'.join(body)))
+json.dump(ids, open(IDS, 'w', encoding='utf-8'), indent=0, ensure_ascii=False, sort_keys=True)
 with open(os.path.join(ROOT, 'songs.js'), 'w', encoding='utf-8') as out:
     out.write('// Gerado por tools/build.py a partir de cifras/*.txt — edite os .txt e rode o script.\n')
     out.write('window.SONGS = ' + json.dumps(songs, ensure_ascii=False, separators=(',', ':')) + ';\n')

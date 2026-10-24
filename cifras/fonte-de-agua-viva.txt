@@ -1,5 +1,5 @@
 @title Fonte de Água Viva
-@artist Bola de Neve
+@artist 
 @tom Cm
 @pad Cm
 @bpm 135

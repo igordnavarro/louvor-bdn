@@ -1,6 +1,6 @@
-# Louvor BDN 🎵
+# Worship Church 🎵
 
-App web do ministério de louvor (Bola de Neve) com **cifras, tom, BPM e pads de fundo** — funciona no celular, tablet e computador, inclusive offline depois do primeiro acesso.
+App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** — funciona no celular, tablet e computador, inclusive offline depois do primeiro acesso.
 
 **Abrir o app:** https://igordnavarro.github.io/louvor-bdn/
 

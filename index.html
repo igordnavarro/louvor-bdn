@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Louvor BDN</title>
-<meta name="description" content="Cifras, tom, BPM e pads do louvor — Bola de Neve">
+<title>Worship Church</title>
+<meta name="description" content="Worship Church — cifras, tom, BPM e pads do louvor">
 <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f1ea" media="(prefers-color-scheme: light)">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Worship Church">
+<meta name="application-name" content="Worship Church">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -372,7 +374,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 <header class="top">
   <div class="wrap">
     <button class="icon-btn back" id="backBtn" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-    <div class="brand"><img class="logo" src="icon.svg" alt="" width="34" height="34"><div>Louvor BDN<small>cifras · tom · bpm · pad</small></div></div>
+    <div class="brand"><img class="logo" src="icon.svg" alt="" width="34" height="34"><div>Worship Church<small>cifras · tom · bpm · pad</small></div></div>
     <div class="top-title"><b id="tTitle"></b><span id="tArtist"></span></div>
     <div class="spacer"></div>
     <button class="icon-btn install-btn" title="Instalar como app" aria-label="Instalar como app" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
@@ -618,7 +620,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
     <div class="ed-actions"><button class="btn" id="mdPreviewBtn">👁 Pré-visualizar</button><span class="spacer"></span><button class="btn" data-close>Cancelar</button><button class="btn primary" id="mdSave">Salvar medley</button></div>
   </div>
 </div>
-<div class="installbar" id="installBar"><img src="icon.svg" alt="" width="40" height="40"><div><b>Instalar o Louvor BDN</b><small>Abre como app, em tela cheia, e funciona sem internet.</small></div><button class="btn" id="installNo">Agora não</button><button class="btn primary" id="installYes">Instalar</button></div>
+<div class="installbar" id="installBar"><img src="icon.svg" alt="" width="40" height="40"><div><b>Instalar o Worship Church</b><small>Abre como app, em tela cheia, e funciona sem internet.</small></div><button class="btn" id="installNo">Agora não</button><button class="btn primary" id="installYes">Instalar</button></div>
 <div class="panel" id="installPanel" role="dialog" aria-modal="true" aria-label="Instalar app">
   <div class="card">
     <h3>Instalar como app</h3>
@@ -630,7 +632,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 <div class="toast" id="toast" role="status"></div>
 <div class="ytbox" id="ytBox"><div id="ytPlayer"></div><div class="ytbar"><span id="ytKey">Pad</span><button id="ytStop" aria-label="Parar pad">■</button></div></div>
 
-<script src="songs.js?v=10"></script>
-<script src="app.js?v=10"></script>
+<script src="songs.js?v=11"></script>
+<script src="app.js?v=11"></script>
 </body>
 </html>
