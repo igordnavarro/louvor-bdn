@@ -122,7 +122,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     S, P = songs(), pads()
     for name, cols, rows in (('musicas.csv', COLS_M, S), ('pads.csv', COLS_P, P)):
-        with open(os.path.join(OUT, name), 'w', newline='', encoding='utf-8-sig') as fh:
+        with open(os.path.join(OUT, name), 'w', newline='', encoding='utf-8') as fh:
             w = csv.writer(fh); w.writerow([c[1] for c in cols])
             for r in rows: w.writerow([r[c[0]] for c in cols])
     from openpyxl import Workbook
