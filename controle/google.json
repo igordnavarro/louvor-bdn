@@ -1,0 +1,6 @@
+{
+  "pasta_drive": {"nome": "Worship Church", "id": "1A_ZHTSi5HhGW3ssuNivxd3u9aJyvkHIy", "url": "https://drive.google.com/drive/folders/1A_ZHTSi5HhGW3ssuNivxd3u9aJyvkHIy"},
+  "planilha": {"nome": "Worship Church - Controle", "id": "1E-4xzciXWwRvT33i0QjN80ox65f2sS6R3iqwXxqRR8M",
+               "url": "https://docs.google.com/spreadsheets/d/1E-4xzciXWwRvT33i0QjN80ox65f2sS6R3iqwXxqRR8M/edit",
+               "como_atualiza": "As abas Músicas e Pads leem controle/musicas.csv e controle/pads.csv deste repositório (IMPORTDATA). Basta rodar tools/planilha.py e fazer push; o Google Sheets atualiza sozinho (cache de até ~1h)."}
+}
