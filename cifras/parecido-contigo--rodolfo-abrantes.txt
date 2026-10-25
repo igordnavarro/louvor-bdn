@@ -1,7 +1,79 @@
 @title Parecido Contigo
 @artist Rodolfo Abrantes
 @tom G
-@pad G ou Em
+@pad Em
 @bpm 107
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 187
 
+[Intro] Em  D  C9
 
+Oooo ooo oo oooo ooo oo
+
+[Primeira Parte]
+Em                D                   C9
+   Deixa eu ver o que você está fazendo
+Em             D     C9
+   Pra eu poder fazer também
+Em                D                  C9
+   Quero ouvir teu coração construindo
+  Em              D     C9
+Eu sei, tem algo novo saindo a luz
+Em                                 D                    C9
+   Como não perceber que a expressão que você
+                D                        C9
+Espera que eu seja, é pra quem me ver poder te ver em mim
+Em                       D          C9
+   Que eu venha mostrar esse amor
+                                Em
+Na mesma medida que você me amou
+                 D             C9
+Enquanto estou indo, através de mim seja conhecido
+Am                   C
+   Você apareceu como eu
+Am                        D
+   E eu quero ser como você é
+
+[Refrão]
+G       D                        Am
+Santo, venha transformar o que sou
+     C
+Num filho seu
+G           D                       Am
+Santo, estar perto de ti me deixou
+           C
+Mais parecido contigo
+
+[Segunda Parte]
+Em                D                   C9
+   Deixa eu ver o que você está fazendo
+Em                       D         C9
+   Pois se eu não te ver nada posso fazer
+Em               D        C9
+   Sentindo o teu sentimento
+Em          D               C9
+Eu irei me mover com o que te move
+Em                                 D                    C9
+   Como não perceber que a expressão que você
+                D                        C9
+Espera que eu seja, é pra quem me ver poder te ver em mim
+Em                       D          C9
+   Que eu venha mostrar esse amor
+                                Em
+Na mesma medida que você me amou
+                 D             C9
+Enquanto estou indo, através de mim seja conhecido
+Am                   C
+   Você apareceu como eu
+Am                        D
+   E eu quero ser como você é
+
+[Refrão]
+G       D                        Am
+Santo, venha transformar o que sou
+     C
+Num filho seu
+G           D                       Am
+Santo, estar perto de ti me deixou
+           C
+Mais parecido contigo

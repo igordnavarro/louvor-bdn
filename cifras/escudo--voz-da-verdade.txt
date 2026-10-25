@@ -3,5 +3,80 @@
 @tom D
 @pad D
 @bpm 140
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 105
 
+[Intro] D  Em7  A  D  D2
+[Primeira Parte]
+                D
+Por toda minha vida
+                  Em
+Ó Senhor te louvarei
+                         A
+Pois meu fôlego é a tua vida
+                 D
+E nunca me cansarei
 
+                   D2
+Posso ouvir a sua voz
+                      Em7
+É mais doce do que o mel
+                   A
+Que me tira desta cova
+                 D  D2
+E me leva até o céu
+                     D
+Já ví fogo e terremoto
+                    Em
+Vento forte que passou
+                  A
+Já vivi tantos perigos
+                    D  D2
+Mas tua voz me acalmou
+
+                    D
+Tú dás ordem as estrelas
+                     Em7  Em9  Em7
+E ao mar os seus limites
+                   A
+Eu me sinto tão seguro
+                 D      D2  D
+No teu colo ó altíssimo
+
+[Refrão]
+           Bm7         F#m
+Não há ferrolhos, nem portas
+        G       A            D
+Que se fechem diante da Tua voz
+        A/C# Bm7       F#m
+Não há do_____enças, nem culpas
+     G         A            D
+Que fiquem de pé diante de nós
+           Bm7       F#m
+E a tempestade, se acalma
+    G            A         D
+Na voz Daquele que tudo criou
+          A/C# Bm7    F#m
+Pois Sua pa____lavra, é pura
+   G             A        D
+Escudo para os que Nele crêem
+[Solo] Bm7  F#m  G  A  D
+       Bm7  F#m  G  A  D
+
+[Refrão]
+           Bm7         F#m
+Não há ferrolhos, nem portas
+        G       A            D
+Que se fechem diante da tua voz
+        A/C# Bm7       F#m
+Não há do_____enças, nem culpas
+     G         A            D
+Que fiquem de pé diante de nós
+           Bm7       F#m
+E a tempestade, se acalma
+    G            A         D
+Na voz Daquele que tudo criou
+          A/C# Bm7    F#m
+Pois Sua pa____lavra, é pura
+   G             A        D
+Escudo para os que Nele crêem

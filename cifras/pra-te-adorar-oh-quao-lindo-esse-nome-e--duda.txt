@@ -3,5 +3,101 @@
 @tom C
 @pad C
 @bpm 130
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 134
 
+[Refrão]
+       F9                     Dm7
+Pra Te adorar eu vivo, pra Te adorar eu vivo
+        C9
+Só pra te adorar
+       F9                     Dm7
+Pra Te adorar eu vivo, pra Te adorar eu vivo
+        C9
+Só pra te adorar
+       F9                     Dm7
+Pra Te adorar eu vivo, pra Te adorar eu vivo
+        C9
+Só pra te adorar
+       F9                     Dm7
+Pra Te adorar eu vivo, pra Te adorar eu vivo
+        C9
+Só pra te adorar
 
+[Primeira Parte]
+C
+  No início eras a palavra
+        F2         Am7   G   G4   G
+Um com Deus, o altíssimo
+Am7               G/B      C
+    O mistério de Tua glória
+            F2     Am7   G
+Cristo, em Ti se reve_lou
+
+[Refrão]
+                         C
+Oh, quão lindo esse nome é
+                         G
+Oh, quão lindo esse nome é
+        Am7  G        F2
+O nome de Jesus, meu Rei
+                         C/E
+Oh, quão lindo esse nome é
+                   G
+Maior que tudo ele é
+                         Am7
+Oh, quão lindo esse nome é
+     G     F2
+O nome de Jesus
+
+[Segunda Parte]
+F/C  C
+       Deixou o céu para buscar-nos
+       F      Am7  G
+Veio pra nos resgatar
+Am7                   G/B   C
+    Amor maior que o meu pecado
+      F       Am7  G
+Nada vai nos sepa_rar
+
+[Refrão]
+                     C
+Oh, quão maravilhoso é
+                     G
+Oh, quão maravilhoso é
+        Am7  G        F/C
+O nome de Jesus, meu rei
+                     C/E
+Oh, quão maravilhoso é
+                   G
+Maior que tudo ele é
+                     Am7
+Oh, quão maravilhoso é
+   G    F/C
+O nome de Jesus
+Am7           G          F/C
+    Oh, quão maravilhoso é
+        F
+O nome de Jesus
+
+[Ponte]
+            F7M/C
+A morte venceste
+             G
+O véu Tu rompeste
+           Am7         C/E
+A tumba vazia agora está
+           F7M/C
+O céu Te adora
+                G
+Proclama Tua glória
+              Am7            C/E
+Pois ressuscitaste e vivo está
+         F7M/C        G
+És invencível, inigualável
+            Am7         C/E
+Hoje e pra sempre reinarás
+         F7M/C          G
+Teu é o reino Tua é a glória
+          Am7         G
+Acima de todo nome estás

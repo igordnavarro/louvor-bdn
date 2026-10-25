@@ -1,7 +1,75 @@
 @title Abba
 @artist Laura Souguellis
 @tom C
-@pad C ou Am
+@pad Am
 @bpm 137
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 212
 
+[Intro] C9  F9  C9  F9
 
+[Primeira Parte]
+C9
+   És mais real que o chão que eu
+   F9
+piso
+C9
+   És mais real que o ar em meus
+      F9
+pulmões
+
+[Pré-Refrão]
+C9                                F9
+   Teus pensamentos me definem
+És tudo para mim, És a minha
+      C9
+realidade
+                    F9
+És a minha realidade
+
+[Refrão]
+C9                   F9
+Abba, eu pertenço a ti
+C9                   F9
+Abba, eu pertenço a ti
+
+( C/E  Dm7 )
+
+[Segunda Parte]
+C9
+   Estás mais perto que a canção em
+      F9
+ meus lábios
+C9
+   Estás mais perto, do que a pele
+        F9
+em meus ossos
+C9
+   Estás mais perto que a canção em
+      F9
+ meus lábios
+C9
+   Estás mais perto, do que a pele
+        F9
+em meus ossos
+
+[Pré-Refrão]
+C9                Em        F9
+   Teus pensamentos  me definem
+És tudo para mim, És a minha
+      C9
+realidade
+                    F9
+És a minha realidade
+
+[Refrão]
+C9                   F9
+Abba, eu pertenço a ti
+C9                   F9
+Abba, eu pertenço a ti
+C9                   F9
+Abba, eu pertenço a ti
+C9                   F9
+Abba, eu pertenço a ti
+
+( C/E  Dm7 )

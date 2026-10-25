@@ -3,5 +3,37 @@
 @tom G
 @pad Em
 @bpm 138
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 126
 
+[Primeira Parte]
+ C               Am
+Eu me rasgo por inteiro
+D            Bm                  C
+Faço tudo, mas vem novamente
+                 Am
+Eu mergulho na mirra ardente
+D                         Bm
+Mas peço que tua presença aumente
 
+[Intro] C  Am  D  Bm
+
+[Segunda Parte]
+C                         Am
+E se eu passar pelo fogo não temerei
+D                    Bm
+Na tua fumaça de glória eu entrarei
+C                        Am                  D
+Longe do santo dos santos não sei mais viver
+
+[Refrão]
+          C                   D
+Quem já pisou no santo dos santos
+              Bm              C
+Em outro lugar não sabe viver
+                          D
+E onde estiver clama pela glória
+              G
+A glória de Deus
+
+Oooo, santo

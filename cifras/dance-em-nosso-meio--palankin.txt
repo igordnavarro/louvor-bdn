@@ -3,5 +3,29 @@
 @tom A
 @pad F#m
 @bpm 144
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 111
 
+[Primeira Parte] 4X
+ D              E
+Santo, Ele é Santo
+ F#m            A/C#
+Santo, Ele é Santo
 
+[Pré-Refrão] 4X
+            D
+Eu quero me perder em Você
+                E
+Quero me desconstruir em Você
+        F#m
+Vou me desgastar, me desgastar em
+A/C#
+Você
+
+[Refrão] 4X
+  A                           E
+Jesus vem e passeia em nosso meio
+                      F#m
+Vem e dance em nosso meio
+                    D         E
+Vem e nos toque de novo e de novo

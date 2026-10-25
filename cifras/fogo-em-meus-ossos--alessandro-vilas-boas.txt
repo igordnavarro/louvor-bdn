@@ -3,5 +3,55 @@
 @tom G
 @pad G
 @bpm 117
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 190
 
+[Primeira Parte] (2x)
+ Am                Em
+Tudo que eu mais quero
+  Em4   G           D
+Estar  contigo no secreto lugar
+ Am             Em
+Tudo que eu preciso
+  Em4   G                  D
+Estar  contigo onde tu desejares
 
+[Pré-Refrão]
+C                  Em
+   Se aproxime de mim
+                       G        D
+Chute as pedras pra longe daqui
+C                  Em
+   Se aproxime de mim
+                G    D
+Meu amado me dê a mão
+
+[Refrão]
+C                     Em
+   Como fogo em meus ossos
+         G    D
+São teus olhares
+C                   Em
+   Como fogo em meus ossos
+           D
+As tuas palavras
+
+Em                    G
+  Não consigo ficar longe de ti
+D               Am      C
+  Minh'alma anseia o meu senhor
+Em                    G         D
+  Não consigo ficar longe de ti
+
+     C        Em      D/F#  G
+Minh'alma está presa a ti
+ D
+Sempre sempre
+
+( C  Em  D )
+
+Yeshua
+
+Já provei amor de amigos
+Já provei amor de esposa
+Mas não achei outro igual ao teu

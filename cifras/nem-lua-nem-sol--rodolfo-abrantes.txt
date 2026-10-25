@@ -3,5 +3,119 @@
 @tom D
 @pad Bm
 @bpm 168
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 214
 
+[Intro] Bm  Em
 
+[Primeira Parte]
+Bm                          A9
+Bem mais alto que as mais altas nuvens
+Em                   D9
+Assentado no terceiro céu
+Bm                 A9
+De lá brilhou a luz sobre os homens
+     B4                          D9
+E eu sou mais um que iluminado está
+
+Bm                 A9
+Ele é o vento que soprou sobre mim
+Em                D9
+E fez do meu deserto um jardim
+Bm         A9
+Não faz tanto tempo que eu vi
+       Em          D9
+Meu tempo se multiplicar
+Bm          A9
+Me reconectou,
+         Em         D9
+Estou ligado na fonte
+
+Bm                      A9
+Pelas águas eu me deixo carregar
+  Em          D9
+E vou flutuando pra longe
+Bm              A9
+Do que eu fui, indo pra perto do Eu sou
+    Em               D9
+Do outro lado do fim, que ainda nem começou
+Bm            A9
+Apontando pro céu
+               Em
+Acabei de passar
+Pelos os pedaços do véu
+
+[Refrão]
+G                           D
+Eu sei que a hora vai chegar
+                    F#m
+Quando a terra passar
+                 Bm
+E a cidade descer
+G                   D/F#
+Não haverá lua nem sol,
+                    F#m
+Sua presença me ilumina
+O cordeiro é a luz do céu
+
+( Bm  A9  B4  D9 )
+
+[Segunda Parte]
+Bm       A9         Em  D9          Bm
+ Bom estar com você em dias assim
+      A9            Em    D9
+Pro meu amor não se esfriar
+Bm        A9
+ O tempo aqui é breve
+Em          D9
+ E eu tenho que correr
+Bm       A9              Em
+ Pra ter amor quando o inverno
+ D9
+chegar
+Bm       A9             Em
+ Hoje eu preciso saber
+      D9
+ O que tem dentro de mim
+Bm       A9              Em      D9
+ Pois meu amor, quase deixei escapar
+Bm      A9
+ "Perdoa quem te deve,
+  Em       D9
+Eu fiz o mesmo por você
+  Bm         A9
+Será por um amor assim
+          Em     A9
+Que eu virei te buscar"
+
+[Refrão]
+G                           D
+Eu sei que a hora vai chegar
+                    F#m
+Quando a terra passar
+                 Bm
+E a cidade descer
+G                   D/F#
+Não haverá lua nem sol,
+                    F#m
+Sua presença me ilumina
+O cordeiro é a luz do céu
+
+[Instrumental]
+( Bm  D  G  A )
+( Bm  D  F#m  A9 )
+( Bm  D  G  A )
+( Bm  D  F#m  A )
+
+[Refrão] (2x)
+G                           D
+Eu sei que a hora vai chegar
+                    F#m
+Quando a terra passar
+                 Bm
+E a cidade descer
+G                   D/F#
+Não haverá lua nem sol,
+                    F#m
+Sua presença me ilumina
+O cordeiro é a luz do céu

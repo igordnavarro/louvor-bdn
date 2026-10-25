@@ -3,5 +3,75 @@
 @tom B
 @pad G#m
 @bpm 142
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 211
 
+[Intro] G#m  E
 
+[Primeira Parte]
+G#m
+O amor mais louco do mundo, Dá atenção a quem não presta,
+E
+Sorri pra quem a maioria detesta, Perdoa quando nada mais resta
+
+G#m
+O amor mais louco do mundo, Diz sim quando devia dizer não
+E
+Que ao invés de fugir estende a mão
+
+[Pré-Refrão]
+    G#m     G#m7M       G#m   G#m6
+Este amor me faz novo de novo, A cada manhã
+E
+  Onde se morre pra nascer
+
+[Refrão]
+ B               A
+O amor, louco é o amor
+     G#m                 E
+Desfaz a dor transformando tudo
+ B           A
+O amor, não há outro
+     G#m                E
+Como o amor mais louco do mundo
+
+[Primeira Parte]
+G#m
+O amor mais louco do mundo, Dá atenção a quem não presta,
+E
+Sorri pra quem a maioria detesta, Perdoa quando nada mais resta
+
+G#m
+O amor mais louco do mundo, Diz sim quando devia dizer não
+E
+Que ao invés de fugir estende a mão
+
+[Pré-Refrão]
+G#m         G#m7M      G#M7    G#m6
+Este amor me faz novo de novo, A cada manhã
+E
+  Onde se morre pra nascer
+
+[Refrão]
+ B               A
+O amor, louco é o amor
+     G#m                 E
+Desfaz a dor transformando tudo
+ B           A
+O amor, não há outro
+     G#m                E
+Como o amor mais louco do mundo
+
+[Ponte]
+C#m
+Que abraça quem não merece
+B
+Quem sente nunca se esquece
+Bbm7(b5)                 A9
+E espera quem não quer voltar
+C#m
+Que escuta quem já se calou
+B
+E luta por quem se cansou
+Bbm7(b5)            A9
+Que faz de tudo por você

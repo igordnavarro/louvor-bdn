@@ -1,7 +1,74 @@
 @title Pai Nosso
 @artist Pedras Vivas
 @tom B
-@pad B ou G#m
+@pad G#m
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 179
 
+[Intro] B9  G#m7  E
+        B9  G#m7  E
 
+[Primeira Parte]
+     B9
+Pai nosso, nos céus
+ E               F#
+Santo é o teu nome
+     B9
+Teu reino buscamos
+        E          F#
+Tua vontade seja feita
+
+[Refrão]
+   E        B/D#   C#m7    G#m7
+Na terra como      é, nos céus
+         F#
+Deixe o céu descer
+   E        B/D#   C#m7    G#m
+Na terra como      é, nos céus
+         F#
+Deixe o céu descer
+
+( B9  G#m7  E )
+
+[Ponte]
+                 G#m7   F#
+Deixe o céu descer
+                 E
+Deixe o céu descer
+                 G#m7   F#
+Deixe o céu descer
+                 E
+Deixe o céu descer
+                 G#m7   F#
+Deixe o céu descer
+                 E
+Deixe o céu descer
+                 G#m7   F#
+Deixe o céu descer
+
+( E  G#m7  F# )
+( E  G#m7  F# )
+
+[Terceira Parte]
+ E                           G#m7
+Teu é o reino, teu o poder Tua
+                D#m7
+É a glória pra sempre, amém
+ E                           G#m7
+Teu é o reino, teu o poder Tua
+                D#m7
+É a glória pra sempre, amém
+ E                           G#m7
+Teu é o reino, teu o poder Tua
+                B/D#
+É a glória pra sempre, amém
+ E                           G#m7
+Teu é o reino, teu o poder Tua
+                F#/A#
+É a glória pra sempre, amém
+
+[Final] E  G#m7  F#
+        E  G#m7  F#
+        E  G#m7  F#
+        E  G#m7  F#

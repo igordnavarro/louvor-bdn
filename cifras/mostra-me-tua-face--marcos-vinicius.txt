@@ -3,6 +3,72 @@
 @tom E
 @pad E
 @bpm 135
+@note Anotação na folha: C D Em G
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 193
 
-! A B C#m G#m (2x)
-! C D Em G
+[Intro] E  A9  E  A9
+
+[Primeira Parte]
+      A9
+Intensamente o buscarei
+                        B
+Enquanto eu viver eu te perseguirei
+      C#m                          E/G#
+Meu desejo é contemplar sua glória
+
+( A  B  C#m  G#m )
+
+[Primeira Parte] (2x)
+      A9
+Intensamente o buscarei
+                        B
+Enquanto eu viver eu te perseguirei
+      C#m                          E/G#
+Meu desejo é contemplar sua glória
+
+[Refrão] (2x)
+A9
+ Vou atrás  de ti eu vou
+B
+Vou atrás de ti eu vou
+C#m7                 E/G#
+Vou atrás de ti eu vou
+
+[Ponte] (4x)
+A9
+Em Glória seguimos
+B9
+Distante da distração
+C#m7
+Queremos a face
+E/G#
+Queremos o coração do pai
+
+[Ponte 2] (6x)
+A9
+A Ti eu quero ir
+B9
+Sua glória contemplar
+C#m7
+Mostra-me tua face Deus
+G#m7
+Eu insisto ainda que eu morra
+
+[Refrão] (4x)
+A9
+ Vou atrás  de ti eu vou
+B
+Vou atrás de ti eu vou
+C#m7                 E/G#
+Vou atrás de ti eu vou
+
+[Ponte 2] (2x)
+A9
+A Ti eu quero ir
+B9
+Sua glória contemplar
+C#m7
+Mostra-me tua face Deus
+G#m7
+Eu insisto ainda que eu morra

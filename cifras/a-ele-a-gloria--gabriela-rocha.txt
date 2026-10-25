@@ -3,5 +3,72 @@
 @tom D
 @pad Bm
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 136
 
+! Tom: Bm
+[Primeira Parte]
+Bm                  G
+  Porque dele e por ele
+    A/C#              Bm
+Para ele são todas as coisas
+Bm                  G
+  Porque dele e por ele
+    A/C#              Bm
+Para ele são todas as coisas
+Bm                  G
+  Porque dele e por ele
+    A/C#              Bm
+Para ele são todas as coisas
+Bm                  G
+  Porque dele e por ele
+    A/C#              Bm
+Para ele são todas as coisas
 
+[Refrão]
+          G  D/F# A/C#
+A Ele a Gló------ria
+          D  A/C#  Bm
+A Ele a Gló-------ria
+        G  A/C#             Bm
+Ele a Gló-ria, Pra sempre Amem
+          G  D/F# A/C#
+A Ele a Gló------ria
+          D  A/C#  Bm
+A Ele a Gló-------ria
+
+        G  A/C#             Bm
+Ele a Gló-ria, Pra sempre Amem
+
+[Segunda Parte]
+Bm                   G
+  Quão profundas riquezas
+   A/C#               Bm
+O saber e o conhecer de Deus
+          G              A/C#
+Quão insondáveis, seus juízos e seus
+     Bm
+caminhos
+
+Bm                   G
+  Quão profundas riquezas
+   A/C#               Bm
+O saber e o conhecer de Deus
+          G              A/C#
+Quão insondáveis, seus juízos e seus
+     Bm
+caminhos
+
+[Refrão]
+          G  D/F# A/C#
+A Ele a Gló------ria
+          D  A/C# Bm
+A Ele a Gló-------ria
+        G  A/C#             Bm
+Ele a Gló-ria, Pra sempre Amem
+          G  D/F# A/C#
+A Ele a Gló------ria
+          D  A/C#  Bm
+A Ele a Gló-------ria
+        G  A/C#             Bm
+Ele a Gló-ria, Pra sempre Amem

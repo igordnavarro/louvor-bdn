@@ -3,5 +3,95 @@
 @tom A
 @pad A
 @bpm 67
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 194
 
+[Primeira Parte]
+ A      A/C#
+Cristo, manso e humilde
+      D9
+Assentou-se à mesa
+  A         A/C#
+O Filho de Deus se encarnou
+       D9
+E assentou-se à mesa
 
+[Pré-Refrão]
+      Bm7
+E Ele partiu o pão
+     A/C#
+Ele serviu o vinho
+     D9
+Nos deu plena comunhão
+     Bm7
+E o véu se rasgou
+        A/C#
+Fez um vivo caminho
+         D9
+Temos plena comunhão
+
+[Refrão]
+                       A
+Tudo o que eu tenho é Teu, Cristo
+                 D9
+Tudo o que eu sou é Teu, Filho
+       F#m7
+Minha casa, meu dinheiro
+       A/C#
+Meu destino por inteiro
+       D9
+Tudo é Teu
+
+[Primeira Parte]
+ A      A/C#
+Cristo, manso e humilde
+      D9
+Assentou-se à mesa
+  A         A/C#
+O Filho de Deus se encarnou
+       D9
+E assentou-se à mesa
+
+[Pré-Refrão]
+      Bm7
+E Ele partiu o pão
+     A/C#
+Ele serviu o vinho
+     D9
+Nos deu plena comunhão
+     Bm7
+E o véu se rasgou
+        A/C#
+Fez um vivo caminho
+         D9
+Temos plena comunhão
+
+[Refrão]
+                       A
+Tudo o que eu tenho é Teu, Cristo
+                 D9
+Tudo o que eu sou é Teu, Filho
+       F#m7
+Minha casa, meu dinheiro
+       A/C#
+Meu destino por inteiro
+       D9
+Tudo é Teu
+
+                       A
+Tudo o que eu tenho é Teu, Cristo
+                 E   D9
+Tudo o que eu sou    é Teu, Filho
+       F#m7
+Minha casa, meu dinheiro
+       E
+Meu destino por inteiro
+       D9
+Tudo é Teu
+
+      A            D9
+Tudo é Teu, tudo é Teu
+        F#m7  C#m7        D9
+Tudo é Teu,         tudo é Teu
+      A
+Tudo é Teu

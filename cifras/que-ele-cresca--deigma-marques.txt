@@ -3,5 +3,53 @@
 @tom D
 @pad D
 @bpm 144
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 186
 
+[Intro] D  D9  D4
+        D  D9  D4
 
+[Primeira Parte]
+ D    D9      D4
+Mais     de Ti
+ D    D9      D4
+Mais     de Ti
+          Bm     A
+E menos de mim
+          G
+E menos de mim
+          Bm     A
+E menos de mim
+          G
+E menos de mim
+
+ D    D9      D4
+Mais     de Ti
+ D    D9      D4
+Mais     de Ti
+          Bm     A
+E menos de mim
+          G
+E menos de mim
+          Bm     A
+E menos de mim
+          G
+E menos de mim
+
+[Refrão]
+          Em
+Que Ele cresça
+          G
+E eu diminua
+            Bm
+Que Ele apareça
+              A
+E eu me constranja
+            Em
+Com a Sua glória
+               G
+E todo o seu amor
+               Bm
+Infinita humildade
+          A
+Servo de todos os irmãos

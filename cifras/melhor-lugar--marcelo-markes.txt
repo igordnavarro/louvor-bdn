@@ -5,6 +5,8 @@
 @bpm 135
 @capo 3
 @note Forma dos acordes no tom G · capotraste na 3ª casa
+@arquivo SET LIST - BDN FB 1-1-100.pdf
+@slide 58
 
 [Intro] C  Am  Em  D
 [Primeira Parte]

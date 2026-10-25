@@ -3,5 +3,15 @@
 @tom D
 @pad D
 @bpm 128
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 156
 
+[Intro] Bm7  C#m7  D7M  E
 
+[Refrão]
+                     Bm7
+Nada vai roubar tua glória
+                         A/C#
+Nada vai roubar tua glória
+              D7M          F#m7        E
+Tudo veio de ti    tudo volta pra ti

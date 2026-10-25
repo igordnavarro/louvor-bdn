@@ -1,7 +1,114 @@
 @title Fogo em Teus Olhos
-@artist Louvor Iir
+@artist Louvor IIR
 @tom E
 @pad C#m
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 176
 
+[Intro] C#m  A  F#m  A  B
 
+[Primeira Parte]
+C#m                         A
+   Me aproximei, permaneci
+                         F#m
+O teu olhar me consumiu
+A        B
+Eu sou todo teu
+
+C#m                         A
+   Me aproximei, permaneci
+                         F#m
+O teu olhar me consumiu
+A        B
+Eu sou todo teu
+
+[Refrão]
+  C#m         B
+O fogo em teus olhos
+ F#m              A   B
+Fez eu me apaixonar
+     C#m                  B
+Queimou todos os outros amores
+     F#m                  A    B
+Queimou todos os outros amores
+
+[Primeira Parte]
+C#m                         A
+   Me aproximei, permaneci
+                         F#m
+O teu olhar me consumiu
+A        B
+Eu sou todo teu
+
+C#m                         A
+   Me aproximei, permaneci
+                         F#m
+O teu olhar me consumiu
+A        B
+Eu sou todo teu
+
+[Refrão]
+  C#m         B
+O fogo em teus olhos
+ F#m              A   B
+Fez eu me apaixonar
+     C#m                  B
+Queimou todos os outros amores
+     F#m                  A    B
+Queimou todos os outros amores
+
+  C#m         B
+O fogo em teus olhos
+ F#m              A   B
+Fez eu me apaixonar
+     C#m                  B
+Queimou todos os outros amores
+     F#m                  A    B
+Queimou todos os outros amores
+
+   C#m                  B
+Queimou todos os outros amores
+   F#m                  G#7   C°
+Queimou todos os outros amores
+C#m
+
+( C#m  B  F#m  A  B )
+
+[Ponte]
+C#m
+   Eu ainda tenho fome
+A
+  Eu ainda tenho lenha
+F#m
+   Pode vir queimar
+A        B
+  Pode me queimar
+
+C#m
+   Eu ainda tenho fome
+A9
+  Eu ainda tenho lenha
+F#m
+   Pode vir queimar
+A        B
+  Pode me queimar
+
+[Final]
+        C#m          A
+Nos tornamos responsáveis
+    F#m                A   B
+A chama não vai apagar
+        C#m          A
+Nos tornamos responsáveis
+    F#m                A   B
+A chama não vai apagar
+
+        C#m          A
+Nos tornamos responsáveis
+    F#m                A   B
+A chama não vai apagar
+        C#m          A
+Nos tornamos responsáveis
+    F#m                A   B   C#m
+A chama não vai apagar

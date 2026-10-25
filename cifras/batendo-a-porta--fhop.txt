@@ -3,5 +3,95 @@
 @tom E
 @pad C#m
 @bpm 135
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 207
 
+[Intro] C#m7
 
+[Primeira Parte]
+C#m
+Haverá um dia que Ele descerá
+C#m7
+Haverá um dia que o céu se rasgará
+ A9                      B9
+E até lá eu cantarei, até lá proclamarei
+       F#m
+As suas verdades, as suas promessas
+
+( C#m7 )
+
+C#m7
+Haverá um dia que a terra se abalará
+A9                  C#m
+Haverá um dia que o noivo se casará
+      A9                     B9
+Até lá cantarei, até lá proclamarei
+       F#m
+Suas verdades, suas promessas
+
+[Pré-Refrão] (4x)
+C#m7                        B9
+Nós não pararemos de clamar
+                                  F#m
+Até que o reino de justiça venha à
+     A9
+Terra e o justo governe
+
+[Refrão] (4x)
+ C#m7
+Estamos batendo à porta
+        B9
+Estamos enchendo as taças
+ F#m                  A9
+Até que tu venhas com tua justiça
+
+[Interlúdio] C#m7
+
+[Ponte]
+C#m7
+Ele veio como um cordeiro
+   E/G#
+Ele veio como um redentor
+      A9
+Ele virá pra governar
+      B9
+O cordeiro reinará
+
+A9
+Ele veio como um cordeiro
+ B9
+Ele veio como um redentor
+      F#m
+Ele virá pra governar
+     A9
+O cordeiro reinará
+
+C#m7
+Ele veio como um cordeiro
+  B9
+Ele veio como um redentor
+      F#m
+Ele virá pra governar
+     A9
+O cordeiro reinará
+
+C#m7
+Ele veio como um cordeiro
+   A9
+Ele veio como um redentor
+      F#/A#
+Ele virá pra governar
+     B9
+O cordeiro reinará
+
+[Refrão] (2x)
+
+[Solo] (2x) C#m7  B9  F#m  A9
+
+[Finalização] (2x)
+C#m7                        B9
+Nós não pararemos de clamar
+                                  F#m
+Até que o reino de justiça venha à
+     A9
+Terra e o justo governe

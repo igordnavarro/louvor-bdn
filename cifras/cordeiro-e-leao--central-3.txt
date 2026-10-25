@@ -3,5 +3,52 @@
 @tom G
 @pad Em
 @bpm 102
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 175
 
+[Intro] C5  Em
 
+[Primeira Parte]
+                    C7M                    Em7
+De quem é esse amor que me rasga por inteiro
+                    C7M                    Em7
+De quem é esse amor que afasta todo temor
+                    C7M                    Em7
+De quem é esse amor que me escolheu primeiro
+                    C7M                    Em7
+De quem é esse amor que me mostra quem eu sou
+
+[Pré-Refrão]
+           C   D    Em
+Seu nome é Jesus
+           C   D    Em
+Seu nome é Jesus
+
+( C  D  Em )
+( C  D  Em )
+
+[Segunda Parte]
+                  C                     Em
+De quem é esse amor que me rasga por inteiro
+                  C                     Em
+De quem é esse amor que afasta todo temor
+                  C                     Em
+De quem é esse amor que me escolheu primeiro
+                  C                      Em
+De quem é esse amor que me mostra quem eu sou
+
+[Pré-Refrão]
+           C   D    Em
+Seu nome é Jesus
+           C   D    Em
+Seu nome é Jesus
+
+[Refrão]
+                    C    D                    Em
+Morreu como um cordeiro ressuscitou como um Leão
+                 C         D         Em
+A morte não te segurou e ele vivo está
+                    C    D                    Em
+Morreu como um cordeiro ressuscitou como um leão
+                    C         D          Em
+Pra sempre eu cantarei tu és rei nesse lugar

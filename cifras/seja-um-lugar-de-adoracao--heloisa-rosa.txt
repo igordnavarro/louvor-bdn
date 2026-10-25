@@ -3,5 +3,116 @@
 @tom A
 @pad F#m
 @bpm 132
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 181
 
+[Intro] F#m  E4(6)  D7M
+        F#m  E4(6)  D7M
 
+[Primeira Parte]
+F#m     E11           D7M
+A intimidade não é pra muitos
+F#m     E11            D7M
+A intimidade não é pra muitos
+                 F#m          E11
+Mas pra quem busca ao Senhor
+D7M                F#m  E11   D7M
+    De todo o coração
+                 F#m  E11   D7M
+De todo o coração
+
+[Refrão]
+F#m7/C#  E11          D7M
+Seja o lugar de adoração
+  F#m7       E11          D7M
+Levante o altar e se ofereça
+F#m7      E11          D7M
+Seja o lugar de adoração
+  F#m7       E11          D7M
+Levante o altar e se ofereça
+
+[Segunda Parte]
+F#m         E11
+   Há um lugar
+              D7M
+Onde eu quero estar
+F#m        E11            D7M
+   Pois ali eu te encontrei
+F#m          E11      D7M
+   Neste lugar de adoração
+
+Que é só pra ti
+F#m       E11         D7M
+   Sacrifícios já ofereci
+
+[Refrão]
+F#m7           E11          D7M
+Eu sou um lugar de adoração
+  F#m7             E11            D7M
+Levanto o meu altar e me ofereço
+F#m7           E11          D7M
+Eu sou um lugar de adoração
+  F#m7             E11            D7M
+Levanto o meu altar e me ofereço
+
+( Bm7  A/C#  D9  E )
+( F#m  E  E11  E  E9 )
+
+[Ponte]
+Bm7              A/C#  D9
+     O fogo arderá
+                E11   F#m
+E não se apagará
+                 E
+Pois o altar é santo
+Bm7              A/C#  D9
+     O fogo arderá
+                E11   F#m
+E não se apagará
+                 E
+Pois o altar é santo
+
+Bm7              A/C#  D9
+     O fogo arderá
+                E11   F#m
+E não se apagará
+                 E
+Pois o altar é santo
+Bm7              A/C#  D9
+     O fogo arderá
+                E11   F#m
+E não se apagará
+                 E
+Pois o altar é santo
+
+[Refrão]
+F#m7      E11          D7M
+Seja o lugar de adoração
+  F#m7       E11          D7M
+Levante o altar e se ofereça
+F#m7      E11          D7M
+Seja o lugar de adoração
+  F#m7       E11          D7M
+Levante o altar e se ofereça
+F#m7      E11          D7M
+Seja o lugar de adoração
+  F#m7       E11          D7M
+Levante o altar e se ofereça
+F#m7      E11          D7M
+Seja o lugar de adoração
+  F#m7       E11          D7M
+Levante o altar e se ofereça
+
+[Ponte]
+Bm7              A/C#  D9
+     O fogo arderá
+                E11   F#m
+E não se apagará
+                 E
+Pois o altar é santo
+Bm7              A/C#  D9
+     O fogo arderá
+                E11   F#m
+E não se apagará
+                 E
+Pois o altar é santo

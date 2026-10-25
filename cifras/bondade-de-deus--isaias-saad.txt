@@ -1,7 +1,109 @@
 @title Bondade de Deus
-@artist Isaías Saad
+@artist Isaias Saad
 @tom C
-@pad Am ou C
+@pad C
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 224
 
+[Primeira Parte]
+         C
+Te amo, Deus
+     F7M/C      C
+Tua graça nunca falha
+   G/B    Am7
+Todos os dias
+     F7M/C       G6
+Eu estou em Tuas mãos
+                     Am7  F7M/C
+Desde quando me levanto
+        C     G/B  Am7
+Até eu me deitar
+        F7M/C     G6      C
+Eu cantarei da bondade de Deus
 
+[Refrão]
+F7M/C                  C
+      És fiel em todo tempo
+F7M/C                        C        G6
+      Em todo tempo Tu és tão, tão bom
+F7M/C                       Am7
+      Com todo fôlego que tenho
+      F7M/C     G6      C
+Eu cantarei da bondade de Deus
+
+[Segunda Parte]
+         C
+Tua doce voz
+        F7M/C          C
+Que me guia em meio ao fogo
+      G/B   Am7
+Na escuridão
+       F7M/C       G6
+Tua presença me conforta
+                 Am7   F7M/C
+Sei que és meu Pai
+    C   G/B   Am7
+Que amigo és
+    F7M/C  G       C
+Vivo na bondade de Deus
+
+[Refrão]
+F7M/C                  C
+      És fiel em todo tempo
+F7M/C                        C        G6
+      Em todo tempo Tu és tão, tão bom
+F7M/C                       Am7
+      Com todo fôlego que tenho
+      F7M/C     G6      C
+Eu cantarei da bondade de Deus
+
+F7M/C                  C
+      És fiel em todo tempo
+F7M/C                        C        G6
+      Em todo tempo Tu és tão, tão bom
+F7M/C                       Am7
+      Com todo fôlego que tenho
+      F7M/C     G6      C
+Eu cantarei da bondade de Deus
+
+( C9  C  C4 )
+( C  C9  C  C4 )
+
+[Ponte]
+C/E               F7M/C
+    Tua bondade me seguirá
+   G6        C
+Me seguirá Senhor
+C/E               F7M/C
+    Tua bondade me seguirá
+   G6        C
+Me seguirá Senhor
+
+      C/E          F7M/C
+Eu me rendo a Ti, te dou o meu ser
+   G6        Am7
+Entrego tudo a Ti
+C/E               F7M/C
+    Tua bondade me seguirá
+   G6        C
+Me seguirá Senhor
+
+[Refrão]
+F7M/C                  C
+      És fiel em todo tempo
+F7M/C                        C        G6
+      Em todo tempo Tu és tão, tão bom
+F7M/C                       Am7
+      Com todo fôlego que tenho
+      F7M/C     G6      C
+Eu cantarei da bondade de Deus
+
+F7M/C                  C
+      És fiel em todo tempo
+F7M/C                        C        G6
+      Em todo tempo Tu és tão, tão bom
+F7M/C                       Am7
+      Com todo fôlego que tenho
+      F7M/C     G6      C
+Eu cantarei da bondade de Deus

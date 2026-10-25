@@ -4,5 +4,64 @@
 @pad C
 @bpm 128
 @note Refrão · Repete desde o início · Refrão 2x
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 120
 
+[Intro] F  G
 
+[Primeira Parte]
+F             G
+Os santos e os anjos
+F             G
+Prostram-se a ti
+F                  G    C/E      F
+Os anciãos rendem suas coroas ao cordeiro
+   G      C
+E a Ele cantam
+
+[Refrão] 2x
+               C
+Tu És digno de tudo
+               G
+Tu És digno de tudo
+                 F
+Pois tudo vem de Ti
+           G
+Tudo é para Ti
+          C
+Tua é a glória
+
+! Repete desde o início
+
+[Ponte]
+C                         Em
+Dia e noite suba a Ti nossa adoração
+Am                        F
+Dia e noite suba a Ti nossa adoração
+
+C/G                         G
+Dia e noite suba a Ti nossa adoração
+Dm                        F
+Dia e noite suba a Ti nossa adoração
+
+C                         Em
+Dia e noite suba a Ti nossa adoração
+Am                        F
+Dia e noite suba a Ti nossa adoração
+
+C/G                         G
+Dia e noite suba a Ti nossa adoração
+Dm                        F
+Dia e noite suba a Ti
+
+! Refrão 2x
+
+[Final] 4x
+       C
+Te exaltamos
+       Em
+Te exaltamos
+       F      G
+Te exaltamos
+     C
+Oh Senhor

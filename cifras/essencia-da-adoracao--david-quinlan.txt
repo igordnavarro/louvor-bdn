@@ -3,5 +3,83 @@
 @tom E
 @pad E
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 223
 
+[Primeira Parte]
+E                        E7M(5)
+  Quando a música esmorece
+                  F#m7
+E o resto desaparece
+                         B4   B
+Simplesmente a ti me achego
+E                 E7M(5)          F#m7
+  Ansiando oferecer algo de valor
+                         B4   B
+Pra abençoar o teu coração
 
+E                        E7M(5)
+  Quando a música esmorece
+                  F#m7
+E o resto desaparece
+                         B4   B
+Simplesmente a ti me achego
+E                 E7M(5)          F#m7
+  Ansiando oferecer algo de valor
+                         B4   B
+Pra abençoar o teu coração
+
+[Pré-Refrão]
+F#m                   E          B2
+    Mais que uma canção eu te darei
+                     F#m
+Pois apenas uma canção
+              C#m7     B2
+Não é o que queres de mim
+F#m                  E         B2
+    Mais profundo busca, Senhor
+                      F#m
+Do que os olhos podem ver
+      E/G#    B4   B
+Queres meu coração
+
+[Refrão]
+E                        E7M(5)
+  Estou voltando a essência da Adoração
+      F#m
+E a essência és Tu
+     A2          B2
+A essência és Tu, Jesus
+E                                 E7M(5)
+  Oh, me perdoa pelo que eu fiz dela
+            F#m
+Quando a essência és Tu
+     A2          B2
+A essência és Tu, Jesus
+
+[Segunda Parte]
+E                          E7M(5)
+  Rei de imensurável valor
+                    F#m           B4
+Ninguém pode expressar quanto és digno
+ B
+E                              E7M(5)
+  Embora eu seja pobre e fraco
+                   F#m
+Tudo que tenho é Teu
+             B4   B
+Cada fôlego meu
+
+[Refrão]
+E                        E7M(5)
+  Estou voltando a essência da Adoração
+      F#m
+E a essência és Tu
+     A2          B2
+A essência és Tu, Jesus
+E                                 E7M(5)
+  Oh, me perdoa pelo que eu fiz dela
+            F#m
+Quando a essência és Tu
+     A2          B2
+A essência és Tu, Jesus

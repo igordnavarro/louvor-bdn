@@ -1,7 +1,91 @@
-@title Quando a Luz se Apagar
+@title Quando a Luz Se Apagar
 @artist Ministério Zoe
 @tom A
 @pad F#m
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 196
 
+[Intro] F#m  E  Bm  C#m
 
+[Primeira Parte]
+F#m                    E
+Um fogo queima em mim, clamo por mais
+   Bm
+de ti
+                 C#m                    F#m
+Eu quero muito mais, eu preciso ir além
+                                E
+Estou a procura de algo novo, preciso de
+     Bm
+ um renovo
+                  C#m             F#m
+Meu coração quer mais, mais de ti
+
+[Pré-Refrão]
+                      E
+Eu cansei de ser o mesmo
+                        Bm
+Eu cansei de ser eu mesmo
+               C#m
+Eu quero tua vida em mim
+F#m
+Eu você, você e eu
+E
+Eu sou teu, você é meu
+      Bm                    C#m
+E eu quero ficar na tua presença
+
+( F#m  E  Bm  C#m )
+
+[Refrão]
+A                     C#m
+ Quando a luz se apagar
+D                  E
+ Quando a música calar
+A                   C#m
+ Quando o mover passar
+                  D              E
+Eu só quero você, só quero você
+A                     C#m
+ Quando a luz se apagar
+D                  E
+ Quando a música calar
+A                   C#m
+ Quando o mover passar
+                  D              E
+Eu só quero você, só quero você
+
+[Ponte]
+   A      C#m    D               E
+Jesus, Jesus, Jesus, Só quero você
+   A      C#m    D               E
+Jesus, Jesus, Jesus, Só quero você
+   A      C#m    D               E
+Jesus, Jesus, Jesus, Só quero você
+                  A            C#m
+Eu só quero você, só quero você
+             D              E
+Só quero você, só quero você
+                  A            C#m
+Eu só quero você, só quero você
+             D              E
+Só quero você, só quero você
+
+[Refrão]
+A                     C#m
+ Quando a luz se apagar
+D                  E
+ Quando a música calar
+A                   C#m
+ Quando o mover passar
+                  D              E
+Eu só quero você, só quero você
+A                     C#m
+ Quando a luz se apagar
+D                  E
+ Quando a música calar
+A                   C#m
+ Quando o mover passar
+                  D              E
+Eu só quero você, só quero você

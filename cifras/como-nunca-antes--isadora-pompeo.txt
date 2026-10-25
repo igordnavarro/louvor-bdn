@@ -1,8 +1,62 @@
 @title Como Nunca Antes
 @artist Isadora Pompeo
 @tom E
-@tomsrc songbpm
 @pad C#m
 @bpm 142
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 112
 
+[Intro] A  F#m  C#m  G#m
 
+[Primeira Parte]
+            A
+Eu ouvi o som
+              F#m
+Do rei a entrar
+                 C#m
+E eis que ele vem
+               G#m
+Com fogo batizar
+
+[Pré-Refrão]
+        A          F#m
+Vai surgir, algo novo
+              C#m
+Como flecha, vem rasgar
+          G#m
+O meu interior
+
+[Refrão]
+      A
+Então vem, como nunca veio antes
+  F#m
+E vem como nunca veio antes
+  C#m                          G#m
+E vem como nunca veio antes, e vem
+      A
+Então vem, como nunca veio antes
+  F#m
+E vem como nunca veio antes
+  C#m                          G#m
+E vem como nunca veio antes, e vem
+
+[Ponte]
+                  A
+Não me deixe ficar
+              F#m
+Sem o teu tocar
+              C#m
+Não me deixe ir
+             G#m
+Sem te sentir
+
+                  A
+Não me deixe ficar
+              F#m
+Sem o teu tocar
+              C#m
+Não me deixe ir
+             G#m
+Sem te sentir
+
+[Intro] A  F#m  C#m  G#m  A

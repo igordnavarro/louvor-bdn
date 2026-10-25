@@ -4,5 +4,92 @@
 @pad Em
 @bpm 128
 @note Volta no início (toda banda)
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 106, 174
 
+[Intro] G  D9  Am7  C9  Em7
 
+[Primeira Parte]
+            G        D9
+Me achego a Ti com temor
+          Am7          C9    Em7
+Eu sei que não mereço estar aqui
+                  G
+Só uma coisa me satisfaz
+                  Em7
+Só uma coisa me satisfaz
+
+             C9                                    Em7
+Se pra carregar Tua glória eu preciso estar coberto com sangue
+        Am7                              D9
+Dos sacrifícios que eu fiz ao longo do caminho
+         C9                          Em7
+Se há um preço a ser pago pra ter a Tua glória
+                  G
+Só uma coisa me satisfaz
+
+          C9                                  D9
+Neste lugar onde os anjos escondem o rosto de Ti
+          Am7          C9            Em7
+Desse lugar eu preciso,  eu quero estar
+                       G
+Pois só uma coisa me satisfaz
+                    D9
+Só uma coisa me satisfaz
+
+[Refrão]
+         G          D9
+A Tua glória, oh Deus
+         Am7        C9
+A Tua glória, oh Deus
+         G          D9
+A Tua glória, oh Deus
+                           Am7   C9
+Só uma coisa me satisfaz
+
+! Volta no início (toda banda)
+
+[Ponte]
+                    G
+E eu te dou os meus ombros
+                   D9
+Pra carregar Tua glória
+                Am7
+Por onde eu passar
+                         C9
+Manifestar a Tua glória, oh Deus
+                    G
+E eu te dou os meus ombros
+                   D9
+Pra carregar Tua glória
+                Am7
+Por onde eu passar
+                         C9
+Manifestar a Tua glória, oh Deus
+
+         Am7
+Que eu desejo, o que eu preciso
+         Em7
+Que eu procuro
+          C9
+Tua glória
+          Bm7
+Tua glória
+         Am7
+Que eu desejo, o que eu preciso
+         Em7
+Que eu procuro
+          C9
+Tua glória
+          Bm7
+Tua glória
+
+[Refrão]
+         G          D9
+A Tua glória, oh Deus
+         Am7        C9
+A Tua glória, oh Deus
+         G          D9
+A Tua glória, oh Deus
+                           Am7   C9
+Só uma coisa me satisfaz

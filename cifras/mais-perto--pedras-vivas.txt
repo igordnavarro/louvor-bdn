@@ -3,5 +3,51 @@
 @tom E
 @pad C#m
 @bpm 140
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 182
 
+[Intro] A9  B
 
+[Primeira Parte]
+C#m            B            E/G#
+Senhor O teu amor me arrebatou
+           A9
+Me arrebatou
+C#m               B               E/G#
+Meu desejo é estar contigo para sempre
+               A9
+Contigo para sempre
+
+[Refrão]
+E9              B/D#
+Traga pra mais perto
+                 C#m
+Leva-me mais profundo
+       C#m7/B  A9
+Eu quero conhecer
+         E9
+Teu Coração
+
+E9                   B/D#
+Teu amor é tão mais doce
+                    C#m
+Que tudo que eu provei
+       C#m7/B  A9
+Eu quero conhecer
+        A9
+Teu Coração
+
+( A9  B )
+
+[Ponte]
+A9 E           B  C#m7
+Eu quero conhecer
+A9  E           B  C#m7
+Teu coração, Pai
+
+A9    E   B
+Ô-ôw, Ô-ôw
+                 C#m7
+Grande é o Teu amor por mim
+
+( A9  E  B )

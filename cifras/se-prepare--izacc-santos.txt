@@ -3,5 +3,55 @@
 @tom D
 @pad Bm
 @bpm 139
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 152
+
+[Primeira Parte]
+Bm         A
+Se preparem, ele está vindo
+G           Em
+Se preparem, ele está vindo
 
 
+[Segunda Parte]
+Bm
+Ouço os passos do leão
+    A
+Da tribo de Judá
+ G
+Ouço os passos do leão
+Da tribo de Judá
+G           Bm
+Ele está fazendo algo novo
+    A
+Por isso cantaremos
+            G
+Ele está fazendo algo novo
+   Em
+Por isso cantaremos
+
+[Pré-Refrão]
+    Bm
+Ele não é mais bebe de manjedoura
+     A
+Ele não está pregado na cruz
+          G
+Não está morto, ele está vivo
+    Em
+E o céu ficará para sempre
+
+[Refrão]
+Bm         A
+Se preparem, ele está vindo
+G           Em
+Se preparem, ele está vindo
+
+[Final]
+       Bm
+Ele virá
+         A
+Ele virá
+         G
+Ele virá
+                Em
+Em glória voltará

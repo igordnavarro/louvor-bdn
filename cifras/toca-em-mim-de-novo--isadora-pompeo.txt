@@ -3,5 +3,58 @@
 @tom D
 @pad D
 @bpm 142
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 132
 
+[Intro] D/F#  G  D/F#  G
+[Primeira Parte]
+D/F#                 G
+Lembro quando te encontrei
+              D/F#
+Tudo novo você fez
+                   G
+Os abraços que senti
+                   Bm
+Me fizeram prosseguir
+                  G
+Várias vezes eu caí
+              D/F#
+E você me levantou
+                 G
+Eu achava estar bem
 
+Mas me rendo
+
+[Pré-Refrão]
+A            D/F#
+Eu me rendo
+G
+Eu me rendo
+A          D/F# G
+Eu me rendo a ti
+A            D/F#
+Eu me rendo
+G
+Eu me rendo
+A           D/F# G
+Eu me rendo a ti
+
+[Refrão]
+ D
+Toca em mim de novo
+G
+Enche-me de novo
+Bm7
+   Eu não me vejo
+G
+  Sem tua presença
+D/F#
+Toca em mim de novo
+G
+Enche-me de novo
+Bm7
+   Eu não me vejo
+G
+  Sem tua presença
+( D/F#  D9  G  G7M )
+( D/F#  D9  G  G7M )

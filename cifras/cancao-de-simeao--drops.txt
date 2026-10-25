@@ -3,5 +3,93 @@
 @tom A
 @pad A
 @bpm 140
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 170
 
+[Intro] D  A6  D  A6
 
+[Primeira Parte]
+    D                          A6
+Os meus olhos viram a salvação
+   D                               A6
+A luz para o mundo, esperança da terra
+  F#m      A6/C#    D7M
+E eu não sou mais meu
+  F#m      A6/C#    D7M
+E eu não sou mais meu
+
+ D                        A6
+Cristo, tu és a minha porção
+   D                                A6
+O trigo esmagado, vinho novo e o pão
+  F#m      A6/C#    D7M
+E eu não sou mais meu
+  F#m      A6/C#    D7M
+E eu não sou mais meu
+
+[Pré-Refrão]
+      Bm7       A6/C#      D7M
+És a fome que me faz cantar
+      Bm7       A6/C#     D7M
+És a sede que me faz beber
+      Bm7         A6/C#       D7M
+És o nome que escuto ao deitar
+       Bm7          A6/C#      E9
+E o olhar que vejo ao amanhecer
+
+[Refrão]
+  D9                A6/C#
+E essa é minha promessa
+                    D9             A6/C#
+Eu gastarei minha vida pra Te coroar
+Bm              A6/C#
+Esse é o meu anseio
+                   D9                 A6/C#
+O meu amor por Ti não será um segredo
+
+  D9                A6/C#
+E essa é minha promessa
+                    D9             A6/C#
+Eu gastarei minha vida pra Te coroar
+Bm              A6/C#
+Esse é o meu anseio
+                   D9                 A6/C#
+O meu amor por Ti não será um segredo
+
+[Pré-Refrão]
+      Bm7       A6/C#      D7M
+És a fome que me faz cantar
+      Bm7       A6/C#     D7M
+És a sede que me faz beber
+      Bm7         A6/C#       D7M
+És o nome que escuto ao deitar
+       Bm7          A6/C#      D7M   E9
+E o olhar que vejo ao amanhecer
+
+[Refrão Final]
+  D9                A6/C#
+E essa é minha promessa
+                    D9             A6/C#
+Eu gastarei minha vida pra Te coroar
+Bm              A6/C#
+Esse é o meu anseio
+                   D9                 A6/C#
+O meu amor por Ti não será um segredo
+
+( D9  A6/C#  D9  A6/C# )
+( Bm  A6/C#  D9  E9 )
+
+  D9                A/C#
+E essa é minha promessa
+                    D9             A/C#
+Eu gastarei minha vida pra Te coroar
+Bm              A/C#
+Esse é o meu anseio
+                   D7M                A/C#
+O meu amor por Ti não será um segredo
+
+  D9
+E essa é minha promessa
+Eu gastarei minha vida pra Te coroar
+Esse é o meu anseio
+O meu amor por Ti não será um segredo

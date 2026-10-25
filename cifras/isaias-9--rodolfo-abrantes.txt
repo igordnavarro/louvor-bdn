@@ -3,5 +3,71 @@
 @tom D
 @pad Bm
 @bpm 151
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 199
 
+[Intro] D  A4(6)  Bm
+        D  A4(6)  Bm
 
+[Primeira Parte]
+D     A4(6)    Bm
+Um menino nasceu
+          D     A4(6)   Bm
+Como um filho se nos deu
+                 D
+Ele é o próprio Deus
+   A4(6)    Bm
+E vive em mim
+                D
+Debaixo de suas asas
+    A4(6)    Bm
+Eu me escondi
+
+[Pré-Refrão]
+G7M          Bm    Em
+    E o seu nome é    Maravilhoso
+G7M               Bm           A
+    Glória ao Príncipe da Paz
+
+[Refrão]
+   Bm                 F#m
+O céu começa a se abrir
+         Bm                 G7M
+Toda a terra se dobrou a Ti
+  D               F#m
+Cristo, Rei dos Reis
+               G7M
+Veio nos buscar
+
+  Bm                 F#m
+Leva-nos em tuas mãos
+       Bm               G7M
+Pelas portas da cidade
+ D               F#m
+Na nova Jerusalém
+                 G7M
+Tua noiva vai entrar
+
+[Segunda Parte]
+ Bm      F#m     Bm              G7M
+Santo, Santo, Santo é o Senhor
+ D       F#m    G7M
+Santo, Santo, Santo é o Senhor
+ Bm      F#m     Bm              G7M
+Santo, Santo, Santo é o Senhor
+ D       F#m    G7M
+Santo, Santo, Santo é o Senhor
+
+Bm                     F#m
+   Ninguém me toca como Você
+Bm                          G7M
+   Ninguém me vê como Você me vê
+         D        F#m          G7M
+Faz brilhar Teu rosto sobre mim
+
+Bm                     F#m
+   Ninguém me toca como Você
+Bm                          G7M
+   Ninguém me vê como Você me vê
+         D        F#m          G7M
+Faz brilhar Teu rosto sobre mim

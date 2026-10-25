@@ -3,5 +3,43 @@
 @tom A
 @pad F#m
 @bpm 150
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 140
 
+[Intro] F#m  D  Bm  F#m
+        F#m  D  Bm  F#m
 
+Ô, ôôô, ôôô, ôôô
+
+[Primeira Parte]
+                     F#m
+Vem despertar a sua noiva
+
+Nos revestir de sua glória
+      D          Bm              F#m
+O Leão rugirá do seu trono
+                  F#m
+Os seus olhos são como fogo
+
+Sua palavra vem como espada
+      D             Bm    F#m
+Dividir alma e espírito
+
+[Pré-Refrão]
+ D                       Bm
+Tua é a glória, todo o domínio
+        F#m7                  C#m7
+Teu fogo vem nos consumir
+D                        Bm
+Sou o sacrifício, vivo e agradável
+F#m7          E
+ A ti Senhor
+
+[Refrão]
+F#m               A
+ Vem rasga os céus
+         Bm         F#m
+Sobre nós, hoje aqui
+
+[Riff] F#A  G  G  G  G
+       F#A  G  G  G

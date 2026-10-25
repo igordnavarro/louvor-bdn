@@ -3,5 +3,77 @@
 @tom E
 @pad C#m
 @bpm 128
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 209
 
+[Intro] A  B  E/G#  A
 
+[Primeira Parte]
+Eu poderia estar
+                        B
+Em qualquer outro lugar
+                       E/G#
+Mas Tua glória me atraiu
+                     A
+Tua presença me atraiu
+
+Tentei me esconder
+                    B
+Por medo de não viver
+                       E/G#
+Mas Tua glória me atraiu
+                     A
+Tua presença me atraiu
+
+[Refrão]
+É que a sarça pegou fogo
+E não se consumiu
+     B
+E a voz que saiu dela
+Um dia me atraiu
+          E/G#
+E o meu coração queimou
+Até que descobriu
+         C#m
+Que um dia com Tua glória
+Vale mais que mil
+
+[Ponte 1]
+                  B
+Atraído pela Tua presença
+ C#m               E/G#
+Não me vejo sem a Tua presença
+A                 B
+Atraído pela Tua presença
+ C#m                 E/G#
+Não me cansarei da Tua presença
+
+A                 B
+Atraído pela Tua presença
+ C#m               E/G#
+Não me vejo sem a Tua presença
+A                 B
+Atraído pela Tua presença
+ C#m                 E/G#
+Não me cansarei da Tua presença
+
+[Refrão]
+
+[Ponte 2]
+Essa chama não se apaga e não se apagará
+      B
+Essa chama não se apaga e não se apagará
+      E/G#
+Essa chama não se apaga e não se apagará
+      A
+Essa chama não se apaga e não se apagará
+
+Essa chama não se apaga e não se apagará
+      B
+Essa chama não se apaga e não se apagará
+      E/G#
+Essa chama não se apaga e não se apagará
+      A
+Essa chama não se apaga e não se apagará
+
+[Final] B  E/G#  A

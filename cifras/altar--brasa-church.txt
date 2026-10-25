@@ -4,5 +4,68 @@
 @pad G
 @bpm 140
 @note Bateria entra nos tambores (surdo e tom) → cresce → ride → pausa → cresce no gospel · Volta no início · Refrão 2x
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 115
 
+[Intro] G9  D  C
+        G9  D  C
 
+[Primeira Parte]
+! Bateria entra nos tambores, surdo e tom
+G9                            D
+Deus me chamou, Deus me chamou
+                  C9
+Pra tudo abandonar
+D   G9                    D
+     Me convidou, me convidou
+                C9
+Pra nEle confiar
+D   G9                        D
+     Minha vida é, minha vida é
+                 C9
+Oferta em Seu altar
+D   G9                D
+     Espírito do vivo Deus
+                  C9
+Em tudo satisfaz, tudo satisfaz
+
+[Refrão] 1X
+! Bateria começa a crescer
+       G9
+Estou aqui
+            D/F#
+Tudo o que sou
+     Em                D             C9
+Eu entrego hoje aos pés do meu Senhor
+             G9
+Pois eu sou Teu
+        D/F#
+E Tu és meu
+     Em                D               C9
+E eu sei que ao meu lado sempre estás
+                   G9
+(Para sempre estarás)
+! Bateria pausa
+
+! Volta no início · Refrão 2X
+
+[Ponte] 2X
+( G9  D  Em  D  C9 )
+! Bateria entra no ride
+               G9
+O meu ser Te deseja
+               D/F#
+Todo o céu Te adora
+   Em          D               C9
+Provei e pude ver que Tu és bom
+               G/B
+Pra sempre Tu reinas
+              D/F#
+Teu trono é eterno
+      Em          D
+E pra sempre cantarei
+          C9
+Que Tu és bom
+! Bateria cresce no gospel
+
+! Refrão 2X

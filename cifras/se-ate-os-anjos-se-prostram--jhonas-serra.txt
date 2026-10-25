@@ -1,7 +1,89 @@
-@title Se Até os Anjos se Prostram
+@title Se Até os Anjos Se Prostram
 @artist Jhonas Serra
 @tom E
 @pad E
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 231
 
+[Solo] (2x) A  B  C#m  G#m
 
+[Primeira Parte]
+A
+Ah, se Tu voltasse agora
+B
+Ah, Se Tu viesse agora
+    C#m
+Eu correria pra Você
+     G#m
+Me lançaria em Teus pés
+
+A
+Ah, se eu visse a Tua glória
+B
+Ah, Se me abraçasse agora
+    C#m
+Eu correria pros Seus braços
+     G#m
+Pra nunca mais eu me perder
+
+[Refrão] (2x)
+     A
+Se até os anjos se prostram
+        B
+E os vinte e quatro anciãos
+                     C#m
+Também me lançarei ao chão
+                     G#m
+Também me lançarei ao chão
+
+[Solo] A  B  C#m  G#m
+
+[Primeira Parte]
+A
+Ah, se Tu voltasse agora
+B
+Ah, Se Tu viesse agora
+    C#m
+Eu correria pra Você
+     G#m
+Me lançaria em Teus pés
+
+A
+Ah, se eu visse a Tua glória
+B
+Ah, Se me abraçasse agora
+    C#m
+Eu correria pros Seus braços
+     G#m
+Pra nunca mais eu me perder
+
+[Refrão] (4x)
+     A
+Se até os anjos se prostram
+        B
+E os vinte e quatro anciãos
+                     C#m
+Também me lançarei ao chão
+                     G#m
+Também me lançarei ao chão
+
+[Final] (4x)
+A
+Do trono, vi tochas de fogo
+F#m
+Relâmpagos e trovões
+C#m7
+Eu via um coral cantando
+B
+Santo, Santo e Poderoso
+
+[Refrão] (4x)
+     A
+Se até os anjos se prostram
+        B
+E os vinte e quatro anciãos
+                     C#m
+Também me lançarei ao chão
+                     G#m
+Também me lançarei ao chão

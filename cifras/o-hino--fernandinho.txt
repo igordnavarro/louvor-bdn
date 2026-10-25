@@ -3,83 +3,98 @@
 @tom F
 @pad Dm
 @bpm 96
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 208
 
-[Intro] Dm Bb F C  Dm Bb F C
+[Intro] Dm  Bb  F  C
 
 [Primeira Parte]
-Dm                     Bb
-Posso ouvir o santo som aqui
-F                         C
-Anunciando sobre um grande rei
 Dm                       Bb
-Rompendo as barreiras e grilhões
-F                       C
-Eu quero ouvir o pai a me chamar
-
-[Refrão]
-         Dm                         Bb        F
-Eu ouço: filho meu, chegou tua hora de brilhar
-          C
-Você nasceu pra mim
-         Dm                         Bb        F
-Eu ouço: filho meu, chegou tua hora de brilhar
-          C
-Você nasceu pra mim
-    Dm
-Pra esse tempo
-
-[Solo] Bb F C Dm Bb F C
-
-[Segunda Parte]
-Dm                     Bb
 Posso ouvir os passos do meu rei
-F                     C
+F                C
 Posso escutar seu coração
-Dm                          Bb
+Dm                     Bb
 Da minha escuridão me libertou
-F                         C
+F                       C
 Posso ouvir seu espírito clamar
 
 [Refrão]
-         Dm                         Bb        F
-Eu ouço: filho meu, chegou tua hora de brilhar
+        Dm          Bb               F
+Eu ouço:  filho meu, chegou tua hora de brilhar
           C
 Você nasceu pra mim
-         Dm                         Bb        F
-Eu ouço: filho meu, chegou tua hora de brilhar
+        Dm          Bb               F
+Eu ouço:  filho meu, chegou tua hora de brilhar
           C
 Você nasceu pra mim
-    Dm         Bb  F  C
+          Dm  Bb  F  C
 Pra esse tempo
 
-[Ponte] 4x
+[Intro] Dm  Bb  F  C  Dm  Bb  F  C
+
+[Segunda Parte]
+Dm                             Bb
+Posso ouvir o santo som aqui
+ F                    C
+Anunciando sobre um grande rei
+Dm                   Bb
+Rompendo as barreiras e grilhões
+  F                  C
+Eu quero ouvir o pai a me chamar
+
+[Refrão]
+        Dm          Bb               F
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          C
+Você nasceu pra mim
+        Dm          Bb               F
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          C
+Você nasceu pra mim
+        Dm          Bb               F
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          C
+Você nasceu pra mim
+        Dm          Bb               F
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          C
+Você nasceu pra mim
+          Dm
+Pra esse tempo
+
+[Solo] Bb  F  C  Dm  Bb  F  C
+
+[Ponte] (4x)
 Dm
 Esse o hino dessa geração
 Bb
-Usa-nos Deus, aqui estamos
+Usa-nos deus, aqui estamos
 F
-Queremos mais de ti, Senhor
+Queremos mais de ti, senhor
 C
 O teu amor nos alcançou
 
-[Solo] Dm Bb F C Dm Bb F C Dm
+[Solo] Dm  Bb  F  C  Dm  Bb  F  C  Dm
 
-[Terceira Parte] 3x
+[Ponte 2] (6x)
 Dm
-Ah! Jesus é rei
+Ah! jesus é rei
 Bb
-Ah! Me conquistou
+Ah! me conquistou
 F
-Ah! Me libertou
+Ah! me libertou
 C
 Pra viver uma nova história
+
+[Final] (3x)
 Dm
 Vamos mudar o mundo!
-Bb
+          Bb
 Vamos mudar o mundo!
-F
+         F
 Vamos mudar o mundo!
-C
+            C
 Vamos mudar o mundo!
-Dm
+
+           Dm
 Vamos mudar o mundo!

@@ -1,7 +1,74 @@
 @title Majestade
 @artist Palankin
 @tom A
+@capo 2
 @pad F#m
 @bpm 147
+@note Forma dos acordes no tom de G · capotraste na 2ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 225
 
+[Intro] Em  D  C  Em  D  C
 
+[Primeira Parte]
+Em          D              C
+  Quem nos céus se iguala a Ti?
+Em          D                  C
+  Tão poderoso que o universo O obedece
+Em      D   C
+  Sua voz soa como um trovão
+Em             D           C          Am7     Em  D  C
+  E em seus olhos há chamas de fogo
+                      Em     D    C
+Toda Terra te vê brilhar
+            Em     D    C
+Te vê brilhar
+
+Em            D         C
+  És tão único que nem a morte O segurou
+Em             D            C
+  E em suas palmas escondem cada estrela
+Em                D             C
+  Vivemos pra Aquele que brilha mais que o Sol
+Em          D      C          Am7
+  Precioso Rei, Digno de louvor!
+                      Em     D    C
+Toda Terra te vê brilhar
+            Em     D    C
+Te vê brilhar
+                      Em     D    C
+Toda Terra te vê brilhar
+            Em     D    C
+Te vê brilhar
+
+[Refrão]
+C           D
+  Majestade
+                 Em              D
+Fomos feitos pra Sua Glória! Tua glória!
+
+( C  Am  Em  D )
+( C  Am  Em  D )
+
+[Ponte] (2x)
+    C
+Que venha o Teu reino
+       Am
+Seja feita a Tua vontade!
+    C
+Que venha o Teu reino!
+    D
+Meu rei!
+
+C   Am    Em    D
+Ooh, Ooh, Ooh, Ooh
+
+[Refrão]
+C           D
+  Majestade
+                 Em              D
+Fomos feitos pra Sua Glória! Tua glória!
+C           D
+  Majestade
+                 Em              D      C
+Fomos feitos pra Sua Glória! Tua glória!

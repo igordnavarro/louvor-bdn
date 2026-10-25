@@ -3,6 +3,8 @@
 @tom D
 @pad Bm
 @bpm 145
+@arquivo SET LIST - BDN FB 1-1-100.pdf
+@slide 91
 
 [Intro] Bm  A/B  G/B  G/B
 Bm             A

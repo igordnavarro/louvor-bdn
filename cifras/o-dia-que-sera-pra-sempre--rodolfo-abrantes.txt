@@ -3,5 +3,88 @@
 @tom C
 @pad Am
 @bpm 190
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 162
 
+[Intro] Am  C  G  F
 
+[Primeira Parte]
+ Am               C
+Teu calor sobre mim
+     G
+É como sol
+             F
+Quando insiste em me acordar
+ Am              C             G
+Como esses montes ao meu redor
+            F
+Tu és a minha muralha
+
+Am         C            G
+A perfeição da criação
+      F
+Manifesta Teu esplendor
+ Am             C              G
+Todo som, toda cor, seja louvor
+      F             Am
+Ao Rei da Glória
+
+[Refrão]
+     C                 G
+Quem é esse Rei da Glória
+      F                    Am
+O Senhor dos Exércitos
+     C                G
+Poderoso nas batalhas
+     F                     Am   C   G   F
+Ele é o Rei da Glória
+
+[Segunda Parte]
+Am                    C
+O Teu convite diz que há um lugar pra mim
+G                  F
+O Teu amor me fez inocente
+Am                          C
+E se do barro em Tuas mãos saí algo bom
+G                         F
+O que dizer da obra terminada
+Am                 C
+Esse prazer que Tu tens em mim
+ G                              F
+Me dá prazer em Te deixar contente
+ Am
+Meu tempo é hoje
+ C
+Não está longe
+G                F              Am
+O dia que será pra sempre
+
+[Refrão]
+     C                 G
+Quem é esse Rei da Glória
+      F                    Am
+O Senhor dos Exércitos
+     C                G
+Poderoso nas batalhas
+     F                     Am
+Ele é o Rei da Glória
+
+     C                 G
+Quem é esse Rei da Glória
+      F                    Am
+O Senhor dos Exércitos
+     C                G
+Poderoso nas batalhas
+       F
+Ele é o Rei
+( C  G  D9  F7M )
+
+[Final]
+C                          G
+ O que era, e é e há de vir
+                       D9
+Nos conhece pelo nome
+                          F7M
+E nos chama pra mostrar
+                               C
+O caminho de volta pra Ele

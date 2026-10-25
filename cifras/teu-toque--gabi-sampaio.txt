@@ -1,10 +1,74 @@
 @title Teu Toque
 @artist Gabi Sampaio
 @tom Bb
-@pad 
-@bpm 68
 @capo 3
-@note Forma de G · capotraste na 3ª casa
+@pad
+@bpm 68
+@note Com forma de G · capotraste na 3ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 148
 
-[Intro] C D Em7 G
-! 1ª parte · Pré-refrão · Refrão · 2ª parte · Pré-refrão 1x · Refrão 1x ("ô ô ô" 2x) · Ponte 2x
+[Intro] C  D  Em7  G
+
+[Primeira Parte]
+C                     Em7                    G
+Como eu amo os momentos   que eu passo contigo
+                  D                        C
+Onde encontro a paz que a tua palavra me traz
+                     Em7                G
+Para Ti estou atento, permaneço ouvindo
+                D
+Aqui quero estar
+
+[Pré-Refrão]
+                    C
+Deus, meu coração quer mais de Ti
+    Em7
+Faz algo novo em mim
+ G                  D
+E eu me entrego a Ti
+
+[Refrão]
+   C                          D                          Em7
+Meu prazer é viver em Teu amor, me envolver em Ti Senhor
+              G/B
+Meu desejo é Te conhecer
+ C                        D                         Em7
+Jesus, abro a Ti meu coração, os meus medos fugirão
+                    G/B
+O Teu toque é tudo o que eu quero
+
+C
+Ô, ô, ô, ô
+D
+Ô, ô, ô, ô
+Em7
+Ô, ô, ô, ô
+G/B
+Ô, ô
+
+[Segunda Parte]
+C                    Em7
+És o fogo do dia
+                    G
+E da noite a brisa
+                 D                       C
+O sopro em meu ser, o que me faz viver
+                    Em7                    G
+Não há dúvida alguma do amor que revelas
+                  D
+A mais doce afeição
+
+! 1X Pré-refrão · 1X Refrão, ô ô ô 2x
+
+[Ponte] 4x (Crescendo)
+                C        D4
+Eu abro o coração a Ti
+                Em7        G/B
+Eu abro o coração hoje aqui
+                   C        D4
+Toca em mim com o Teu poder
+                 Em7              G/B
+Faz de mim Senhor, Teu querer
+
+! 2X Ponte

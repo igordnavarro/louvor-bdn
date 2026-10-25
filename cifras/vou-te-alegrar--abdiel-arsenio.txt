@@ -3,5 +3,40 @@
 @tom B
 @pad B
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 192
 
+[Intro] B  G#m  F#/A#  B  E
 
+[Primeira Parte]
+B                                F#
+Eu me rendo a Ti perante os homens, perante tudo
+G#m                               E
+Quero que o Universo seja a minha testemunha
+B                            F#
+Vou erguer perante o Teu trono minha adoração
+G#m                            E
+E levar com ela toda minha gratidão
+
+[Ponte]
+G#m              F#                    E   F#
+Senhor, és o motivo da minha alegria
+G#m                 F#                   E
+Deus meu, és o caminho distante do mundo
+
+[Refrão]
+B                          C#m
+Vou Te alegrar com o meu louvor
+    B/D#                      E
+Eu quero Te tocar com o meu amor
+G#m                         F#
+Poder Te abraçar, sentir o Teu pulsar
+                       E
+Teu coração bater ao meu
+
+G#m                        F#
+Poder Te abraçar, sentir o Teu pulsar
+                        E
+Teu coração bater ao meu
+
+[Final] G#m  F#  E

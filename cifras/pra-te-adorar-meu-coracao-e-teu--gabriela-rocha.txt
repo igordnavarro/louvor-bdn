@@ -1,9 +1,30 @@
 @title Pra Te Adorar / Meu Coração É Teu
 @artist Gabriela Rocha
 @tom E
-@pad 
+@capo 2
+@pad
 @bpm 132
-@bpmsrc songbpm
-@note Capotraste na 2ª casa · Bateria entra marcando só no ride → marchinha → groove
+@note Capotraste na 2ª casa (formas em D)
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 108
 
+! Bateria entra marcando na marchinha
+A         D   F#m   E
+Meu coração é Teu, meu
+coração é Teu, pra sempre e
+sempre... Ooooo
 
+! Bateria entra marcando só no ride
+A  F#m  D9  F#m  E
+Pra sempre    pra sempre
+Pra se sempre    eu sou Teu e
+Tu és meu
+
+D  E  F#m  A
+OOOO  OOOOO
+
+D   Bm   A
+! Bateria entra no groove
+Pra te adorar eu vivo , Pra Te
+adorar eu vivo
+Só pra ti adorar

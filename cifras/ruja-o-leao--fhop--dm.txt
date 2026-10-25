@@ -1,11 +1,56 @@
 @title Ruja o Leão
 @artist Fhop
 @tom Dm
+@capo 5
 @pad Dm
 @bpm 138
-@note Capotraste na 5ª casa
+@note Capotraste na 5ª casa (formas em Am)
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 138
 
-[Intro] Am G Dm Am  Am G Dm Am
-! Primeira parte 1x · Refrão 4x
-[Passagem] Am G Dm Am (4x)
-! Primeira parte · Refrão 2x · Refrão 1x
+[Intro] Am  G  Dm  Am
+
+[Primeira Parte]
+Am                    G
+Sobre o trono de justiça
+   Dm          Am
+Eternamente, haverá um Rei
+Am                   G                  Dm
+Ele voltará para governar as nações
+Am
+Em amor
+
+[Refrão] 2X
+            Am                          G
+Que ruja o Leão e que a terra estremeça
+             F       Dm       Am
+Diante da majestade de Jesus
+
+( Am  G  Dm  Am )
+
+! Primeira parte 1X · Refrão 4X
+( Am  G  Dm  Am )
+
+[Ponte] 4X
+Am
+O descendente de Davi
+G
+O homem mais notável
+F                 Dm
+Ele ama a justiça
+           Am
+Odeia iniquidade
+
+! Refrão 2X
+
+[Final] 2X
+Am
+Ele Virá oh,oh,oh
+ G
+Ele Virá oh,oh,oh
+ F
+Ele Virá oh,oh,oh
+ Dm                      Am
+Leão da Tribo de Judá
+
+! Refrão 1X

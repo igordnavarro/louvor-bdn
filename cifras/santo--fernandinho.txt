@@ -3,5 +3,80 @@
 @tom E
 @pad C#m
 @bpm 180
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 232
 
+[Intro] (4x) C#m  A  F#m  C#m
 
+[Primeira Parte]
+C#m                          A         F#m   C#m
+Ao que está assentado, Cordeiro e Leão
+C#m                                         A        F#m    C#m
+Sua glória enche a Terra, e eles cantam Santo, Santo, Santo
+                    A        F#m    C#m
+E eles cantam Santo, Santo, Santo
+
+! Intro e volta no início
+
+[Segunda Parte]
+F#m                    C#m
+Um menino nos nasceu
+F#m                   C#m
+Um filho se nos deu
+F#m                  C#m                       E   E/G#
+O governo está sobre os seus ombros
+
+[Pré-Refrão]
+                       C#m    A   B
+E abra os céus e venha o Teu reino  (4x)
+
+[Refrão 1]
+                    A                F#m
+E todos cantam Santo, Santo, Santo
+                    C#m              E
+E todos cantam Santo, Santo, Santo  (2x)
+
+[Solo] A  F#m  C#m  E  A  F#m  C#m
+
+( C#m  A  F#m  C#m )
+
+C#m                          A   F#m   C#m
+Santo, Santo, Santo, Santo  (4x)
+
+[Ponte] B  Bb°  A  B/D#
+
+        C#m
+Rei dos Reis, Senhor dos Senhores
+       C#m
+Ele é Rei dos Reis, Senhor dos Senhores  (2x)
+       C#m
+Ele é Rei dos Reis
+
+[Refrão 2]
+                    A                F#m
+E todos cantam Santo, Santo, Santo
+                    C#m              E
+E todos cantam Santo, Santo, Santo  (2x)
+                    Bb°              A
+E todos cantam Santo, Santo, Santo
+                    E/G#             F#m
+E todos cantam Santo, Santo, Santo
+                    E               B/D#   C#m
+E todos cantam Santo, Santo, Santo
+
+[Solo guitarra]
+
+ C#m
+Rei dos Reis, Senhor dos Senhores  (8x)
+
+[Refrão 2]
+                    A                F#m
+E todos cantam Santo, Santo, Santo
+                    C#m              E
+E todos cantam Santo, Santo, Santo  (2x)
+                    Bb°              A
+E todos cantam Santo, Santo, Santo
+                    E/G#             F#m
+E todos cantam Santo, Santo, Santo
+                    E               B/D#   C#m
+E todos cantam Santo, Santo, Santo

@@ -4,5 +4,88 @@
 @pad D
 @bpm 156
 @note Volta no início · Refrão 2x
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 200
 
+[Intro] D  D4  D  D4  C
+        D  D4  D  D4  C
 
+[Primeira Parte]
+Bm                      D
+  Por muito tempo andei
+Bm                   D
+  Sem conhecer você
+Em                   G
+  Vivia preso em mim
+Em                  G
+  Pra me satisfazer
+
+[Pré-Refrão]
+Bm                 D
+  Mesmo sem merecer
+Bm                 D
+  Você me encontrou
+Em                     G
+  E achou graça em mim
+Em                  G
+  Você me libertou
+
+[Refrão]
+D
+O Teu amor encontrou
+                    A
+E mudou minha vida
+                    Em
+Tudo em minha vida
+                            G
+E eu jamais vou voltar atrás
+
+D
+O Teu amor encontrou
+                    A
+E mudou minha vida
+                    Em
+Tudo em minha vida
+                            G
+E eu jamais vou voltar atrás
+
+[Intro] D  D4  D  D4  C
+        D  D4  D  D4  C
+! Volta no início
+
+[Ponte]
+Em
+  Seu amor perfeito em mim
+G                           D
+  Não me deixará voltar atrás
+   G  D  A
+Eu novo sou
+Em
+  Sempre vou Te amar
+G                           D
+  Pois minha vida transformou
+   G  D  A
+Eu novo sou
+
+Em
+  Seu amor perfeito em mim
+G                           D
+  Não me deixará voltar atrás
+   G  D  A
+Eu novo sou
+Em
+  Sempre vou Te amar
+G                           D
+  Pois minha vida transformou
+   G  D  A
+Eu novo sou
+
+[Refrão] (2x)
+D
+O Teu amor encontrou
+                    A
+E mudou minha vida
+                    Em
+Tudo em minha vida
+                            G
+E eu jamais vou voltar atrás

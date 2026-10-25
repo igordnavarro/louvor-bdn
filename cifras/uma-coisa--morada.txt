@@ -1,7 +1,51 @@
 @title Uma Coisa
 @artist Morada
-@tom 
-@pad 
-@bpm 
+@tom G
+@pad Em
+@bpm
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 203
 
+[Intro] Am7  G/B  Em7  D/F#
 
+[Primeira Parte]
+Am7        G/B
+Uma coisa vou pedir
+         Em7        G/B
+Deixa eu ficar neste lugar
+         D/F#    G/B
+Todos os dias da minha vida
+Am7        G/B
+Uma coisa vou pedir
+         Em7        G/B
+Deixa eu ficar neste lugar
+         D/F#    G/B
+Todos os dias da minha vida
+
+[Refrão]
+Am7                         G/B
+  Nós adoramos Aquele que faz vento aos Teus anjos
+Em7                         D/F#
+  Nós adoramos Aquele que faz fogo aos Teus ministros
+Am7                         G/B
+  Nós adoramos Aquele que faz vento aos Teus anjos
+Em7                         D/F#
+  Nós adoramos Aquele que faz fogo aos Teus ministros
+
+[Ponte]
+Am7
+  Nós somos Seus ministros
+G/B
+  Não negue o Seu fogo
+Em7
+  Nós somos Seus ministros
+D/F#
+  Queremos queimar! Queremos queimar
+Am7
+  Nós somos Seus ministros
+G/B
+  Não negue o Seu fogo
+Em7
+  Nós somos Seus ministros
+D/F#
+  Queremos queimar! Queremos queimar

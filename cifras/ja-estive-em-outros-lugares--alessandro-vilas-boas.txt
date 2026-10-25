@@ -1,0 +1,38 @@
+@title Já Estive em Outros Lugares
+@artist Alessandro Vilas Boas
+@tom F#m
+@pad F#m
+@bpm 118
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 101
+
+[Intro] F#m  A/C#  D
+        F#m  A/C#  D
+        F#m  A  Bm
+
+F#m                               A
+  Já estive em outros lugares
+            D
+Mas não há lugar melhor
+     Bm
+Não há lugar melhor
+
+   F#m       A7+
+Aqui, aqui
+    D
+Na mesa do banquete
+    Bm
+Na mesa do banquete
+
+F#m                         A
+  Jesus, tu és o primeiro
+                    E
+Onde tudo foi feito
+  D
+É tudo sobre Ti
+F#m                    A
+   Tu és o meu consolo
+              E
+Caminho seguro
+     D
+Meu grande Salvador

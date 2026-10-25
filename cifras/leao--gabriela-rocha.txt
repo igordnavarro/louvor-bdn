@@ -3,6 +3,8 @@
 @tom E
 @pad E
 @bpm 134
+@arquivo SET LIST - BDN FB 1-1-100.pdf
+@slide 6
 
 [Intro] E  A  C#m  A
 

@@ -3,5 +3,56 @@
 @tom G
 @pad Em
 @bpm 132
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 197
 
+[Primeira Parte]
+ C9     Am7
+Nasci, errei
+G                               Bm7
+A bagagem do passado eu carreguei
+ C9       Am7
+Me vi e percebi
+    G                                  Bm7
+Que estou preso por erros que cometi
 
+[Refrão]
+   C9                    Em7
+Era eu, condenado era eu
+   C9                    Em7
+Era eu, condenado era eu
+
+( C7M  Em  C7M  Em )
+
+[Segunda Parte]
+C9            Am7            Em7
+Ele foi julgado em meu lugar
+                      G4   G
+Hoje eu tenho vida
+C9            Am7            Em7
+Ele foi julgado em meu lugar
+                      G4   G
+Hoje eu tenho vida
+
+[Refrão]
+   C9                    Em7
+Era eu, condenado era eu
+   C9                    Em7
+Era eu, condenado era eu
+(Ele foi)
+
+[Ponte]
+   C9      ( Em7 ) D                Em7
+Escandaloso amor, me encontrou
+                 G4   G
+Hoje eu tenho vida
+   C9      ( Em7 ) D                Em7
+Escandaloso amor, me encontrou
+                 G4   G
+Hoje eu tenho vida
+
+[Refrão]
+   C9                    Em7
+Era eu, condenado era eu
+   C9                    Em7
+Era eu, condenado era eu

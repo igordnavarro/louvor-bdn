@@ -3,5 +3,100 @@
 @tom E
 @pad C#m
 @bpm 111
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 226
 
+[Intro] E  C#m  A
+        E  C#m  A
 
+[Primeira Parte]
+E                        E4
+  A estrela da manhã
+                         C#m  B
+Ao rei dos reis Senhor,      a Ele o
+     E
+louvor
+E                        E4
+  Aquele que morreu
+                           C#m  B
+Mas sobre a morte triunfou,    a Ele o
+     E
+louvor
+
+[Pré-Refrão]
+     A          E
+Jesus tu és o rei
+         A          C#m
+Reina em nossos corações
+         A          C#m
+Teu é o reino e o poder
+             B
+Pra sempre amém
+
+[Refrão]
+E                     A
+ Tua igreja canta a Ti
+                        C#m
+Ergue a voz para declarar
+                     A
+Um só povo a proclamar
+Cantando bem alto, bem alto
+E
+Rei
+       C#m  A
+Tu és o Rei
+
+[Primeira Parte]
+E                        E4
+  A estrela da manhã
+                         C#m  B
+Ao rei dos reis Senhor,      a Ele o
+     E
+louvor
+E                        E4
+  Aquele que morreu
+                           C#m  B
+Mas sobre a morte triunfou,    a Ele o
+     E
+louvor
+
+[Pré-Refrão]
+     A          E
+Jesus tu és o rei
+         A          C#m
+Reina em nossos corações
+         A          C#m
+Teu é o reino e o poder
+             B
+Pra sempre amém
+
+[Refrão] (2x)
+E                     A
+ Tua igreja canta a Ti
+                        C#m
+Ergue a voz para declarar
+                     A
+Um só povo a proclamar
+Cantando bem alto, bem alto
+E
+Rei
+       C#m  A
+Tu és o Rei
+
+[Solo] A  E  B
+       A  E  B
+       A  E  B
+       A  E  B
+
+[Refrão] (2x)
+E                     A
+ Tua igreja canta a Ti
+                        C#m
+Ergue a voz para declarar
+                     A
+Um só povo a proclamar
+Cantando bem alto, bem alto
+E
+Rei
+       C#m  A
+Tu és o Rei

@@ -3,6 +3,48 @@
 @tom A
 @pad A
 @bpm 124
-@note Versão em Db: capotraste 3ª casa, forma G C9 Em D
+@note Versão em Db: capotraste 3ª casa, formas G C9 Em D
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 124
 
+[Primeira Parte]
+ A                            D9
+Há uma nova canção em meus lábios
+F#m                              E
+É uma que eu ainda estou aprendendo a cantar
+A                                 D9
+É que o senhor restaurou minha sorte
+F#m                              E
+Eu ainda estou como alguém que sonha
 
+[Refrão]
+                    A
+Estou sonhando os sonhos de Deus
+                  D9
+Estou vivendo os sonhos de Deus
+                F#m
+Tenho uma nova canção em mim
+                 E
+Tenho uma nova  dança em mim
+
+[Segunda Parte]
+    A                        D9
+Grandes coisas têm feito o senhor por nós
+F#m                           E
+  Grandes coisas têm feito por isso estamos alegres
+
+A
+Eu já sai com lágrimas, sim
+D9
+Agora estou em júbilo
+F#m
+Eu já andei chorando enquanto semeava
+E
+ Agora eu volto com frutos
+
+A                                  D9
+Quem diria que o senhor faria tudo isso agora aqui comigo?
+F#m                               E
+ Quem diria que eu viveria toda
+                     A
+bondade do Senhor pra mim?

@@ -3,5 +3,37 @@
 @tom B
 @pad G#m
 @bpm 165
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 219
 
+[Intro] B  C#m  G#m
 
+[Primeira Parte]
+                  B
+Nós somos teu povo
+                                          G#m
+Fomos escolhidos para brilhar a tua luz
+              B
+Mudar a história em nossos corações
+
+[Pré-Refrão]
+        G#m                   B
+Arde a chama da tua paixão
+        F#       G#m      E
+Um só corpo, um só coração
+       F#         G#m      E
+Um só desejo de ser tuas mãos
+
+[Refrão]
+                  B
+Nada poderá parar
+                      F#
+Pois em ti nós somos um
+                   G#m         E
+Tua cruz vamos levar por onde for
+     B/D#                    F#
+Cristo Rei, o mundo te conhecerá
+      G#m           E
+Vamos espalhar tua salvação
+
+( B  C#m  G#m )

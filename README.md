@@ -5,7 +5,7 @@ App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** —
 **Abrir o app:** https://igordnavarro.github.io/louvor-bdn/
 
 ## O que tem
-- **226 músicas** da setlist, **102 com cifra completa** organizada (seções, acordes alinhados, observações de bateria).
+- **231 músicas** da setlist, **225 com cifra completa** organizada (seções, acordes alinhados, observações de bateria).
 - **Busca** por nome da música ou artista (sem precisar de acento).
 - **Troca de tom** (− / + ou lista): a cifra inteira transpõe e o **pad muda junto**.
 - **Metrônomo** com o BPM da música: dá pra ajustar (±1, ±5, digitar ou *tap tempo*), compasso 4/4, 3/4, 6/8, 2/4, subdivisão e 3 sons.
@@ -55,3 +55,16 @@ Campos opcionais: `@capo 2`, `@note texto`, `@pad G ou Em` (alternativa).
 Depois de editar, rode `python3 tools/build.py` para gerar o `songs.js` e faça commit.
 
 > As cifras foram transcritas dos slides da setlist; algumas músicas sem BPM na setlist tiveram o BPM conferido no songbpm.com (marcado no app) — vale confirmar no ensaio.
+
+
+## Planilha de controle
+A lista oficial do repertório fica em [`controle/`](controle/): `Worship Church - Controle.xlsx` (abas **Músicas** e **Pads**) e os mesmos dados em `musicas.csv` e `pads.csv`. Também existe uma cópia no Google Drive, na pasta **Worship Church**.
+
+Colunas de Músicas: ID, nome padronizado (*Música - Artista*), música, artista, tom, BPM, capotraste, pad, se tem letra e cifra no app, arquivo de origem, slide do PowerPoint, arquivo no repositório e repetidas/observações.
+
+**Sempre que adicionar ou editar uma música:**
+1. Crie/edite o `.txt` em `cifras/` (inclua `@arquivo` e `@slide` quando vier de um PowerPoint).
+2. Rode `python3 tools/build.py` (atualiza o app) e `python3 tools/planilha.py` (atualiza a planilha).
+3. Faça o commit e atualize a planilha do Google Drive.
+
+Os nomes são padronizados automaticamente (`tools/nomes.py`): primeira letra maiúscula, sem espaços sobrando, e grafias diferentes do mesmo artista unificadas.

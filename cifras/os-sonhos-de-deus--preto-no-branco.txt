@@ -1,7 +1,77 @@
 @title Os Sonhos de Deus
 @artist Preto no Branco
-@tom G
-@pad G
+@tom C
+@pad C
 @bpm 140
+@note Na folha consta TOM: G / PAD: G, mas os acordes estão em C
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 205
 
+[Intro] C9  F7M(9)
 
+[Primeira Parte]
+C                            G/B
+  Eu sei que não há nenhuma provação
+Am7                            Em7
+    Maior do que eu possa suportar
+F9                              C/E
+   Mas estou cansado, Pai, preciso crer
+               Dm7               G4   G
+Nas tuas promessas pra continuar
+
+C
+   Eu sei que me livraste das
+  G/B
+acusações
+Am7                         Em7
+    Mas estou cansado de chorar
+F9                           C/E
+   Espírito Santo, vem me renovar
+            Dm7                G4   G
+Só tua presença pra me alegrar
+
+[Refrão]
+C                             G/B
+  Os sonhos de Deus são maiores que os teus
+Am7
+    Tão grandes que não pode
+Em7
+imaginar
+F9
+   Não desanime, filho
+         C/E
+Eu vim te consolar
+                  Dm7
+Nas minhas promessas volte
+        G4   G
+A acreditar
+
+C                        G/B
+  Os sonhos de Deus são maiores
+Que os teus
+Am7                           Em7
+    Por isso vale a pena acreditar
+F9
+   O dia está chegando
+         C/E
+Eu vou te renovar
+           Dm7             G4
+Na minha presença tu vais prosperar
+
+[Segunda Parte]
+( A#9/F  F9 )
+
+C
+  Você devia se alegrar
+G/B
+     Você devia se alegrar
+Am7                      F9
+    Você devia se alegrar
+C
+  Você devia agradecer
+G/B
+     Você devia agradecer
+Am7                      F9
+    Você devia agradecer
+
+[Refrão]

@@ -3,5 +3,92 @@
 @tom A
 @pad F#m
 @bpm 146
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 210
 
+[Intro] A
 
+[Primeira Parte] (2x)
+      D9
+Tua Igreja Aqui
+      A9
+Reunida pra Te adorar
+     D9
+Não há outro rei
+     F#m7        E
+Que reina neste lugar
+
+D9        F#m7        A9
+Não há outro, não há outro Deus
+     E
+Entronizado aqui
+D9        F#m7        A9
+Não há outro, não há outro Deus
+     E
+Entronizado aqui
+
+[Refrão]
+A9             F#m7
+Aleluia, minha alma canta aleluia!
+        D9       Bm7
+Minha esperança está em Ti
+        A/C#      D9
+Naquele que venceu por mim
+A9                  F#m7
+Aleluia, eu creio que o rei virá!
+       D9      Bm7
+Todo joelho dobrará,
+         A/C#    D9
+Toda língua confessará
+
+       A9
+Hosana ao rei que vem!
+     F#m7
+Hosana ao rei que vem!
+       D9       Bm7
+Hosana ao rei que vem!
+       A/C#     D9
+Hosana ao rei que vem!
+
+[Ponte] (4x)
+   D9           E
+Quem é aquele, que vem saltando sobre os montes
+  F#m7            A/C#
+Quem é aquele, que tem os olhos como chama de fogo
+   D9            E                 F#m7
+Quem é aquele, que triunfou sobre a
+A/C#
+morte, Jesus!
+
+[Refrão]
+A9             F#m7
+Aleluia, minha alma canta aleluia!
+        D9       Bm7
+Minha esperança está em Ti
+        A/C#      D9
+Naquele que venceu por mim
+A9                  F#m7
+Aleluia, eu creio que o rei virá!
+       D9      Bm7
+Todo joelho dobrará,
+         A/C#    D9
+Toda língua confessará
+
+       A9
+Hosana ao rei que vem!
+     F#m7
+Hosana ao rei que vem!
+       D9       Bm7
+Hosana ao rei que vem!
+       A/C#     D9
+Hosana ao rei que vem!
+
+[Ponte] (4x)
+   D9           E
+Quem é aquele, que vem saltando sobre os montes
+  F#m7            A/C#
+Quem é aquele, que tem os olhos como chama de fogo
+   D9            E                 F#m7
+Quem é aquele, que triunfou sobre a
+A/C#
+morte, Jesus!

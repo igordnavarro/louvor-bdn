@@ -3,5 +3,49 @@
 @tom C
 @pad Am
 @bpm 140
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 144
 
+[Primeira Parte]
+Am7         F          C G/B
+    Ouço cadeias quebrando
+Am7         F          C G/B
+    Ouço cadeias quebrando
+Am7         F          C G/B
+    Ouço cadeias quebrando
+Am7         F          C G/B
+    Ouço cadeias quebrando
 
+[Segunda Parte]
+    Am7                F
+Seu poder abala as trevas
+C          G/B
+Poderoso é
+Am7      F      G
+Poderoso é, Jesus
+        G
+Céus e terra te adoram
+ Am7
+Santo é o teu nome
+F             C      G
+Santo é teu nome, Jesus
+
+[Refrão]
+      Am7     F           C G/B
+Há podeer no nome de Jesus
+      Am7     F           C G/B
+Há podeer no nome de Jesus
+      Am7     F           C G/B
+Há podeer no nome de Jesus
+             Am7
+Pra cadeias quebrar
+           F                 C    G/B
+Cadeias quebrar, cadeias quebrar
+           Am7              F
+Cadeias quebrar, cadeias quebrar
+          C    G/B
+Cadeias quebrar
+           Am7              F
+Cadeias quebrar, cadeias quebrar
+          C    G/B
+Cadeias quebrar

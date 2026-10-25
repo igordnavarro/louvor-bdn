@@ -1,7 +1,135 @@
-@title Yahweh se Manifestará
+@title Yahweh Se Manifestará
 @artist Marcos Freire
 @tom A
 @pad F#m
 @bpm 138
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 188
 
+[Refrão]
+    D        E6
+Yahweh, Rafah
+    C#m      F#m
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+               F#m
+Se manifestará
 
+[Primeira Parte]
+    F#m                       E6
+Sentimos Tua glória nesse lugar
+                        D
+Algo grande acontecerá
+                        E
+Se ativa o sobrenatural
+
+    F#m                       E6
+Sentimos Tua glória nesse lugar
+                        D
+Algo grande acontecerá
+                        E
+Se ativa o sobrenatural
+
+[Refrão]
+    D        E
+Yahweh, Rafah
+    C#/F      F#m  A/C#
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+     A/C#      F#m  A7M
+Se manifestará
+
+    D        E
+Yahweh, Rafah
+    C#/F      F#m  A/C#
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+     A/C#      F#m
+Se manifestará
+
+[Primeira Parte]
+    F#m                       E6
+Sentimos Tua glória neste lugar
+                        D
+Algo grande acontecerá
+                        E   A/C#  A   E
+Se ativa o sobrenatural
+
+[Refrão]
+    D        E
+Yahweh, Rafah
+    C#/F      F#m  A/C#
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+     A/C#      F#m  A7M
+Se manifestará
+
+    D        E
+Yahweh, Rafah
+    C#/F      F#m  A/C#
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+     A/C#      F#m
+Se manifestará
+
+( F#m  E6  D  C#m )
+( F#m  E6  D  C#m )
+
+[Ponte]
+F#m
+    Se adoramos, Deus se manifestará
+E6
+    Se clamarmos, Deus se manifestará
+D                                    C#m
+  Se buscarmos, Deus se manifestará
+
+Eu creio
+
+F#m
+    Se adoramos, Deus se manifestará
+E6
+    Se clamarmos, Deus se manifestará
+D                                    C#m
+  Se buscarmos, Deus se manifestará
+
+[Ponte 2]
+   F#m
+Yahweh se manifestará
+   E6
+Jireh se manifestará
+   D
+Rafah se manifestará
+                       C#m
+Se manifestará (Yahweh)
+   F#m
+Yahweh se manifestará
+   E6
+Jireh se manifestará
+   D
+Rafah se manifestará
+                C#m
+Se manifestará
+
+[Refrão Final]
+    D        E
+Yahweh, Rafah
+    C#/F      F#m  A/C#
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+     A/C#      F#m
+Se manifestará
+
+    D        E
+Yahweh, Rafah
+    C#/F      F#m  A/C#
+Elohim, Shaddai
+   D        E
+Jireh, Adonai
+     A/C#      F#m
+Se manifestará

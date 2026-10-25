@@ -3,5 +3,64 @@
 @tom C
 @pad Am
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 137
 
+[Intro] Am  Dm  C  Em
+        Am  Dm  C  Em
 
+[Primeira Parte]
+            Am             Dm
+Eu não conheço outra canção
+               C               Em
+Que lhe descreva em perfeição
+            Am             Dm
+Eu não conheço outra canção
+               C               Em
+Que lhe descreva em perfeição
+
+[Refrão]
+Am       Dm
+  Santo,   Santo
+C              Em
+  Deus poderoso
+Am       Dm
+  Santo,   Santo
+C              Em
+  Deus poderoso
+
+( Am  Dm  C  Em )
+( Am  Dm  C  Em )
+
+[Primeira Parte]
+            Am             Dm
+Eu não conheço outra canção
+               C               Em
+Que lhe descreva em perfeição
+            Am             Dm
+Eu não conheço outra canção
+               C               Em
+Que lhe descreva em perfeição
+
+[Refrão]
+Am       Dm
+  Santo,   Santo
+C              Em
+  Deus poderoso
+Am       Dm
+  Santo,   Santo
+C              Em
+  Deus poderoso
+
+( Am  Dm  C  Em )
+( Am  Dm  C  Em )
+
+[Ponte]
+ Am             Dm
+Não há outro igual
+       C           Em
+Tu és Santo, Santo
+ Am             Dm
+Não há outro igual
+       C                Em
+Tu és Santo, santo, santo, santo, santo

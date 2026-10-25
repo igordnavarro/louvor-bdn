@@ -3,5 +3,62 @@
 @tom A
 @pad A
 @bpm 104
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 163
 
+[Intro] A  Em7  G  D
 
+[Primeira Parte]
+A
+  Pressionados
+Mas não desanimados
+F#m
+    Perplexos
+                D
+Mas não desesperados
+         A
+Estamos de pé
+
+Perseguidos
+Mas não abandonados
+F#m
+    Abatidos
+              D2
+Mas não destruídos
+         A
+Estamos de pé
+
+[Refrão]
+          A4  A
+Não caminhamos
+          E6  E
+Pelo que vemos
+           Bm
+O que nos move
+  A/C#       D2
+É o que nós cremos
+      A4  A              E6  E
+Nação Santa, somos a igreja
+        G     D
+Vivemos por Fé
+        A
+Estamos de pé
+
+[Ponte]
+                                 Em7
+A perseguição não parou a igreja
+                           G
+O coliseu não parou a igreja
+Os leões não pararam
+            D2
+A igreja do Senhor
+
+A
+  O inferno não pode prevalecer
+Em7
+    Vamos avançar
+Não vamos parar de crescer
+G
+  Ninguém pode parar
+            D
+A igreja do Senhor

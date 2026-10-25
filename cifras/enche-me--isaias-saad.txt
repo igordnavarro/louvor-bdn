@@ -1,7 +1,113 @@
 @title Enche-me
-@artist Isaías Saad
+@artist Isaias Saad
 @tom D
+@capo 3
 @pad Bm
 @bpm 135
+@note Forma dos acordes no tom de B · capotraste na 3ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 229
 
+[Primeira Parte]
+               G#m  B
+Tu provês o fogo
+               G#m      B
+E eu o sacrifício sou
+                 G#m   B
+Tu provês o espírito
+                       E
+E eu me abro por inteiro
 
+[Refrão]
+   G#m
+Enche-me, Deus
+     B
+Enche-me, Deus
+    F#
+Enche-me
+
+   G#m
+Enche-me, Deus
+     E
+Enche-me, Deus
+     B
+Enche-me, Deus
+    F#
+Enche-me
+
+[Ponte]
+   G#m          E
+Enche-me, até transbordar
+               B
+Derrama a Sua glória
+              F#
+Derrama a Sua glória
+
+   G#m          E
+Enche-me, até transbordar
+               B
+Derrama a Sua glória
+              F#
+Derrama a Sua glória
+
+( G#m  E  B  F# )
+
+[Primeira Parte]
+               G#m  B
+Tu provês o fogo
+               G#m      B
+E eu o sacrifício sou
+                 G#m   B
+Tu provês o espírito
+                       E
+E eu me abro por inteiro
+
+[Refrão]
+   G#m
+Enche-me, Deus
+     B
+Enche-me, Deus
+    F#
+Enche-me
+
+   G#m
+Enche-me, Deus
+     E
+Enche-me, Deus
+     B
+Enche-me, Deus
+    F#
+Enche-me
+
+   G#m
+Enche-me, Deus
+     E
+Enche-me, Deus
+     B
+Enche-me, Deus
+    F#
+Enche-me
+
+   G#m
+Enche-me, Deus
+     E
+Enche-me, Deus
+     B
+Enche-me, Deus
+    F#
+Enche-me
+
+[Ponte]
+   G#m          E
+Enche-me, até transbordar
+               B
+Derrama a Sua glória
+              F#
+Derrama a Sua glória
+
+   G#m          E
+Enche-me, até transbordar
+               B
+Derrama a Sua glória
+              F#
+Derrama a Sua glória

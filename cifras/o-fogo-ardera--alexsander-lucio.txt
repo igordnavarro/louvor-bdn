@@ -1,7 +1,79 @@
 @title O Fogo Arderá
 @artist Alexsander Lúcio
-@tom 
-@pad 
-@bpm 
+@tom C
+@pad Am
+@bpm
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 145
 
+[Primeira Parte]
+Am      G
+Teu fogo arde em mim
+F
+E muda o meu viver
+Am            G
+Sou teu templo sou teu altar
+F                      G       Em
+Sacrifício vivo quero oferecer
+Am      G
+Teu fogo arde em mim
+F
+E muda o meu viver
+Am            G
+Sou teu templo sou teu altar
+F                              Em
+Sacrifício vivo quero oferecer
 
+[Refrão]
+               F               G
+Que o nosso louvor não seja um momento
+           Em          Am
+Lágrimas vazias Sem avivamento
+             F            G
+Que o nosso amor Não seja fingido
+               Em                  Am
+Honrado com os lábios Nos corações esquecido
+                           F
+Pois de que vale ter as poesias mais lindas?
+         G
+As harmonias mais brilhantes?
+       Am              Em
+Se não há verdade em nós?
+                      F
+Pois de que vale ter tudo e não ter nada?
+             G
+Te dar meus lábios não minha alma?
+C
+Quero me entregar a ti
+                          Em
+Entregar minha vida como adoração
+
+                            F
+Não vale a pena só me emocionar
+                                       G
+E buscar as canções mais lindas pra cantar
+                                C
+Se eu não for uma canção que alegra a ti
+                       Em
+Se o meu coração não queimar por ti
+                            F
+Não vale a pena só me emocionar
+                                       G
+E buscar as canções mais lindas pra cantar
+C
+Se eu não for uma canção que alegra a ti
+                       Em
+Se o meu coração não queimar por ti
+
+            F
+E o fogo Arderá sobre o altar
+         Am
+Continuamente sobre o altar
+              G
+E não se apagará
+            F
+E o fogo Arderá sobre o altar
+         Am
+Continuamente sobre o altar
+              G
+E não se apagará

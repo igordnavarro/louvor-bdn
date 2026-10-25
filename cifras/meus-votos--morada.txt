@@ -3,5 +3,108 @@
 @tom C
 @pad C
 @bpm 140
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 228
 
+[Intro] C  C4  C  F/C
 
+[Primeira Parte]
+C          F/C
+ Tudo está pronto
+C          F/C
+ Mesa pão e vinho
+C          F/C
+ Lâmpadas acesas
+   C/E      F9
+Ele vem, Ele vem
+
+C          F/C
+ Já é quase hora
+C              F/C
+ Ainda estou queimando
+C          F/C
+ Óleo protegido
+  C/E       F9
+Ele vem, Ele vem
+   C/E      F9
+Ele vem, Ele vem
+
+[Refrão] (2x)
+C
+Oh, Oh!
+          F9
+Eu não vejo a hora
+          G9
+De te encontrar
+          F9
+Eu não vejo a hora
+        C/E
+De te abraçar
+          F9
+Eu não vejo a hora
+De alguém gritar
+  G9   Am  G/B  C
+O Noivo vem!
+
+[Segunda Parte] (4x)
+F9
+Olha! Mas quem vem lá
+Saltando pelos montes
+   Am7
+Oh, olha! Mas quem vem lá
+G9       C/E
+É o meu Amado
+
+[Ponte]
+  F9               G9
+Na alegria ou na tristeza
+Contigo estarei (bk)
+ Am              G/B  C
+Na saúde ou na doença
+Não te deixarei (bk)
+  F9
+No dia bom ou dia mal
+   G9
+Independente do final
+Am              G/B  C
+  Contigo estarei Não te deixarei  (4x)
+
+( F9  G9  Am7  C )
+
+[Terceira Parte]
+F9             G9
+Eu te amo e vou gritar
+Pro mundo inteiro ouvir
+Am7
+ Te amo! Te amo! Te amo!
+Te amo! Te amo! Te amo!  (3x)
+
+[Refrão]
+
+[Segunda Parte]
+F9
+Olha! Mas quem vem lá
+Saltando pelos montes
+   Am7
+Oh, olha! Mas quem vem lá
+G9       C/E
+É o meu Amado
+
+F9
+Olha! Mas quem vem lá
+Saltando pelos montes
+   Am7
+Oh, olha! Mas quem vem lá
+G9       C/E
+É o meu Amado
+O noivo vem
+
+F9
+Olha! Mas quem vem lá
+Saltando pelos montes
+O noivo vem
+   Am7
+Oh, olha! Mas quem vem lá
+G9       C/E
+É o meu Amado
+O noivo vem  (3x)

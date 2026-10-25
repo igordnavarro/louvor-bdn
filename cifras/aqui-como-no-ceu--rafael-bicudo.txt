@@ -1,7 +1,55 @@
 @title Aqui Como no Céu
 @artist Rafael Bicudo
 @tom G
-@pad Em ou G
+@pad Em
 @bpm 139
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 227
 
+[Primeira Parte]
+C                  G    D
+A atmosfera já mudou
+C                  G     D
+Teu Espírito está aqui
+C                G     D
+As evidências surgirão
+C/E                G     D/F#
+Teu Espírito está aqui
 
+[Pré-Refrão]
+C
+Flua neste lugar
+               D    Em
+transborda teu amor que
+      D
+Nos Envolve
+C
+A ti me achegarei
+                  D   Em
+Pra Encontrar teu amor que
+     D
+Nos Envolve
+
+[Refrão]
+C
+Espírito de Deus
+       D    Em
+Vem sobre nós
+          D
+Te desejamos
+C
+Teu Reino vem
+      D     Em
+Faz teu querer
+              D
+Inunda a terra
+
+[Ponte]
+C                    G   D
+Milagres podem existir
+C/E                 G   D
+Teu Espírito está aqui
+C                    G    D
+As evidências surgirão
+C/E                 G   D
+Teu Espírito está aqui

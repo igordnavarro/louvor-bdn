@@ -1,7 +1,59 @@
 @title O Grito
-@artist Ministério Pedras Vivas
-@tom 
-@pad 
-@bpm 
+@artist Pedras Vivas
+@tom C#
+@capo 6
+@pad
+@bpm
+@note Acordes na forma do tom G · capotraste na 6ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 110
 
+[Intro] G  C7M
 
+[Primeira Parte]
+       G                         C7M
+Lá na cruz meu passado minhas dores e aflições
+       G                         C7M
+Lá na cruz minha vitória nova vida nova história
+                Em            C7M          G          D9/F#
+Sangue derramado preço que foi pago por amor a mim
+               Em                 C7M
+Poderes ou palavras nada se compara ao grito que
+      G               D9/F#
+foi dado está consumado
+
+ Em   C7M   G    D9/F#
+ôôô   ôôô   ôôô   ôôô   (2x)
+
+[Refrão]
+C7M                                   G
+Filho de Davi preciso de um milagre tem
+misericórdia de mim
+C7M                                         G
+Quebra as correntes cura minhas feridas o grito
+já foi dado na cruz (2x)
+
+[Primeira Parte]
+       G                         C7M
+Lá na cruz meu passado minhas dores e aflições
+       G                         C7M
+Lá na cruz minha vitória nova vida nova história
+                Em                     C7M      G  D9/F#
+Sangue derramado preço que foi pago por amor a mim
+               Em                 C7M
+Poderes ou palavras nada se compara ao grito que
+      G               D9/F#
+foi dado está consumado
+
+ Em   C7M   G    D9/F#
+ôôô   ôôô   ôôô   ôôô   (2x)
+
+[Refrão]
+C7M                                   G
+Filho de Davi preciso de um milagre tem
+misericórdia de mim
+C7M                                         G
+Quebra as correntes cura minhas feridas o grito
+já foi dado na cruz (2x)
+
+[Interlúdio / Final]

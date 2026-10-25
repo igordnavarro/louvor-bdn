@@ -1,8 +1,127 @@
 @title Tua Presença Vale Mais
 @artist Mateus Brito
 @tom G
+@capo 3
 @pad G
 @bpm 132
 @note Capotraste na 3ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 172
 
+[Intro]
+       C7M
+O Teu amor, ele me constrange
+D4
+E me faz ser alguém melhor
+       C7M
+O Teu amor me aprisionou
+       D4
+Com algemas que eu jamais me soltarei
+       C7M
+O Teu amor está ganhando forma em mim
+     D4
+E a cada dia eu Te amo mais
 
+          C7M
+Só o Teu amor
+          G
+Só o Teu amor
+          C7M
+Só o Teu amor
+                          G
+Me faz gastar minha vida aos Teus pés
+
+( C7M  D4  C7M  D4 )
+
+[Primeira Parte]
+       C7M
+O Teu amor, ele me constrange
+D4
+E me faz ser alguém melhor
+       C7M
+O Teu amor me aprisionou
+       D4
+Com algemas que eu jamais me soltarei
+       C7M
+O Teu amor está ganhando forma em mim
+     D4
+E a cada dia eu Te amo mais
+
+[Pré-Refrão]
+                C7M                 Am
+E a minha vida eu considero perda
+                Em7                 D4
+E a minha vida eu considero perda
+                C7M                 Am
+E a minha vida eu considero perda
+                 Em7       D4
+Depois que eu olhei pra Ti
+
+[Refrão]
+                       C7M
+Tua presença vale mais
+                       D4
+Tua presença vale mais
+                       Em7
+Tua presença vale mais
+                                G
+Do que a fama, o dinheiro, os prazeres
+
+[Pré-Refrão]
+                C7M                 Am
+E a minha vida eu considero perda
+                Em7                 D4
+E a minha vida eu considero perda
+                C7M                 Am
+E a minha vida eu considero perda
+                 Em7       D4
+Depois que eu olhei pra Ti
+
+[Refrão]
+                       C7M
+Tua presença vale mais
+                       D4
+Tua presença vale mais
+                       Em7
+Tua presença vale mais
+                                G
+Do que a fama, o dinheiro, os prazeres
+
+[Ponte]
+C7M
+    Mesmo que eu ganhe o mundo inteiro
+D4
+   Não perderei a minha alma
+Em7
+    Jesus você é o primeiro
+       G
+E no meu coração não tem mais nada
+
+C7M
+    Mesmo que eu ganhe o mundo inteiro
+D4
+   Não perderei a minha alma
+Em7
+    Jesus você é o primeiro
+       G
+E no meu coração não tem mais nada
+
+[Pré-Refrão]
+                C7M                 Am
+E a minha vida eu considero perda
+                Em7                 D4
+E a minha vida eu considero perda
+                C7M                 Am
+E a minha vida eu considero perda
+                 Em7       D4
+Depois que eu olhei pra Ti
+
+[Refrão]
+                       C7M
+Tua presença vale mais
+                       D4
+Tua presença vale mais
+                       Em7
+Tua presença vale mais
+                                G
+Do que a fama, o dinheiro, os prazeres

@@ -3,5 +3,91 @@
 @tom E
 @pad E
 @bpm 145
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 150
+
+[Intro] C#m  A  E
+        C#m  A  E
+        C#m  A  E
+        C#m  A  E
+
+[Primeira Parte]
+E          A  E
+Precioso Jesus
+C#m                  A    E
+Aos teus pés aqui estou
+E                    A      E
+O que eu poderia te oferecer
+C#m              A   E
+Por tudo que tu és?
+E             A E
+Tudo o que tenho
+E             A         E
+Eu derramo aos teus pés
+E                A          E
+Não importa o quanto custou
+C#m            A       E
+Jesus teu valor é maior
+
+[Refrão]
+E                      A   E
+Eu encontrei o meu tesouro
+E                             A E
+Eu encontrei o bem mais precioso
+E                      A   E
+Eu encontrei o meu tesouro
+E                             A E
+Eu encontrei o bem mais precioso
+( C#m  A  E )
+( C#m  A  E )
 
 
+[Segunda Parte]
+E          A  E
+Precioso Jesus
+C#m              A     E
+Eu amo o som da tua voz
+E                    A E
+Tuas palavras, são mais desejáveis
+C#m            A E
+Que o mais doce mel
+E              A E
+Tudo o que tenho
+C#m             A         E
+Eu derramo aos teus pés
+E                A          E
+Não importa o quanto custou
+C#m            A       E
+Jesus teu valor é maior
+C#m             A       E
+Jesus teu valor é maior
+
+[Refrão]
+E                      A   E
+Eu encontrei o meu tesouro
+E                             A E
+Eu encontrei o bem mais precioso
+E                      A   E
+Eu encontrei o meu tesouro
+E                             A E
+Eu encontrei o bem mais precioso
+
+[Ponte]
+       B
+Como Maria
+       C#m                     A          E
+Que estava aos teus pés e dissestes a ela
+                 B           C#m
+Está é a boa parte que nunca
+     A               E
+Que nunca será tirada
+
+[Refrão]
+E                      A   E
+Eu encontrei o meu tesouro
+E                             A E
+Eu encontrei o bem mais precioso
+E                      A   E
+Eu encontrei o meu tesouro
+E                             A E
+Eu encontrei o bem mais precioso

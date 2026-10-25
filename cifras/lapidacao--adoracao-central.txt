@@ -3,5 +3,38 @@
 @tom A
 @pad F#m
 @bpm 135
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 233
 
+[Intro] F#m  E  D  Bm
 
+[Primeira Parte]
+F#m          E                  D                          E   F#m
+   Salvaste-me e agora eu sou Teu semelhante a Ti Senhor eu quero ser
+        E                 D                        E   F#m
+Renova-me eu quero Te servir, vem limpar e transformar meu coração
+
+         E                D                           E   F#m
+Só Tu Senhor enxergaste o meu valor tudo sabe soberano Criador
+         E               D                       E   F#m
+Eu quero ser lapidado por Tuas mãos faz o Teu querer em mim
+
+[Refrão]
+                      E                       D
+Já não quero ser igual hoje eu vivo só pra Ti
+                          E   F#m
+Me prepara pra Te encontrar Senhor
+
+                    E                       D
+Cristo vem me lapidar eu preciso mais de Ti
+                          E   F#m
+Vem encher-me com o Teu Espírito
+
+( F#m  E/G#  A  A/C# )
+( D  F#m  E )
+
+[Ponte]
+F#m                 E/G#  A
+Fui criado para o Teu louvor
+             A/C#  D   F#m        E
+Manifestar o Teu amor eis-me aqui

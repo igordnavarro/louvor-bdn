@@ -3,5 +3,68 @@
 @tom D
 @pad Bm
 @bpm 137
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 216
 
+[Intro] Bm7  A  Em7  G9
+        Bm7  A  Em7  G9
 
+[Primeira Parte]
+Bm7                  A
+    Onde a nuvem for, eu irei também
+Em7                G9
+    Se ela não for, nem me moverei
+Bm7                  A
+    Onde a nuvem for, eu irei também
+Em7                G9
+    Se ela não for, nem me moverei
+
+[Pré-Refrão]
+Bm7                         A
+    Eu não saio mais daqui
+                         G
+Se a Tua glória não vir
+                         Em7
+Se a Tua glória não vir
+Bm7                      A
+    Eu me sacrifico a Ti
+                          G
+Pra que outros possam vir
+                          E
+Pra que outros possam vir
+
+[Refrão]
+G
+  Tu És a fogueira
+Bm          A
+  Eu sou tua lenha
+G
+  Vem queimar em mim
+Bm            A
+  Vem queimar em mim
+G
+  Tu És a fogueira
+Bm          A
+  Eu sou tua lenha
+G
+  Vem queimar em mim
+Bm            A
+  Vem queimar em mim
+
+[Ponte]
+Bm7
+    Queremos ver tua Glória
+A
+   Queremos ver o Teu Poder
+Em7
+    Aquilo que Moisés não viu
+G9            A
+   É o que queremos ver
+Bm7
+    Queremos ver tua Glória
+A
+   Queremos ver o Teu Poder
+Em7
+    Aquilo que Moisés não viu
+G9            A
+   É o que queremos ver

@@ -3,5 +3,114 @@
 @tom E
 @pad C#m
 @bpm 137
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 135
 
+[Primeira Parte]
+C#m
+Deus de Jacó
+A
+O Grande Eu Sou
+C#m
+Rei dos Anjos
+A
+Filho de Deus
+B
+Voz de muitas águas
+A
+No céu é o louvor
+B                                          A
+Mais forte que um trovão Com Tua glória vem Senhor
 
+[Refrão]
+C#m                      B  A
+A terra ouve o rugir      Do Leão de Judá
+C#m                      E  A             F#m
+A terra ouve o rugir      Do Leão de Judá
+C#m     B     A    F#m
+Rugir, rugir, rugir.
+
+[Segunda Parte]
+C#m
+A profecia
+A
+De Sião
+C#m
+Nosso Messias
+A
+Que veio a nós
+B
+O único que é Digno
+A
+De o livro abrir
+B                                      A        C#m
+Sofreu como um Cordeiro, Mas o Leão ressuscitou
+
+[Refrão]
+C#m                      B  A
+A terra ouve o rugir      Do Leão de Judá
+C#m                      E  A             F#m
+A terra ouve o rugir      Do Leão de Judá
+C#m                      B  A             F#m
+A terra ouve o rugir      Do Leão de Judá
+C#m                      E  A             F#m
+A terra ouve o rugir      Do Leão de Judá
+C#m     B      A    F#m
+Rugir, rugir, rugir
+
+( A/F#  B/F#  F#m  E )
+( A  B  F#m  E )
+
+[Ponte]
+A
+Prepare o agora
+B
+O caminho do senhor
+F#m
+Prepare o agora
+E
+O caminho do senhor
+
+A
+Prepare o agora
+B
+O caminho do senhor
+F#m
+Prepare o agora
+E
+O caminho do senhor
+
+A        B
+O vale se erga
+   F#m          E
+Montanha se abaixe
+A        B
+O vale se erga
+   F#m          E
+Montanha se abaixe
+
+A        B
+O vale se erga
+   F#m          E
+Montanha se abaixe
+C#m      B
+O vale se erga
+   F#m          E
+Montanha se abaixe
+
+A   B          F#m        E
+Rugir o Leão, rugir ooh, rugir Leão
+A   B          F#m
+Rugir o Leão, rugir
+
+[Refrão]
+C#m                      E  A
+A terra ouve o rugir      Do Leão de Judá
+C#m                      E  A
+A terra ouve o rugir      Do Leão de Judá
+C#m                      E  A             F#m
+A terra ouve o rugir      Do Leão de Judá
+C#m                      E  A             F#m
+A terra ouve o rugir      Do Leão de Judá
+
+( A  B  F#m )

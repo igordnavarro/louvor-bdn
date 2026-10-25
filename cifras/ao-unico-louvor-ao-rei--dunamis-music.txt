@@ -3,5 +3,51 @@
 @tom D
 @pad D
 @bpm 124
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 154
 
+[Primeira Parte]
+   D            A/C#     Bm
+Ao único que é digno de receber
+   G          D/F#     Em          A4  A
+A honra e a glória, a força e o poder
+    D              D7  G          Em
+Ao Rei eterno imortal, invisível mas real
+  D/A         A          D
+A Ele, ministramos o louvor
+   D            A/C#     Bm
+Ao único que é digno de receber
+   G          D/F#     Em          A4  A
+A honra e a glória, a força e o poder
+    D              D7  G          Em
+Ao Rei eterno imortal, invisível mas real
+  D/A         A          D
+A Ele, ministramos o louvor
 
+[Refrão 1]
+    Bm   F#m   G            D
+Coroa__mos a Ti, ó rei Jesus
+    Bm   F#m   G            D      D7
+Coroa__mos a Ti, ó rei Jesus
+    G            A
+Adoramos o Teu nome
+        F#7              Bm
+Nos rendemos aos Teus pés
+       Em          A            D
+Consagramos todo nosso ser a Ti
+
+[Refrão 2]
+   D
+A honra
+    A/C#
+A glória
+   Bm
+A força
+  F#m
+E o poder
+        G   D/F#
+Ao Rei Jesus
+       Em  D
+E o louvor
+    C   G/B   A
+Ao Rei      Jesus

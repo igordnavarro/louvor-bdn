@@ -4,5 +4,105 @@
 @pad C#m
 @bpm 128
 @note "Mais uma vez o fogo do zelo..." 4x · Finalizando: "Com pés descalços..."
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 129
 
+[Intro] E  B  F#m
 
+[Primeira Parte]
+E                                   B
+O que se pode fazer pra trazer a presença de novo?
+F#m
+Será que ainda existe quem tenha fome e
+    C#m
+quem tenha sede?
+E
+O que se pode fazer pra finalmente
+      B
+despertar um povo?
+F#m                            C#m
+Aquebrantado, atrair novamente o Noivo
+
+A                                    B
+Se Deus só precisa de um disposto, eu me disponho
+F#m                            C#m
+Arrependido, em favor de toda nação
+A                                 B
+Ó Deus, é certo que Você quer fazer de novo
+A
+Por que não aqui?
+               B
+Por que não agora?
+
+[Refrão] 1x
+Aqui, aonde os grandes não tem vez
+                  B
+Eu entro em aliança
+                               A
+Aqui, aonde os grandes não tem vez
+                  G#m
+Eu entro em aliança
+                               A
+Aqui, aonde os grandes não tem vez
+                  B
+Eu entro em aliança
+              C#m
+Até que Ele venha
+              G#m
+Até que Ele venha
+
+( A  B  C#m )
+
+A                                    B
+Se Deus só precisa de um disposto, eu me disponho
+F#m                            C#m
+Arrependido, em favor de toda nação
+A                                 B
+Ó Deus, é certo que Você quer fazer de novo
+A
+Por que não aqui?
+               B
+Por que não agora?
+
+! Refrão 1x
+
+[Ponte] 2X
+               A                 B
+Com pés descalços, nação nos ombros
+                    C#m
+E o coração em chamas
+               A                 B
+Beijando o Filho até que Ele venha
+              C#m
+E chova justiça
+
+[Fogo do Zelo] 2X
+A              B
+Mais uma vez o fogo do zelo de Deus vai
+C#m
+arder
+A              B
+Mais uma vez o fogo do zelo de Deus vai
+C#m
+arder
+A              B
+Mais uma vez o fogo do zelo de Deus vai
+C#m
+arder
+
+[Nazireus] 2X
+A                                 B
+Dos seus filhos, levantei profetas
+                                 C#m
+Dos seus jovens, eu chamei nazireus
+
+Onde estão os nazireus?
+
+A                                 B
+Dos seus filhos, levantei profetas
+Dos seus jovens, eu chamei, eu chamei
+     C#m
+nazireus
+
+! "Mais uma vez o fogo do zelo..." 4x
+! Finalizando: "Com pés descalços..."

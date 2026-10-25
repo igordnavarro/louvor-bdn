@@ -3,5 +3,59 @@
 @tom D
 @pad D
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 151
 
+[Primeira Parte]
+Bm11
+     Eu não tenho mais
+   A7(13)              Bm11
+A minha vida como preciosa
+              A7(13)
+Eu fui encontrado
+Bm11                    A7(13)
+     E o que antes era lucro
+              Bm11
+Já não tem valor
+              A7(13)
+Eu fui encontrado
 
+[Pré-Refrão]
+G9              A9
+   As escamas caíram ao chão
+G9                   A9
+   Tua luz me encontrou
+G9             A9
+   E agora eu posso te ver
+Bm11              A9
+     Eu posso te ver
+
+[Refrão]
+                     G7M(9)
+Uma vez que eu coloquei
+Os meus olhos em Ti
+D/F#
+Nada mais me satisfaz
+                     Em7
+Uma vez que eu coloquei
+Os meus olhos em Ti
+D/F#
+Nada mais me satisfaz
+
+[Ponte]
+               G7M
+Eu estou aprendendo a estar
+D/F#
+Cada dia mais satisfeito em Ti
+                 Em7
+À medida em que te conheço mais
+D/F#
+Tudo tudo perde o seu valor
+               G7M(9)
+Eu estou aprendendo a estar
+D/F#
+Cada dia mais satisfeito em Ti
+                 Em7
+À medida em que te conheço mais
+D/F#
+Tudo tudo perde o seu valor

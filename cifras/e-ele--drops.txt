@@ -1,8 +1,108 @@
 @title É Ele
 @artist Drops
 @tom A
-@pad F#m
+@pad F#m ou Am
 @bpm 140
 @note Também tocada em C (pad Am)
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 157
 
+[Intro] D  E  F#m
+        C#m  D  E
 
+[Primeira Parte]
+A
+  Estou preparando um caminho
+F#m        D          A
+   Endireitando as veredas
+A
+  E cada vez mais diminuindo
+F#m         D              A
+   Porque importa que Ele cresça
+
+[Segunda Parte]
+   D                   F#m
+E Nele o meu prazer está
+                           A
+E eu não sou digno de desatar
+            E11
+As suas sandálias
+   D                   F#m
+E Nele a minha vida está
+                       A
+E eu caminho com a certeza
+              E11
+De que Ele virá
+
+[Refrão]
+    D        E11
+E é Ele, por Ele que eu estou
+                  F#m
+Gastando a minha vida
+          C#m7
+Perdendo tudo por amor
+           D
+E com alegria
+               E11
+Dono dos meus dias
+
+[Primeira Parte]
+A
+  Estou preparando um caminho
+F#m        D          A
+   Endireitando as veredas
+A
+  E cada vez mais diminuindo
+F#m          D              A
+   Porque importa que Ele cresça
+
+   D                   F#m
+E Nele o meu prazer está
+                           A
+E eu não sou digno de desatar
+            E11
+As suas sandálias
+   D                   F#m
+E Nele a minha vida está
+                       A
+E eu caminho com a certeza
+              E11
+De que Ele virá
+
+[Refrão]
+    D        E11
+E é Ele, por Ele que eu estou
+                  F#m
+Gastando a minha vida
+          C#m7
+Perdendo tudo por amor
+           D
+E com alegria
+               E11
+Dono dos meus dias
+    D        E11
+E é Ele, por Ele que eu estou
+                  F#m
+Gastando a minha vida
+          C#m7
+Perdendo tudo por amor
+           D
+E com alegria
+               E11
+Dono dos meus dias
+
+[Terceira Parte]
+         A      A7
+E Ele virá soberano em poder
+       F#m
+Ele virá e o governo está Nele
+ D                  E11
+Vejam, Ele traz consigo
+A sua recompensa
+       A      A7
+Ele virá soberano em poder
+       F#m
+Ele virá e o governo está Nele
+ D                  E11
+Vejam, Ele traz consigo
+A sua recompensa

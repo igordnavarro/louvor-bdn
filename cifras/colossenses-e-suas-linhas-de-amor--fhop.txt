@@ -3,5 +3,80 @@
 @tom A
 @pad F#m
 @bpm 130
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 183
 
+[Intro] F#m11  Bm7  D6  Bm7
+        F#m11  Bm7  D6  Bm7
 
+[Primeira Parte]
+F#m11          Bm7
+Lembrem da canção
+                         D6
+Cristo é o retrato de Deus
+                              Bm7
+Do que foi feito antecedeu primeiro
+F#m11        Bm7
+Antes do nascer
+                          D6
+Fez justiça e em si morreu
+                          Bm7
+Supremacia e tronos são, são teus
+
+[Solo] F#m11  Bm7  D6  Bm7
+
+[Primeira Parte]
+F#m11          Bm7
+Lembrem da canção
+                         D6
+Cristo é o retrato de Deus
+                              Bm7
+Do que foi feito antecedeu primeiro
+F#m11        Bm7
+Antes do nascer
+                          D6
+Fez justiça e em si morreu
+                          Bm7
+Supremacia e tronos são, são teus
+
+[Refrão]
+D7M                          A
+    E aquele fio que se rompeu
+       E           D7M
+Da minha alma até a Deus
+                   A
+O sangue Santo costurou
+            E          D7M
+Cristo e suas linhas de amor
+                     A
+E agora um homem feito eu
+       E           D7M
+Pode no homem ver a Deus
+                       F#m
+Ter paz, viver, andar e ser
+       E            F#m
+Me fez amigo em seu verter
+
+[Solo2] F#m  Bm  D  E
+        F#m  Bm  D  E
+
+[Refrão]
+D7M                          A
+    E aquele fio que se rompeu
+       E           D7M
+Da minha alma até a Deus
+                   A
+O sangue Santo costurou
+            E          D7M
+Cristo e suas linhas de amor
+                     A
+E agora um homem feito eu
+       E           D7M
+Pode no homem ver a Deus
+                       F#m
+Ter paz, viver, andar e ser
+       E            F#m
+Me fez amigo em seu verter
+
+[Final] F#m  Bm  D  Bm
+        F#m  Bm  D  Bm

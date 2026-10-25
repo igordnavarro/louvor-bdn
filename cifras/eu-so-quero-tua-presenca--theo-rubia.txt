@@ -1,7 +1,97 @@
 @title Eu Só Quero Tua Presença
 @artist Theo Rubia
 @tom G
-@pad G ou Em
+@pad Em
 @bpm 135
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 177
 
+[Primeira Parte]
+  G
+Estou Te esperando aqui
+     Em7
+Eu já fechei a porta pode vir
+  C9
+Estou Te esperando pra fazer
+                  G
+O que tens que fazer
+ G
+Meu coração aberto já está
+  Em7
+Te peço vem encher este lugar
+   C9
+Te entrego tudo que eu tenho e sou
+              G
+E também quem não sou
 
+[Refrão] (2x)
+C9                   Am7
+  Eu só quero Tua presença
+G                      Em7
+  Hoje não vou Te pedir nada
+C9                     Am7
+  Só quero levantar a minha voz
+          G                   Em7
+Pra Te dizer, que a Tua graça já me basta
+
+[Primeira Parte]
+  G
+Estou Te esperando aqui
+     Em7
+Eu já fechei a porta pode vir
+  C9
+Estou Te esperando pra fazer
+                  G
+O que tens que fazer
+ G
+Meu coração aberto já está
+  Em7
+Te peço vem encher este lugar
+   C9
+Te entrego tudo que eu tenho e sou
+              G
+E também quem não sou
+
+[Refrão] (3x)
+C9                   Am7
+  Eu só quero Tua presença
+G                      Em7
+  Hoje não vou Te pedir nada
+C9                     Am7
+  Só quero levantar a minha voz
+          G                   Em7
+Pra Te dizer, que a Tua graça já me basta
+
+( C  G/B  C  G/B )
+( C  G/B  Am  Em )
+( D/F#  G  G/B )
+
+[Final] (3x)
+C9           G/B
+Eu não quero mais, sair daqui
+C9           G/B
+Eu não quero mais, sair daqui
+C9           G/B
+Eu não quero mais, sair daqui
+Am7     Em7     D/F#   G   G/B   C9
+  Me deixa morar... aqui
+
+[Refrão] (2x)
+C9                   Am7
+  Eu só quero Tua presença
+G                      Em7
+  Hoje não vou Te pedir nada
+C9                     Am7
+  Só quero levantar a minha voz
+          G                   Em7
+Pra Te dizer, que a Tua graça já me basta
+
+[Final] (2x)
+C9           G/B
+Eu não quero mais, sair daqui
+C9           G/B
+Eu não quero mais, sair daqui
+C9           G/B
+Eu não quero mais, sair daqui
+Am7     Em7     D/F#   G   G/B   C9
+  Me deixa morar... aqui

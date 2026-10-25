@@ -1,8 +1,10 @@
-@title Que se Abram os Céus
+@title Que Se Abram os Céus
 @artist Nívea Soares
 @tom G
 @pad G
 @bpm 128
+@arquivo SET LIST - BDN FB 1-1-100.pdf
+@slide 68
 
 [Primeira Parte]
  G

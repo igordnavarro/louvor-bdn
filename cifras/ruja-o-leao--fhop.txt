@@ -3,5 +3,47 @@
 @tom G
 @pad Em
 @bpm 138
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 125
 
+[Primeira Parte]
+Em               D                 Am
+Sobre o trono de justiça eternamente
+Em
+Haverá um rei
+Em               D                 Am
+Ele voltará para governar as nações
+Em
+Em amor
 
+[Refrão] 2x
+Em                              D
+Que ruja o leão e que a terra estremeça
+C      Am                Em
+Diante da majestade de Jesus
+
+( Em  D  Am  Em )
+
+! Primeira parte · Refrão 4x
+( Em  D  Am  Em ) 2x
+
+[Ponte] 4x
+Em
+O descendente de Davi
+D
+O homem mais notável
+C      Am                               Em
+Ele ama a justiça odeia iniquidade
+
+! Refrão 2x
+( Em  D  Am  Em )
+
+[Final] 4x
+Em
+E Ele virá
+D
+E Ele virá
+C
+E Ele virá
+Am
+O leão da tribo de Judá

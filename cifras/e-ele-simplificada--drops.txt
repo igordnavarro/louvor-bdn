@@ -1,9 +1,60 @@
 @title É Ele (Simplificada)
 @artist Drops
 @tom Bb
+@capo 3
 @pad F#m ou Am
 @bpm 140
-@capo 3
-@note Forma de G · capotraste na 3ª casa · 1ª parte 1x, 2ª parte 1x, refrão 2x
+@note Com forma de G · capotraste na 3ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 107
 
+[Intro] C  D  Em
+        Bm  C  D
 
+[Primeira Parte]
+G
+  Estou preparando um caminho
+Em          C           G
+   Endireitando as veredas
+E cada vez mais diminuindo
+Em            C               G
+   Porque importa que Ele cresça
+
+[Segunda Parte]
+  C                     Em
+E Nele o meu prazer está
+                               G
+E eu não sou digno de desatar
+            D
+As suas sandálias
+  C                     Em
+E Nele a minha vida está
+                       G
+E eu caminho com a certeza
+             D
+De que Ele virá
+
+[Refrão]
+    C          D
+E é Ele, por Ele que eu estou
+                  Em
+Gastando a minha vida
+          Bm
+Perdendo tudo por amor
+           C
+E com alegria
+               D
+Dono dos meus dias
+
+! 1ª parte 1x · 2ª parte 1x · Refrão 2x
+
+[Terceira Parte] 2X
+          G
+E Ele virá soberano em poder
+       Em
+Ele virá e o governo está Nele
+ C                    D
+Vejam, Ele traz consigo
+A sua recompensa
+
+! Refrão 2x

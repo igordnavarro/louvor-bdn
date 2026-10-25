@@ -3,5 +3,105 @@
 @tom C
 @pad Am
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 119
 
+[Intro] C  C9  C7M(9)  F9
 
+[Primeira Parte]
+ C9  C7M(9)          F9
+Pai,       vim Te buscar
+       C9          G4
+Meu coração queimou de amor
+       F9
+Queimou por Ti
+ C9  C7M(9)       F9
+Pai,       saudades
+            C9
+Confesso que demorei
+            G/B
+Pra sentir, mas sentir
+  C/E     F9
+E não vou sair daqui
+
+[Segunda Parte]
+      Dm7
+Sem Te tocar
+       Am7(11)
+Sem ser tocado por Ti
+        G4
+Nada vai me atrair
+         F7M    F6
+Nada vai me tirar daqui
+      Dm7
+Sem Te tocar
+       Am7(11)
+Sem ser tocado por Ti
+        G4
+Nada vai me atrair
+         F7M
+Nada vai me tirar daqui
+
+[Refrão]
+       C9         C7M(9)    F9
+Estou subindo ao monte Santo de Sião
+       Am7(11)       G4
+E vou tocar o céu com meu coração
+  C/E  F
+Em a____doração
+       C9         C7M(9)    F9
+Estou subindo ao monte Santo de Sião
+       Am7(11)       G4
+E vou tocar o céu com meu coração
+  C/E  F
+Em a____doração
+
+[Terceira Parte]
+Dm7          F
+Nada vai me abalar
+               Am7(11)
+Junto à Pedra eu sou
+       G4
+Pedra Preciosa
+Dm7          F
+Nada vai me abalar
+               Am7(11)
+Junto à Pedra eu sou
+       G4
+Pedra Preciosa
+
+( Dm7  F  Am7(11)  G4 )
+
+[Ponte]
+Dm7          F
+   Inabalável, Inabalável
+Am7(11)          G4
+      Pedra Preciosa é o meu Senhor
+Dm7          F
+   Inabalável, Inabalável
+Am7(11)          G4
+      Pedra Preciosa é o meu Senhor
+Dm7          F
+   Inabalável, Inabalável
+Am7(11)          G4
+      Pedra Preciosa é o meu Senhor
+Dm7          F
+   Inabalável, Inabalável
+Am7(11)          G4
+      Pedra Preciosa é o meu Senhor
+
+[Refrão]
+       C9         C7M(9)    F9
+Estou subindo ao monte Santo de Sião
+       Am7(11)       G4
+E vou tocar o céu com meu coração
+  C/E  F9
+Em a____doração
+
+[Final]
+  C9     C7M(9)
+Subindo eu vou
+
+Pra Te encontrar
+F9   Am7(11)
+Eu vou

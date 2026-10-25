@@ -1,24 +1,84 @@
 @title A Boa Parte (Simplificada)
 @artist Fhop
 @tom E
+@capo 2
 @pad E
 @bpm 145
-@capo 2
-@note Forma de D · capotraste na 2ª casa
+@note Com forma de D · capotraste na 2ª casa
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 149
 
-[Passagem] Bm G9 D (2x)
+[Primeira Parte]
+D
+ Precioso Jesus
+Aos Teus pés aqui estou
+O que eu poderia te oferecer
+Por tudo o que tu és
 
-[Ponte] A G D (2x)
-A
+D              G9
+  Tudo o que tenho
+    Bm     G9        D
+ Eu derramo aos Teus pés
+                G9
+Não importa o quanto custou
+   Bm         G9      D
+Jesus, Teu valor é maior
+
+[Refrão]
+D                            G9
+  Eu encontrei o meu tesou_ro
+               G9           D
+Eu encontrei o bem mais preci_oso
+D                            G9
+  Eu encontrei o meu tesou_ro
+              G9              D
+Eu encontrei o bem mais preci_oso
+
+[Passagem] Bm  G9  D  2X
+
+[Segunda Parte]
+D
+ Precioso Jesus
+Eu amo o som da Tua voz
+                G9           A
+Tuas palavras são mais desejáveis
+Bm          G     D
+Que o mais doce mel
+
+ D                G9
+Tudo o que tenho
+    Bm         G9  D
+Eu derramo aos Teus pés
+D                 G9
+Não importa o quanto custou
+   Bm         G9    D
+Jesus, Teu valor é maior
+  Bm          G9     D
+Jesus, Teu valor é maior
+
+[Refrão]
+D                            G9
+  Eu encontrei o meu tesou_ro
+               G9           D
+Eu encontrei o bem mais preci_oso
+D                            G9
+  Eu encontrei o meu tesou_ro
+              G9              D
+Eu encontrei o bem mais preci_oso
+
+[Ponte] A  G  D  2X
+       A
 Como Maria, que estava aos seus pés
-G                  D                 A
+       G      D                  A
 E dissestes a ela: Essa é a boa parte
-G                    D
+               G          D
 Que nunca, nunca será tirada
-A
+
+       A
 Como Maria, que estava aos seus pés
-G                  D                 A
+       G      D                  A
 E dissestes a ela: Essa é a boa parte
-G                    D
+               G          D
 Que nunca, nunca será tirada
+
 ! Refrão 1x

@@ -4,5 +4,72 @@
 @pad D
 @bpm 136
 @note Primeira parte 1x · Segunda parte 2x · Refrão 2x
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 118
 
+[Intro] D  D  D  G
 
+[Primeira Parte]
+ D    D                   G
+Pai,       vim Te buscar
+            D                A
+Meu coração queimou de amor
+            G
+Queimou por Ti
+ D    D             G
+Pai,       saudades
+                      D
+Confesso que demorei
+                      A
+Pra sentir, mas sentir
+     D          G
+E não vou sair daqui
+
+[Segunda Parte]
+        Em
+Sem Te tocar
+           Bm
+Sem ser tocado por Ti
+               A
+Nada vai me atrair
+              G      G
+Nada vai me tirar daqui
+
+[Refrão]
+         D                D         G
+Estou subindo ao monte Santo de Sião
+         Bm                A
+E vou tocar o céu com meu coração
+   D    G
+Em a____doração
+         D                D         G
+Estou subindo ao monte Santo de Sião
+         Bm                A
+E vou tocar o céu com meu coração
+   D    G
+Em a____doração
+
+! Primeira parte 1x · Segunda parte 2x · Refrão 2x
+
+[Terceira Parte] 4X
+ Em             G
+Nada vai me abalar
+                     Bm
+Junto à Pedra eu sou
+       A
+Pedra Preciosa
+ Em             G
+Nada vai me abalar
+                     Bm
+Junto à Pedra eu sou
+       A
+Pedra Preciosa
+
+[Ponte] 4X
+( Em  G  Bm  A )
+Em              G
+    Inabalável,   Inabalável
+Bm                    A
+        Pedra Preciosa é o meu Senhor
+
+! Refrão 2x

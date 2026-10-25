@@ -3,5 +3,53 @@
 @tom C
 @pad Am
 @bpm 164
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 220
 
+[Intro] Am  F  G  Em  G  Am
 
+[Primeira Parte]
+Am             F           G    Em7  G
+  Vem sobre nós como a chuva
+Am         F                  G
+  Faça as águas subirem neste
+Em7  G
+lugar
+Am         F        G    Em7   G
+  Libera Teu rio sem medidas
+Am            F       G     Em/G  G
+  Vem Tuas águas agitar
+
+[Refrão]
+          Am                 F         G
+Eu quero nadar, eu quero nadar no Teu
+      Em7  G
+rio
+          Am                 F          G
+Eu quero beber, eu quero beber de Tuas
+      Em7  G
+ águas
+
+Am    F      G   Em7  G
+Ô....ô....ôô....
+Am    F      G   Em7  G
+Ô....ô....ôô....
+Am    F      G   Em7  G
+Ô....ô....ôô....
+Am    F      G   Em7  G
+Ô....ô....ôô....
+
+[Ponte]
+Dm        F                      G   G4  G  G4
+  Existem águas que dão nos artelhos
+Dm        F                    G
+  Existem águas que dão nos joelhos
+Em7  G
+Dm                    F       G
+  Existem águas que dão nos lombo
+Dm                         F
+  Mas tem águas mais profundas eu
+    G    F5  Em5  Dm5  C5  Bm5  Am5
+sei
+
+[Solo] Am  F  G  Em  G  Am

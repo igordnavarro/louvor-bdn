@@ -3,5 +3,50 @@
 @tom A
 @pad F#m
 @bpm 142
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 180
 
+[Intro] D  E  F#m
+        D  E  F#m
 
+[Primeira Parte]
+   D
+Contudo aos que receberam
+  E                        F#m
+E aos que creram em Teu nome
+ D                          E
+Deu-lhes o direito de se tornarem os Teus
+ F#m
+filhos
+    D                         E
+O Espírito de Deus testifica com o nosso
+   F#m
+espírito
+
+[Refrão]
+                       D      E
+Que somos os Teus filhos
+                      F#m
+Que somos os Teus filhos
+                       D      E
+Que somos os Teus filhos
+                      F#m
+Que somos os Teus filhos
+
+   A                      D
+O pai me adotou, Teu amor me encontrou
+F#m              D                A
+ Eu era órfão, hoje sou filho
+
+( D  E  F#m )
+( D  E  F#m )
+
+[Ponte]
+ D
+Não sou, não sou mais órfão
+E
+Agora filho sou
+ F#m
+Não sou, não sou mais órfão
+C#m
+O pai me adotou

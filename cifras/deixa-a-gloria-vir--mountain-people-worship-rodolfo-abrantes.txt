@@ -3,5 +3,137 @@
 @tom E
 @pad C#m
 @bpm 145
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 159
 
+[Intro] C#m  B  C#m  F#m
+        C#m  B  C#m  F#m
 
+[Primeira Parte]
+      C#m
+Nosso Pai
+   B/D#   E
+Nos fez um
+   F#m  C#m
+Somos filhos
+   F#m      C#m
+Debaixo do sol
+
+ E   B/D#  C#m
+Sopra em nós
+ B/D#   E
+Outra vez
+       F#m  C#m
+A vida que faz
+     F#m    E
+Sua noiva brilhar
+
+[Pré-Refrão]
+               A
+E veremos Tua glória
+                    B
+Como a luz do sol (Glória)
+                  C#m
+Desce como fogo (Glória)
+                  E
+Em nos faça um em Ti
+               A
+E veremos Tua glória
+                    B
+Como a luz do sol (Glória)
+                  C#m
+Desce como fogo (Glória)
+                  E
+Em nos faça um em Ti
+
+[Refrão]
+                A
+Deixa a glória vir
+                    C#m
+Aqui em meio aos perdidos
+               E
+Deixa a glória vir
+               A
+E levante os caídos
+               F#m
+Deixa a glória vir
+                 C#m
+Despertar tua igreja
+               E     B/D#
+Deixa a glória vir oh Deus
+
+( C#m  B  E  F#m )
+( C#m  B  C#m  F#m )
+
+[Segunda Parte]
+      C#m
+Santo Pai
+   B/D#   E
+Queremos mais
+   F#m C#m   F#m       C#m
+Muito mais do Teu coração
+                  A
+Queremos ver Tua glória
+                    B
+Como a luz do sol (Glória)
+                  C#m
+Desce como fogo (Glória)
+                  E
+Em nos faça um em Ti
+                    A
+E queremos ver Tua glória
+                    B
+Como a luz do sol (Glória)
+                  C#m
+Desce como fogo (Glória)
+                  E
+Em nos faça um em Ti
+
+[Refrão]
+                A
+Deixa a glória vir
+                    C#m
+Aqui em meio aos perdidos
+               E
+Deixa a glória vir
+               A
+E levante os caídos
+               F#m
+Deixa a glória vir
+                 C#m
+Despertar tua igreja
+               E     B/D#
+Deixa a glória vir oh Deus
+
+[Ponte]
+C#m
+Vem! Vento impetuoso
+Vem! Voz de muitas águas
+Vem! Santo Espírito e avivamo-nos  de novo
+A
+Vem! Vento impetuoso
+F#m
+Vem! Voz de muitas águas
+C#m                         E        B/D#
+Vem! Santo Espírito e avivamo-nos de novo
+
+( A  B )
+
+[Refrão]
+                A
+Deixa a glória vir
+                    C#m
+Aqui em meio aos perdidos
+               E
+Deixa a glória vir
+               A
+E levante os caídos
+               F#m
+Deixa a glória vir
+                 C#m
+Despertar tua igreja
+               E        B/D#
+Deixa a glória vir oh
+
+[Final] A  C#m  E  B
+        A  C#m  E  B  A

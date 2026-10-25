@@ -3,5 +3,65 @@
 @tom E
 @pad C#m
 @bpm 140
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 201
 
+[Intro] C#m7  B  A  F#m7(11)
 
+[Primeira Parte] (2x)
+C#m7      B4             A9     F#m11
+Tu és o rei ninguém pode mudar
+C#m7   B4            A9     F#m11
+És o leão da tribo de Judá
+
+[Segunda Parte] (2x)
+              C#m7               B4
+As trevas se vão, barreiras se vão
+     A9           F#m11
+Por causa da sua luz
+
+( C#m7  B4  A  F#m11 )
+
+[Primeira Parte] (1x)
+[Segunda Parte] (2x)
+
+[Refrão] (2x)
+C#m7                        B4
+Ele é a estrela da manhã, ele é a estrela da manhã
+A9                         F#m11
+Ele brilha, ele brilha, ele brilha neste lugar
+
+C#m7                    B4
+Ele é o leão de Judá, ele é o leão de Judá
+A9                     F#m11
+Ele ruge, ele ruge, ele ruge neste lugar
+
+[Solo] (2x) A9  F#m7(11)  C#m7  B4
+
+[Ponte]
+              A9                 F#m7(11)
+Que ruja o leão, ilumina a escuridão
+          C#m7                  B4
+Que ruja o leão, ilumina a escuridão
+              A9                 F#m7(11)
+Que ruja o leão, ilumina a escuridão
+          C#m7                  B4
+Que ruja o leão, ilumina a escuridão
+
+ C#m7          B4               A9        F#m11
+Claro, tão claro, o teu brilho é maior
+ C#m7          B4               A9        F#m11
+Claro, tão claro, o teu brilho é maior
+ C#m7          B4               A9        F#m11
+Claro, tão claro, o teu brilho é maior
+              C#m7    B4
+Que a luz do sol
+              A9            F#m11     C#m7
+Que a luz do sol
+
+B4               A9       F#m11   C#m7
+ Teu brilho é maior que o sol
+B4               A9       F#m11
+ Tu és o leão de Judá
+
+[Refrão]

@@ -4,6 +4,8 @@
 @pad A
 @bpm 161
 @bpmsrc songbpm
+@arquivo SET LIST - BDN FB 1-1-100.pdf
+@slide 29
 
 [Intro] F#m
 

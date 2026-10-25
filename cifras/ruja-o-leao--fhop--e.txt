@@ -3,5 +3,82 @@
 @tom E
 @pad C#m
 @bpm 138
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 204
 
+[Intro] C#m  B  A  F#m7
 
+[Primeira Parte]
+ C#m           B
+Sobre o trono de justiça
+  F#m7               C#m
+Eternamente, haverá um Rei
+                      B
+Ele voltará para governar
+      F#m7     C#m
+As nações em amor
+
+[Refrão]
+    B        C#m
+Que ruja o leão
+                       B4   B
+E que a terra estremeça
+          A     F#m7      C#m
+Diante da majestade de Jesus
+
+Que ruja o leão
+                       B4   B
+E que a terra estremeça
+          A     F#m7      C#m   (Riff)
+Diante da majestade de Jesus
+
+[Primeira Parte]
+ C#m           B
+Sobre o trono de justiça
+  F#m7               C#m
+Eternamente, haverá um Rei
+                      B
+Ele voltará para governar
+      F#m7     C#m
+As nações em amor
+
+[Refrão]
+    B        C#m
+Que ruja o leão
+                       B4   B
+E que a terra estremeça
+          A     F#m7      C#m
+Diante da majestade de Jesus
+
+Que ruja o leão
+                       B4   B
+E que a terra estremeça
+          A     F#m7      C#m   (Riff)
+Diante da majestade de Jesus
+
+[Solo] C#m  B  A  F#m7
+       C#m  B  A  F#m7
+
+[Ponte] (4x)
+   C#m
+O descendente de Davi
+   B
+O homem mais notável
+    A          F#m7
+Ele ama a justiça
+  C#m          B
+Odeia iniquidade
+
+[Refrão]
+    B        C#m
+Que ruja o leão
+                       B4   B
+E que a terra estremeça
+          A     F#m7      C#m
+Diante da majestade de Jesus
+
+Que ruja o leão
+                       B4   B
+E que a terra estremeça
+          A     F#m7      C#m   (Riff)
+Diante da majestade de Jesus

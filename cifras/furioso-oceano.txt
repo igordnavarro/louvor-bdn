@@ -3,5 +3,41 @@
 @tom A
 @pad F#m
 @bpm 137
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 230
 
+[Intro] D  E  F#m  C#m
+        D  E  F#m  C#m
 
+[Primeira Parte]
+        D           E
+Pode entrar é tudo seu
+              F#m                  C#m7
+Faça o que quer fazer meu coração é teu
+         D            E
+Não quero mais o meu querer
+         F#m              C#m7
+Não vou sair daqui até tocar você
+
+[Pré-Refrão]
+     D                           E
+Não quero só me arrepiar não quero só me emocionar
+     F#m                       C#m7
+Não quero só experimentar quero mergulhar
+     D                           E
+Não quero só me arrepiar não quero só me emocionar
+     F#m                       C#m7
+Não quero só experimentar quero mergulhar
+
+[Refrão]
+ D                Bm7
+Furioso oceano vem fluir dentro de mim
+F#m                              C#m7
+  Estou me afogando em ti estou me afogando em ti
+ D                Bm7
+Furioso oceano vem fluir dentro de mim
+F#m                              C#m7
+  Estou me afogando em ti estou me afogando em ti
+
+( D  E  F#m  C#m7 )
+( D  E  F#m  C#m7 )

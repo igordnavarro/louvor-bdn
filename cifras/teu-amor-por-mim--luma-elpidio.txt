@@ -1,7 +1,93 @@
 @title Teu Amor por Mim
 @artist Luma Elpidio
-@tom 
-@pad 
-@bpm 
+@tom G
+@pad G
+@bpm
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 189
 
+[Intro] G  D  Em  C  G
 
+[Refrão]
+G
+Teu amor por mim
+D
+Teu amor por mim
+Em
+Teu amor por mim
+          C
+Não tem fim, não tem fim
+
+G
+Teu amor por mim
+D
+Teu amor por mim
+Em
+Teu amor por mim
+          C
+Não tem fim, não tem fim
+
+[Solo] G  D  Em  C
+
+[Primeira Parte]
+              G
+Nenhuma montanha é tão alta
+        D
+Nenhum vale tão profundo
+       Em
+Nenhum rio é tão largo
+       C
+Quanto teu amor por mim
+
+              G
+Nenhuma montanha é tão alta
+        D
+Nenhum vale tão profundo
+       Em
+Nenhum rio é tão largo
+       C
+Quanto teu amor por mim
+
+[Refrão]
+G
+Teu amor por mim
+D
+Teu amor por mim
+Em
+Teu amor por mim
+          C
+Não tem fim, não tem fim
+
+[Segunda Parte]
+                    G
+Tu sabes quando caio
+                  D
+Quando me levanto, quando eu vou
+        Em
+Quando volto
+                                       C
+E quando eu mesmo não sei o que sinto
+Tu conheces-me
+
+G
+Tu sabes quando caio
+                  D
+Quando me levanto, quando eu vou
+        Em
+Quando volto
+                               C
+E quando eu mesmo não sei, tu conheces-me
+
+[Ponte]
+     G
+No mais profundo mar
+      D
+Tu está
+      Em                C
+E nos mais altos céus, tu está
+      G                  D
+E mesmo se no abismo eu cair
+            Em
+Eu sei até ali
+                  C
+A tua mão me guiará

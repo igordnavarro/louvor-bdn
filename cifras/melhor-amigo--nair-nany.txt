@@ -3,5 +3,31 @@
 @tom C
 @pad C
 @bpm 126
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 153
 
+[Primeira Parte]
+F         Am     C              G
+   Nas horas escuras da minha vida
+Jesus tá lá
+F             Am
+   Quando ninguém tem tempo pra mim
+                        G
+Só há alguém que eu conheço, Jesus
+F        Am      C              G
+   Nas horas amargas da minha vida
+Jesus tá lá
+F           Am                   C
+   O único que conhecendo minhas falhas
+                 G
+Meu defeitos, ficou
 
+[Refrão]
+Dm
+   Jesus, Jesus
+   C      G
+Jesus, Jesus, Jesus
+   F
+Jesus, Jesus, Jesus
+   C  G
+Jesus

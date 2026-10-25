@@ -3,5 +3,68 @@
 @tom G
 @pad G
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 142
 
-[Intro] G Em C (2x)
+[Intro] G  Em  C  2x
+
+[Primeira Parte] 2x
+     G
+Pai nosso, nos céus
+ C              D
+Santo é o teu nome
+     G
+Teu reino buscamos
+        C          D
+Tua vontade seja feita
+
+[Refrão]
+    C          Am       Em
+Na terra como é, nos céus
+          D
+Deixe o céu descer
+    C          Am       Em
+Na terra como é, nos céus
+          D
+Deixe o céu descer
+
+( G  Em  C )
+
+[Ponte]
+                     Em   D
+Deixe o céu descer
+                     C
+Deixe o céu descer
+                     Em   D
+Deixe o céu descer
+                     C
+Deixe o céu descer
+                     Em   D
+Deixe o céu descer
+                     C
+Deixe o céu descer
+                     Em   D
+Deixe o céu descer
+
+( C  Em  D )
+
+[Final]
+ C
+Teu é o reino, Teu o poder
+ Em                      D
+Tua é a glória pra sempre, amém
+ C
+Teu é o reino, Teu o poder
+ Em                      D
+Tua é a glória pra sempre, amém
+ C
+Teu é o reino, Teu o poder
+ Em                      G/B
+Tua é a glória pra sempre, amém
+ C
+Teu é o reino, Teu o poder
+ Em                      D
+Tua é a glória pra sempre, amém
+
+[Final] C  Em  D
+        C  Em  D

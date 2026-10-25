@@ -3,5 +3,67 @@
 @tom A
 @pad F#m
 @bpm 136
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 141
 
+[Primeira Parte]
+A                     Bm  D9
+Envolto em tua presença
+ D9            A
+Aos teus pés é onde
+     A9
+Eu quero estar
+         Bm7      D
+Em meio tua santidade
+   D9         A  (A4  A9)   A
+Aqui quero ficar
 
+A                   Bm     D9
+  Não vim atrás de bênçãos
+D9(#11)
+Jesus não deves
+  A   A9   A
+Nada para mim
+            Bm7
+Mas do que tu podes
+   D              A  (A9)   A
+Fazer só quero a ti
+
+[Pré-Refrão]
+    D  D9     D          D9
+Lamento por viver indiferente
+    A  A9         A           A9
+Lamento por não cantar de coração
+         D               D9
+Leva me ao teu primeiro amor
+      D          D9    (A  A9)  A
+Abro o meu coração a ti
+    D  D9     D               D9
+Lamento por viver só pra mim mesmo
+   A9  A        A9
+Lamento por não ver que és meu
+      A
+sustento
+        D7M(9)       D9
+Leva me ao primeiro amor
+      D          D9(11+)  D9  A  (A9
+Abro o meu coração       a ti
+A4  A9)
+
+[Refrão]
+            Bm7
+Só quero a ti
+         D9
+E nada mais
+        F#m7
+E nada mais
+              E
+Nada além de ti
+            Bm7
+Só quero a ti
+         D9
+E nada mais
+        F#m7
+E nada mais
+              E
+Nada além de ti

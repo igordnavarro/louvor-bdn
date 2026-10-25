@@ -3,5 +3,99 @@
 @tom E
 @pad C#m
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 121
 
+[Intro] A9  F#m7  C#m7  B9(11)
+        A9  F#m7  C#m7  B9(11)
 
+[Primeira Parte]
+                   E
+O fogo não me queima
+Nas águas não vou afundar
+         A9
+Pois estás comigo
+Não estou sozinho
+
+                E
+Eu estou guardado
+No esconderijo
+        A9
+Não estou sozinho
+Tu estás comigo
+
+[Refrão]
+Temer por quê?
+B9(11)              C#m7
+       Se eu estou     guardado
+                     G#m7
+Por quem nunca perdeu batalhas
+A9
+   Seu nome é
+B9(11)
+       Jeová Jireh
+     E
+Irás prover de novo
+Eu creio em Ti
+
+ A9
+Haja o que houver
+ B9(11)
+Venha o que vier
+       E4       E
+Irás prover de novo
+     E4      E
+Eu creio em Ti
+
+         A9
+Eu não vivo do que vejo
+ B9(11)
+Vivo do que creio
+       E4       E
+Irás prover de novo
+     E4      E
+Eu creio em Ti
+
+[Solo]
+( A9  B2  C#m7  E )
+( A9  B2  C#m7  E )
+
+[Ponte]
+A9
+   A tempestade
+B2
+   E o Vento Forte
+C#m7                        G#m7
+    Não vão roubar a minha fé
+Em Ti meu Deus
+
+A9
+   A tempestade
+B2
+   E o Vento Forte
+C#m7                        G#m7
+    Não vão roubar a minha fé
+Em Ti meu Deus
+
+A9
+   A tempestade
+B2
+   E o Vento Forte
+C#m7                        G#m7
+    Não vão roubar a minha fé
+Em Ti meu Deus
+
+A9
+   A tempestade
+B2
+   E o Vento Forte
+C#m7                          G#m7
+    Não vão roubar a minha fé
+        A9
+Em Ti meu Deus
+        B2
+Em Ti meu Deus
+        C#m7 G#m7
+Em Ti meu Deus
+
+! Refrão · Finalizando

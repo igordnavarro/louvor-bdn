@@ -3,5 +3,55 @@
 @tom G
 @pad G
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 146
 
+[Primeira Parte]
+                    G
+Ao que está assentado
+    Em
+No trono
+       C     Am
+E ao cordeiro
+       D
+Seja o louvor
 
+       G
+Seja a honra
+         Em
+Seja a glória
+         C    Am
+Seja o domínio
+                     D
+Pelos séculos dos séculos
+
+[Refrão]
+              G
+Poderoso Deus
+              Em
+Poderoso Deus
+              C  Am
+Poderoso Deus
+                    D
+Minh'alma anseia por ti
+
+! Repete tudo, e o refrão 2x
+
+[Ponte] 2x
+            C                     D
+Quem já pisou no Santo dos Santos
+              Bm             Em
+Em outro lugar não sabe viver
+             C                   D
+E onde estiver clama pela glória
+             G
+A glória de Deus
+
+C       D
+Glória
+Bm     Em
+Glória
+C      D
+Santo
+Bm    Em
+Santo

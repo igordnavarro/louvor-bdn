@@ -1,9 +1,112 @@
 @title A Tua Mesa Cura
 @artist Thamires Garcia
 @tom C
-@tomsrc songbpm
-@pad 
+@pad C
 @bpm 132
-@bpmsrc songbpm
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 139
 
+[Intro] C7M  C/E  F  G4  G
+[Primeira Parte]
+               C9
+Tanto que eu trabalhei
+                   C/E   C7M/E
+Tanto que me desgastei
+                     F
+Tanto que o Sol me queimou
+             G
+Cuidando da vinha que não era minha
+                C9
+Tentando achar meu valor
+                    C/E
+Tentando Te impressionar
+             F
+Será que um dia
+              G4           G
+Eu poderia ser suficiente?
 
+[Pré-Refrão]
+    F        G        F
+Em casa, na mesa, em meio aos meus irmãos
+          Dm7                   G
+Eu descobri a extensão do Teu amor
+     F           G
+Sem palcos ou aplausos
+ F
+Longe das multidões
+          Dm7                   G4  G
+Eu descobri que sou aceito por Ti
+                       F  G4  G
+Carrego o nome da família
+
+[Refrão]
+            C
+A Tua mesa cura
+            C7M/E
+A Tua mesa cura
+                  F
+Aqui tem vinho e pão
+                  G
+Tem um lugar pra mim
+            C
+A Tua mesa cura
+            C7M/E
+A Tua mesa cura
+                  F
+Aqui tem vinho e pão
+                  G4  G
+Tem um lugar pra mim
+
+C
+E os meus esforços não compram Deus
+           C/E
+Os meus esforços não Te compram
+            F                   G4    G
+Eu Te conheci quando aprendi a descansar
+C
+Os meus esforços não compram Deus
+          C/E
+Os meus esforços não Te compram
+               F                   G4    G
+Eu só Te conheci quando aprendi a desfrutar
+
+[Pré-Refrão]
+    F        G        F
+Em casa, na mesa, em meio aos meus irmãos
+          Dm7                   G4  G
+Eu descobri a extensão do Teu amor
+     F           G
+Sem palcos ou aplausos
+     F
+Bem longe das multidões
+          Dm7                   G4  G
+Eu descobri que sou aceito por Ti
+[Ponte]
+                     F    G
+Carrego o nome da família
+                     F    G
+Carrego o nome da família
+                     F    G
+Carrego o nome da família
+                     F/A  G/B
+Carrego o nome da família
+
+[Refrão]
+            C
+A Tua mesa cura
+            C/E
+A Tua mesa cura
+                  F
+Aqui tem vinho e pão
+                  G4  G
+Tem um lugar pra mim
+            C
+A Tua mesa cura
+            C/E
+A Tua mesa cura
+               F
+Aqui tem vinho e pão
+                  G
+Tem um lugar pra mim
+                     F    C
+Carrego o nome da família

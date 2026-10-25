@@ -1,7 +1,73 @@
-@title Voltemos ao Início + Cristo + se Hoje Me Tocas
+@title Voltemos ao Início + Cristo + Se Hoje Me Tocas
 @artist Duda
 @tom E
 @pad E
 @bpm 130
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 133
 
+[Voltemos ao Início]
+E7M
+    Voltemos ao início, voltemos ao princípio
+B9/D#
+     Onde tudo era simples, onde tudo era belo
+E7M
+    Voltemos ao início, voltemos ao princípio
+B9/D#
+     Onde tudo era simples, onde tudo era belo
+E7M
+    Voltemos ao início, voltemos ao princípio
+B9/D#
+     Onde tudo era simples, onde tudo era belo
 
+E7M
+    Leva-nos de volta ao primeiro amor
+    Leva-nos de volta ao primeiro amor
+B9/D#
+     Leva-nos de volta ao primeiro amor
+
+C#m7
+    Leva-nos de volta ao primeiro amor
+B9/D#
+     Leva-nos de volta ao primeiro amor
+G#m7(11)                          F#9
+       Leva-nos de volta ao primeiro amor
+
+      C#m7          B9/D#
+E nós iremos contigo, Amado, Amigo
+     G#m7(11)          F#9
+Retornaremos ao lugar que pertencemos
+      E7M              F#9
+Sim, nós iremos contigo, Amado, Amigo
+     D#m7(11)       G#m7(11)
+Retornaremos ao lugar que pertencemos
+
+[Cristo - Refrão]
+A           F#m7               B9(11)
+Qual a beleza que existe em       ti
+que eu ainda não vi?
+A           F#m7               B9(11)
+Qual a beleza que existe em       ti
+que eu ainda não vi?
+A           F#m7               B9(11)
+Qual a beleza que existe em       ti
+que eu ainda não vi?
+A           F#m7               B9(11)
+Qual a beleza que existe em       ti
+que eu ainda não vi?
+
+[Se Hoje Me Tocas - Refrão]
+         A7M/E
+Pois se hoje me tocas
+Amanhã eu preciso
+        E
+Do Seu toque de novo
+E de novo, e de novo
+         F#m
+Pois se hoje me tocas
+      B
+Amanhã eu preciso
+        E
+Do Seu toque de novo
+      C#m7       C#m7/B
+E de novo, e de novo

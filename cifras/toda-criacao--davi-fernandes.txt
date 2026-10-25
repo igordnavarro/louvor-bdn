@@ -3,5 +3,46 @@
 @tom C
 @pad Am
 @bpm 122
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 158
 
+[Primeira Parte]
+F
+Quem é esse com fogo em Seus olhos
+          G/B
+Quem é esse com a espada em Suas mãos
+       Am
+Ele vem saltando sobre os montes
+     Em
+Sim, Ele vem
 
+[Pré-Refrão]
+     F
+Jesus
+               G
+A imagem do Deus invisível
+
+    Am
+Jesus
+               Em
+A glória do Deus pai
+
+[Refrão]
+                    F
+Toda a criação aguarda
+                  G
+Ansiosamente aguarda
+                   Am
+A manifestação dos filhos
+                 Em
+Os filhos de Deus
+
+[Ponte]
+           F
+Quem é Ele?
+           G
+Quem é Ele?
+           Am
+O fundamento, o sacrifício
+                    Em
+A porta que nos levará até o Pai

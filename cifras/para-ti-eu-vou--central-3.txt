@@ -3,5 +3,53 @@
 @tom C
 @pad C
 @bpm 134
+@arquivo SET LIST - BDN FB 1-101-233.pdf
+@slide 116
 
+[Intro] Am  C  Am  C
 
+[Primeira Parte]
+Am                  C                  G/B
+  Trouxeste me ao fim de mim mesmo
+Am                C           G/B
+  E quanto tempo isso levou?
+Am              C            F
+  Quando meu aleluia cessou
+               G
+Nova canção me destes
+
+[Refrão]
+             F    G
+E para ti eu vou
+          C  G/B  Am
+Para ti eu vou
+          F   G
+Para ti eu vou
+          Am  G  F
+Me rendo a Ti
+
+[Segunda Parte]
+Am                 C            G/B
+  Confesso que inseguro estou
+Am                 C       G/B
+  Mas teu amor me envolve
+Am                    C              F
+  E as mentiras que ouvi se esvaem
+                      G
+Quando eu me entrego a ti
+
+! Refrão 2x
+
+[Ponte] 3X
+F             G
+Me lembraste de tuas promessas
+Am          Em                    F
+Me moldaste até meu ser desfeito ser
+               G
+Teu amor me envolve
+                       Am
+Não há medo em teu amor
+          Em
+Capturou-me
+
+! Refrão 3x
