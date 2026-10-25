@@ -4,7 +4,7 @@
 @pad D
 @bpm 126
 @arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 109, 184
+@slide 109
 
 [Primeira Parte]
 D2

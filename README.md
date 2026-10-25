@@ -5,7 +5,7 @@ App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** —
 **Abrir o app:** https://igordnavarro.github.io/louvor-bdn/
 
 ## O que tem
-- **231 músicas** da setlist, **225 com cifra completa** organizada (seções, acordes alinhados, observações de bateria).
+- **225 músicas**, todas com letra e cifra organizada (seções, acordes alinhados, observações de bateria).
 - **Busca** por nome da música ou artista (sem precisar de acento).
 - **Troca de tom** (− / + ou lista): a cifra inteira transpõe e o **pad muda junto**.
 - **Metrônomo** com o BPM da música: dá pra ajustar (±1, ±5, digitar ou *tap tempo*), compasso 4/4, 3/4, 6/8, 2/4, subdivisão e 3 sons.

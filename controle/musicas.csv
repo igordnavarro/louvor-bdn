@@ -58,11 +58,9 @@ ID,Nome padronizado (Música - Artista),Música,Artista,Tom,BPM,Capotraste (casa
 54,Em Teus Braços - Laura Souguellis,Em Teus Braços,Laura Souguellis,C,134,,C,Sim,SET LIST - BDN FB 1-101-233.pdf,178,cifras/em-teus-bracos--laura-souguellis.txt,
 55,Emaús - Morada,Emaús,Morada,B,140,,G#m,Sim,SET LIST - BDN FB 1-1-100.pdf,85,cifras/emaus--morada--b.txt,"Mesma música em outro tom: Emaús (Morada, tom E, id 56)"
 56,Emaús - Morada,Emaús,Morada,E,140,,E,Sim,SET LIST - BDN FB 1-1-100.pdf,34,cifras/emaus--morada.txt,"Mesma música em outro tom: Emaús (Morada, tom B, id 55)"
-57,Enche Este Lugar - David Quinlan,Enche Este Lugar,David Quinlan,E,142,,E,Não,SET LIST - BDN FB 1-1-100.pdf,65,cifras/enche-este-lugar--david-quilan.txt,
 58,Enche-me - Isaias Saad,Enche-me,Isaias Saad,D,135,3,Bm,Sim,SET LIST - BDN FB 1-101-233.pdf,229,cifras/enche-me--isaias-saad.txt,
 59,Encontrei o Meu Lugar - Jhonas Serra,Encontrei o Meu Lugar,Jhonas Serra,G,132,,Em,Sim,SET LIST - BDN FB 1-1-100.pdf,86,cifras/encontrei-o-meu-lugar--jhonas-serra.txt,
-60,Era Eu - Casa Worship,Era Eu,Casa Worship,G,132,,Em,Sim,SET LIST - BDN FB 1-101-233.pdf,197,cifras/era-eu--casa-worship.txt,"Mesmo nome, outro artista (provavelmente outra música): Era Eu (Felipe Rodrigues, tom ?, id 61)"
-61,Era Eu - Felipe Rodrigues,Era Eu,Felipe Rodrigues,,,,,Não,SET LIST - BDN FB 1-101-233.pdf,198,cifras/era-eu--felipe-rodrigues.txt,"Mesmo nome, outro artista (provavelmente outra música): Era Eu (Casa Worship, tom G, id 60)"
+60,Era Eu - Casa Worship,Era Eu,Casa Worship,G,132,,Em,Sim,SET LIST - BDN FB 1-101-233.pdf,197,cifras/era-eu--casa-worship.txt,
 62,Escudo - Voz da Verdade,Escudo,Voz da Verdade,D,140,,D,Sim,SET LIST - BDN FB 1-101-233.pdf,105,cifras/escudo--voz-da-verdade.txt,
 63,Espírito Vem Como Fogo - Anna Clara Rocha,Espírito Vem Como Fogo,Anna Clara Rocha,Fm,125,,Fm,Sim,SET LIST - BDN FB 1-1-100.pdf,83,cifras/espirito-vem-como-fogo--anna-clara-rocha.txt,
 64,Essência da Adoração - David Quinlan,Essência da Adoração,David Quinlan,E,136,,E,Sim,SET LIST - BDN FB 1-101-233.pdf,223,cifras/essencia-da-adoracao--david-quinlan.txt,
@@ -124,7 +122,6 @@ ID,Nome padronizado (Música - Artista),Música,Artista,Tom,BPM,Capotraste (casa
 119,Não Seremos Abalados - Nívea Soares,Não Seremos Abalados,Nívea Soares,D,148,,Bm,Sim,SET LIST - BDN FB 1-1-100.pdf,9,cifras/nao-seremos-abalados--nivea-soares.txt,
 120,Nem Lua Nem Sol - Rodolfo Abrantes,Nem Lua Nem Sol,Rodolfo Abrantes,D,168,,Bm,Sim,SET LIST - BDN FB 1-101-233.pdf,214,cifras/nem-lua-nem-sol--rodolfo-abrantes.txt,
 121,Ninguem Viu - Lela Costa,Ninguem Viu,Lela Costa,Bm,148,,Bm,Sim,SET LIST - BDN FB 1-1-100.pdf,32,cifras/ninguem-viu--lela-costa.txt,
-122,Nível Raso - Rodolfo Abrantes,Nível Raso,Rodolfo Abrantes,G,140,,Em,Não,SET LIST - BDN FB 1-1-100.pdf,59,cifras/nivel-raso--rodolfo-abrantes.txt,
 123,No Trono - Kaleb e Josh,No Trono,Kaleb e Josh,D,134,,Bm,Sim,SET LIST - BDN FB 1-1-100.pdf,97,cifras/no-trono--kaleb-e-josh.txt,
 124,O Deus de Abraão,O Deus de Abraão,,Am,,,,Sim,SET LIST - BDN FB 1-1-100.pdf,15,cifras/o-deus-de-abraao.txt,
 125,O Dia que Será pra Sempre - Rodolfo Abrantes,O Dia que Será pra Sempre,Rodolfo Abrantes,C,190,,Am,Sim,SET LIST - BDN FB 1-101-233.pdf,162,cifras/o-dia-que-sera-pra-sempre--rodolfo-abrantes.txt,
@@ -158,7 +155,6 @@ ID,Nome padronizado (Música - Artista),Música,Artista,Tom,BPM,Capotraste (casa
 152,Pra Te Adorar / Meu Coração É Teu - Gabriela Rocha,Pra Te Adorar / Meu Coração É Teu,Gabriela Rocha,E,132,2,,Sim,SET LIST - BDN FB 1-101-233.pdf,108,cifras/pra-te-adorar-meu-coracao-e-teu--gabriela-rocha.txt,
 153,Pra Te Adorar / Oh Quão Lindo Esse Nome É - Duda,Pra Te Adorar / Oh Quão Lindo Esse Nome É,Duda,C,130,,C,Sim,SET LIST - BDN FB 1-101-233.pdf,134,cifras/pra-te-adorar-oh-quao-lindo-esse-nome-e--duda.txt,Contém a música: Oh Quão Lindo Esse Nome É – Ana Nóbrega (id 132) | Contém a música: Oh Quão Lindo Esse Nome É – Ana Nóbrega (id 133)
 154,Preciso de Ti - Dunamis Music,Preciso de Ti,Dunamis Music,E,129,,E,Sim,SET LIST - BDN FB 1-101-233.pdf,166,cifras/preciso-de-ti--dunamis-music.txt,
-155,Primeira Essência - Felipe Rodrigues,Primeira Essência,Felipe Rodrigues,,,,,Não,SET LIST - BDN FB 1-1-100.pdf,93,cifras/primeira-essencia--felipe-rodrigues.txt,
 156,Promessa - Colo de Deus,Promessa,Colo de Deus,D,130,,Bm,Sim,SET LIST - BDN FB 1-101-233.pdf,215,cifras/promessa--colo-de-deus.txt,
 157,Quando a Luz Se Apagar - Ministério Zoe,Quando a Luz Se Apagar,Ministério Zoe,A,136,,F#m,Sim,SET LIST - BDN FB 1-101-233.pdf,196,cifras/quando-a-luz-se-apagar--ministerio-zoe--a.txt,"Mesma música em outro tom: Quando a Luz Se Apagar (Ministério Zoe, tom D, id 158) | Mesma música em outro tom: Quando a Luz Se Apagar (Ministério Zoe, tom Gm, id 159)"
 158,Quando a Luz Se Apagar - Ministério Zoe,Quando a Luz Se Apagar,Ministério Zoe,D,136,2,Bm,Sim,SET LIST - BDN FB 1-101-233.pdf,222,cifras/quando-a-luz-se-apagar--ministerio-zoe--d.txt,"Mesma música em outro tom: Quando a Luz Se Apagar (Ministério Zoe, tom A, id 157) | Mesma música em outro tom: Quando a Luz Se Apagar (Ministério Zoe, tom Gm, id 159)"
@@ -189,11 +185,9 @@ ID,Nome padronizado (Música - Artista),Música,Artista,Tom,BPM,Capotraste (casa
 183,Seja Um Lugar de Adoração - Heloisa Rosa,Seja Um Lugar de Adoração,Heloisa Rosa,A,132,,F#m,Sim,SET LIST - BDN FB 1-101-233.pdf,181,cifras/seja-um-lugar-de-adoracao--heloisa-rosa.txt,
 184,Ser Mudado - Alessandro Vilas Boas,Ser Mudado,Alessandro Vilas Boas,C,132,,Am,Sim,SET LIST - BDN FB 1-101-233.pdf,130,cifras/ser-mudado--alessandro-vilas-boas.txt,
 185,Seu Sangue - Fernandinho,Seu Sangue,Fernandinho,A,161,,A,Sim,SET LIST - BDN FB 1-1-100.pdf,29,cifras/seu-sangue--fernandinho.txt,
-186,Só Quero Queimar - Jhonas Serra,Só Quero Queimar,Jhonas Serra,,,,,Não,SET LIST - BDN FB 1-1-100.pdf,67,cifras/so-quero-queimar--jhonas-serra.txt,
 187,Só Quero Ver Você - Dunamis Music,Só Quero Ver Você,Dunamis Music,C,128,,C,Sim,SET LIST - BDN FB 1-101-233.pdf,165,cifras/so-quero-ver-voce--dunamis-music.txt,
 188,Só Tu És Santo - Morada,Só Tu És Santo,Morada,G,135,,G,Sim,SET LIST - BDN FB 1-1-100.pdf,48,cifras/so-tu-es-santo--morada.txt,
 189,Só Uma Coisa Me Satisfaz - Ministério Zoe,Só Uma Coisa Me Satisfaz,Ministério Zoe,G,128,,Em,Sim,SET LIST - BDN FB 1-101-233.pdf,"106, 174",cifras/so-uma-coisa-me-satisfaz--ministerio-zoe.txt,"REPETIDA no PowerPoint: aparece nos slides 106, 174 (no app ficou uma só)"
-190,Sobre as Águas - Dunamis Music,Sobre as Águas,Dunamis Music,E,164,,E,Não,SET LIST - BDN FB 1-1-100.pdf,2,cifras/sobre-as-aguas--dunamis-music.txt,
 191,Sobre Toda a Carne - Davi Fernandes,Sobre Toda a Carne,Davi Fernandes,C,122,,Am,Sim,SET LIST - BDN FB 1-1-100.pdf,55,cifras/sobre-toda-a-carne--davi-fernandes.txt,
 192,Som do Céu - Adoração Central,Som do Céu,Adoração Central,D,144,,Bm,Sim,SET LIST - BDN FB 1-101-233.pdf,161,cifras/som-do-ceu--adoracao-central.txt,
 193,Som do Despertar - Jason Lee Jones,Som do Despertar,Jason Lee Jones,D,132,,Bm,Sim,SET LIST - BDN FB 1-1-100.pdf,64,cifras/som-do-despertar--jason-lee-jones.txt,
@@ -210,7 +204,7 @@ ID,Nome padronizado (Música - Artista),Música,Artista,Tom,BPM,Capotraste (casa
 204,Tributai - Ministério Zoe,Tributai,Ministério Zoe,G,128,,Em,Sim,SET LIST - BDN FB 1-1-100.pdf,73,cifras/tributai--ministerio-zoe.txt,
 205,Tu És a Fogueira - Jhonas Serra,Tu És a Fogueira,Jhonas Serra,D,137,,Bm,Sim,SET LIST - BDN FB 1-101-233.pdf,216,cifras/tu-es-a-fogueira--jhonas-serra.txt,
 206,Tu És o Rei - Ignis Music,Tu És o Rei,Ignis Music,E,140,,C#m,Sim,SET LIST - BDN FB 1-101-233.pdf,201,cifras/tu-es-o-rei--ignis-music.txt,
-207,Tu És Tudo - Alessandro Vilas Boas,Tu És Tudo,Alessandro Vilas Boas,D,126,,D,Sim,SET LIST - BDN FB 1-101-233.pdf,"109, 184",cifras/tu-es-tudo--alessandro-vilas-boas.txt,"REPETIDA no PowerPoint: aparece nos slides 109, 184 (no app ficou uma só)"
+207,Tu És Tudo - Alessandro Vilas Boas,Tu És Tudo,Alessandro Vilas Boas,D,126,,D,Sim,SET LIST - BDN FB 1-101-233.pdf,109,cifras/tu-es-tudo--alessandro-vilas-boas.txt,
 208,Tua Alegria É a Minha Força - Isadora Pompeo,Tua Alegria É a Minha Força,Isadora Pompeo,E,148,,E,Sim,SET LIST - BDN FB 1-101-233.pdf,202,cifras/tua-alegria-e-a-minha-forca--isadora-pompeo.txt,
 209,Tua Igreja Canta - Israel Salazar,Tua Igreja Canta,Israel Salazar,E,111,,C#m,Sim,SET LIST - BDN FB 1-101-233.pdf,226,cifras/tua-igreja-canta--israel-salazar.txt,
 210,Tua Presença Vale Mais - Mateus Brito,Tua Presença Vale Mais,Mateus Brito,G,132,3,G,Sim,SET LIST - BDN FB 1-101-233.pdf,172,cifras/tua-presenca-vale-mais--mateus-brito.txt,

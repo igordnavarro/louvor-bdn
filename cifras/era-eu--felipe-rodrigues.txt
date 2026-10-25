@@ -1,9 +1,0 @@
-@title Era Eu
-@artist Felipe Rodrigues
-@tom 
-@pad 
-@bpm 
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 198
-
-
