@@ -82,6 +82,9 @@ function rebuild(){
     s._lines = s._has ? s.body.split('\n').filter(l=>l.trim() && !isChordLine(l) && !/^\s*\[[^\]]*\]\s*$/.test(l)).map(l=>l.replace(/^!\s*/,'').trim()) : [];
     s._lyr = norm(s._lines.join(' ')).replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' '); });
   SONGS.sort((a,b)=> a.title.localeCompare(b.title,'pt',{sensitivity:'base'}) || (a.artist||'').localeCompare(b.artist||'','pt'));
+  // versões: mesma música e mesmo artista, mudando tom/bpm/arranjo
+  const G={}; SONGS.forEach(s=>{ s._gk = norm(s.title)+'|'+norm(s.artist||''); (G[s._gk]=G[s._gk]||[]).push(s); });
+  Object.values(G).forEach(g=>{ g.sort((a,b)=>(+a.id||1e9)-(+b.id||1e9) || String(a.id).localeCompare(String(b.id))); g.forEach((s,i)=>{ s._grp=g; s._ver=i+1; }); });
 }
 rebuild();
 const ov = s => overrides[s.id] || {};
@@ -148,13 +151,14 @@ function renderList(){
   const keyOk = s => { if(!kf) return true; const ek=effKey(s); if(!ek) return false; if(kf.startsWith('~')){ const k=parseKey(kf.slice(1)); return tonalId(ek)===tonalId(k); } const k=parseKey(kf); return mod12(ek.r)===mod12(k.r) && ek.minor===k.minor; };
   const okFilter0 = s => filter==='all' || (filter==='fav' ? favs.has(s.id) : (filter==='cifra'? s._has : filter==='minhas' ? (s.custom || overrides[s.id]) : !s._has));
   const okFilter = s => okFilter0(s) && keyOk(s);
-  const byTitle = SONGS.filter(s => okFilter(s) && words.every(w => s._q.includes(w)));
+  let byTitle = SONGS.filter(s => okFilter(s) && words.every(w => s._q.includes(w)));
   // search inside the lyrics (phrase first, then all words)
   let byLyric=[];
   const phrase = q.replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();
   if(phrase.length>=3){ const ids=new Set(byTitle.map(s=>s.id));
     byLyric = SONGS.filter(s => !ids.has(s.id) && okFilter(s) && s._lyr && (s._lyr.includes(phrase) || words.every(w=>s._lyr.includes(w)))); }
-  visible = byTitle.concat(byLyric);
+  { const seen=new Set(); const uniq=s=>{ if(seen.has(s._gk)) return false; seen.add(s._gk); return true; };
+    byTitle=byTitle.filter(uniq); byLyric=byLyric.filter(uniq); visible=byTitle.concat(byLyric); }
   $('#count').textContent = (kfOn && !q ? `${visible.length} música${visible.length===1?'':'s'} em ${$('#keyFilter').selectedOptions[0].textContent}` : q ? `${byTitle.length} no título/artista` + (byLyric.length?` · ${byLyric.length} na letra`:'') : visible.length + (visible.length===1?' música':' músicas')) + (profiles.length>1?` · usuário ${profile}`:'');
   const L = $('#list'); L.innerHTML='';
   if(!visible.length){ L.innerHTML = '<div class="empty">Nenhuma música encontrada — nem no título nem na letra.<br>Tente outra palavra, ou crie uma nova no botão “Nova música”.</div>'; return; }
@@ -164,7 +168,7 @@ function renderList(){
     const k = pk ? keyName(pk.r+(o.semi||0), pk.minor) : '–';
     const b = bpmOf(s);
     const el=document.createElement('button'); el.className='item';
-    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span>${snippet?'<em class="snip"></em>':''}</div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.medley?'<span class="tag mine">medley</span>':s.custom?'<span class="tag mine">minha</span>':(s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>')}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}</div>`;
+    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span>${snippet?'<em class="snip"></em>':''}</div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.medley?'<span class="tag mine">medley</span>':s.custom?'<span class="tag mine">minha</span>':(s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>')}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}${s._grp&&s._grp.length>1?` <span class="tag ver">${s._grp.length} versões</span>`:''}</div>`;
     el.querySelector('b').textContent = s.title; if(favs.has(s.id)) el.querySelector('b').insertAdjacentHTML('afterbegin','<span class="favstar">★</span> ');
     el.querySelector('.t span').textContent = s.artist || '—';
     if(snippet) el.querySelector('.snip').innerHTML = snippet;
@@ -228,6 +232,7 @@ function closeSong(push=true){
   if(push) history.pushState({}, '', location.pathname+location.search);
   metro.stop(); pad.stop(); renderList();
 }
+$('#homeBtn').onclick = () => { closeSong(false); history.pushState({}, '', location.pathname+location.search); window.scrollTo(0,0); };
 $('#backBtn').onclick = () => { if(history.state && history.state.id) history.back(); else closeSong(); };
 window.addEventListener('popstate', e => { const id = e.state && e.state.id; if(id) openSong(id,false); else if(cur) closeSong(false); });
 
@@ -248,6 +253,11 @@ const normSemi = v => { v = mod12(v+5)-5; return v; };
 $('#keySel').onchange = e => setSemi(parseInt(e.target.value,10));
 $('#keyDown').onclick = () => setSemi(semi-1);
 $('#keyUp').onclick = () => setSemi(semi+1);
+function renderVersions(s){ const b=$('#verBar'); const g=s._grp||[s];
+  if(g.length<2){ b.style.display='none'; b.innerHTML=''; return; }
+  b.style.display=''; b.innerHTML='<span class="vl">Versões</span>'+g.map(v=>{ const pk=parseKey(v.key); const bp=bpmOf(v);
+    return `<button data-id="${v.id}" aria-pressed="${v.id===s.id}"><b>Versão ${v._ver}</b><small>${pk?keyName(pk.r,pk.minor):'–'}${bp?' · '+bp+' bpm':''}${v.capo?' · capo '+v.capo:''}</small></button>`; }).join('');
+  b.querySelectorAll('button').forEach(x=>x.onclick=()=>{ if(x.dataset.id!==String(s.id)) openSong(x.dataset.id,true,plCtx&&plCtx.pl.items[plCtx.idx]&&plCtx.pl.items[plCtx.idx].id===x.dataset.id?plCtx:null); }); }
 /* capotraste: o tom que soa não muda; os acordes viram as formas do tom − casas */
 function setCapo(v){ if(!cur) return; v=Math.max(0,Math.min(11,v)); setOv(cur.id,{capo: v!==(cur.capo||0)?v:undefined}); renderSong(); if($('#stage').classList.contains('open')) stageRender();
   const k=curKey(), wk=shapesKey(); if(k) toast(v?`Capo na ${v}ª casa: acordes em ${keyName(wk.r,wk.minor)} (soa em ${keyName(k.r,k.minor)})`:`Sem capotraste: acordes em ${keyName(k.r,k.minor)}`); }
@@ -346,6 +356,7 @@ function renderSong(){
   facts.push(['BPM', bpm + (bpmOf(s)? '' : '*')]);
   facts.push(['Pad', padNote()||'—']);
   if(capo) facts.push(['Capo', capo+'ª casa']);
+  renderVersions(s);
   $('#facts').innerHTML = facts.map(([a,b])=>`<div class="fact"><span>${a}</span><b>${esc(b)}</b></div>`).join('') + (overrides[s.id]?'<div class="fact mine">✎ personalizado por '+esc(profile)+'</div>':'');
   const note=noteOf(s);
   $('#sNote').innerHTML = note ? `<div class="notebox">${esc(note)}</div>` : '';
@@ -756,7 +767,7 @@ function startScroll(){ scrollOn=true; scrollLast=performance.now(); $('#stageSc
     if(st.scrollTop+st.clientHeight>=st.scrollHeight-2){ stopScroll(); return; } scrollRAF=requestAnimationFrame(step); }; scrollRAF=requestAnimationFrame(step); }
 function stopScroll(){ scrollOn=false; cancelAnimationFrame(scrollRAF); const b=$('#stageScroll'); if(b) b.classList.remove('on'); }
 function stageBtnState(sel,on,label){ const b=$(sel); if(!b) return; b.classList.toggle('on',on); b.innerHTML=(on?SP_PAUSE:SP_PLAY)+label; b.setAttribute('aria-label',(on?'Pausar ':'Tocar ')+(label==='Pad'?'o pad':'o metrônomo')); }
-function syncStageMetro(){ stageBtnState('#stageMetro', metro.on, '♩'); stageBtnState('#stagePad', !!(typeof pad!=='undefined' && pad.on), 'Pad'); }
+function syncStageMetro(){ stageBtnState('#stageMetro', metro.on, 'Metrônomo'); stageBtnState('#stagePad', !!(typeof pad!=='undefined' && pad.on), 'Pad'); }
 $('#stageBtn').onclick=openStage;
 $('#stageClose').onclick=closeStage;
 $('#stageFDown').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=(prefs.stageFitAdj||0)-1; savePrefs(); applyStageLayout(); } else stageFont(prefs.stageFont-2); };
@@ -974,7 +985,7 @@ const metro = {
   draw(){ if(!this.on) return; let shown=null; while(this.queue.length && this.queue[0].t<=AC.currentTime) shown=this.queue.shift(); if(shown) drawBeats(shown.b); this.raf=requestAnimationFrame(()=>this.draw()); }
 };
 function drawBeats(b){ const el=$('#beats'); if(el.children.length!==prefs.sig){ el.innerHTML=''; for(let i=0;i<prefs.sig;i++){ const d=document.createElement('i'); if(!i) d.className='first'; el.appendChild(d);} } [...el.children].forEach((d,i)=>d.classList.toggle('on',i===b)); }
-function setPlay(sel,on){ const b=$(sel); if(sel==='#padBtn') stageBtnState('#stagePad',on,'Pad'); if(sel==='#metroBtn') stageBtnState('#stageMetro',on,'♩'); b.classList.toggle('on',on); b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.5" height="14" rx="1"/><rect x="13.5" y="5" width="4.5" height="14" rx="1"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'; b.setAttribute('aria-label', on?'Parar':'Tocar'); }
+function setPlay(sel,on){ const b=$(sel); if(sel==='#padBtn') stageBtnState('#stagePad',on,'Pad'); if(sel==='#metroBtn') stageBtnState('#stageMetro',on,'Metrônomo'); b.classList.toggle('on',on); b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.5" height="14" rx="1"/><rect x="13.5" y="5" width="4.5" height="14" rx="1"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'; b.setAttribute('aria-label', on?'Parar':'Tocar'); }
 $('#metroBtn').onclick=()=>{ metro.toggle(); if(typeof syncStageMetro==='function') syncStageMetro(); };
 function updateBpm(save=true){ bpm=Math.max(30,Math.min(260,Math.round(bpm))); $('#bpmVal').textContent=bpm; $('#bpmInput').value=bpm;
   if(cur){ const orig=cur.bpm; $('#bpmSrc').textContent = orig ? (bpm===orig ? (cur.bpmSrc==='songbpm'?'Original (via songbpm.com — confira)':'Original da setlist') : `Original: ${orig}`) : 'Música sem BPM na setlist — ajuste aqui'; }
