@@ -168,7 +168,7 @@ function renderList(){
     const k = pk ? keyName(pk.r+(o.semi||0), pk.minor) : '–';
     const b = bpmOf(s);
     const el=document.createElement('button'); el.className='item';
-    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span>${snippet?'<em class="snip"></em>':''}</div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.medley?'<span class="tag mine">medley</span>':s.custom?'<span class="tag mine">minha</span>':(s._has?'<span class="tag ok">cifra</span>':'<span class="tag">ficha</span>')}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}${s._grp&&s._grp.length>1?` <span class="tag ver">${s._grp.length} versões</span>`:''}</div>`;
+    el.innerHTML = `<div class="k">${k}</div><div class="t"><b></b><span></span>${snippet?'<em class="snip"></em>':''}</div><div class="m">${b?`<span class="bpm">${b}</span> bpm`:'<span>sem bpm</span>'}<br>${s.medley?'<span class="tag mine">medley</span>':s.custom?'<span class="tag mine">minha</span>':''}${overrides[s.id]?' <span class="tag mine" title="Você personalizou">✎</span>':''}${s._grp&&s._grp.length>1?` <span class="tag ver">${s._grp.length} versões</span>`:''}</div>`;
     el.querySelector('b').textContent = s.title; if(favs.has(s.id)) el.querySelector('b').insertAdjacentHTML('afterbegin','<span class="favstar">★</span> ');
     el.querySelector('.t span').textContent = s.artist || '—';
     if(snippet) el.querySelector('.snip').innerHTML = snippet;
