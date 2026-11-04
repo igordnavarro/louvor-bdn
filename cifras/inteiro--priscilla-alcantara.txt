@@ -1,0 +1,90 @@
+@title Inteiro
+@artist Priscilla Alcântara
+@tom A
+@pad A
+@bpm
+@arquivo cifras_part2.pptx
+@slide 9
+
+[Intro] F#m  D  Bm
+        F#m  D  B
+
+[Primeira Parte]
+                        F#m
+Não foram só tuas pernas na cruz
+                        A
+Não foram só teus braços na cruz
+          D
+Foi por inteiro
+          E
+Foi por inteiro
+                        F#m
+Não foram só tuas pernas na cruz
+                        A
+Não foram só teus braços na cruz
+          D
+Foi por inteiro
+          E
+Foi por inteiro
+
+[Pré-Refrão]
+                    F#m
+Assim eu quero me entregar
+                    A
+Assim eu quero te amar
+          D
+Pela metade, não
+               E4
+Mas por completo, sim
+                    F#m
+Assim eu quero me entregar
+                    A
+Assim eu quero te amar
+          D
+Pela metade, não
+               E
+Mas por completo, sim
+
+[Refrão]
+F#m              E                   D
+Vem e mostra o que eu nunca vi
+ F#m
+Traz tua glória
+  E                  D     E
+Revele o céu a mim
+F#m              E                   D
+Vem e mostra o que eu nunca vi
+ F#m
+Traz tua glória
+  E                  D     E
+Revele o céu a mim
+
+[Primeira Parte]
+                        F#m
+Não foram só tuas pernas na cruz
+                        A
+Não foram só teus braços na cruz
+          D
+Foi por inteiro
+          E
+Foi por inteiro
+                        F#m
+Não foram só tuas pernas na cruz
+                        A
+Não foram só teus braços na cruz
+          D
+Foi por inteiro
+          E
+Foi por inteiro
+
+( F#m  A  D  B )
+( F#m  A  D  B )
+
+                        F#m
+Não foram só tuas pernas na cruz
+                        A
+Não foram só teus braços na cruz
+          D
+Foi por inteiro
+          E
+Foi por inteiro

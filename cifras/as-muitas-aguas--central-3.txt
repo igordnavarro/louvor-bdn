@@ -1,0 +1,65 @@
+@title As Muitas Águas
+@artist Central 3
+@tom E
+@pad E
+@bpm
+@note Slide indica Tom A; acordes escritos em E
+@arquivo cifras_part3.pptx
+@slide 53
+
+[Intro] F#m  C#m  E  B
+        A9  C#m7  B
+
+[Primeira Parte]
+A                C#m  E             B
+Sinto que o Seu amor é pra mim
+       A9          C#m       B
+Como marca em meu coração
+A            C#m  E       B
+O Teu amor me atraiu
+      A9        C#m       B
+Colocou um selo em mim
+
+[Refrão]
+              A                F#m7      C#m7        B
+As muitas águas não poderiam apagar esse amor
+              A                F#m7      C#m7        B
+As muitas águas não poderiam apagar esse amor
+
+( F#m  C#m  E  B )
+( A9  C#m7  B )
+
+[Primeira Parte]
+[Refrão] 2x
+
+[Ponte]
+              A
+Porque o amor
+                                   F#m7
+É mais forte do que a morte
+                C#m7
+E os seus olhos
+                  B
+São olhos de fogo
+              A
+Porque o amor
+                                   F#m7
+É mais forte do que a morte
+                C#m7
+E os seus olhos
+                  B
+São olhos de fogo
+
+[ A9  F#m  C#m7  B ] 2x
+
+[Refrão]
+
+[ A9  F#m  C#m7  B ] 2x
+
+[Final] 4x
+ A                                      F#m7
+Nunca me abandonou, não me deixou
+ C#m7                                    B
+Nunca me abandonou, não me deixou, não!
+
+[Refrão]

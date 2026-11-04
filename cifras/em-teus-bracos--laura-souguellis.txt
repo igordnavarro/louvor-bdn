@@ -3,8 +3,8 @@
 @tom C
 @pad C
 @bpm 134
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 178
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 178 / pptx 1: 183
 
 [Intro] F7M  C7M  F7M
         C7M  F7M  C7M

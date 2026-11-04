@@ -1,0 +1,72 @@
+@title Grandes Coisas
+@artist Fernandinho
+@tom Db
+@capo 1
+@pad Db
+@bpm
+@note Forma dos acordes em C · capotraste na 1ª casa
+@arquivo cifras_part1.pptx
+@slide 157
+
+[Intro] Am7  G  F  (2x)
+
+[Primeira Parte]
+                       Am7
+Tu és o Deus dessa terra
+                    G
+Tu és Rei desse povo
+                     F9      Dm7
+És o Senhor da nação, Tu és
+
+                      Am7
+Tu és a luz desse mundo
+                         G
+Esperança para os perdidos
+                         F9         Dm7
+Tu és a paz pra os cansados, Tu és
+
+[Pré-Refrão]
+  C9       G       F9
+Ninguém é como nosso Deus
+   Am7     G       F9        G
+Ninguém é como nosso De__eus
+
+[Refrão] (4x)
+  F9
+Grandes coisas estão por vir
+  G                                    C9   G/B   F9
+Grandes coisas vão acontecer nesse lugar
+
+( C9  F9  C9  F9 )
+( Am7  G  F9 )
+( Am7  G  F9 )
+
+[Solo] Am7  F9
+
+[Pré-Refrão]
+  C9       G       F9
+Ninguém é como nosso Deus
+   Am7     G       F9
+Ninguém é como nosso Deus
+  C9       G       F9
+Ninguém é como nosso Deus
+   Am7     G       F9        G
+Ninguém é como nosso De__eus
+
+[Refrão]
+  F9
+Grandes coisas estão por vir
+  G                                    C9   G/B   F9
+Grandes coisas vão acontecer nesse lugar
+  F9
+Grandes coisas estão por vir
+  G                                    C9   G/B   F9
+Grandes coisas vão acontecer nesse lugar
+  F9
+Grandes coisas estão por vir
+  G                                    C9   G/B   F9
+Grandes coisas vão acontecer nesse lugar
+  F9
+Grandes coisas estão por vir
+  G                                 C9    F9      C9  F9  C9
+Grandes coisas vão acontecer aqui    (eu creio o)

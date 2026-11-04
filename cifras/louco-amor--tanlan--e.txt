@@ -1,0 +1,77 @@
+@title Louco Amor
+@artist Tanlan
+@tom E
+@pad E
+@bpm 142
+@arquivo cifras_part1.pptx
+@slide 194
+
+[Intro] C#m  A
+
+[Primeira Parte]
+C#m
+O amor mais louco do mundo, Dá atenção a quem não presta,
+A
+Sorri pra quem a maioria detesta, Perdoa quando nada mais resta
+
+C#m
+O amor mais louco do mundo, Diz sim quando devia dizer não
+A
+Que ao invés de fugir estende a mão
+
+[Pré-Refrão]
+    C#m     C#m7M       C#m   C#m6
+Este amor me faz novo de novo, A cada manhã
+A
+  Onde se morre pra nascer
+
+[Refrão]
+ E               D
+O amor, louco é o amor
+     C#m                 A
+Desfaz a dor transformando tudo
+ E           D
+O amor, não há outro
+     C#m                A
+Como o amor mais louco do mundo
+
+[Primeira Parte]
+C#m
+O amor mais louco do mundo, Dá atenção a quem não presta,
+A
+Sorri pra quem a maioria detesta, Perdoa quando nada mais resta
+
+C#m
+O amor mais louco do mundo, Diz sim quando devia dizer não
+A
+Que ao invés de fugir estende a mão
+
+[Pré-Refrão]
+C#m         C#m7M      C#M7    C#m6
+Este amor me faz novo de novo, A cada manhã
+A
+  Onde se morre pra nascer
+
+[Refrão]
+ E               D
+O amor, louco é o amor
+     C#m                 A
+Desfaz a dor transformando tudo
+ E           D
+O amor, não há outro
+     C#m                A
+Como o amor mais louco do mundo
+
+[Ponte]
+F#m
+Que abraça quem não merece
+E
+Quem sente nunca se esquece
+D#m7(b5)                 D9
+E espera quem não quer voltar
+F#m
+Que escuta quem já se calou
+E
+E luta por quem se cansou
+D#m7(b5)            D9
+Que faz de tudo por você

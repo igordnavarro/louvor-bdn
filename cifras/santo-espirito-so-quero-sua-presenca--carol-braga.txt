@@ -3,8 +3,8 @@
 @tom C
 @pad C
 @bpm 65
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 117
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 117 / pptx 1: 116
 
 [Primeira Parte] 2 X
 C

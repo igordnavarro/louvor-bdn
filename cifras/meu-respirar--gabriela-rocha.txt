@@ -1,0 +1,64 @@
+@title Meu Respirar
+@artist Gabriela Rocha
+@tom E
+@pad E
+@bpm 127
+@arquivo cifras_part1.pptx
+@slide 13
+
+[Intro]  E A  E  A
+[Primeira Parte]
+E               A
+  Este é o meu respirar
+E               A
+  Este é o meu respirar
+E      B        C#m
+  Teu Santo Espírito
+   A        B
+Vivendo em mim
+E        A
+  E este é o meu pão
+E               A
+E este é o meu pão
+E   B    C#m
+  Tua vontade
+ A        B
+Feita em mim
+[Refrão 1]
+  E  B  C#m  B
+E eu
+         A         B
+Eu nada sou sem Ti
+  E  B  C#m  B
+E eu
+           A       B
+Perdido estou sem Ti
+
+[Pré-Refrão]
+         C#m
+Rei dos reis
+         Bb
+E Senhor
+         A     B       E   B
+Te entregamos nosso viver
+C#m
+Rei dos reis
+         Bb
+E Senhor
+         A             B
+Te entregamos nosso viver
+[Refrão 2]
+           A               B
+Pra Te adorar, oh rei dos reis
+               A           B
+Foi que eu nasci, ó rei Jesus
+        G#7         C#m
+Meu prazer é Te louvar
+        B       A
+Meu prazer é estar
+    B             E
+Nos átrios do Senhor
+        B       C#m    B       A
+Meu prazer é viver na casa de Deus
+       B      E
+Onde flui o amor

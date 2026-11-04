@@ -3,8 +3,8 @@
 @tom G
 @pad Em
 @bpm 135
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 122
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx + cifras_part2.pptx
+@slide 122 / pptx 1: 177 / pptx 2: 51 / pptx 2: 52
 
 [Intro] Em7  C9  G
         Em7  C9  G

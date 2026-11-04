@@ -3,8 +3,8 @@
 @tom E
 @pad E
 @bpm 130
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 133
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 133 / pptx 1: 138
 
 [Voltemos ao Início]
 E7M

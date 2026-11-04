@@ -4,8 +4,8 @@
 @pad Em
 @bpm 128
 @note Volta no início (toda banda)
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 106, 174
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 106, 174 / pptx 1: 25
 
 [Intro] G  D9  Am7  C9  Em7
 

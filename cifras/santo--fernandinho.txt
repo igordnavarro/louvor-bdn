@@ -3,8 +3,8 @@
 @tom E
 @pad C#m
 @bpm 180
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 232
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 232 / pptx 1: 195
 
 [Intro] (4x) C#m  A  F#m  C#m
 

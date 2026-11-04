@@ -1,0 +1,49 @@
+@title Eu Sou Livre
+@artist David Quinlan
+@tom C
+@pad C
+@bpm
+@note Slide indica Tom F; acordes escritos em C
+@arquivo cifras_part3.pptx
+@slide 91
+
+[Intro] C  F  Am  G  C
+
+C5
+Os cegos verão por Ti, Os mudos cantarão
+F5
+Os mortos viverão E os povos te adorarão
+Am
+As trevas fugirão
+G5
+E por Ti eu grito
+              C5
+Eu sou livre
+          C5
+Livre pra correr (Livre pra correr)
+          F5
+Livre pra dançar (Livre pra dançar)
+          Am                         G5
+Livre pra viver por ti (Livre pra viver por ti)
+              Csus4
+Eu sou livre
+
+[C5]
+
+C5
+ô ô ô ô (ô ô ô ô)
+F5
+ô ô ô ô (ô ô ô ô)
+Am
+ô ô ô ô (ô ô ô ô)
+G5
+ô ô ô ô (ô ô ô ô)
+C5
+Livre, livre, livre
+
+    C5  Bb5  Ab5  Bb5  C5
+
+              Csus4          C5                   Csus4      C
+Eu sou livre, Eu sou livre, Eu sou livre, Eu sou livre
+
+[Solo] C5  F5  Am  G5  C5

@@ -1,0 +1,57 @@
+@title Estrela da Manhã
+@artist Gabriela Rocha
+@tom G
+@pad G
+@bpm 116
+@arquivo cifras_part1.pptx
+@slide 120
+
+[Primeira Parte]
+G            D/F#       Em7  Bm7
+És a nossa estrela da manhã
+  C            G/B                 Am   D/F#
+Cordeiro Santo que nos trouxe a paz
+   G            D/F#          Em7   Bm7
+Em tuas mãos está todo o vencer
+   C             G/B           Am7    D
+Resposta a todo aquele que clamar
+     B             B/D#
+A verdade é a tua Palavra
+        Em      A7
+Que não pode mentir
+   Am7     G/B     D    C/E  F
+Por isso estamos aqui
+
+[Refrão]
+ F    F/A          A#    F/A
+Te louvamos oh! Senhor
+Gm    C          F4   F
+Pelo teu imenso amor
+F    F7/D#        A#        Gm
+Manifesta o teu perdão e poder
+C    C/A#      Am    Dm
+E assim vamos te adorar
+      Gm  C
+Para sempre
+                     F
+Pra sempre oh! Meu Deus
+
+[Refrão]
+F      F/A         A#
+Te louvamos oh! Senhor
+Gm    C          F4   F
+Pelo teu imenso amor
+     F7/D#          A#      Gm
+Manifesta o teu perdão e poder
+C   C/A#       Am    Dm
+E assim vamos te adorar
+      Gm7   C
+Para sempre
+                       A#   C
+Pra sempre oh! Meu Deus
+                       Dm   C
+Pra sempre oh! Meu Deus
+                       A#   C
+Pra sempre oh! Meu Deus
+                        F
+Pra sempre oh! Meu Deus

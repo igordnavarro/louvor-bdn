@@ -1,0 +1,65 @@
+@title Alegria do Senhor
+@artist Livres Para Adorar
+@tom Ab
+@capo 4
+@pad Ab
+@bpm
+@note Forma dos acordes no tom de E, capotraste na 4ª casa
+@arquivo cifras_part3.pptx
+@slide 35
+
+[Intro] Em  C  G
+        Em  C  G
+
+[Primeira Parte]
+Em                  C    G
+  Me alegrarei em Ti
+Em                     C  G
+  Meu Deus meu Salvador
+Em                       C     G
+  Mesmo que a vide não floresça
+Em                       C     G
+Mesmo que a vida traga dor
+Em                    C          G
+  Ainda assim eu cantarei, Senhor
+
+C#m           C              G
+  A alegria do Senhor é minha força todo dia
+C#m              C              G
+  Essa alegria me sustenta e me faz cantar
+
+[Refrão] 4x
+Em  C   G
+          A alegria do Senhor é a nossa força
+
+Em                       C     G
+  Mesmo que a vide não floresça
+Em                       C     G
+Mesmo que a vida traga dor
+Em                    C          G
+  Ainda assim eu cantarei, Senhor
+
+C#m           C              G
+  A alegria do Senhor é minha força todo dia
+C#m              C              G
+  Essa alegria me sustenta e me faz cantar
+
+[Refrão] 4x
+Em  C   G
+          A alegria do Senhor é a nossa força
+
+[Ponte]
+D           Em      C
+  Se eu chorar eu sei
+Meu consolo está
+D             Em         C
+  Nele que a morte venceu
+D           Em     C
+  Se eu cair eu sei
+Me levantarás
+D            Em      C
+  Na alegria dos céus
+
+[Refrão] 4x
+Em  C   G
+          A alegria do Senhor é a nossa força

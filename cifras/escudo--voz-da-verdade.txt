@@ -3,8 +3,8 @@
 @tom D
 @pad D
 @bpm 140
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 105
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 105 / pptx 1: 31
 
 [Intro] D  Em7  A  D  D2
 [Primeira Parte]

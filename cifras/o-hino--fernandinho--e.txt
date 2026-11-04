@@ -1,0 +1,100 @@
+@title O Hino
+@artist Fernandinho
+@tom E
+@pad E
+@bpm 96
+@arquivo cifras_part2.pptx
+@slide 93
+
+[Intro] C#m  A  E  B
+
+[Primeira Parte]
+C#m                       A
+Posso ouvir os passos do meu rei
+E                B
+Posso escutar seu coração
+C#m                     A
+Da minha escuridão me libertou
+E                       B
+Posso ouvir seu espírito clamar
+
+[Refrão]
+        C#m          A               E
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          B
+Você nasceu pra mim
+        C#m          A               E
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          B
+Você nasceu pra mim
+          C#m  A  E  B
+Pra esse tempo
+
+[Intro] C#m  A  E  B  C#m  A  E  B
+
+[Segunda Parte]
+C#m                             A
+Posso ouvir o santo som aqui
+ E                    B
+Anunciando sobre um grande rei
+C#m                   A
+Rompendo as barreiras e grilhões
+  E                  B
+Eu quero ouvir o pai a me chamar
+
+[Refrão]
+        C#m          A               E
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          B
+Você nasceu pra mim
+        C#m          A               E
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          B
+Você nasceu pra mim
+        C#m          A               E
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          B
+Você nasceu pra mim
+        C#m          A               E
+Eu ouço:  filho meu, chegou tua hora de brilhar
+          B
+Você nasceu pra mim
+          C#m
+Pra esse tempo
+
+[Solo] A  E  B  C#m  A  E  B
+
+[Ponte] (4x)
+C#m
+Esse o hino dessa geração
+A
+Usa-nos deus, aqui estamos
+E
+Queremos mais de ti, senhor
+B
+O teu amor nos alcançou
+
+[Solo] C#m  A  E  B  C#m  A  E  B  C#m
+
+[Ponte 2] (6x)
+C#m
+Ah! jesus é rei
+A
+Ah! me conquistou
+E
+Ah! me libertou
+B
+Pra viver uma nova história
+
+[Final] (3x)
+C#m
+Vamos mudar o mundo!
+          A
+Vamos mudar o mundo!
+         E
+Vamos mudar o mundo!
+            B
+Vamos mudar o mundo!
+
+           C#m
+Vamos mudar o mundo!

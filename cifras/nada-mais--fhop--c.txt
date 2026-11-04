@@ -1,0 +1,69 @@
+@title Nada Mais
+@artist Fhop
+@tom C
+@pad C
+@bpm 136
+@arquivo cifras_part1.pptx
+@slide 68
+
+[Primeira Parte]
+C                     Dm  F9
+Envolto em tua presença
+ F9            C
+Aos teus pés é onde
+     C9
+Eu quero estar
+         Dm7      F
+Em meio tua santidade
+   F9         C  (C4  C9)   C
+Aqui quero ficar
+
+C                   Dm     F9
+  Não vim atrás de bênçãos
+F9(#11)
+Jesus não deves
+  C   C9   C
+Nada para mim
+            Dm7
+Mas do que tu podes
+   F              C  (C9)   C
+Fazer só quero a ti
+
+[Pré-Refrão]
+    F  F9     F          F9
+Lamento por viver indiferente
+    C  C9         C           C9
+Lamento por não cantar de coração
+         F               F9
+Leva me ao teu primeiro amor
+      F          F9    (C  C9)  C
+Abro o meu coração a ti
+    F  F9     F               F9
+Lamento por viver só pra mim mesmo
+   C9  C        C9
+Lamento por não ver que és meu
+      C
+sustento
+        F7M(9)       F9
+Leva me ao primeiro amor
+      D          D9(11+)  D9  A  (A9
+Abro o meu coração       a ti
+C4  C9)
+
+[Refrão]
+            Dm7
+Só quero a ti
+         F9
+E nada mais
+        Am7
+E nada mais
+              G
+Nada além de ti
+            Dm7
+Só quero a ti
+         F9
+E nada mais
+        Am7
+E nada mais
+              G
+Nada além de ti

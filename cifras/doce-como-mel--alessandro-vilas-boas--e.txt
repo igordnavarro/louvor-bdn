@@ -1,0 +1,30 @@
+@title Doce Como Mel
+@artist Alessandro Vilas Boas
+@tom E
+@capo 2
+@pad E
+@bpm 138
+@note Forma dos acordes em D · capotraste na 2ª casa
+@arquivo cifras_part1.pptx
+@slide 38
+
+[Primeira Parte] 2X
+D           A         Em                 G
+Filho de Deus que tira o pecado do mundo
+D                A          Em            G
+O messias adorado, esperado por nós
+
+[Pré-Refrão] 2X
+Em              Bm                 A
+Quão precioso, cordeiro de Deus
+
+[Refrão] 4X
+                      G
+Seus olhos são como o fogo
+                  Bm
+Em sua boca uma espada
+                                    A
+Está vestido com um manto de sangue
+
+D                A                Em     G
+Só Teu nome é doce como o mel

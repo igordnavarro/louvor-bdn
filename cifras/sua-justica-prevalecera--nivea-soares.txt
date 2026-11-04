@@ -4,8 +4,8 @@
 @pad Bm
 @bpm 154
 @note BPM 77 ou 154
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 213
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part2.pptx
+@slide 213 / pptx 2: 47
 
 [Refrão] (2x)
 ( Bm7  A/C#  G  A )

@@ -1,0 +1,44 @@
+@title Profetiza
+@artist Denise Seixas
+@tom E
+@pad E
+@bpm
+@arquivo cifras_part1.pptx
+@slide 162
+
+[Intro] A7+  C#9(7)  2x
+
+[Primeira Parte]
+A7+
+Se o meu povo, que se chama pelo meu nome
+     C#9(7)
+Se humilhar
+                    A7+
+E orar e me buscar
+E se arrepender dos seus maus caminhos
+  C#9(7)
+Eu os ouvirei
+E os sararei
+
+[Pré-Refrão]
+F#m7
+Abro a boca na ousadia do Espírito
+Me levanto, me revisto e profetizo
+G#m7
+Vida no vale de ossos secos
+A tua igreja despertara
+
+[Refrão]
+A9                C#m7          A9
+Sopra dos quatro ventos Senhor
+         E                    A9
+Reacender o que se apagou
+              C#m7           A9               E
+Queremos mais do Teu poder e do Teu amor
+
+F#m7                       G#m7
+E a igreja se levantará em unidade prevalecerá
+            A9
+Pra celebrar que Jesus vive e voltará
+             G#m7            B9
+Pra todo sempre Ele Reinara

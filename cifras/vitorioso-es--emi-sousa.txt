@@ -1,0 +1,88 @@
+@title Vitorioso És
+@artist Emi Sousa
+@tom A
+@pad A
+@bpm
+@arquivo cifras_part2.pptx
+@slide 30
+
+[Intro] A9  F#m7  D9
+
+[Primeira Parte]
+   A9
+Lutamos com armas de fé
+   F#m7
+E nada irá resistir
+               D9
+Enquanto adoramos
+   F#m7                   E/G#
+Em meio às tribulações
+    A9
+O nosso Deus é vencedor
+           D9    Bm7
+Nós o adoramos
+
+[Refrão]
+F#m7          D9
+Vitorioso és
+                         A9
+Na tempestade estás
+     E9                 F#m7
+Teu nome infalível é
+                     D9
+Os reinos vêm e vão
+                      A9
+Teu trono acima está
+     E9                D9
+Teu nome imutável é
+
+[Segunda Parte]
+    A9
+O inferno não prevaleceu
+  F#m7
+E nada irá me impedir
+             D9
+Eu te adorarei
+F#m7                       E/G#
+Muralhas vão estremecer
+   A9
+Cadeias irão se romper
+               D9    Bm7
+Enquanto adoramos
+
+[Refrão]
+F#m7          D9
+Vitorioso és
+                         A9
+Na tempestade estás
+     E9                 F#m7
+Teu nome infalível é
+                     D9
+Os reinos vêm e vão
+                      A9
+Teu trono acima está
+     E9                D9
+Teu nome imutável é
+
+( E9  F#m7  C#m7  D  E  F#m7  C#m7 )
+
+[Ponte] (3x)
+D9               E9
+Como um trovão
+Impetuoso
+       F#m7
+Poderoso és
+        C#m7   D9
+Grandioso és
+                E9
+Que venha o céu
+Nós proclamamos
+       F#m7
+Poderoso és
+        C#m7
+Grandioso és
+
+[Refrão]
+[Ponte]
+[Refrão]
+[Ponte] (2x)

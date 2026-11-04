@@ -4,8 +4,8 @@
 @pad F#m ou Am
 @bpm 140
 @note Também tocada em C (pad Am)
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 157
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 157 / pptx 1: 106
 
 [Intro] D  E  F#m
         C#m  D  E

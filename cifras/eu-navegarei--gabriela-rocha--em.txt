@@ -1,0 +1,45 @@
+@title Eu Navegarei
+@artist Gabriela Rocha
+@tom Em
+@pad Em
+@bpm 139
+@arquivo cifras_part2.pptx
+@slide 85
+
+[Intro] Em7  D6  C7M
+        Am7(9)  B  B4  B
+[Primeira Parte]
+          Em7
+Eu navegarei
+                D6
+No oceano do Espírito
+            C7M  Am7
+E ali adorarei
+                 B  B4   B
+Ao Deus do meu amor
+         Em7
+Eu adorarei
+                  D6
+Ao Deus da minha vida
+             C7M  Am7
+Que me compreendeu
+                    B  B4  B
+Sem nenhuma explicação
+
+[Refrão]
+             Em7
+Espírito, Espírito
+                D6
+Que desce como fogo
+                  C7M   Am7
+Vem como em pentecostes
+               B  B4   B
+E enche-me de novo
+             Em7
+Espírito, Espírito
+                D6
+Que desce como fogo
+                  C7M   Am7
+Vem como em pentecostes
+               B  B4   B
+E enche-me de novo

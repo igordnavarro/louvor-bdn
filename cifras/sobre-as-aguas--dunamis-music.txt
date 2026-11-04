@@ -1,0 +1,82 @@
+@title Sobre as Águas
+@artist Dunamis Music
+@tom D
+@pad D
+@bpm 160
+@arquivo cifras_part1.pptx
+@slide 141
+
+[Intro]  G  A  Bm
+G  A  Em9
+[Primeira Parte]
+      G        A      Bm
+Eu escuto uma voz em meio a tempestade
+   G             A              Bm
+Eu vejo que Ele vem em minha direção
+     G            A      Bm
+Reconheço o Teu olhar, recebo o convite
+        G            A           Bm
+Ele me chama para andar sobre as águas
+        G            A                Em9
+Ele me chama para andar sobre a tua palavra
+[Refrão]
+     D            G
+Não tenho medo a minha fé firmada está
+   Bm                      G
+Andando sobre o alto mar o barco ficará para trás
+      D              G
+Pois tua palavra sustenta os meus pés no mar
+   Bm                          G
+A voz que me chama a andar é a mesma que acalma o mar
+[Solo 1] G A Bm
+G  A  D7M  Em9
+
+! Volta ao início
+
+[Solo 2]
+[Ponte]
+ A                     Bm
+Nada vai me impedir e eu irei até o fim
+ G                       D
+Se o mar não se abrir eu ando sobre as águas
+ A                       Bm
+Tua palavra viva está e o Senhor é vencedor
+ G                        D
+Quem pode se comparar? Tu és invencível
+ A                     Bm
+Nada vai me impedir e eu irei até o fim
+ G                       D
+Se o mar não se abrir eu ando sobre as águas
+ A                       Bm
+Tua palavra viva está e o Senhor é vencedor
+ G                        D
+Quem pode se comparar? Tu és invencível
+ A                     Bm
+Nada vai me impedir e eu irei até o fim
+ G                       D
+Se o mar não se abrir eu ando sobre as águas
+ A                       Bm
+Tua palavra viva está e o Senhor é vencedor
+ G                        D            A
+Quem pode se comparar? Tu és invencível
+
+( A  Bm  D  G  D ) 4x
+
+[Refrão]
+    D            G
+Não tenho medo a minha fé firmada está
+   Bm                      G
+Andando sobre o alto mar o barco ficará para trás
+D/F# G A
+Pois tua palavra sustenta os meus pés no mar
+  Bm                          G
+A voz que me chama a andar é a mesma que acalma o mar
+[Refrão Final]
+D            G
+Não tenho medo a minha fé firmada está
+   Bm                      G
+Andando sobre o alto mar o barco ficará para trás
+      D              G
+Pois tua palavra sustenta os meus pés no mar
+   Bm                          G
+A voz que me chama a andar é a mesma que acalma o mar

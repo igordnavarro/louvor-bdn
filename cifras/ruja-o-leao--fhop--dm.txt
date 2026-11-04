@@ -5,8 +5,8 @@
 @pad Dm
 @bpm 138
 @note Capotraste na 5ª casa (formas em Am)
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 138
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 138 / pptx 1: 104
 
 [Intro] Am  G  Dm  Am
 

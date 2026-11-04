@@ -1,0 +1,72 @@
+@title A Bênção
+@artist André Aquino
+@tom B
+@pad B
+@bpm
+@arquivo cifras_part3.pptx
+@slide 61
+
+(feat. Ana Paula Valadão)
+
+[Intro] B  E  B  F#
+        G#m  E  B  F#  B
+
+[Primeira Parte] 2x
+B                 E              B
+ Que o Senhor Te abençoe
+         F#                       G#m
+E faça brilhar Seu rosto em Ti
+             E            B
+Que conceda Sua graça
+      F#    B
+E te dê a paz
+
+[Refrão]
+G#m  E
+A  -  mém
+ B      F#
+Amém Amém
+G#m  E
+A  -  mém
+ B      F#
+Amém amém
+
+[Primeira Parte]
+[Refrão] 2x
+
+[Ponte]
+       G#m
+Que a bênção se derrame
+     E
+Até mil gerações
+       B
+Tua família e teus filhos
+      F#
+E os filhos de teus filhos (4x)
+
+           G#m
+Sua presença te acompanhe
+           E
+Por detrás e por diante
+           B
+Do teu lado e em ti
+          F#
+É contigo, é por ti
+          G#m
+E de noite e de dia
+          E
+Tua entrada e saída
+           B
+Em teu riso em teu choro
+          F#
+É contigo, é por ti
+          G#m
+É contigo, é por ti
+          E
+É contigo, é por ti
+          B              F#
+É contigo, é por ti
+
+[Refrão]
+[Ponte Inteira 1x]
+[Refrão]

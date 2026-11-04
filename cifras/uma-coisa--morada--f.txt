@@ -1,0 +1,51 @@
+@title Uma Coisa
+@artist Morada
+@tom F
+@pad F
+@bpm
+@arquivo cifras_part3.pptx
+@slide 38
+
+[Intro] Gm7  F/A  Dm7  C/E
+
+[Primeira Parte]
+Gm7        F/A
+Uma coisa vou pedir
+         Dm7        F/A
+Deixa eu ficar neste lugar
+         C/E    F/A
+Todos os dias da minha vida
+Gm7        F/A
+Uma coisa vou pedir
+         Dm7        F/A
+Deixa eu ficar neste lugar
+         C/E    F/A
+Todos os dias da minha vida
+
+[Refrão]
+Gm7                         F/A
+  Nós adoramos Aquele que faz vento aos Teus anjos
+Dm7                         C/E
+  Nós adoramos Aquele que faz fogo aos Teus ministros
+Gm7                         F/A
+  Nós adoramos Aquele que faz vento aos Teus anjos
+Dm7                         C/E
+  Nós adoramos Aquele que faz fogo aos Teus ministros
+
+[Ponte]
+Gm7
+  Nós somos Seus ministros
+F/A
+  Não negue o Seu fogo
+Dm7
+  Nós somos Seus ministros
+C/E
+  Queremos queimar! Queremos queimar
+Gm7
+  Nós somos Seus ministros
+F/A
+  Não negue o Seu fogo
+Dm7
+  Nós somos Seus ministros
+C/E
+  Queremos queimar! Queremos queimar

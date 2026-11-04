@@ -1,0 +1,78 @@
+@title Pra Sempre
+@artist Fernandinho
+@tom E
+@pad E
+@bpm
+@arquivo cifras_part3.pptx
+@slide 32
+
+[Intro] E  B  C#m  A
+
+[Primeira Parte]
+E                     B                       C#m7
+  O universo chora, o sol se apagou
+                   A
+Ali estava morto o salvador
+E                         B                         C#m7
+  Seu corpo lá na cruz, seu sangue derramou
+                 A          E
+O peso do pecado ele levou
+  B       F#m7  A
+Levou, levou
+
+[Segunda Parte]
+E                         B                         C#m7
+  Deus pai o abandonou, cessou seu respirar
+                          A
+Em trevas se encontrou o filho
+E                       B                      C#m7
+  A guerra começou, a morte enfrentou
+                       A
+Todo o poder das trevas, vencido foi
+
+[Pré-Refrão]
+E                       B                           C#m7
+  A terra estremeceu, sepulcro se abriu
+                 A
+E nada vencerá, seu grande amor
+E                    B
+  Oh morte onde estás?
+             C#m7
+O rei ressuscitou
+                A
+Ele venceu pra sempre!
+
+[Refrão] 2x
+    E                B
+Pra sempre exaltado é
+    C#m7              A
+Pra sempre adorado é
+    E                B
+Pra sempre ele vive
+            C#m              A
+Ressuscitou, ressuscitou
+
+[Pré-Refrão]
+[Refrão] 2x
+
+[Solo] 2x  E  B  C#m7  A
+
+[Final] 2x
+E                         B                          C#m7
+  Cantamos aleluia, cantamos aleluia
+                    A                         E
+Cantamos aleluia, o cordeiro venceu
+                    B                          C#m7
+Cantamos aleluia, cantamos aleluia
+                    A                         E
+Cantamos aleluia, o cordeiro venceu
+
+[Refrão]
+    E                B
+Pra sempre exaltado é
+    C#m7              A
+Pra sempre adorado é
+    E                B
+Pra sempre ele vive
+            C#m              A
+Ressuscitou, ressuscitou

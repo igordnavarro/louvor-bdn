@@ -1,0 +1,61 @@
+@title Inexplicável Amor
+@artist Isaias Saad
+@tom E
+@pad E
+@bpm
+@arquivo cifras_part2.pptx
+@slide 86
+
+[Intro] E9  A9
+
+[Primeira Parte]
+  E9
+Um amor que surpreende
+   C#m7
+Que não quer nada em troca
+   C#m7/B
+Conhece os meus defeitos
+        A9
+Mas isso não importa
+
+[Pré-Refrão]
+        A9
+Nada faz Você parar de me amar
+       C#m7        G#m
+Nada vai mudar o Seu olhar
+          A9
+Não importa o que sou
+             C#m7      B9
+Você me chama de meu filho
+
+[Refrão]
+         E9
+Que amor é esse
+  A9              F#4   G#4
+Inexplicável é o Seu amor
+         E9
+Que amor é esse
+  A9              F#4   G#4
+Inexplicável é o Seu amor
+
+[Primeira Parte]
+[Pré-Refrão]
+[Refrão]
+
+[Ponte] 2x
+A9
+Amor que constrange
+B9
+Que amor tão grande
+C#m7
+E eu sou tão pequeno
+Você me faz gigante
+A9
+Amor que constrange
+  B9
+Que amor tão grande
+C#m7
+Eu sou tão pequeno
+Deus eu não mereço
+
+[Refrão]

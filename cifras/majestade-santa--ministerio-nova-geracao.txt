@@ -1,0 +1,21 @@
+@title Majestade Santa
+@artist Ministério Nova Geração
+@tom D
+@pad D
+@bpm
+@arquivo cifras_part3.pptx
+@slide 90
+
+[Intro] Bm  A  D   Bm  A/C#  D9
+
+Bm             A     D
+Majestade      Santa
+Bm             A/C#  D9
+Majestade      Santa
+
+        Bm
+Deixa o fogo descer
+        A
+Deixa o vento soprar
+         D               G
+Deixa a Glória cair

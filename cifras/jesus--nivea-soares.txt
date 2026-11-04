@@ -3,8 +3,8 @@
 @tom E
 @pad C#m
 @bpm 144
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 160
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part2.pptx
+@slide 160 / pptx 2: 8
 
 [Intro] C#m7  B  E/G#  A  (2x)
 

@@ -1,0 +1,55 @@
+@title Pode Morar Aqui
+@artist Theo Rubia
+@tom C
+@pad C
+@bpm 134
+@arquivo cifras_part1.pptx
+@slide 15
+
+[Primeira Parte]
+C                           Am7
+  Minhas lamparinas estão acessas
+C
+  Só estou esperando o barulho
+          Am7
+Dos teus passos em direção à porta
+C/E
+É só bater que eu
+F                C       G4
+  Vou abrir pra você entrar
+C/E
+É só bater que eu
+F                C/E F     G4
+  Vou abrir pra você entrar
+
+[Pré-Refrão]
+            F
+Eu já coloquei
+                   C
+As minhas vestes brancas
+       Am7
+Estou só te esperando
+ G       C/E  F
+Vem, vamos dançar
+   Am7 G  C/E F
+Mara___na_ta
+   Am7 G
+Mara___nata
+
+[Refrão]
+F
+  Tem fogo nos olhos
+G
+  Eu não imaginava
+Am7
+    Que era lindo assim
+Em
+   Que era lindo assim
+F
+  Meu noivo esperado
+G
+  Eu abro a minha casa
+Am7
+    Pode morar aqui
+Em
+Pode morar aqui

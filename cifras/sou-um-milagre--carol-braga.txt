@@ -1,0 +1,65 @@
+@title Sou Um Milagre
+@artist Carol Braga
+@tom E
+@capo 2
+@pad E
+@bpm 138
+@note Forma dos acordes em D · capotraste na 2ª casa · Primeira parte 2x · depois do interlúdio volta ao início
+@arquivo cifras_part1.pptx
+@slide 4
+
+[Intro] D G D G
+[Primeira Parte]
+D                        A
+Nunca houve noite, que pudesse impedir
+     G                 D
+O nascer do Sol e a esperança
+                               A
+E não há problema que possa impedir
+      G                   D
+As mãos de Jesus pra me ajudar
+
+[Pré-Refrão 1]
+Bm                 F#m
+Haverá um milagre dentro de mim
+       Em              Bm
+Vai descendo o rio pra me dar a vida
+G                  D                   A
+Este rio que emana lá da Cruz, do lado de Jesus
+Bm F#m
+Haverá um milagre dentro de mim
+       Em              Bm
+Vai descendo o rio pra me dar a vida
+G                  D                   A
+Este rio que emana lá da Cruz, do lado de Jesus
+
+[Refrão 1]
+D             A         Bm
+Aquilo que parecia impossível
+G            A              D
+Aquilo que parecia não ter saída
+F#m7                F#                Bm
+Aquilo que parecia ser minha morte
+G                      D
+Mas Jesus mudou minha sorte
+A                        D
+Sou um milagre e estou aqui
+[Interlúdio] D G D G
+
+[Ponte]
+Em  G               D
+Usa-me, sou o Teu milagre
+Em  G             D
+Usa-me, eu quero Te servir
+Em  G             D
+Usa-me, eu sou a Tua imagem
+Em  G              D
+Usa-me, Ó Filho de Davi
+Em  G               D
+Usa-me, sou o Teu milagre
+Em  G             D
+Usa-me, eu quero Te servir
+Em  G               D
+Usa-me, eu sou a Tua imagem
+Em  G             D    B
+Usa-me, Ó Filho de Davi

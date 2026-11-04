@@ -6,8 +6,8 @@
 @bpm 144
 @bpmsrc songbpm
 @note Forma dos acordes no tom de A · capotraste na 1ª casa
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 102
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 102 / pptx 1: 21 / pptx 1: 109
 
 [Primeira Parte]
      A                F#m7(11)         A

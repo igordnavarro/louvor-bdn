@@ -1,0 +1,29 @@
+@title Meu Salvador
+@artist Projeto Casa
+@tom A
+@pad A
+@bpm 84
+@arquivo cifras_part3.pptx
+@slide 76
+
+[Intro] F#m  D  A  E
+
+[Primeira Parte]
+   F#m          D      A     E
+Descanso em Tua presença
+   F#m             D          A   E
+Teus braços guiam-me por onde for
+   F#m             D      A   E
+Eu tenho fé na Tua palavra
+   F#m          D          A    E
+Eu sou somente Teu Senhor Jesus
+
+[Refrão]
+    Bm          D
+Meu salvador meu redentor
+       A          E
+Eu sou Teu somente Teu
+    Bm           D
+Me libertou me transformou
+      A             E
+Estou aqui e eu sou Teu

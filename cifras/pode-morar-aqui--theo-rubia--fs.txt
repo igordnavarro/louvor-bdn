@@ -1,0 +1,57 @@
+@title Pode Morar Aqui
+@artist Theo Rubia
+@tom F#
+@capo 3
+@pad F#
+@bpm 134
+@note Forma dos acordes em D# · capotraste na 3ª casa
+@arquivo cifras_part2.pptx
+@slide 77
+
+[Primeira Parte]
+D#                           Cm7
+  Minhas lamparinas estão acessas
+D#
+  Só estou esperando o barulho
+          Cm7
+Dos teus passos em direção à porta
+D#/G
+É só bater que eu
+G#                D#       A#4
+  Vou abrir pra você entrar
+D#/G
+É só bater que eu
+G#                D#/G G#     A#4
+  Vou abrir pra você entrar
+
+[Pré-Refrão]
+            G#
+Eu já coloquei
+                   D#
+As minhas vestes brancas
+       Cm7
+Estou só te esperando
+ A#       D#/G  G#
+Vem, vamos dançar
+   Cm7 A#  D#/G G#
+Mara___na_ta
+   Cm7 A#
+Mara___nata
+
+[Refrão]
+G#
+  Tem fogo nos olhos
+A#
+  Eu não imaginava
+Cm7
+    Que era lindo assim
+Gm
+   Que era lindo assim
+G#
+  Meu noivo esperado
+A#
+  Eu abro a minha casa
+Cm7
+    Pode morar aqui
+Gm
+Pode morar aqui

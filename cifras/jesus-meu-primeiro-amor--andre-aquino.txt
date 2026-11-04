@@ -1,0 +1,27 @@
+@title Jesus Meu Primeiro Amor
+@artist André Aquino
+@tom A
+@pad A
+@bpm 106
+@arquivo cifras_part1.pptx
+@slide 111
+
+[Primeira Parte]
+ A9
+Abre os meus ouvidos, Eu quero ouvir
+ D9
+Abre os meus olhos, Eu quero ver
+ A9
+Abre o meu coração, Quero sentir
+         E           D9        A9
+Seu grande amor, seu grande amor
+
+[Refrão]
+                    D9
+Eu quero me apaixonar, outra vez
+                    A9
+Eu quero me desesperar, outra vez
+                     D9
+Eu quero perder o sono, outra vez
+               E
+Queimando de amor por ti

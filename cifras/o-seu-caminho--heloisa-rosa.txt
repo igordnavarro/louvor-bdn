@@ -1,0 +1,61 @@
+@title O Seu Caminho
+@artist Heloisa Rosa
+@tom E
+@pad E
+@bpm
+@arquivo cifras_part2.pptx
+@slide 60
+
+[Intro] 4x  C#m  B  E  F#
+
+[Primeira Parte]
+C#m   B                     F#m
+  Viva é a palavra do Senhor
+                A                    C#m
+Os seus princípios não são pesados
+   B           F#m
+Doce luz ao caminhar
+           A
+Nada se pode acrescentar
+
+( C#5 )
+
+[Refrão]
+A                E               C#m
+  O Seu caminho é bem melhor
+                       B
+Do que o meu traçado e planejado
+A                E               C#m
+  Suas veredas são vida e paz
+                    B
+E refrigeram a minh'alma
+
+C#m  B  E  F# (4x)
+
+[Segunda Parte]
+C#m          B                    F#m
+  A palavra é melhor que os livros
+            A               C#m
+Perfilados em meu armário
+       B           F#m
+E escudo é Sua voz
+       A
+Para os que nele confiam
+
+( C#5 )
+
+[Refrão]
+A                E               C#m
+  O Seu caminho é bem melhor
+                       B
+Do que o meu traçado e planejado
+A                E               C#m
+  Suas veredas são vida e paz
+                    B
+E refrigeram a minh'alma
+
+( F#m  A  B )
+( F#m  A  B )
+( F#m  A  B )
+( C#m  B  F#m  A )
+( C#m  B  F#m  A )

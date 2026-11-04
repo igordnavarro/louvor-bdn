@@ -1,0 +1,53 @@
+@title Os que Olham Para Ti
+@artist Fhop
+@tom G
+@pad Em
+@bpm 140
+@note Na folha: tom F#, capotraste na 5ª casa (os acordes estão escritos em G)
+@arquivo cifras_part1.pptx
+@slide 94
+
+[Primeira Parte]
+Em          D/F#       G                C
+   Eu encontrei um amor que não tem fim
+Em          D/F#       G        C
+   Tão paciente e misericordioso
+
+Em          D/F#       G                C
+   Eu encontrei um amor que não tem fim
+Em          D/F#       G        C
+   Tão paciente e misericordioso
+
+[Pré-Refrão]
+C                  D
+Nunca falha, nunca muda
+      G
+Continua a me amar
+         C
+Amor presente é o Teu amor
+         G/B
+Nunca me desamparará
+         C
+Eu olharei na Tua face
+            G/B
+Verei a Tua glória
+
+[Refrão]
+                       C
+Os que olham para Ti estão radiantes, Senhor
+                       G/B
+Os que olham para Ti estão radiantes, Senhor
+                       C
+Os que olham para Ti estão radiantes, Senhor
+            G/B
+Olharei para Ti
+
+[Ponte]
+C
+Tudo pode até passar, eu continuo olhando para Ti
+G/B
+Tudo pode até mudar, eu continuo olhando para Ti
+C
+Tudo pode até passar, eu continuo olhando para Ti
+         G/B
+Pois Tu és o Senhor que arrebatou meu coração

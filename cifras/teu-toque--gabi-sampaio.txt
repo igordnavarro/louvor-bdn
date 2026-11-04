@@ -5,8 +5,8 @@
 @pad
 @bpm 68
 @note Com forma de G · capotraste na 3ª casa
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 148
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 148 / pptx 1: 9
 
 [Intro] C  D  Em7  G
 

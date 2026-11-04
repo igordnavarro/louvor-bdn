@@ -4,8 +4,8 @@
 @pad D
 @bpm 136
 @note Primeira parte 1x · Segunda parte 2x · Refrão 2x
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 118
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 118 / pptx 1: 124
 
 [Intro] D  D  D  G
 

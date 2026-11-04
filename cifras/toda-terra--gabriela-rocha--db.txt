@@ -1,0 +1,65 @@
+@title Toda Terra
+@artist Gabriela Rocha
+@tom Db
+@capo 1
+@pad Db
+@bpm 132
+@note Forma dos acordes em C · capotraste na 1ª casa
+@arquivo cifras_part1.pptx
+@slide 117
+
+[Primeira Parte]
+C
+Eu ouvi uma vez
+C7M
+E li no Teu Livro
+F
+O que o Senhor fez
+ F7M
+Faz mais uma vez
+  C
+Que onde houver dois ou três
+ C7M
+Juntos em meu nome
+F
+Ali estarei
+ F7M
+Faz mais uma vez
+
+[Refrão]
+F            G          Am
+  Toda a Terra será cheia
+           Em                F
+Do conhecimento da glória de Deus
+           G            Am
+Como as águas cobrem o mar
+                  Em            C
+Enche a Terra ao som da Tua Igreja
+
+[Segunda Parte]
+F
+  Estamos juntando
+G
+  A Terra com os anjos
+Em
+    Estamos entrando
+F7M
+    Na Sala do Trono
+F
+  Estamos juntando
+G
+  A Terra com os anjos
+Em
+    Estamos entrando
+F7M
+    Na Sala do Trono
+
+[Terceira Parte]
+Dm7  Em
+Ale_luia!
+F   Am G
+Alelu_ia!
+Dm7  Em
+Ale_luia!
+F   Am G
+Alelu_ia!

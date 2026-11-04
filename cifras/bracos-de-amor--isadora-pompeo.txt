@@ -5,8 +5,8 @@
 @pad
 @bpm
 @note Forma dos acordes no tom de A · capotraste na 2ª casa
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 113
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 113 / pptx 1: 71 / pptx 1: 155
 
 [Intro] A  D
 

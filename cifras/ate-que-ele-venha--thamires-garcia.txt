@@ -4,8 +4,8 @@
 @pad C#m
 @bpm 128
 @note "Mais uma vez o fogo do zelo..." 4x · Finalizando: "Com pés descalços..."
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 129
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 129 / pptx 1: 147
 
 [Intro] E  B  F#m
 

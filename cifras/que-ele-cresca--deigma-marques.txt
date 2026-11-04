@@ -3,8 +3,8 @@
 @tom D
 @pad D
 @bpm 144
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 186
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 186 / pptx 1: 140
 
 [Intro] D  D9  D4
         D  D9  D4

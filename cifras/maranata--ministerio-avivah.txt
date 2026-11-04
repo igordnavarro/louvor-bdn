@@ -1,0 +1,67 @@
+@title Maranata
+@artist Ministério Avivah
+@tom Bbm
+@capo 1
+@pad Bbm
+@bpm 150
+@note Forma dos acordes em Am · capotraste na 1ª casa
+@arquivo cifras_part1.pptx
+@slide 97
+
+[Intro] Am  F  C  G
+
+[Primeira Parte]
+Am
+   Tu és a minha luz
+F
+  A minha salvação
+   C          G
+E a Ti me renderei
+
+Am
+   Se ao teu lado estou
+F
+  Seguro em tuas mãos
+  C         G
+Eu nada temerei
+
+[Pré-Refrão]
+F  G  Am          C              G
+Ô,  ô,  ô, Tu és Santo, ó Senhor
+F  G  Am          C              G
+Ô,  ô,  ô, Tu és digno de louvor
+
+[Refrão]
+ F                C
+Só em Ti confiarei
+                 Am
+Eu nada temerei
+                  G
+Em frente eu irei
+                           F
+Pois eu sei que vivo estás
+                  Am
+E um dia voltarás
+                     C
+Do céu pra nos buscar
+                       G       F
+Pra sempre reinarás, aleluia
+
+( Am  F  C  G )
+( Am  F  C  G )
+
+[Ponte]
+C       F
+Ô ô ô.. ô ô ô
+C       G
+Ô ô ô.. ô
+
+[Final]
+      C           F
+Vem Jesus, vem Jesus
+     C                        G
+Maranata ora, vem Senhor Jesus
+      C           F
+Vem Jesus, vem Jesus
+     C                        G
+Maranata ora, vem Senhor Jesus

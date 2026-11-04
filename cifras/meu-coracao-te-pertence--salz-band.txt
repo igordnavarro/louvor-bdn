@@ -1,0 +1,36 @@
+@title Meu Coração Te Pertence
+@artist Salz Band
+@tom E
+@pad E
+@bpm
+@arquivo cifras_part1.pptx
+@slide 188
+
+[Primeira Parte]
+A9              E
+No mais profundo do mar
+A9              E
+Nos mais altos céus
+A9              E
+E mesmo se o medo chegar
+    C#m7      A9
+Tu estás comigo
+     E             B
+Nunca esteve longe de mim
+
+[Refrão]
+        A9
+O meu coração Te pertence
+        E
+O meu coração Te pertence
+        A9
+O meu coração Te pertence
+        E
+O meu coração Te pertence
+
+                A9
+Pois tudo o que eu sou,
+o que quero ser,
+o que eu planejo ser
+       E
+Pertence a Ti, e só a Ti Deus

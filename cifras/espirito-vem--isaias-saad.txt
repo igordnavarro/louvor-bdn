@@ -1,0 +1,63 @@
+@title Espírito Vem
+@artist Isaias Saad
+@tom C
+@pad C
+@bpm
+@arquivo cifras_part2.pptx
+@slide 70
+
+[Intro] 4x  F  Am  G  Em
+
+[Primeira Parte]
+F          Am  G
+  Pai nosso
+       Em             F
+Todo o céu adora a Ti
+     Am  G
+Cantamos
+     Em               F
+Vem e enche este lugar
+      Am  G
+Posso ouvir
+         Em              F   Am
+O som do céu tocando aqui
+G            Em             F
+  O som do céu tocando aqui (2x)
+
+[Refrão] 2x
+F              G
+  Espírito Vem
+Am                Em
+  Quebranta meu ser
+F              G
+  Espírito Vem
+Am               Em
+  Faz o céu descer
+
+[Segunda Parte]
+F          Am  G
+  Rei Jesus
+     Em             F
+Exaltamos o teu nome
+       Am  G
+Tua glória
+       Em            F
+Faz tremer terra e céu
+     Am  G
+Aviva-nos
+       Em              F   Am  G
+Queremos o teu reino aqui
+       Em              F
+Queremos o teu reino aqui (2x)
+
+[Refrão] 4x
+F              G
+  Espírito Vem
+Am                Em
+  Quebranta meu ser
+F              G
+  Espírito Vem
+Am               Em
+  Faz o céu descer
+
+[Final] Am  Em  F  G  Am  Em  F

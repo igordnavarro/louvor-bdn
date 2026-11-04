@@ -3,8 +3,8 @@
 @tom F#m
 @pad F#m
 @bpm 118
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 101
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part2.pptx
+@slide 101 / pptx 2: 12
 
 [Intro] F#m  A/C#  D
         F#m  A/C#  D

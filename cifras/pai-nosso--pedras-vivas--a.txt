@@ -1,0 +1,102 @@
+@title Pai Nosso
+@artist Pedras Vivas
+@tom A
+@pad A
+@bpm 134
+@arquivo cifras_part2.pptx
+@slide 79
+
+[Intro] A9  F#m7  D
+        A9  F#m7  D
+
+[Primeira Parte]
+     A9
+Pai nosso, nos céus
+ D             E
+Santo é o teu nome
+     A9
+Teu reino buscamos
+        D         E
+Tua vontade seja feita
+
+[Refrão]
+    D       A/C# Bm7 F#m7
+Na terra como é, nos céus
+         E
+Deixe o céu descer
+    D       A/C# Bm7 F#m
+Na terra como é, nos céus
+         E
+Deixe o céu descer
+
+( A9  F#m7  D )
+( A9  F#m7  D )
+
+[Segunda Parte]
+     A9
+Pai nosso, nos céus
+ D             E
+Santo é o teu nome
+     A9
+Teu reino buscamos
+        D         E
+Tua vontade seja feita
+
+[Refrão]
+    D       A/C# Bm7 F#m7
+Na terra como é, nos céus
+         E
+Deixe o céu descer
+    D       A/C# Bm7 F#m
+Na terra como é, nos céus
+         E     D
+Deixe o céu descer
+
+           F#m7  E
+Deixe o céu descer
+                D
+Deixe o céu descer
+           F#m7  E
+Deixe o céu descer
+                D
+Deixe o céu descer
+           F#m7  E
+Deixe o céu descer
+                D
+Deixe o céu descer
+           F#m7  E
+Deixe o céu descer
+
+ D        A/C# Bm
+Teu é o reino, Teu o poder
+F#m                 C#m7
+Tua é a glória pra sempre, amém
+ D        A/C# Bm
+Teu é o reino, Teu o poder
+F#m                 C#m7
+Tua é a glória pra sempre, amém
+ D        A/C# Bm
+Teu é o reino, Teu o poder
+F#m                 C#m7
+Tua é a glória pra sempre, amém
+ D
+Teu é o reino, Teu o poder
+ F#m                C#m7     D
+Tua é a glória pra sempre, amém
+
+! Transição de música
+( F#m  G#  D  Bm )
+( F#m  G#  D  Bm )
+
+F#m7        G#         D
+Venha o Teu reino na terra
+           Bm
+Como nos céus
+             F#m7
+Que venha e permaneça
+E/G#
+Teu reino inabalável
+             D
+Que venha e permaneça
+                 Bm
+Teu reino inabalável

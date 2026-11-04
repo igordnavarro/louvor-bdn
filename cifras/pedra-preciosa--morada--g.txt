@@ -1,0 +1,74 @@
+@title Pedra Preciosa
+@artist Morada
+@tom G
+@pad G
+@bpm 136
+@arquivo cifras_part1.pptx
+@slide 123
+
+[Intro] G  G  G  C
+
+[Primeira Parte]
+ G    G                   C
+Pai,       vim Te buscar
+            G                D
+Meu coração queimou de amor
+            C
+Queimou por Ti
+ G    G             C
+Pai,       saudades
+                      G
+Confesso que demorei
+                      D
+Pra sentir, mas sentir
+     G          C
+E não vou sair daqui
+
+[Segunda Parte]
+        Am
+Sem Te tocar
+           Em
+Sem ser tocado por Ti
+               D
+Nada vai me atrair
+              C      C
+Nada vai me tirar daqui
+
+[Refrão]
+         G                G         C
+Estou subindo ao monte Santo de Sião
+         Em                D
+E vou tocar o céu com meu coração
+   G    C
+Em a____doração
+         G                G         C
+Estou subindo ao monte Santo de Sião
+         Em                D
+E vou tocar o céu com meu coração
+   G    C
+Em a____doração
+
+! Primeira parte 1x · Segunda parte 2x · Refrão 2x
+
+[Terceira Parte] 4X
+ Am             C
+Nada vai me abalar
+                     Em
+Junto à Pedra eu sou
+       D
+Pedra Preciosa
+ Am             C
+Nada vai me abalar
+                     Em
+Junto à Pedra eu sou
+       D
+Pedra Preciosa
+
+[Ponte] 4X
+( Am  C  Em  D )
+Am              C
+    Inabalável,   Inabalável
+Em                    D
+        Pedra Preciosa é o meu Senhor
+
+! Refrão 2x

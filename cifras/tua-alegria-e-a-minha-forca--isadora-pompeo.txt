@@ -3,8 +3,8 @@
 @tom E
 @pad E
 @bpm 148
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 202
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 202 / pptx 1: 34
 
 [Intro] E  B4  C#m7  A9
 

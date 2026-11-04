@@ -1,0 +1,64 @@
+@title Desperta (Wake)
+@artist Gabriela Rocha
+@tom G
+@pad G
+@bpm
+@arquivo cifras_part2.pptx
+@slide 20
+
+[Intro] C  D  Bm  Em
+
+[Riff] (3x)
+E|----------------------------------|
+B|----------------------------------|
+G|--------------7-7-----------------|
+D|-7/9-9-9-7-9-9--------------------|
+A|------------------10-10-9-9-7-7---|
+E|----------------------------------|
+
+E|----------------------------------|
+B|----------------------------------|
+G|--------------7-7-9-9-11-11-12-12-|
+D|-7/9-9-9-7-9-9--------------------|
+A|----------------------------------|
+E|----------------------------------|
+
+[Primeira Parte]
+  C         D          Bm         Em
+Ao despertar eu cantarei, teu nome eu proclamarei
+  C         D            Bm       Em
+No ritmo do teu coração, levarei a salvação
+  C               D
+Teu fogo em meu olhar brilhando está
+  Bm         Em
+A chama não se apagará
+  C          D
+Nas ruas do amor refletirá
+  Bm         Em
+Tua glória resplandecerá
+
+[Pré-Refrão] (2x)
+C                 D
+Tu jamais me deixarás, em minha vida estás
+  Bm                Em
+Este amor em meus ser, para sempre brilhará
+
+[Ponte] C  D  Bm  Em  (2x)
+
+[Refrão] (2x)
+C               D
+Tu vives em mim, vives em mim
+Bm          Em
+Em meu coração pra sempre
+
+[Passagem] C  D  Bm  Em  (2x)
+! 1ª vez volta em "Teu fogo em meu olhar"
+
+[Ponte 2] (4x)
+ C          D
+Pra sempre, pra sempre
+ Bm           Em
+Pra sempre, nesse amor
+! Volta em "Tu jamais me deixarás"
+
+[Final] C  D  Bm  Em

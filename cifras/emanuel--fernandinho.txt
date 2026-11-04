@@ -1,0 +1,50 @@
+@title Emanuel
+@artist Fernandinho
+@tom E
+@pad E
+@bpm
+@arquivo cifras_part3.pptx
+@slide 16
+
+[Intro] E  B  C#m  A
+
+E          B                 C#m  A
+Deixou a Sua glória para estar comigo
+E          B                C#m  A
+Morreu numa cruz para estar comigo
+E      B              G#m  A
+Venceu o diabo para estar comigo
+E      B               ( E  B  D  A )
+O véu se rasgou para estar comigo
+
+[Refrão] 4x
+    E           B
+Maravilhoso, Conselheiro, Deus forte
+G#m         A
+Príncipe da paz
+
+E      B       G#m  A
+Emanuel, Emanuel, Emanuel
+
+[Solo] E  B  C#m  A
+       E  B  C#m  A
+
+E          B                 C#m  A
+Deixou a Sua glória para estar comigo
+E          B                C#m  A
+Morreu numa cruz para estar comigo
+E      B              G#m  A
+Venceu o diabo para estar comigo
+E      B               ( E  B  D  A )
+O véu se rasgou para estar comigo
+
+[Refrão] 4x
+    E           B
+Maravilhoso, Conselheiro, Deus forte
+G#m         A
+Príncipe da paz
+
+E      B       G#m  A
+Emanuel, Emanuel, Emanuel
+
+[Solo] E  B  G#m  A

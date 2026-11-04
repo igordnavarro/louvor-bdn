@@ -4,8 +4,8 @@
 @pad F#m
 @bpm 150
 @note A primeira coluna da folha original está cortada; os trechos com … estão incompletos no PDF
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 221
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part3.pptx
+@slide 221 / pptx 3: 48
 
 [Intro] A  C#m  F#m  D  E
 

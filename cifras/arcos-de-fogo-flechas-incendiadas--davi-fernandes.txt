@@ -3,8 +3,8 @@
 @tom Em
 @pad Em
 @bpm
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 217
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part2.pptx
+@slide 217 / pptx 2: 37
 
 [Intro] (2x) Em  D  C  Am
 

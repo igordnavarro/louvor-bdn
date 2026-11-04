@@ -5,8 +5,8 @@
 @pad
 @bpm
 @note Acordes na forma do tom G · capotraste na 6ª casa
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 110
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 110 / pptx 1: 107
 
 [Intro] G  C7M
 

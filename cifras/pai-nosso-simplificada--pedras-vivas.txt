@@ -3,8 +3,8 @@
 @tom G
 @pad G
 @bpm 134
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 142
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part1.pptx
+@slide 142 / pptx 1: 161
 
 [Intro] G  Em  C  2x
 

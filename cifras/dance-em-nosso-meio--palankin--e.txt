@@ -1,0 +1,31 @@
+@title Dance em Nosso Meio
+@artist Palankin
+@tom E
+@pad E
+@bpm 144
+@arquivo cifras_part1.pptx
+@slide 60
+
+[Primeira Parte] 4X
+ A              B
+Santo, Ele é Santo
+ C#m            E/G#
+Santo, Ele é Santo
+
+[Pré-Refrão] 4X
+            A
+Eu quero me perder em Você
+                B
+Quero me desconstruir em Você
+        C#m
+Vou me desgastar, me desgastar em
+E/G#
+Você
+
+[Refrão] 4X
+  E                           B
+Jesus vem e passeia em nosso meio
+                      C#m
+Vem e dance em nosso meio
+                    A         B
+Vem e nos toque de novo e de novo
