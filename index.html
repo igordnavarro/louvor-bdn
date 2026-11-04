@@ -130,6 +130,14 @@ body.song-open #song{display:block}
 .cifra .ln{min-height:1.38em}
 .cifra .ch{color:var(--chord);font-weight:700}
 .cifra .ly{color:var(--text)}
+.cifra .mk{color:var(--mc);font-weight:700}
+.cifra .anot{font-family:var(--sans);white-space:normal;display:inline-block;font-size:.86em;font-weight:700;color:var(--mc);background:color-mix(in srgb,var(--mc) 13%,transparent);border-left:3px solid var(--mc);border-radius:6px;padding:3px 9px;margin:.25em 0}
+.edmarks{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:6px 0 8px}
+.edmarks .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.swatches{display:flex;gap:6px}
+.swatches button{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);background:var(--mc);box-shadow:0 0 0 1px var(--line);padding:0}
+.swatches button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--text)}
+.btn.sm{padding:6px 11px;font-size:13px;min-height:34px}
 .cifra .sec{font-family:var(--sans);font-weight:700;font-size:.78em;letter-spacing:.9px;text-transform:uppercase;color:var(--section);margin-top:.9em;white-space:normal}
 .cifra .sec:first-child{margin-top:0}
 .cifra .sec .rest{font-family:var(--mono);text-transform:none;letter-spacing:0;font-size:1.28em;margin-left:.5em}
@@ -471,7 +479,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
         <button class="g-btn" id="fontDown" aria-label="Diminuir fonte">A−</button>
         <button class="g-btn" id="fontUp" aria-label="Aumentar fonte">A+</button>
       </div>
-      <button class="btn edit" id="editBtn">✎ Editar tom, capo, BPM…</button>
+      <button class="btn edit" id="editBtn">✎ Editar letra, tom, BPM…</button>
       <button class="btn edit" id="addPlBtn">＋ Playlist</button>
       <button class="btn edit primary" id="stageBtn" title="Mostrar a cifra na tela toda">⛶ Tela cheia</button>
       <div class="group" title="Como a cifra aparece na tela">
@@ -593,7 +601,13 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
       <label class="f wide">Vídeo do YouTube (link)<input id="edYt" type="url" inputmode="url" placeholder="https://www.youtube.com/watch?v=…"></label>
     </div>
     <div id="edBodyWrap">
-      <div class="f wide"><span>Cifra <small class="src">— acordes numa linha, letra na linha de baixo. Use [Refrão] para seções e ! para observações.</small></span>
+      <div class="f wide"><span><b id="edBodyLbl">Letra e cifra</b> <small class="src">— acordes numa linha, letra na linha de baixo. Use [Refrão] para seções e ! para observações.</small></span>
+        <div class="edmarks" role="toolbar" aria-label="Anotações e cores">
+          <span class="lbl">Cor</span><div class="swatches" id="edColors"></div>
+          <button type="button" class="btn sm" id="edPaint" title="Pinta o trecho selecionado da letra">🖍 Pintar seleção</button>
+          <button type="button" class="btn sm" id="edNoteAdd" title="Insere uma anotação colorida abaixo da linha atual">✎ Anotação</button>
+          <button type="button" class="btn sm" id="edUnpaint" title="Tira a cor do trecho selecionado (ou da linha atual)">Tirar cor</button>
+        </div>
         <div class="edsplit"><textarea id="edBody" spellcheck="false" placeholder="[Intro] G  D  Em  C&#10;&#10;[Primeira Parte]&#10;G            D&#10;  Letra da música aqui..."></textarea>
         <div class="edprev"><div class="cifra" id="edPreview"></div></div></div>
       </div>

@@ -10,7 +10,8 @@ try{ const LEG=['b','d','n',':'].join(''); const ks=[]; for(let i=0;i<localStora
   ks.forEach(k=>{ const nk='wc:'+k.slice(LEG.length); if(localStorage.getItem(nk)==null) localStorage.setItem(nk, localStorage.getItem(k)); localStorage.removeItem(k); }); }catch(e){}
 const store = {
   get(k, d){ try{ const v = localStorage.getItem('wc:'+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
-  set(k, v){ try{ localStorage.setItem('wc:'+k, JSON.stringify(v)); return true; }catch(e){ return false; } },
+  set(k, v){ try{ localStorage.setItem('wc:'+k, JSON.stringify(v, (kk,vv)=> (typeof kk==='string' && kk[0]==='_') ? undefined : vv)); return true; }
+    catch(e){ console.error('Erro ao salvar', k, e); return false; } },
   del(k){ try{ localStorage.removeItem('wc:'+k); }catch(e){} }
 };
 /* profiles: each person using the device keeps their own settings & songs */
@@ -73,13 +74,19 @@ const BASE = (window.SONGS||[]).map(s => ({...s, id:String(s.id)}));
 let custom = uget('custom', []);
 let SONGS = [];
 let overrides = uget('overrides', {});
+/* anotações e cores na letra: {{cor:texto}} — numa linha sozinha vira anotação */
+const MARK_COLORS={vermelho:'#e5484d',azul:'#2f7ae5',verde:'#1f9d55',laranja:'#e8790c',roxo:'#8e4ec6',rosa:'#d6409f'};
+const MARK_RE=/\{\{([a-zçãé]+):(.*?)\}\}/g;
+const stripMarks = t => String(t||'').replace(MARK_RE,'$2');
+function inlMarks(line){ let out='', last=0; line.replace(MARK_RE,(m,c,t,off)=>{ out+=esc(line.slice(last,off)); const col=MARK_COLORS[c]||c; out+=`<span class="mk" style="--mc:${col}">${esc(t)}</span>`; last=off+m.length; return m; }); return out+esc(line.slice(last)); }
 let favs = new Set(uget('favs', []));
 function toggleFav(id){ favs.has(id)?favs.delete(id):favs.add(id); uset('favs',[...favs]); }
 const norm = s => (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function rebuild(){
+  BASE.forEach(s=>{ if(s._ob==null) s._ob=s.body; const o=overrides[s.id]; s.body = (o && typeof o.body==='string') ? o.body : s._ob; });
   SONGS = BASE.concat(custom);
   SONGS.forEach(s => { s._q = norm(s.title+' '+s.artist); s._has = !!(s.body && s.body.trim());
-    s._lines = s._has ? s.body.split('\n').filter(l=>l.trim() && !isChordLine(l) && !/^\s*\[[^\]]*\]\s*$/.test(l)).map(l=>l.replace(/^!\s*/,'').trim()) : [];
+    s._lines = s._has ? stripMarks(s.body).split('\n').filter(l=>l.trim() && !isChordLine(l) && !/^\s*\[[^\]]*\]\s*$/.test(l)).map(l=>l.replace(/^!\s*/,'').trim()) : [];
     s._lyr = norm(s._lines.join(' ')).replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' '); });
   SONGS.sort((a,b)=> a.title.localeCompare(b.title,'pt',{sensitivity:'base'}) || (a.artist||'').localeCompare(b.artist||'','pt'));
   // versões: mesma música e mesmo artista, mudando tom/bpm/arranjo
@@ -92,10 +99,10 @@ const capoOf = s => { const o=ov(s); return o.capo!=null ? o.capo : (s.capo||0);
 const bpmOf  = s => ov(s).bpm || s.bpm || null;
 const noteOf = s => { const o=ov(s); return o.note!=null ? o.note : (s.note||''); };
 const ytOf   = s => ov(s).youtube || s.youtube || '';
-function saveOverrides(){ uset('overrides', overrides); }
+function saveOverrides(){ return uset('overrides', overrides); }
 function setOv(id, patch){ const o={...(overrides[id]||{}), ...patch};
   Object.keys(o).forEach(k=>{ if(o[k]===undefined || o[k]==='' && k!=='note') delete o[k]; });
-  if(Object.keys(o).length) overrides[id]=o; else delete overrides[id]; saveOverrides(); }
+  if(Object.keys(o).length) overrides[id]=o; else delete overrides[id]; return saveOverrides(); }
 
 /* ================= prefs / state ================= */
 const prefs = store.get('prefs', {});
@@ -265,8 +272,8 @@ $('#capoDown').onclick=()=>setCapo(capoOf(cur)-1);
 $('#capoUp').onclick=()=>setCapo(capoOf(cur)+1);
 function setSemi(v){ semi=normSemi(v); if(plCtx){ plCtx.pl.items[plCtx.idx].semi=semi; savePlaylists(); } else setOv(cur.id,{semi: semi||undefined}); buildKeySelect(); renderSong(); updatePadLabel(); if(pad.on) pad.retune(); }
 $('#resetBtn').onclick = () => { if(!overrides[cur.id]) return toast('Já está no original');
-  if(!confirm('Voltar tom, capo, BPM, pad e observação para o original da setlist?')) return;
-  delete overrides[cur.id]; saveOverrides(); const pc=uget('padchoice',{}); delete pc[cur.id]; uset('padchoice',pc); openSong(cur.id,false); toast('Original restaurado'); };
+  if(!confirm('Voltar tom, capo, BPM, pad, observação, letra e anotações para o original?')) return;
+  delete overrides[cur.id]; saveOverrides(); rebuild(); const pc=uget('padchoice',{}); delete pc[cur.id]; uset('padchoice',pc); openSong(cur.id,false); toast('Original restaurado'); };
 $('#fontDown').onclick = () => prefs.layout==='fit' ? fitAdj(-1) : setFont(prefs.font-1);
 $('#fontUp').onclick = () => prefs.layout==='fit' ? fitAdj(1) : setFont(prefs.font+1);
 function fitAdj(d){ prefs.fitAdj=Math.max(-12,Math.min(30,prefs.fitAdj+d)); savePrefs(); applySongLayout(); if(prefs.fitAdj>0) toast('Letra maior que o encaixe — pode ficar uma parte fora da tela ('+(prefs.fitAdj>0?'+':'')+prefs.fitAdj+')'); }
@@ -287,13 +294,15 @@ function renderCifra(body, shift, flats){
   for(const raw of body.split('\n')){
     const line=raw.replace(/\s+$/,'');
     if(!line.trim()){ items.push({t:'gap', h:'<div class="gap"></div>'}); continue; }
-    if(line.startsWith('!')){ items.push({t:'nt', h:`<div class="ln"><span class="nt">${esc(line.slice(1).trim())}</span></div>`}); continue; }
+    const an=/^\s*\{\{([a-zçãé]+):(.*)\}\}\s*$/.exec(line);
+    if(an){ items.push({t:'nt', h:`<div class="ln"><span class="anot" style="--mc:${MARK_COLORS[an[1]]||an[1]}">✎ ${esc(an[2].trim())}</span></div>`}); continue; }
+    if(line.startsWith('!')){ items.push({t:'nt', h:`<div class="ln"><span class="nt">${inlMarks(line.slice(1).trim())}</span></div>`}); continue; }
     const sm=/^\s*\[([^\]]+)\]\s*(.*)$/.exec(line);
     if(sm){ const rest=sm[2]||''; let r='';
-      if(rest && isChordLine(rest)) r=`<span class="rest">${chordHTML(trLine(rest,shift,flats))}</span>`; else if(rest) r=`<span class="rep">${esc(rest)}</span>`;
+      if(rest && isChordLine(rest)) r=`<span class="rest">${chordHTML(trLine(rest,shift,flats))}</span>`; else if(rest) r=`<span class="rep">${inlMarks(rest)}</span>`;
       items.push({t:'sec', h:`<div class="sec">${esc(sm[1])}${r}</div>`}); continue; }
     if(isChordLine(line)){ items.push({t:'ch', h:`<div class="ln">${chordHTML(trLine(line,shift,flats))}</div>`}); continue; }
-    items.push({t:'ly', h:`<div class="ln ly">${esc(line)}</div>`});
+    items.push({t:'ly', h:`<div class="ln ly">${inlMarks(line)}</div>`});
   }
   // keep a chord line glued to its lyric line (and a section title to what follows) so columns never split them
   const out=[];
@@ -402,7 +411,8 @@ function openEditor(s){
     : isCustom ? 'Música criada por você ('+profile+').' : 'As mudanças ficam salvas só para o usuário '+profile+'. A cifra original não muda para os outros.';
   $('#edBasic').style.display = isCustom ? '' : 'none';
   $('#edImport').style.display = isNew ? '' : 'none';
-  $('#edBodyWrap').style.display = isCustom ? '' : 'none';
+  $('#edBodyWrap').style.display = '';
+  $('#edBodyLbl').textContent = isCustom ? 'Letra e cifra' : 'Letra e cifra (no tom original'+(s&&parseKey(s.key)?' '+s.key:'')+') — suas mudanças e anotações ficam só para '+profile;
   $('#edDelete').style.display = (!isNew && isCustom) ? '' : 'none';
   $('#edT').value = s ? s.title : ''; $('#edA').value = s ? (s.artist||'') : '';
   $('#edBody').value = s ? (s.body||'') : '';
@@ -448,8 +458,11 @@ $('#edSave').onclick=()=>{
     if(padV){ const p=parseKey(padV); const base=parseKey(s.pad||s.key); const orig=keyName(p.r-sm,p.minor); patch.pad = (base && mod12(p.r-sm)===mod12(base.r) && p.minor===base.minor) ? undefined : orig; } else patch.pad=undefined;
     patch.note = note!==(s.note||'') ? note : undefined;
     patch.youtube = yt && yt!==(s.youtube||'') ? yt : undefined;
-    overrides[s.id]={}; setOv(s.id, patch);
-    closePanels(); openSong(s.id,false); toast('Salvo para '+profile+' ✔');
+    const nb=$('#edBody').value.replace(/\r/g,'').replace(/\t/g,'    ').replace(/\s+$/,'');
+    patch.body = (nb.trim() && nb!==String(s._ob||'').replace(/\s+$/,'')) ? nb : undefined;
+    const keep=overrides[s.id]; overrides[s.id]={};
+    if(setOv(s.id, patch)===false){ if(keep) overrides[s.id]=keep; else delete overrides[s.id]; return toast('Não consegui salvar no aparelho (armazenamento do navegador cheio)'); }
+    rebuild(); closePanels(); openSong(s.id,false); toast('Salvo para '+profile+' ✔');
   }
 };
 $('#edDelete').onclick=()=>{ const s=editing; if(!s||!s.custom) return; if(!confirm(`Excluir "${s.title}"?`)) return;
@@ -461,6 +474,24 @@ function previewEditor(){ const b=$('#edBody').value; const pv=$('#edPreview');
   if(!$('#edKey').value){ const fc=firstChord(b); $('#edKeyHint').textContent = fc ? 'Tom detectado: '+(fc.match(/^[A-G][#b]?m?(?!aj)/)||[''])[0] : ''; } else $('#edKeyHint').textContent='';
 }
 $('#newBtn').onclick=()=>openEditor(null);
+/* barra de anotações do editor */
+let markColor=prefs.markColor||'vermelho';
+function syncMarkColor(){ $$('#edColors button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.c===markColor)); }
+$('#edColors').innerHTML=Object.entries(MARK_COLORS).map(([n,c])=>`<button type="button" data-c="${n}" title="${n}" aria-label="Cor ${n}" style="--mc:${c}"></button>`).join('');
+$('#edColors').onclick=e=>{ const b=e.target.closest('button'); if(!b) return; markColor=b.dataset.c; prefs.markColor=markColor; savePrefs(); syncMarkColor(); };
+syncMarkColor();
+function edReplace(st,en,txt,selA,selB){ const ta=$('#edBody'); ta.focus(); ta.setRangeText(txt,st,en,'end'); if(selA!=null) ta.setSelectionRange(selA,selB); previewEditor(); }
+$('#edPaint').onclick=()=>{ const ta=$('#edBody'); let st=ta.selectionStart, en=ta.selectionEnd;
+  if(st===en) return toast('Selecione com o mouse (ou o dedo) o trecho da letra que quer colorir');
+  const sel=stripMarks(ta.value.slice(st,en)); let skipped=0;
+  const out=sel.split('\n').map(l=>{ if(!l.trim()) return l; if(isChordLine(l)){ skipped++; return l; } const m=/^(\s*)(.*?)(\s*)$/.exec(l); return m[1]+'{{'+markColor+':'+m[2]+'}}'+m[3]; }).join('\n');
+  edReplace(st,en,out); if(skipped) toast('Linhas de acordes não são coloridas — só a letra'); };
+$('#edUnpaint').onclick=()=>{ const ta=$('#edBody'); let st=ta.selectionStart, en=ta.selectionEnd;
+  if(st===en){ st=ta.value.lastIndexOf('\n',st-1)+1; const e=ta.value.indexOf('\n',en); en=e<0?ta.value.length:e; }
+  edReplace(st,en,stripMarks(ta.value.slice(st,en))); };
+$('#edNoteAdd').onclick=()=>{ const ta=$('#edBody'); const v=ta.value; let pos=v.indexOf('\n',ta.selectionEnd); if(pos<0) pos=v.length;
+  const ph='anotação'; const ins=(v.length?'\n':'')+'{{'+markColor+':'+ph+'}}'; const a=pos+ins.length-2-ph.length;
+  edReplace(pos,pos,ins,a,a+ph.length); };
 
 /* ================= importers ================= */
 const status = t => { $('#edStatus').textContent=t; };

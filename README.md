@@ -14,7 +14,8 @@ App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** —
 - Ajustes de tom/BPM ficam salvos no aparelho; "Restaurar original" volta ao da setlist.
 - Botão para abrir a música no Cifra Club (para as que ainda não têm cifra aqui) e no **YouTube**.
 - **Usuários**: cada pessoa (ou função — voz, violão, teclado) tem seus próprios tons, capos, BPMs, playlists e músicas. Botão com a inicial no topo. Exportar/Importar leva os dados para outro aparelho.
-- **Editar** em cada música: tom, capotraste, BPM, pad, observação e link do vídeo — salvo só para o usuário atual.
+- **Editar** em cada música: letra e cifra, tom, capotraste, BPM, pad, observação e link do vídeo — salvo só para o usuário atual.
+- **Anotações e cores na letra** (no Editar): selecione um trecho e escolha a cor (🖍 Pintar seleção), ou use ✎ Anotação para uma nota colorida (ex.: "Bateria: entra no ride"). No texto fica `{{vermelho:texto}}`.
 - **Nova música**: importe de um **PDF**, de um **print/foto** (leitura automática de texto) ou cole a cifra copiada do **Cifra Club**.
 - **Playlists / escalas do dia**: data, ordem e tom de cada música; botão de compartilhar manda a escala com link para o WhatsApp.
 - **Pads do YouTube** (vídeos de pad de 1 hora em cada tom, séries "Deep Worship Pads" e "Ambient Shimmer Pads") ou pad sintetizado offline.
