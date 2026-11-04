@@ -92,11 +92,15 @@ def marca_duplicadas(L):
 
 def pads():
     rows = []
-    builtin = [('A','A','Pad A'),('B','B','Pad B'),('C#','Cs','Pad C# (Db)'),('D','D','Pad D'),('E','E','Pad E'),('G','G','Pad G'),
-               ('Cm','Cm','Pad Cm'),('Em','Em-2','Pad Em'),('Em','Em','Pad Em (variação)'),('Bm','Bm','Pad Bm')]
-    for tom, f, nome in builtin:
-        rows.append(dict(tom=tom, nome=nome, link=SITE + f'pads/{f}.m4a', fonte='Incluído no app (arquivo de áudio)',
-                         offline='Sim', arquivo=f'pads/{f}.m4a'))
+    FAM = {'ambiente':'Ambiente','soft':'Soft Pad','classico':'Clássico','guitarra':'Guitarra','worship':'Worship (longo)','shimmer':'Shimmer','suave':'Suave','despertar':'Som do Despertar','extra':'Extra'}
+    OLD = {'A':('ambiente','A'),'B':('ambiente','B'),'Cs':('ambiente','C#'),'D':('ambiente','D'),'E':('ambiente','E'),'G':('ambiente','G'),
+           'Cm':('soft','Cm'),'Em-2':('soft','Em'),'Em':('soft','Em (variação)'),'Bm':('soft','Bm')}
+    for p in sorted(glob.glob(os.path.join(ROOT, 'pads', '*.m4a'))):
+        b = os.path.basename(p)[:-4]
+        if b in OLD: fam, k = OLD[b]
+        else: fam, k = b.split('-', 1); k = k.replace('s', '#')
+        rows.append(dict(tom=k.split(' ')[0], nome=f'{FAM.get(fam, fam)} · {k}', link=SITE + f'pads/{b}.m4a', fonte='Incluído no app (arquivo de áudio)',
+                         offline='Sim (ao tocar ou em ⚙ Configurações)', arquivo=f'pads/{b}.m4a'))
     src = open(os.path.join(ROOT, 'app.js'), encoding='utf-8').read()
     m = re.search(r'const YT_PADS = \{(.*?)\n\};', src, re.S)
     for name, ids in re.findall(r"name:'([^']+)', ids:\{([^}]*)\}", m.group(1)):

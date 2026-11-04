@@ -1,29 +1,63 @@
 Tom do pad,Nome,Ouvir (link),Fonte,Funciona offline,Arquivo no repositório
+C,Clássico · C,https://igordnavarro.github.io/louvor-bdn/pads/classico-C.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-C.m4a
+C,Shimmer · C,https://igordnavarro.github.io/louvor-bdn/pads/shimmer-C.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/shimmer-C.m4a
 C,Ambient Shimmer Pads em C,https://www.youtube.com/watch?v=2wVGy1jcpGA,YouTube,Não,
-Cm,Pad Cm,https://igordnavarro.github.io/louvor-bdn/pads/Cm.m4a,Incluído no app (arquivo de áudio),Sim,pads/Cm.m4a
-C#,Pad C# (Db),https://igordnavarro.github.io/louvor-bdn/pads/Cs.m4a,Incluído no app (arquivo de áudio),Sim,pads/Cs.m4a
+Cm,Guitarra · Cm,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Cm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Cm.m4a
+Cm,Soft Pad · Cm,https://igordnavarro.github.io/louvor-bdn/pads/Cm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/Cm.m4a
+C#,Ambiente · C#,https://igordnavarro.github.io/louvor-bdn/pads/Cs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/Cs.m4a
+C#,Clássico · C#,https://igordnavarro.github.io/louvor-bdn/pads/classico-Cs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-Cs.m4a
 C#,Deep Worship Pads em C#,https://www.youtube.com/watch?v=FBF0WKzk9Ag,YouTube,Não,
-D,Pad D,https://igordnavarro.github.io/louvor-bdn/pads/D.m4a,Incluído no app (arquivo de áudio),Sim,pads/D.m4a
+C#m,Guitarra · C#m,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Csm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Csm.m4a
+D,Ambiente · D,https://igordnavarro.github.io/louvor-bdn/pads/D.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/D.m4a
+D,Clássico · D,https://igordnavarro.github.io/louvor-bdn/pads/classico-D.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-D.m4a
+D,Guitarra · D,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-D.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-D.m4a
 D,Ambient Shimmer Pads em D,https://www.youtube.com/watch?v=--FfDXmoL1U,YouTube,Não,
 D,Deep Worship Pads em D,https://www.youtube.com/watch?v=oOY8_eUalDA,YouTube,Não,
+D#,Clássico · D#,https://igordnavarro.github.io/louvor-bdn/pads/classico-Ds.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-Ds.m4a
 D#,Ambient Shimmer Pads em D#,https://www.youtube.com/watch?v=JxhoKHDWfwU,YouTube,Não,
-E,Pad E,https://igordnavarro.github.io/louvor-bdn/pads/E.m4a,Incluído no app (arquivo de áudio),Sim,pads/E.m4a
+D#m,Guitarra · D#m,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Dsm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Dsm.m4a
+E,Ambiente · E,https://igordnavarro.github.io/louvor-bdn/pads/E.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/E.m4a
+E,Clássico · E,https://igordnavarro.github.io/louvor-bdn/pads/classico-E.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-E.m4a
+E,Guitarra · E,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-E.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-E.m4a
+E,Worship (longo) · E,https://igordnavarro.github.io/louvor-bdn/pads/worship-E.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/worship-E.m4a
 E,Ambient Shimmer Pads em E,https://www.youtube.com/watch?v=v5-JyS7Y6jg,YouTube,Não,
 E,Deep Worship Pads em E,https://www.youtube.com/watch?v=kEhHYrG4zMI,YouTube,Não,
-Em,Pad Em,https://igordnavarro.github.io/louvor-bdn/pads/Em-2.m4a,Incluído no app (arquivo de áudio),Sim,pads/Em-2.m4a
-Em,Pad Em (variação),https://igordnavarro.github.io/louvor-bdn/pads/Em.m4a,Incluído no app (arquivo de áudio),Sim,pads/Em.m4a
+Em,Guitarra · Em,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Em.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Em.m4a
+Em,Soft Pad · Em,https://igordnavarro.github.io/louvor-bdn/pads/Em-2.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/Em-2.m4a
+Em,Soft Pad · Em (variação),https://igordnavarro.github.io/louvor-bdn/pads/Em.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/Em.m4a
+Em,Suave · Em,https://igordnavarro.github.io/louvor-bdn/pads/suave-Em.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/suave-Em.m4a
+Em,Worship (longo) · Em,https://igordnavarro.github.io/louvor-bdn/pads/worship-Em.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/worship-Em.m4a
+F,Clássico · F,https://igordnavarro.github.io/louvor-bdn/pads/classico-F.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-F.m4a
 F,Deep Worship Pads em F,https://www.youtube.com/watch?v=qG5qM02UOhc,YouTube,Não,
+Fm,Guitarra · Fm,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Fm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Fm.m4a
+F#,Clássico · F#,https://igordnavarro.github.io/louvor-bdn/pads/classico-Fs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-Fs.m4a
+F#,Guitarra · F#,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Fs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Fs.m4a
 F#,Deep Worship Pads em F#,https://www.youtube.com/watch?v=diePwkBKCTU,YouTube,Não,
-G,Pad G,https://igordnavarro.github.io/louvor-bdn/pads/G.m4a,Incluído no app (arquivo de áudio),Sim,pads/G.m4a
+F#m,Guitarra · F#m,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Fsm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Fsm.m4a
+G,Ambiente · G,https://igordnavarro.github.io/louvor-bdn/pads/G.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/G.m4a
+G,Clássico · G,https://igordnavarro.github.io/louvor-bdn/pads/classico-G.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-G.m4a
+G,Guitarra · G,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-G.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-G.m4a
+G,Worship (longo) · G,https://igordnavarro.github.io/louvor-bdn/pads/worship-G.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/worship-G.m4a
 G,Ambient Shimmer Pads em G,https://www.youtube.com/watch?v=bsU7Kr4iJxI,YouTube,Não,
 G,Deep Worship Pads em G,https://www.youtube.com/watch?v=1hdfzFgQqjw,YouTube,Não,
+G#,Clássico · G#,https://igordnavarro.github.io/louvor-bdn/pads/classico-Gs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-Gs.m4a
+G#,Extra · G#,https://igordnavarro.github.io/louvor-bdn/pads/extra-Gs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/extra-Gs.m4a
+G#,Guitarra · G#,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Gs.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Gs.m4a
 G#,Deep Worship Pads em G#,https://www.youtube.com/watch?v=efMdOJJoIjc,YouTube,Não,
-A,Pad A,https://igordnavarro.github.io/louvor-bdn/pads/A.m4a,Incluído no app (arquivo de áudio),Sim,pads/A.m4a
+A,Ambiente · A,https://igordnavarro.github.io/louvor-bdn/pads/A.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/A.m4a
+A,Clássico · A,https://igordnavarro.github.io/louvor-bdn/pads/classico-A.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-A.m4a
+A,Suave · A,https://igordnavarro.github.io/louvor-bdn/pads/suave-A.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/suave-A.m4a
 A,Ambient Shimmer Pads em A,https://www.youtube.com/watch?v=FwukygTzCoc,YouTube,Não,
 A,Deep Worship Pads em A,https://www.youtube.com/watch?v=gCl4MYnn6Sk,YouTube,Não,
+Am,Guitarra · Am,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Am.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Am.m4a
+A#,Clássico · A#,https://igordnavarro.github.io/louvor-bdn/pads/classico-As.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-As.m4a
 A#,Ambient Shimmer Pads em A#,https://www.youtube.com/watch?v=cR-nbUpRbtA,YouTube,Não,
-B,Pad B,https://igordnavarro.github.io/louvor-bdn/pads/B.m4a,Incluído no app (arquivo de áudio),Sim,pads/B.m4a
+B,Ambiente · B,https://igordnavarro.github.io/louvor-bdn/pads/B.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/B.m4a
+B,Clássico · B,https://igordnavarro.github.io/louvor-bdn/pads/classico-B.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/classico-B.m4a
+B,Suave · B,https://igordnavarro.github.io/louvor-bdn/pads/suave-B.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/suave-B.m4a
 B,Ambient Shimmer Pads em B,https://www.youtube.com/watch?v=aDPTPnt_pEE,YouTube,Não,
 B,Deep Worship Pads em B,https://www.youtube.com/watch?v=83Z9g-PHaOA,YouTube,Não,
-Bm,Pad Bm,https://igordnavarro.github.io/louvor-bdn/pads/Bm.m4a,Incluído no app (arquivo de áudio),Sim,pads/Bm.m4a
+Bm,Guitarra · Bm,https://igordnavarro.github.io/louvor-bdn/pads/guitarra-Bm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/guitarra-Bm.m4a
+Bm,Soft Pad · Bm,https://igordnavarro.github.io/louvor-bdn/pads/Bm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/Bm.m4a
+Bm,Som do Despertar · Bm,https://igordnavarro.github.io/louvor-bdn/pads/despertar-Bm.m4a,Incluído no app (arquivo de áudio),Sim (ao tocar ou em ⚙ Configurações),pads/despertar-Bm.m4a
 Vários,Playlist de pads do ministério,https://music.youtube.com/playlist?list=PLiwIL30R32_MHPvGvPSLmGi4Gs7k6rlI4,YouTube (playlist),Não,
