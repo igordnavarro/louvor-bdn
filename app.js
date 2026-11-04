@@ -8,9 +8,10 @@ const SP_PLAY='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><
 // migrate data saved by older versions of the app (legacy key prefix)
 try{ const LEG=['b','d','n',':'].join(''); const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith(LEG)) ks.push(k); }
   ks.forEach(k=>{ const nk='wc:'+k.slice(LEG.length); if(localStorage.getItem(nk)==null) localStorage.setItem(nk, localStorage.getItem(k)); localStorage.removeItem(k); }); }catch(e){}
+let syncHook=null; // avisado a cada gravação (sincronização com a conta Google)
 const store = {
   get(k, d){ try{ const v = localStorage.getItem('wc:'+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
-  set(k, v){ try{ localStorage.setItem('wc:'+k, JSON.stringify(v, (kk,vv)=> (typeof kk==='string' && kk[0]==='_') ? undefined : vv)); return true; }
+  set(k, v){ try{ localStorage.setItem('wc:'+k, JSON.stringify(v, (kk,vv)=> (typeof kk==='string' && kk[0]==='_') ? undefined : vv)); if(syncHook) syncHook(k); return true; }
     catch(e){ console.error('Erro ao salvar', k, e); return false; } },
   del(k){ try{ localStorage.removeItem('wc:'+k); }catch(e){} }
 };
@@ -125,13 +126,13 @@ function renderProfiles(){
       ['overrides','custom','padchoice','playlists','favs'].forEach(k=>{ const v=store.get('u:'+p+':'+k,null); if(v!=null){ store.set('u:'+n+':'+k,v); store.del('u:'+p+':'+k);} });
       profiles=profiles.map(x=>x===p?n:x); store.set('profiles',profiles); if(profile===p){ profile=n; store.set('profile',n);} renderProfiles(); renderProfileBtn(); };
     const d=row.querySelector('.del'); if(d) d.onclick=()=>{ if(!confirm(`Excluir o usuário "${p}" e tudo que ele salvou neste aparelho?`)) return;
-      ['overrides','custom','padchoice','playlists','favs'].forEach(k=>store.del('u:'+p+':'+k)); profiles=profiles.filter(x=>x!==p); store.set('profiles',profiles);
+      ['overrides','custom','padchoice','playlists','favs'].forEach(k=>{ store.del('u:'+p+':'+k); if(syncHook) syncHook('u:'+p+':'+k); }); profiles=profiles.filter(x=>x!==p); store.set('profiles',profiles);
       if(profile===p) switchProfile(profiles[0]); else renderProfiles(); };
     L.appendChild(row);
   });
 }
-function switchProfile(p){ profile=p; store.set('profile',p); overrides=uget('overrides',{}); favs=new Set(uget('favs',[])); custom=uget('custom',[]); playlists=uget('playlists',[]); plCtx=null; rebuild(); if(view==='pl') renderPlaylists();
-  renderProfileBtn(); renderProfiles(); if(cur){ const id=cur.id; const s=SONGS.find(x=>x.id===id); if(s) openSong(id,false); else closeSong(); } else renderList(); toast('Usuário: '+p); }
+function switchProfile(p, quiet){ profile=p; store.set('profile',p); overrides=uget('overrides',{}); favs=new Set(uget('favs',[])); custom=uget('custom',[]); playlists=uget('playlists',[]); plCtx=null; rebuild(); if(view==='pl') renderPlaylists();
+  renderProfileBtn(); renderProfiles(); if(cur){ const id=cur.id; const s=SONGS.find(x=>x.id===id); if(s) openSong(id,false); else closeSong(); } else renderList(); if(!quiet) toast('Usuário: '+p); }
 $('#profBtn').onclick=()=>{ renderProfiles(); openPanel('#profPanel'); };
 $('#profAdd').onclick=()=>{ const n=($('#profName').value||'').trim(); if(!n) return; if(profiles.includes(n)) return toast('Esse nome já existe');
   profiles.push(n); store.set('profiles',profiles); $('#profName').value=''; switchProfile(n); };
@@ -722,12 +723,23 @@ function renderPlSearch(){ const q=norm($('#plQ').value.trim()); const R=$('#plR
 $('#plQ').addEventListener('input', renderPlSearch);
 $('#plStart').onclick=()=>{ const it=plEd.items[0]; if(!it) return toast('Adicione músicas primeiro'); closePanels(); openSong(it.id,true,{pl:plEd, idx:0}); };
 $('#plDel').onclick=()=>{ if(!confirm(`Excluir a playlist "${plEd.name}"?`)) return; playlists=playlists.filter(p=>p!==plEd); savePlaylists(); closePanels(); renderPlaylists(); };
+async function packLink(obj){ const json=JSON.stringify(obj);
+  if(window.CompressionStream){ try{ const buf=await new Response(new Blob([json]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer();
+    let bin=''; new Uint8Array(buf).forEach(b=>bin+=String.fromCharCode(b)); return 'z'+btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }catch(e){} }
+  return b64e(json); }
+async function unpackLink(str){ if(str[0]!=='z') return JSON.parse(b64d(str));
+  const bin=atob(str.slice(1).replace(/-/g,'+').replace(/_/g,'/')); const u=Uint8Array.from(bin,c=>c.charCodeAt(0));
+  return JSON.parse(await new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text()); }
+const SHARE_OV=['body','capo','bpm','pad','note','youtube'];
 const b64e = str => btoa(unescape(encodeURIComponent(str))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const b64d = str => decodeURIComponent(escape(atob(str.replace(/-/g,'+').replace(/_/g,'/'))));
 $('#plShare').onclick=async()=>{
   const cs=[]; plEd.items.forEach(it=>{ const s=SONGS.find(x=>x.id===it.id); if(s&&s.custom&&!cs.find(c=>c.id===s.id)) cs.push({id:s.id,title:s.title,artist:s.artist,key:s.key,pad:s.pad,bpm:s.bpm,capo:s.capo,note:s.note,youtube:s.youtube,body:s.body}); });
-  const data={n:plEd.name, d:plEd.date, i:plEd.items.map(it=>[it.id, it.semi||0])}; if(cs.length) data.c=cs;
-  const url=location.origin+location.pathname+'#pl='+b64e(JSON.stringify(data));
+  // músicas da base que o usuário modificou (letra, anotações, capo, BPM…) vão junto
+  const os={}; plEd.items.forEach(it=>{ const s=SONGS.find(x=>x.id===it.id); const o=s&&!s.custom?overrides[s.id]:null; if(!o) return;
+    const q={}; SHARE_OV.forEach(k=>{ if(o[k]!=null) q[k]=o[k]; }); if(Object.keys(q).length) os[s.id]=q; });
+  const data={n:plEd.name, d:plEd.date, i:plEd.items.map(it=>[it.id, it.semi||0]), f:(GS.meta.name||profile)}; if(cs.length) data.c=cs; if(Object.keys(os).length) data.o=os;
+  const url=location.origin+location.pathname+'#pl='+await packLink(data);
   const lines=plEd.items.map((it,i)=>{ const s=SONGS.find(x=>x.id===it.id); return s?`${i+1}. ${s.title} — ${songKeyLabel(s,it.semi)}${bpmOf(s)?' · '+bpmOf(s)+' bpm':''}`:''; }).filter(Boolean);
   const text=`🎵 ${plEd.name}${plEd.date?' ('+fmtDate(plEd.date)+')':''}\n${lines.join('\n')}\n\nAbrir no app: ${url}`;
   if(navigator.share){ try{ await navigator.share({title:plEd.name, text}); return; }catch(e){ if(e.name==='AbortError') return; } }
@@ -753,15 +765,33 @@ $('#addPlBtn').onclick=()=>{ const L=$('#addPlList'); L.innerHTML='';
 $('#addPlCreate').onclick=()=>{ const n=$('#addPlName').value.trim()||'Nova playlist'; const pl={id:'p'+Date.now().toString(36), name:n, date:today(), items:[{id:cur.id, semi}], created:Date.now()}; playlists.push(pl); savePlaylists(); closePanels(); toast(`Playlist "${n}" criada ✔`); };
 /* receiving a shared playlist link */
 function checkSharedPlaylist(){ const m=/#pl=([\w-]+)/.exec(location.hash); if(!m) return false;
-  try{ const d=JSON.parse(b64d(m[1])); history.replaceState({},'',location.pathname);
-    (d.c||[]).forEach(c=>{ if(!SONGS.find(x=>x.id===c.id)){ custom.push({...c, custom:true, padAlt:[]}); } }); uset('custom',custom); rebuild();
-    const pl={id:'p'+Date.now().toString(36), name:d.n||'Playlist recebida', date:d.d||today(), items:(d.i||[]).map(([id,sm])=>({id:String(id), semi:sm||0})).filter(it=>SONGS.find(x=>x.id===it.id)), created:Date.now()};
+  history.replaceState({},'',location.pathname);
+  unpackLink(m[1]).then(receivePlaylist).catch(e=>{ console.error(e); toast('Link de playlist inválido'); });
+  return true; }
+function receivePlaylist(d){
+  try{
+    (d.c||[]).forEach(c=>{ if(!SONGS.find(x=>String(x.id)===String(c.id))){ custom.push({...c, custom:true, padAlt:[]}); } });
+    // músicas modificadas por quem compartilhou
+    const remap={}; let nOv=0, nCopy=0;
+    Object.entries(d.o||{}).forEach(([id,q])=>{ const s=SONGS.find(x=>String(x.id)===String(id)); if(!s||s.custom) return;
+      const mine=overrides[s.id]||{}; const same=SHARE_OV.every(k=>(mine[k]??null)===(q[k]??null));
+      if(same) return;
+      const mineHas=SHARE_OV.some(k=>mine[k]!=null);
+      if(!mineHas){ overrides[s.id]={...mine, ...q}; nOv++; return; }
+      // você já tem sua própria versão: a de quem compartilhou entra como outra versão da música
+      const copy={ id:'u'+Date.now().toString(36)+Math.random().toString(36).slice(2,5), custom:true, title:s.title, artist:s.artist, key:s.key,
+        pad:q.pad||s.pad||'', padAlt:[], bpm:q.bpm||s.bpm||null, capo:q.capo!=null?q.capo:(s.capo||0), note:q.note!=null?q.note:(s.note||''),
+        youtube:q.youtube||s.youtube||'', body:q.body!=null?q.body:s._ob, from:d.f||'' };
+      custom.push(copy); remap[String(s.id)]=copy.id; nCopy++; });
+    if(nOv) saveOverrides();
+    uset('custom',custom); rebuild();
+    const pl={id:'p'+Date.now().toString(36), name:d.n||'Playlist recebida', date:d.d||today(), items:(d.i||[]).map(([id,sm])=>({id:remap[String(id)]||String(id), semi:sm||0})).filter(it=>SONGS.find(x=>String(x.id)===it.id)), created:Date.now()};
     const same=playlists.find(p=>p.name===pl.name && p.date===pl.date);
     if(same && !confirm(`Você já tem "${pl.name}". Substituir pela versão recebida?`)) { setView('pl'); return true; }
     if(same) Object.assign(same,{items:pl.items}); else playlists.push(pl);
-    savePlaylists(); setView('pl'); openPlEditor(same||pl); toast('Playlist recebida e salva para '+profile+' ✔'); }
-  catch(e){ toast('Link de playlist inválido'); }
-  return true; }
+    savePlaylists(); setView('pl'); openPlEditor(same||pl);
+    toast('Playlist recebida e salva para '+profile+' ✔'+(nOv||nCopy?` · ${nOv+nCopy} música(s) com as modificações de ${d.f||'quem enviou'}`:''));
+  }catch(e){ console.error(e); toast('Link de playlist inválido'); } }
 
 
 /* ================= tela cheia (stage) ================= */
@@ -1247,6 +1277,96 @@ document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && 
 
 /* ================= init ================= */
 renderProfileBtn(); renderList(); drawBeats(-1); setView(store.get('view','songs'));
+
+/* ================= conta Google: sincroniza ajustes, medleys, playlists e favoritas ================= */
+// Os dados ficam num arquivo privado do app no Google Drive do usuário (pasta oculta "appDataFolder").
+const GSYNC_FILE='worship-church-sync.json';
+const gcfg = () => (store.get('gClientId','') || (window.WC_CONFIG && window.WC_CONFIG.googleClientId) || '').trim();
+const isSyncKey = k => k==='profiles' || k==='myYtPads' || /^u:.+:(overrides|custom|playlists|favs|padchoice)$/.test(k);
+const GS = { token:null, exp:0, busy:false, timer:0, applying:false, client:null, fileId:null,
+  meta: store.get('gsync', {}) };            // {email, name, ts:{key:ms}, last:ms, merged:bool}
+GS.meta.ts = GS.meta.ts || {};
+function gsSaveMeta(){ try{ localStorage.setItem('wc:gsync', JSON.stringify(GS.meta)); }catch(e){} }
+syncHook = k => { if(GS.applying || !isSyncKey(k)) return; GS.meta.ts[k]=Date.now(); gsSaveMeta(); gsSchedule(); };
+function gsSchedule(){ if(!GS.meta.email) return; clearTimeout(GS.timer); GS.timer=setTimeout(()=>gsSync(false), 2500); }
+function gsLocalKeys(){ const out=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith('wc:')&&isSyncKey(k.slice(3))) out.push(k.slice(3)); } return out; }
+async function gsLoadLib(){ if(window.google && google.accounts && google.accounts.oauth2) return; await loadScript('https://accounts.google.com/gsi/client'); }
+function gsToken(interactive){ return new Promise(async (ok,err)=>{
+  if(GS.token && Date.now()<GS.exp-60000) return ok(GS.token);
+  const cid=gcfg(); if(!cid) return err(new Error('noclient'));
+  try{ await gsLoadLib(); }catch(e){ return err(new Error('Sem conexão com o Google')); }
+  GS.client = google.accounts.oauth2.initTokenClient({ client_id:cid,
+    scope:'https://www.googleapis.com/auth/drive.appdata openid email profile',
+    callback:r=>{ if(r.error) return err(new Error(r.error)); GS.token=r.access_token; GS.exp=Date.now()+(r.expires_in||3600)*1000; ok(GS.token); },
+    error_callback:e=>err(new Error(e && e.type || 'cancelado')) });
+  GS.client.requestAccessToken({ prompt: interactive ? (GS.meta.email?'':'consent') : '', hint: GS.meta.email||undefined });
+}); }
+async function gapi(path, opt={}){ const t=await gsToken(false);
+  const r=await fetch(path.startsWith('http')?path:'https://www.googleapis.com'+path, {...opt, headers:{Authorization:'Bearer '+t, ...(opt.headers||{})}});
+  if(r.status===401){ GS.token=null; throw new Error('Sessão do Google expirou — toque em Sincronizar'); }
+  if(!r.ok) throw new Error('Google Drive: erro '+r.status); return r; }
+async function gsPull(){ const q=encodeURIComponent(`name='${GSYNC_FILE}'`);
+  const r=await (await gapi(`/drive/v3/files?spaces=appDataFolder&q=${q}&fields=files(id,modifiedTime)`)).json();
+  const f=(r.files||[])[0]; if(!f){ GS.fileId=null; return null; } GS.fileId=f.id;
+  return await (await gapi(`/drive/v3/files/${f.id}?alt=media`)).json(); }
+async function gsPush(doc){ const body=JSON.stringify(doc);
+  if(GS.fileId){ await gapi(`/upload/drive/v3/files/${GS.fileId}?uploadType=media`, {method:'PATCH', headers:{'Content-Type':'application/json'}, body}); return; }
+  const fd=new FormData(); fd.append('metadata', new Blob([JSON.stringify({name:GSYNC_FILE, parents:['appDataFolder']})],{type:'application/json'})); fd.append('file', new Blob([body],{type:'application/json'}));
+  const r=await (await gapi('/upload/drive/v3/files?uploadType=multipart&fields=id', {method:'POST', body:fd})).json(); GS.fileId=r.id; }
+// junta listas pelo id (usado só na primeira vez que um aparelho entra na conta, para não perder nada de nenhum lado)
+function gsUnion(a,b){ if(Array.isArray(a)&&Array.isArray(b)){ if(a.every(x=>x&&typeof x==='object'&&'id' in x)&&b.every(x=>x&&typeof x==='object'&&'id' in x)){ const m=new Map(); b.forEach(x=>m.set(String(x.id),x)); a.forEach(x=>m.set(String(x.id),x)); return [...m.values()]; } return [...new Set(b.concat(a))]; }
+  if(a&&b&&typeof a==='object'&&typeof b==='object') return {...b, ...a}; return a!==undefined?a:b; }
+function gsMerge(remote){ // devolve {doc, changedLocal}
+  const rd=(remote&&remote.data)||{}, rt=(remote&&remote.ts)||{}; const lt=GS.meta.ts; const first=!GS.meta.merged;
+  const keys=new Set([...Object.keys(rd), ...gsLocalKeys(), ...Object.keys(lt)]); const data={}, ts={}; const apply={};
+  keys.forEach(k=>{ const lv=store.get(k, undefined), rv=rd[k]; const tl=lt[k]||0, tr=rt[k]||0;
+    let v, t;
+    if(first && lv!==undefined && rv!==undefined){ v=gsUnion(lv,rv); t=Date.now(); }
+    else if(tr>tl){ v=rv; t=tr; } else { v=lv; t=tl; }
+    if(k==='profiles' && Array.isArray(v) && Array.isArray(lv)) v=[...new Set(v.concat(first?lv:[]))];
+    if(v!==undefined){ data[k]=v; ts[k]=t; }
+    if(JSON.stringify(v)!==JSON.stringify(lv)) apply[k]=v; });
+  return {doc:{v:1, app:'worship-church', saved:Date.now(), data, ts}, apply};
+}
+async function gsSync(interactive){
+  if(GS.busy) return; GS.busy=true; gsUI('Sincronizando…');
+  try{
+    await gsToken(interactive);
+    if(!GS.meta.email){ try{ const u=await (await gapi('https://www.googleapis.com/oauth2/v3/userinfo')).json(); GS.meta.email=u.email; GS.meta.name=u.name||''; gsSaveMeta(); }catch(e){} }
+    const remote=await gsPull(); const {doc, apply}=gsMerge(remote);
+    const ks=Object.keys(apply);
+    if(ks.length){ GS.applying=true; ks.forEach(k=>{ if(apply[k]===undefined) store.del(k); else store.set(k, apply[k]); }); GS.applying=false;
+      Object.assign(GS.meta.ts, doc.ts); gsReloadState(); }
+    else Object.assign(GS.meta.ts, doc.ts);
+    if(!remote || JSON.stringify(remote.data)!==JSON.stringify(doc.data)) await gsPush(doc);
+    GS.meta.merged=true; GS.meta.last=Date.now(); gsSaveMeta(); gsUI();
+    if(interactive) toast(ks.length?'Sincronizado com a conta Google ✔ (dados de outro aparelho carregados)':'Sincronizado com a conta Google ✔');
+  }catch(e){ GS.applying=false; const m=e.message==='noclient'?'Falta configurar o login do Google (veja abaixo)':(/popup_closed|cancel|access_denied/.test(e.message)?'Login cancelado':e.message);
+    gsUI(m); if(interactive) toast(m); }
+  finally{ GS.busy=false; } }
+function gsReloadState(){ profiles=store.get('profiles',profiles)||profiles; if(!profiles.includes(profile)) profile=profiles[0];
+  myYt=store.get('myYtPads',{}); switchProfile(profile, true); }
+function gsUI(msg){ const box=$('#gBox'); if(!box) return; const on=!!GS.meta.email;
+  $('#gState').textContent = on ? `Conectado: ${GS.meta.email}` : 'Não conectado';
+  $('#gInfo').textContent = msg || (on ? (GS.meta.last?'Última sincronização: '+new Date(GS.meta.last).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'') : 'Entre com sua conta Google para levar ajustes, letras editadas, anotações, medleys, playlists e favoritas para outros aparelhos.');
+  $('#gLogin').style.display = on?'none':''; $('#gSyncNow').style.display = on?'':'none'; $('#gLogout').style.display = on?'':'none';
+  $('#gCfg').style.display = gcfg() ? 'none' : ''; $('#profBtn').classList.toggle('synced', on); }
+$('#gLogin').onclick=()=>gsSync(true);
+$('#gSyncNow').onclick=()=>gsSync(true);
+$('#gLogout').onclick=()=>{ if(!confirm('Sair da conta Google neste aparelho? Seus dados continuam aqui e na conta.')) return;
+  try{ if(GS.token && window.google) google.accounts.oauth2.revoke(GS.token,()=>{}); }catch(e){}
+  GS.token=null; GS.fileId=null; GS.meta={ts:GS.meta.ts}; gsSaveMeta(); gsUI(); toast('Saiu da conta Google'); };
+$('#gCidSave').onclick=()=>{ const v=$('#gCid').value.trim(); if(!/\.apps\.googleusercontent\.com$/.test(v)) return toast('Cole o "ID do cliente" que termina em .apps.googleusercontent.com');
+  store.set('gClientId', v); gsUI(); toast('ID salvo — agora toque em Entrar com Google'); };
+gsUI();
+// ao abrir o app (e ao voltar para ele), puxa o que mudou em outros aparelhos
+if(GS.meta.email && gcfg()){
+  gsLoadLib().catch(()=>{});
+  const kick=()=>{ document.removeEventListener('pointerdown',kick,true); gsSync(false); };
+  document.addEventListener('pointerdown', kick, true);   // o Google pede um toque na tela para renovar o acesso
+  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible' && GS.token) gsSync(false); });
+}
+
 if(!checkSharedPlaylist()){ const m=/^#m([\w]+)/.exec(location.hash); if(m){ history.replaceState({id:m[1]},'',location.hash); openSong(m[1],false); } }
 { const sp=document.getElementById('splash'), t0=performance.timing?performance.timing.navigationStart:Date.now(); if(sp) setTimeout(()=>{ sp.classList.add('hide'); setTimeout(()=>sp.remove(),600); }, Math.max(0, 900-(Date.now()-t0))); }
 if('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});

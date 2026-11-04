@@ -27,6 +27,8 @@ App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** —
 - **Playlist ao vivo**: botão "Próxima", e chaves "Pad segue / Metrônomo segue" — ao trocar de música eles continuam tocando no novo tom/BPM (ou param, se desligado).
 - **Favoritas** por usuário, e lista **agrupada por artista**.
 - **Importar PowerPoint** (.pptx): lê o texto e as imagens dos slides; vários slides viram várias músicas.
+- **Conta Google** (no botão do usuário): entre com o Google para que ajustes, letras editadas, anotações, medleys, playlists e favoritas apareçam em todos os seus aparelhos. Os dados ficam numa pasta privada do app no seu Google Drive.
+- **Compartilhar playlist** leva junto as músicas criadas e as modificações (letra, anotações, capo, BPM) de quem enviou.
 - **Instalar como app**: aviso na primeira vez e botão ⬇ no topo.
 - Metrônomo com sons de **click, cowbell, bloco sonoro e bip**.
 - **Capotraste** (− / + ao lado do tom): ao mudar a casa, os acordes da cifra mudam para as formas certas e a música continua soando no mesmo tom (ex.: tom G com capo 2 → acordes em F).
@@ -69,3 +71,10 @@ Colunas de Músicas: ID, nome padronizado (*Música - Artista*), música, artist
 3. Faça o commit e atualize a planilha do Google Drive.
 
 Os nomes são padronizados automaticamente (`tools/nomes.py`): primeira letra maiúscula, sem espaços sobrando, e grafias diferentes do mesmo artista unificadas.
+
+## Login com Google (configuração única)
+1. Em https://console.cloud.google.com crie um projeto (ex.: "Worship Church").
+2. **APIs e serviços → Biblioteca**: ative a **Google Drive API**.
+3. **Tela de consentimento OAuth**: tipo *Externo*, nome do app "Worship Church", seu e-mail; adicione o escopo `.../auth/drive.appdata`; publique o app (Em produção).
+4. **Credenciais → Criar credenciais → ID do cliente OAuth → Aplicativo da Web**. Em *Origens JavaScript autorizadas* coloque `https://igordnavarro.github.io`.
+5. Copie o **ID do cliente** (termina em `.apps.googleusercontent.com`) e coloque em `config.js` (`googleClientId`).
