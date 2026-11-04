@@ -27,6 +27,7 @@ App web para ministérios de louvor com **cifras, tom, BPM e pads de fundo** —
 - **Playlist ao vivo**: botão "Próxima", e chaves "Pad segue / Metrônomo segue" — ao trocar de música eles continuam tocando no novo tom/BPM (ou param, se desligado).
 - **Favoritas** por usuário, e lista **agrupada por artista**.
 - **Importar PowerPoint** (.pptx): lê o texto e as imagens dos slides; vários slides viram várias músicas.
+- **⚙ Configurações → Pads por tom**: escolha o timbre (Ambiente, Soft Pad, Clássico, Guitarra, Worship, Shimmer, Suave…) de cada tom; dentro da música, "Timbre do pad nesta música" salva a escolha só para ela. Tudo fica no seu usuário (e na conta Google). Botão para baixar os 44 pads e usar sem internet.
 - **Conta Google** (no botão do usuário): entre com o Google para que ajustes, letras editadas, anotações, medleys, playlists e favoritas apareçam em todos os seus aparelhos. Os dados ficam numa pasta privada do app no seu Google Drive.
 - **Compartilhar playlist** leva junto as músicas criadas e as modificações (letra, anotações, capo, BPM) de quem enviou.
 - **Instalar como app**: aviso na primeira vez e botão ⬇ no topo.

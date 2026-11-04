@@ -115,6 +115,13 @@ body.song-open #song{display:block}
 .gtop{display:flex;align-items:center;gap:10px}.gtop small{display:block;color:var(--muted);font-size:12.5px}
 .gbtns{display:flex;flex-wrap:wrap;gap:8px}.gbox details{margin-top:10px}.gbox summary{cursor:pointer;font-size:13px;color:var(--muted)}
 #profBtn.synced{box-shadow:0 0 0 2px var(--bg),0 0 0 4px #1f9d55}
+.fullsel{width:100%;max-width:100%;min-height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);padding:0 10px;font:inherit}
+.row .fullsel{max-width:360px}.row.col .fullsel{max-width:none}
+.setkeys{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 14px}
+.setkeys .pfhead{grid-column:1/-1;margin-top:8px}
+.setrow{display:flex;align-items:center;gap:8px}.setrow .kk{min-width:42px}.setrow select{flex:1;min-width:0;min-height:38px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--text);padding:0 6px;font:inherit;font-size:14px}
+.sethd{margin:6px 0 8px;font-size:16px}
+.linkbtn{border:0;background:none;color:var(--accent);font:inherit;font-weight:700;padding:0;cursor:pointer;text-decoration:underline}
 .fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px;color:var(--muted)}
 .fact b{color:var(--text);font-family:var(--mono);font-weight:600;margin-left:4px}
 .notebox{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--note-bg);color:var(--note-ink);font-size:14px;line-height:1.45}
@@ -420,6 +427,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
     <div class="top-title"><b id="tTitle"></b><span id="tArtist"></span></div>
     <div class="spacer"></div>
     <button class="icon-btn install-btn" title="Instalar como app" aria-label="Instalar como app" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
+    <button class="icon-btn" id="setBtn" aria-label="Configurações" title="Configurações"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
     <button class="icon-btn prof" id="profBtn" aria-label="Usuário">P</button>
     <button class="icon-btn" id="themeBtn" aria-label="Alternar tema claro/escuro" title="Tema claro/escuro">
       <svg id="icoMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -545,6 +553,7 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
   <div class="card">
     <h3>Pad de fundo</h3>
     <div class="row"><div class="l">Nota do pad<small>Acompanha o tom escolhido na cifra</small></div><div class="seg" id="padChoice"></div></div>
+    <div class="row col"><div class="l">Timbre do pad nesta música<small>Fica salvo nesta música para o seu usuário. Para todas as músicas de um tom, use ⚙ Configurações.</small></div><select id="padTimbre" class="fullsel"></select></div>
     <div class="row padsrc-row"><div class="l">Som do pad<small class="yt-only">Vídeos do YouTube no tom da música — precisa de internet</small><small class="synth-only">Gerado no aparelho — funciona sem internet</small><small class="files-only">Pads do app + seus arquivos, tocando em loop — funciona sem internet</small></div><div class="seg wrap" id="padSrcSeg"><button data-v="files">Pads offline</button><button data-v="mine">Meu YouTube</button><button data-v="deep">YouTube · Deep</button><button data-v="shimmer">YouTube · Shimmer</button><button data-v="synth">Sintetizado</button></div></div>
     <div class="row files-only col"><div class="l">Pads offline<small id="padFileInfo"></small></div>
       <div id="padFileList" class="pflist"></div>
@@ -559,6 +568,18 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
   </div>
 </div>
 
+
+<div class="panel big" id="setPanel" role="dialog" aria-modal="true" aria-label="Configurações">
+  <div class="card">
+    <div class="ed-head"><h3>Configurações</h3><button class="icon-btn" data-close aria-label="Fechar">✕</button></div>
+    <h4 class="sethd">Pads por tom</h4>
+    <p class="src" style="margin-top:-4px">Escolha o timbre de pad para cada tom do pad (o tom mostrado em “Pad” na música). Vale para todas as músicas daquele tom e fica salvo no seu usuário. Se você escolher outro timbre dentro de uma música, o da música vale primeiro. ▶ ouve uma amostra.</p>
+    <div class="row"><div class="l">Timbre padrão<small>Usado nos tons em "Padrão"</small></div><select id="setFam" class="fullsel"></select></div>
+    <div id="setKeys" class="pflist setkeys"></div>
+    <div class="row col"><div class="l">Usar sem internet<small id="setDlInfo"></small></div><button class="btn primary" id="setDl">⬇ Baixar todos os pads para usar sem internet</button></div>
+    <div class="ed-actions"><button class="btn" id="setReset">Voltar tudo ao padrão</button><span class="spacer"></span><button class="btn primary" data-close>Pronto</button></div>
+  </div>
+</div>
 
 <div class="panel" id="profPanel" role="dialog" aria-modal="true" aria-label="Usuários">
   <div class="card">
@@ -701,8 +722,8 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 <div class="toast" id="toast" role="status"></div>
 <div class="ytbox" id="ytBox"><div id="ytPlayer"></div><div class="ytbar"><span id="ytKey">Pad</span><button id="ytStop" aria-label="Parar pad">■</button></div></div>
 
-<script src="config.js?v=18"></script>
-<script src="songs.js?v=18"></script>
-<script src="app.js?v=18"></script>
+<script src="config.js?v=19"></script>
+<script src="songs.js?v=19"></script>
+<script src="app.js?v=19"></script>
 </body>
 </html>

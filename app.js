@@ -123,10 +123,10 @@ function renderProfiles(){
     row.querySelector('.av').textContent=(p[0]||'?').toUpperCase(); row.querySelector('.nm').textContent=p;
     row.querySelector('.pick').onclick=()=>switchProfile(p);
     row.querySelector('.ren').onclick=()=>{ const n=(prompt('Novo nome do usuário:', p)||'').trim(); if(!n||n===p) return; if(profiles.includes(n)) return toast('Já existe um usuário com esse nome');
-      ['overrides','custom','padchoice','playlists','favs'].forEach(k=>{ const v=store.get('u:'+p+':'+k,null); if(v!=null){ store.set('u:'+n+':'+k,v); store.del('u:'+p+':'+k);} });
+      ['overrides','custom','padchoice','playlists','favs','padcfg','padsong'].forEach(k=>{ const v=store.get('u:'+p+':'+k,null); if(v!=null){ store.set('u:'+n+':'+k,v); store.del('u:'+p+':'+k);} });
       profiles=profiles.map(x=>x===p?n:x); store.set('profiles',profiles); if(profile===p){ profile=n; store.set('profile',n);} renderProfiles(); renderProfileBtn(); };
     const d=row.querySelector('.del'); if(d) d.onclick=()=>{ if(!confirm(`Excluir o usuário "${p}" e tudo que ele salvou neste aparelho?`)) return;
-      ['overrides','custom','padchoice','playlists','favs'].forEach(k=>{ store.del('u:'+p+':'+k); if(syncHook) syncHook('u:'+p+':'+k); }); profiles=profiles.filter(x=>x!==p); store.set('profiles',profiles);
+      ['overrides','custom','padchoice','playlists','favs','padcfg','padsong'].forEach(k=>{ store.del('u:'+p+':'+k); if(syncHook) syncHook('u:'+p+':'+k); }); profiles=profiles.filter(x=>x!==p); store.set('profiles',profiles);
       if(profile===p) switchProfile(profiles[0]); else renderProfiles(); };
     L.appendChild(row);
   });
@@ -137,7 +137,7 @@ $('#profBtn').onclick=()=>{ renderProfiles(); openPanel('#profPanel'); };
 $('#profAdd').onclick=()=>{ const n=($('#profName').value||'').trim(); if(!n) return; if(profiles.includes(n)) return toast('Esse nome já existe');
   profiles.push(n); store.set('profiles',profiles); $('#profName').value=''; switchProfile(n); };
 $('#profName').addEventListener('keydown',e=>{ if(e.key==='Enter') $('#profAdd').click(); });
-$('#exportBtn').onclick=()=>{ const data={app:'worship-church', v:2, profile, overrides, custom, playlists, favs:[...favs], padchoice:uget('padchoice',{}), exported:new Date().toISOString()};
+$('#exportBtn').onclick=()=>{ const data={app:'worship-church', v:2, profile, overrides, custom, playlists, favs:[...favs], padchoice:uget('padchoice',{}), padcfg:uget('padcfg',null), padsong:uget('padsong',{}), exported:new Date().toISOString()};
   download(`worship-church-${slug(profile)}.json`, JSON.stringify(data,null,1), 'application/json'); };
 $('#importBtn').onclick=()=>$('#importFile').click();
 $('#importFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(!f) return;
@@ -146,7 +146,7 @@ $('#importFile').onchange=async e=>{ const f=e.target.files[0]; e.target.value='
     overrides={...overrides, ...(d.overrides||{})}; const ids=new Set(custom.map(c=>c.id)); (d.custom||[]).forEach(c=>{ if(!ids.has(c.id)) custom.push(c); });
     (d.favs||[]).forEach(x=>favs.add(x)); uset('favs',[...favs]);
     const pids=new Set(playlists.map(p=>p.id)); (d.playlists||[]).forEach(p=>{ if(!pids.has(p.id)) playlists.push(p); }); savePlaylists();
-    uset('overrides',overrides); uset('custom',custom); uset('padchoice',{...uget('padchoice',{}), ...(d.padchoice||{})}); rebuild(); renderList(); toast('Dados importados ✔');
+    uset('overrides',overrides); uset('custom',custom); uset('padchoice',{...uget('padchoice',{}), ...(d.padchoice||{})}); if(d.padcfg) uset('padcfg',d.padcfg); if(d.padsong) uset('padsong',{...uget('padsong',{}), ...d.padsong}); rebuild(); renderList(); toast('Dados importados ✔');
   }catch(err){ toast('Arquivo inválido'); } };
 
 /* ================= library ================= */
@@ -1069,7 +1069,7 @@ function padRoot(){ if(!cur) return null; const o=ov(cur);
   if(o.pad){ const p=parseKey(o.pad); return p?{r:p.r+semi,minor:p.minor}:null; }
   const l=padList(cur), ch=uget('padchoice',{})[cur.id]||0; const b=parseKey(l[ch]||l[0]); return b?{r:b.r+semi,minor:b.minor}:null; }
 function padNote(){ const p=padRoot(); return p?keyName(p.r,p.minor):''; }
-function updatePadLabel(){ $('#padVal').textContent=padNote()||'—'; $('#padBtn').disabled=!padRoot();
+function updatePadLabel(){ $('#padVal').textContent=padNote()||'—'; $('#padBtn').disabled=!padRoot(); if(typeof renderSongTimbre==='function') renderSongTimbre();
   const pc=$('#padChoice'), o=ov(cur); let l=padList(cur); if(o.pad) l=[o.pad];
   const ch=o.pad?0:(uget('padchoice',{})[cur.id]||0);
   pc.innerHTML=l.map((p,i)=>{ const k=parseKey(p); return `<button data-v="${i}" aria-pressed="${i===ch}">${k?keyName(k.r+semi,k.minor):p}</button>`; }).join('')||'<span class="src">—</span>';
@@ -1150,19 +1150,35 @@ const padDB = { db:null,
   async put(rec){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').put(rec); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); },
   async del(id){ const db=await this.open(); return new Promise((ok,err)=>{ const t=db.transaction('pads','readwrite'); t.objectStore('pads').delete(id); t.oncomplete=()=>ok(); t.onerror=()=>err(t.error); }); } };
 /* pads que já vêm no app (pasta pads/, ficam guardados para uso offline) — tônica+5ª servem p/ maior e menor */
-const BUILTIN_PADS=[['A',9,false],['B',11,false],['Cs',1,false],['D',2,false],['E',4,false],['G',7,false],
-  ['Cm',0,true],['Em-2',4,true,'Em'],['Em',4,true,'Em (variação)'],['Bm',11,true]]
-  .map(([f,root,minor,nm])=>({id:'app:'+f, name:'Pad '+(nm||(f==='Cs'?'C#':f)), root, minor, builtin:true, url:'pads/'+f+'.m4a'}));
+const PAD_FAMS={ambiente:'Ambiente', soft:'Soft Pad', classico:'Clássico', guitarra:'Guitarra', worship:'Worship (longo)', shimmer:'Shimmer', suave:'Suave', despertar:'Som do Despertar', extra:'Extra', meus:'Meus áudios'};
+const KIDX={C:0,'C#':1,D:2,'D#':3,E:4,F:5,'F#':6,G:7,'G#':8,A:9,'A#':10,B:11};
+const BUILTIN_PADS=[
+  ...[['A','ambiente','A'],['B','ambiente','B'],['Cs','ambiente','C#'],['D','ambiente','D'],['E','ambiente','E'],['G','ambiente','G'],
+      ['Cm','soft','Cm'],['Em-2','soft','Em'],['Em','soft','Em','variação'],['Bm','soft','Bm']].map(([f,fam,k,x])=>({f,fam,k,x})),
+  ...['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'].map(k=>({fam:'classico',k})),
+  ...['D','E','F#','G','G#','Cm','C#m','D#m','Em','Fm','F#m','Am','Bm'].map(k=>({fam:'guitarra',k})),
+  ...['E','Em','G'].map(k=>({fam:'worship',k})), {fam:'shimmer',k:'C'},
+  ...['A','B','Em'].map(k=>({fam:'suave',k})), {fam:'despertar',k:'Bm'}, {fam:'extra',k:'G#'} ]
+  .map(({f,fam,k,x})=>{ const minor=/m$/.test(k), rk=k.replace(/m$/,''); const file=f||(fam+'-'+k.replace(/#/g,'s'));
+    return {id:'app:'+file, fam, name:PAD_FAMS[fam]+' · '+k+(x?' ('+x+')':''), root:KIDX[rk], minor, builtin:true, url:'pads/'+file+'.m4a'}; });
 let userPadFiles=[], padFiles=BUILTIN_PADS.slice(); const bufCache=new Map();
-async function loadPadFiles(){ try{ userPadFiles=await padDB.all(); }catch(e){ userPadFiles=[]; } padFiles=userPadFiles.concat(BUILTIN_PADS); renderPadFiles(); }
+async function loadPadFiles(){ try{ userPadFiles=await padDB.all(); }catch(e){ userPadFiles=[]; } userPadFiles.forEach(f=>{ f.fam='meus'; }); padFiles=userPadFiles.concat(BUILTIN_PADS); renderPadFiles(); if($('#setPanel').classList.contains('open')) renderSettings(); }
 async function padBytes(f){ if(f.blob) return f.blob.arrayBuffer(); const r=await fetch(f.url); if(!r.ok) throw new Error('pad não encontrado'); return r.arrayBuffer(); }
 async function padBuffer(f){ let b=bufCache.get(f.id); if(!b){ b=await ctx().decodeAudioData(await padBytes(f)); bufCache.set(f.id,b); } return b; }
-function pickPadFile(r, minor){ r=mod12(r); const list=padFiles.filter(f=>f.root!=null); if(!list.length) return padFiles[0]?{f:padFiles[0],shift:0}:null;
-  const fav=(prefs.padPick||{})[r+(minor?'m':'')]; const favF=fav && list.find(f=>f.id===fav); if(favF) return {f:favF, shift:0};
-  // menor distância (ajuste de afinação) + evitar pad menor em música maior; arquivos do usuário têm preferência
-  let best=null; list.forEach(f=>{ const d=normSemi(r-f.root); let sc=Math.abs(d)*10;
-    if(f.minor){ sc+= minor ? -2 : 25; } if(!f.builtin) sc-=1;
-    if(!best||sc<best.sc) best={f,shift:d,sc}; });
+/* escolha do timbre: música (do usuário) → configuração do tom → timbre padrão → automático */
+const padCfg = () => uget('padcfg', {fam:'', keys:{}});
+const padKeyName = (r,minor) => SHARP[mod12(r)]+(minor?'m':'');
+function bestIn(list, r, minor){ let best=null; list.forEach(f=>{ if(f.root==null) return; const d=normSemi(r-f.root); let sc=Math.abs(d)*10;
+    if(f.minor){ sc+= minor ? -2 : 25; } else if(minor) sc+=1; if(f.fam==='meus') sc-=1;
+    if(!best||sc<best.sc) best={f,shift:d,sc}; }); return best; }
+function resolvePadChoice(v, r, minor){ if(!v) return null;
+  if(v.startsWith('id:')){ const f=padFiles.find(x=>x.id===v.slice(3)); return f&&f.root!=null ? {f, shift:normSemi(r-f.root)} : null; }
+  if(v.startsWith('fam:')){ return bestIn(padFiles.filter(x=>x.fam===v.slice(4)), r, minor); } return null; }
+function pickPadFile(r, minor, songId){ r=mod12(r); const list=padFiles.filter(f=>f.root!=null); if(!list.length) return padFiles[0]?{f:padFiles[0],shift:0}:null;
+  const sid = songId!==undefined ? songId : (cur&&cur.id); const cfg=padCfg();
+  const pick = (sid!=null && resolvePadChoice(uget('padsong',{})[sid], r, minor)) || resolvePadChoice(cfg.keys[padKeyName(r,minor)], r, minor) || resolvePadChoice(cfg.fam, r, minor);
+  if(pick) return pick;
+  let best=bestIn(list, r, minor);
   return best; }
 const filePad={ on:false, voice:null,
   /* toca em loop sem fim: trechos que se sobrepõem com crossfade suave, até apertar pausa */
@@ -1214,20 +1230,58 @@ function renderPadFiles(){ const L=$('#padFileList'); if(!L) return; L.innerHTML
   const covered=new Set(padFiles.map(f=>f.root));
   const head=t=>{ const h=document.createElement('div'); h.className='src pfhead'; h.textContent=t; L.appendChild(h); };
   const rowFor=f=>{ const row=document.createElement('div'); row.className='pfrow'+(f.builtin?' builtin':'');
-    const pk=(prefs.padPick||{})[f.root+(f.minor?'m':'')]===f.id;
-    row.innerHTML=(f.builtin?`<b class="kk">${keyName(f.root,!!f.minor)}</b>`:`<select>${keySelectHTML(f.root)}</select>`)+`<span class="nm"></span><span class="src">${f.builtin?'no app':(f.size/1048576).toFixed(1)+' MB'}</span><button class="mini star" aria-label="Usar sempre este para ${keyName(f.root??0,!!f.minor)}" aria-pressed="${pk}" title="Usar sempre este neste tom">${pk?'★':'☆'}</button><button class="mini" aria-label="Ouvir">▶</button>`+(f.builtin?'':`<button class="mini" aria-label="Excluir">✕</button>`);
+    row.innerHTML=(f.builtin?`<b class="kk">${keyName(f.root,!!f.minor)}</b>`:`<select>${keySelectHTML(f.root)}</select>`)+`<span class="nm"></span><span class="src">${f.builtin?'no app':(f.size/1048576).toFixed(1)+' MB'}</span><button class="mini" aria-label="Ouvir">▶</button>`+(f.builtin?'':`<button class="mini" aria-label="Excluir">✕</button>`);
     row.querySelector('.nm').textContent=f.name;
     const sel=row.querySelector('select'); if(sel) sel.onchange=async e=>{ f.root=e.target.value===''?null:+e.target.value; await padDB.put(f); renderPadFiles(); if(filePad.on) filePad.retune(); };
-    const [star,play,del]=row.querySelectorAll('button');
-    star.onclick=()=>{ if(f.root==null) return toast('Escolha o tom do arquivo primeiro'); prefs.padPick=prefs.padPick||{}; const k=f.root+(f.minor?'m':''); if(prefs.padPick[k]===f.id) delete prefs.padPick[k]; else prefs.padPick[k]=f.id; savePrefs(); renderPadFiles(); if(filePad.on) filePad.retune(); };
-    play.onclick=async()=>{ const a=ctx(); try{ const buf=await padBuffer(f); const s=a.createBufferSource(); s.buffer=buf; const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(prefs.pvol,a.currentTime+0.5); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+4); s.connect(g); g.connect(master); s.start(a.currentTime, Math.min(5,buf.duration/3)); s.stop(a.currentTime+4.1); }catch(e){ toast('Não consegui tocar este arquivo'); } };
+    const [play,del]=row.querySelectorAll('button');
+    play.onclick=()=>previewPad(f,0);
     if(del) del.onclick=async()=>{ if(!confirm('Excluir o áudio "'+f.name+'"?')) return; await padDB.del(f.id); bufCache.delete(f.id); loadPadFiles(); };
     L.appendChild(row); };
-  head('Pads que vêm no app (funcionam offline)'); BUILTIN_PADS.forEach(rowFor);
+  { const c=document.createElement('div'); c.className='src pfhead'; c.innerHTML='O app tem '+BUILTIN_PADS.length+' pads em '+(Object.keys(PAD_FAMS).length-1)+' timbres. Escolha o timbre de cada tom em <button class="linkbtn" id="padGoSet">⚙ Configurações</button>.'; L.appendChild(c); c.querySelector('button').onclick=()=>{ closePanels(); openSettings(); }; }
   head('Meus áudios'); if(!userPadFiles.length){ const e=document.createElement('div'); e.className='src'; e.textContent='Nenhum ainda. Adicione MP3/M4A/WAV — ficam guardados neste aparelho e têm preferência sobre os do app.'; L.appendChild(e); }
   userPadFiles.slice().sort((a,b)=>(a.root??99)-(b.root??99)).forEach(rowFor);
-  const miss=SHARP.map((n,i)=>i).filter(i=>!covered.has(i)); $('#padFileInfo').textContent = (miss.length ? `Tons sem arquivo (${miss.map(i=>keyName(i,false)).join(', ')}) usam o mais próximo com a afinação ajustada.` : 'Todos os 12 tons cobertos ✔')+' O pad toca em loop até você pausar.';
+  $('#padFileInfo').textContent='O pad toca em loop até você pausar. Tons sem arquivo no timbre escolhido usam o mais próximo com a afinação ajustada.';
 }
+let pvNode=null;
+async function previewPad(f, shift){ const a=ctx(); try{ if(pvNode){ try{ pvNode.stop(); }catch(e){} } const buf=await padBuffer(f); const s=a.createBufferSource(); s.buffer=buf; s.playbackRate.value=Math.pow(2,(shift||0)/12);
+    const g=a.createGain(); g.gain.setValueAtTime(0.0001,a.currentTime); g.gain.exponentialRampToValueAtTime(Math.max(0.05,prefs.pvol),a.currentTime+0.5); g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+5); s.connect(g); g.connect(master);
+    s.start(a.currentTime, Math.min(5,buf.duration/3)); s.stop(a.currentTime+5.1); pvNode=s; }catch(e){ toast('Não consegui tocar este pad'+(navigator.onLine?'':' (sem internet e ainda não baixado)')); } }
+/* opções de timbre para um tom: arquivos do mesmo tom primeiro, depois timbres (ajustados) */
+function padOptionsHTML(r, minor, val, first){ const fams=Object.keys(PAD_FAMS).filter(fm=>padFiles.some(f=>f.fam===fm));
+  let h=`<option value="">${first}</option><optgroup label="Timbre (o app escolhe o arquivo mais próximo)">`;
+  fams.forEach(fm=>{ const b=bestIn(padFiles.filter(f=>f.fam===fm), r, minor); if(!b) return; const adj=(b.shift?` (ajustado ${b.shift>0?'+':''}${b.shift})`:'')+(b.f.minor&&!minor?' (pad menor)':'');
+    h+=`<option value="fam:${fm}" ${val==='fam:'+fm?'selected':''}>${PAD_FAMS[fm]}${adj}</option>`; });
+  h+='</optgroup><optgroup label="Arquivo específico">';
+  padFiles.filter(f=>f.root!=null).map(f=>({f,d:normSemi(r-f.root)})).sort((a,b)=>Math.abs(a.d)-Math.abs(b.d)||(a.f.minor!==minor)-(b.f.minor!==minor)).forEach(({f,d})=>{
+    h+=`<option value="id:${esc(f.id)}" ${val==='id:'+f.id?'selected':''}>${esc(f.name)}${d?` (ajustado ${d>0?'+':''}${d})`:''}</option>`; });
+  return h+'</optgroup>'; }
+function openSettings(){ renderSettings(); openPanel('#setPanel'); }
+function renderSettings(){ const cfg=padCfg();
+  $('#setFam').innerHTML='<option value="">Automático (o mais parecido com o tom)</option>'+Object.keys(PAD_FAMS).filter(fm=>padFiles.some(f=>f.fam===fm)).map(fm=>`<option value="fam:${fm}" ${cfg.fam==='fam:'+fm?'selected':''}>${PAD_FAMS[fm]} (${padFiles.filter(f=>f.fam===fm).length} tons)</option>`).join('');
+  const L=$('#setKeys'); L.innerHTML='';
+  [false,true].forEach(minor=>{ const h=document.createElement('div'); h.className='src pfhead'; h.textContent=minor?'Tons menores':'Tons maiores'; L.appendChild(h);
+    for(let r=0;r<12;r++){ const k=padKeyName(r,minor); const row=document.createElement('div'); row.className='pfrow setrow';
+      row.innerHTML=`<b class="kk">${keyName(r,minor)}</b><select aria-label="Pad para ${keyName(r,minor)}">${padOptionsHTML(r,minor,cfg.keys[k]||'','Padrão')}</select><button class="mini" aria-label="Ouvir">▶</button>`;
+      row.querySelector('select').onchange=e=>{ const c=padCfg(); if(e.target.value) c.keys[k]=e.target.value; else delete c.keys[k]; uset('padcfg',c); toast('Pad de '+keyName(r,minor)+' salvo para '+profile); if(filePad.on) filePad.retune(); };
+      row.querySelector('button').onclick=()=>{ const p=pickPadFile(r,minor,null); if(p) previewPad(p.f,p.shift); };
+      L.appendChild(row); } });
+  updateSetDl(); }
+$('#setFam').onchange=e=>{ const c=padCfg(); c.fam=e.target.value; uset('padcfg',c); renderSettings(); if(filePad.on) filePad.retune(); toast('Timbre padrão salvo para '+profile); };
+$('#setReset').onclick=()=>{ if(!confirm('Voltar todos os tons para o padrão?')) return; uset('padcfg',{fam:'',keys:{}}); renderSettings(); if(filePad.on) filePad.retune(); };
+$('#setBtn').onclick=openSettings;
+async function updateSetDl(){ const box=$('#setDlInfo'); if(!window.caches){ box.textContent=''; return; }
+  try{ const c=await caches.open('worship-church-pads'); let n=0; for(const f of BUILTIN_PADS){ if(await c.match(f.url)) n++; } box.textContent=`${n} de ${BUILTIN_PADS.length} pads já guardados neste aparelho.`; }catch(e){ box.textContent=''; } }
+$('#setDl').onclick=async()=>{ if(!window.caches) return toast('Este navegador não permite guardar os pads');
+  const b=$('#setDl'); b.disabled=true; let n=0, err=0; const c=await caches.open('worship-church-pads');
+  if(navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{});
+  for(const f of BUILTIN_PADS){ try{ if(!(await c.match(f.url))){ const r=await fetch(f.url,{cache:'no-cache'}); if(!r.ok) throw 0; await c.put(f.url, r); } }catch(e){ err++; } n++; b.textContent=`Baixando… ${n}/${BUILTIN_PADS.length}`; }
+  b.disabled=false; b.textContent='⬇ Baixar todos os pads para usar sem internet'; updateSetDl(); toast(err?`${err} pad(s) não baixaram — tente de novo com internet`:'Todos os pads guardados para usar sem internet ✔'); };
+/* timbre do pad desta música (fica salvo no usuário e na música) */
+function renderSongTimbre(){ const sel=$('#padTimbre'); if(!sel||!cur) return; const p=padRoot(); if(!p){ sel.innerHTML='<option>—</option>'; sel.disabled=true; return; } sel.disabled=false;
+  sel.innerHTML=padOptionsHTML(p.r,p.minor,uget('padsong',{})[cur.id]||'','Igual às Configurações do tom ('+keyName(p.r,p.minor)+')'); }
+$('#padTimbre').onchange=e=>{ const m=uget('padsong',{}); if(e.target.value) m[cur.id]=e.target.value; else delete m[cur.id]; uset('padsong',m);
+  if(e.target.value && prefs.padSrc!=='files'){ prefs.padSrc='files'; savePrefs(); $$('#padSrcSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==='files')); syncPadRows(); }
+  toast('Timbre salvo nesta música para '+profile); if(pad.on) pad.restart(); };
 $('#padFileAdd').onclick=()=>$('#padFileInput').click();
 $('#padFileInput').onchange=async e=>{ const files=[...e.target.files]; e.target.value=''; let n=0;
   for(const f of files){ if(f.size>80*1048576){ toast(f.name+' é grande demais (máx. 80 MB)'); continue; }
@@ -1235,6 +1289,7 @@ $('#padFileInput').onchange=async e=>{ const files=[...e.target.files]; e.target
   if(navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{});
   await loadPadFiles(); if(n) toast(n+' áudio(s) salvo(s) para uso offline ✔'); };
 loadPadFiles();
+if(prefs.padPick && Object.keys(prefs.padPick).length){ const c=padCfg(); Object.entries(prefs.padPick).forEach(([k,id])=>{ const m=/^(\d+)(m?)$/.exec(k); if(m){ const nk=padKeyName(+m[1],!!m[2]); if(!c.keys[nk]) c.keys[nk]='id:'+id; } }); uset('padcfg',c); delete prefs.padPick; savePrefs(); }
 
 /* my YouTube pads (user's own playlist / links per key) */
 function renderMyYt(){ const L=$('#myYtList'); if(!L) return; L.innerHTML='';
@@ -1282,7 +1337,7 @@ renderProfileBtn(); renderList(); drawBeats(-1); setView(store.get('view','songs
 // Os dados ficam num arquivo privado do app no Google Drive do usuário (pasta oculta "appDataFolder").
 const GSYNC_FILE='worship-church-sync.json';
 const gcfg = () => (store.get('gClientId','') || (window.WC_CONFIG && window.WC_CONFIG.googleClientId) || '').trim();
-const isSyncKey = k => k==='profiles' || k==='myYtPads' || /^u:.+:(overrides|custom|playlists|favs|padchoice)$/.test(k);
+const isSyncKey = k => k==='profiles' || k==='myYtPads' || /^u:.+:(overrides|custom|playlists|favs|padchoice|padcfg|padsong)$/.test(k);
 const GS = { token:null, exp:0, busy:false, timer:0, applying:false, client:null, fileId:null,
   meta: store.get('gsync', {}) };            // {email, name, ts:{key:ms}, last:ms, merged:bool}
 GS.meta.ts = GS.meta.ts || {};
