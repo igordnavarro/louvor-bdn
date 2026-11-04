@@ -1336,6 +1336,8 @@ renderProfileBtn(); renderList(); drawBeats(-1); setView(store.get('view','songs
 /* ================= conta Google: sincroniza ajustes, medleys, playlists e favoritas ================= */
 // Os dados ficam num arquivo privado do app no Google Drive do usuário (pasta oculta "appDataFolder").
 const GSYNC_FILE='worship-church-sync.json';
+const GDRIVE_SCOPE='https://www.googleapis.com/auth/drive.appdata';
+const GS_NOSCOPE='Falta a permissão do Google Drive. Toque em "Sincronizar agora" e, na tela do Google, MARQUE a caixa do Google Drive ("ver, criar e excluir os próprios dados de configuração").';
 const gcfg = () => (store.get('gClientId','') || (window.WC_CONFIG && window.WC_CONFIG.googleClientId) || '').trim();
 const isSyncKey = k => k==='profiles' || k==='myYtPads' || /^u:.+:(overrides|custom|playlists|favs|padchoice|padcfg|padsong)$/.test(k);
 const GS = { token:null, exp:0, busy:false, timer:0, applying:false, client:null, fileId:null,
@@ -1351,14 +1353,23 @@ function gsToken(interactive){ return new Promise(async (ok,err)=>{
   const cid=gcfg(); if(!cid) return err(new Error('noclient'));
   try{ await gsLoadLib(); }catch(e){ return err(new Error('Sem conexão com o Google')); }
   GS.client = google.accounts.oauth2.initTokenClient({ client_id:cid,
-    scope:'https://www.googleapis.com/auth/drive.appdata openid email profile',
-    callback:r=>{ if(r.error) return err(new Error(r.error)); GS.token=r.access_token; GS.exp=Date.now()+(r.expires_in||3600)*1000; ok(GS.token); },
+    scope:GDRIVE_SCOPE+' openid email profile', include_granted_scopes:true,
+    callback:r=>{ if(r.error) return err(new Error(r.error));
+      // no login o Google deixa desmarcar a permissão do Drive; sem ela o token só serve para o e-mail (Drive dá erro 403)
+      if(google.accounts.oauth2.hasGrantedAllScopes && !google.accounts.oauth2.hasGrantedAllScopes(r, GDRIVE_SCOPE)){
+        GS.token=null; GS.meta.needConsent=true; return err(new Error('noscope')); }
+      GS.meta.needConsent=false; GS.token=r.access_token; GS.exp=Date.now()+(r.expires_in||3600)*1000; ok(GS.token); },
     error_callback:e=>err(new Error(e && e.type || 'cancelado')) });
-  GS.client.requestAccessToken({ prompt: interactive ? (GS.meta.email?'':'consent') : '', hint: GS.meta.email||undefined });
+  GS.client.requestAccessToken({ prompt: interactive ? ((GS.meta.email && !GS.meta.needConsent)?'':'consent') : '', hint: GS.meta.email||undefined });
 }); }
 async function gapi(path, opt={}){ const t=await gsToken(false);
   const r=await fetch(path.startsWith('http')?path:'https://www.googleapis.com'+path, {...opt, headers:{Authorization:'Bearer '+t, ...(opt.headers||{})}});
   if(r.status===401){ GS.token=null; throw new Error('Sessão do Google expirou — toque em Sincronizar'); }
+  if(r.status===403){ let why=''; try{ why=JSON.stringify(await r.clone().json()); }catch(e){}
+    if(/insufficient|SCOPE|PERMISSION_DENIED|Insufficient Permission/i.test(why) || !why){ GS.token=null; GS.meta.needConsent=true; throw new Error('noscope'); }
+    if(/accessNotConfigured|SERVICE_DISABLED/i.test(why)) throw new Error('A Google Drive API não está ativada no projeto do Google Cloud');
+    if(/rateLimit|userRateLimit/i.test(why)) throw new Error('Google ocupado — tente de novo em 1 minuto');
+    GS.token=null; GS.meta.needConsent=true; throw new Error('noscope'); }
   if(!r.ok) throw new Error('Google Drive: erro '+r.status); return r; }
 async function gsPull(){ const q=encodeURIComponent(`name='${GSYNC_FILE}'`);
   const r=await (await gapi(`/drive/v3/files?spaces=appDataFolder&q=${q}&fields=files(id,modifiedTime)`)).json();
@@ -1396,7 +1407,7 @@ async function gsSync(interactive){
     if(!remote || JSON.stringify(remote.data)!==JSON.stringify(doc.data)) await gsPush(doc);
     GS.meta.merged=true; GS.meta.last=Date.now(); gsSaveMeta(); gsUI();
     if(interactive) toast(ks.length?'Sincronizado com a conta Google ✔ (dados de outro aparelho carregados)':'Sincronizado com a conta Google ✔');
-  }catch(e){ GS.applying=false; const m=e.message==='noclient'?'Falta configurar o login do Google (veja abaixo)':(/popup_closed|cancel|access_denied/.test(e.message)?'Login cancelado':e.message);
+  }catch(e){ GS.applying=false; const m=e.message==='noclient'?'Falta configurar o login do Google (veja abaixo)':e.message==='noscope'?GS_NOSCOPE:(/popup_closed|cancel|access_denied/.test(e.message)?'Login cancelado':e.message);
     gsUI(m); if(interactive) toast(m); }
   finally{ GS.busy=false; } }
 function gsReloadState(){ profiles=store.get('profiles',profiles)||profiles; if(!profiles.includes(profile)) profile=profiles[0];
