@@ -7,3 +7,5 @@
 - IDs das músicas são fixos (`tools/ids.json`); nunca renumerar.
 - Nomes padronizados por `tools/nomes.py` (título com primeira letra maiúscula; artistas unificados).
 - Ao mudar app.js/index.html/songs.js, aumentar o `?v=` no index.html e a versão do cache em sw.js.
+- `songs.js` é só o **catálogo/diretório** (sem cifra, ~95 KB). A cifra de cada música é baixada de `cifras/<file>` quando o usuário baixa/abre a música (fica em `wc:bodies`; a lista do usuário é `u:<perfil>:lib`, sincronizada com a conta Google).
+- Diretório da comunidade: `tools/diretorio-comunidade.gs` (Apps Script na planilha, aba "Comunidade"); URL do App da Web vai em `config.js` → `directoryUrl`. Músicas novas criadas no app são enviadas para lá.

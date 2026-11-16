@@ -3,8 +3,8 @@
 @tom G
 @pad Em
 @bpm 138
-@arquivo SET LIST - BDN FB 1-101-233.pdf
-@slide 126
+@arquivo SET LIST - BDN FB 1-101-233.pdf + cifras_part4.potx
+@slide 126 / potx: 4
 
 [Primeira Parte]
  C               Am

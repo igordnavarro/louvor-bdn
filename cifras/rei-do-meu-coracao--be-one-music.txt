@@ -3,8 +3,8 @@
 @tom G
 @pad G
 @bpm
-@arquivo cifras_part3.pptx
-@slide 42
+@arquivo cifras_part3.pptx + cifras_part4.potx
+@slide 42 / potx: 5
 
 [Intro] G  C  G  Em  D  C  G
 

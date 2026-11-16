@@ -3,8 +3,8 @@
 @tom Cm
 @pad Cm
 @bpm
-@arquivo cifras_part3.pptx
-@slide 50
+@arquivo cifras_part3.pptx + cifras_part4.potx
+@slide 50 / potx: 7
 
 [Intro] Cm  Bb  Ab  Fm  G
         Cm  Bb  Ab  Fm  G

@@ -18,7 +18,7 @@ Formato de cada arquivo:
 
 Uso:  python3 tools/build.py
 """
-import json, re, glob, os
+import json, re, glob, os, hashlib
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def key(k):
     m = re.match(r'^([A-G][#b]?)(m?)', (k or '').strip())
@@ -47,7 +47,15 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'cifras', '*.txt'))):
         capo=int(meta['capo']) if meta.get('capo', '').isdigit() else 0,
         note=meta.get('note', ''), youtube=meta.get('youtube', ''), body='\n'.join(body)))
 json.dump(ids, open(IDS, 'w', encoding='utf-8'), indent=0, ensure_ascii=False, sort_keys=True)
+# songs.js é só o catálogo (diretório): a cifra fica em cifras/<file> e o app baixa quando a pessoa escolhe a música.
+cat = []
+for s in songs:
+    c = {k: v for k, v in s.items() if k != 'body' and v not in ('', None, [], 0) or k in ('id', 'title', 'artist', 'key')}
+    c['h'] = hashlib.md5(s['body'].encode('utf-8')).hexdigest()[:8]
+    if s['body'].strip(): c['has'] = 1
+    cat.append(c)
 with open(os.path.join(ROOT, 'songs.js'), 'w', encoding='utf-8') as out:
     out.write('// Gerado por tools/build.py a partir de cifras/*.txt — edite os .txt e rode o script.\n')
-    out.write('window.SONGS = ' + json.dumps(songs, ensure_ascii=False, separators=(',', ':')) + ';\n')
+    out.write('// Catálogo (sem a cifra). A cifra de cada música é baixada de cifras/<file> quando a pessoa baixa a música.\n')
+    out.write('window.SONGS = ' + json.dumps(cat, ensure_ascii=False, separators=(',', ':')) + ';\n')
 print(f'{len(songs)} músicas -> songs.js ({sum(1 for s in songs if s["body"])} com cifra)')
