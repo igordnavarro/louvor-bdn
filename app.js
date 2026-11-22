@@ -1445,13 +1445,24 @@ function closePanels(){ $$('.panel.open').forEach(p=>p.classList.remove('open'))
 $$('.panel').forEach(p=>p.addEventListener('click',e=>{ if(e.target===p || e.target.closest('[data-close]')) closePanels(); }));
 $('#metroMore').onclick=()=>{ updateBpm(false); openPanel('#metroPanel'); };
 $('#padMore').onclick=()=>openPanel('#padPanel');
+/* barra de espaço = liga/desliga o metrônomo (computador), em qualquer tela — menos quando está digitando */
+const typing = el => !!el && (el.isContentEditable || /^(textarea)$/i.test(el.tagName) || (/^input$/i.test(el.tagName) && !/^(checkbox|radio|button|range|submit)$/i.test(el.type)));
+function spaceKey(e){ return (e.code==='Space' || e.key===' ') && !e.ctrlKey && !e.metaKey && !e.altKey; }
+document.addEventListener('keydown',e=>{
+  if(!spaceKey(e) || typing(e.target) || $$('.panel.open').some(p=>p.id!=='metroPanel')) return;
+  e.preventDefault(); e.stopPropagation(); if(e.repeat) return;
+  if(document.activeElement && document.activeElement!==document.body && !typing(document.activeElement)) document.activeElement.blur(); // evita "clicar" o botão focado
+  metro.toggle(); if(typeof syncStageMetro==='function') syncStageMetro();
+  toast(metro.on ? `Metrônomo ligado · ${bpm} bpm (espaço para parar)` : 'Metrônomo parado');
+}, true);
+document.addEventListener('keyup',e=>{ if(spaceKey(e) && !typing(e.target)) e.preventDefault(); }, true);
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){ if($('#stage').classList.contains('open')) closeStage(); closePanels(); return; }
   const pageKeys={PageDown:1,ArrowDown:1,ArrowRight:1,Enter:1,PageUp:-1,ArrowUp:-1,ArrowLeft:-1};
   if(($('#stage').classList.contains('open') || prefs.layout==='fit') && pageKeys[e.key] && !document.body.classList.contains('modal') || ($('#stage').classList.contains('open') && pageKeys[e.key])){ e.preventDefault(); turnPage(pageKeys[e.key]); return; }
-  if($('#stage').classList.contains('open')){ if(e.key===' '){ e.preventDefault(); scrollOn?stopScroll():startScroll(); } else if(e.key==='+'||e.key==='=') stageFont(prefs.stageFont+2); else if(e.key==='-') stageFont(prefs.stageFont-2); return; }
+  if($('#stage').classList.contains('open')){ if(e.key==='r'||e.key==='R'){ e.preventDefault(); scrollOn?stopScroll():startScroll(); } else if(e.key==='+'||e.key==='=') stageFont(prefs.stageFont+2); else if(e.key==='-') stageFont(prefs.stageFont-2); return; }
   if(!cur || document.body.classList.contains('modal') || /input|select|textarea/i.test(e.target.tagName)) return;
-  if(e.key===' '){ e.preventDefault(); metro.toggle(); } else if(e.key==='p') pad.toggle();
+  if(e.key==='p') pad.toggle();
   else if(e.key==='ArrowUp'){ bpm++; updateBpm(); } else if(e.key==='ArrowDown'){ bpm--; updateBpm(); } });
 document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && AC.state==='suspended' && (metro.on||pad.on)) AC.resume(); });
 
@@ -1570,11 +1581,24 @@ window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); installE
 window.addEventListener('appinstalled', ()=>{ installEvt=null; $('#installBar').classList.remove('show'); syncInstall(); toast('App instalado ✔'); });
 async function doInstall(){
   if(installEvt){ installEvt.prompt(); const r=await installEvt.userChoice.catch(()=>null); installEvt=null; $('#installBar').classList.remove('show'); if(r&&r.outcome==='accepted') toast('Instalando…'); return; }
-  openPanel('#installPanel'); }
+  $('#installBar').classList.remove('show'); openPanel('#installPanel'); }
 $$('.install-btn').forEach(b=>b.onclick=doInstall);
 $('#installYes').onclick=doInstall;
 $('#installNo').onclick=()=>{ store.set('installDismissed', Date.now()); $('#installBar').classList.remove('show'); };
 $('#installIos').style.display = isIOS ? '' : 'none'; $('#installOther').style.display = isIOS ? 'none' : '';
+/* iPhone: o Safari não deixa esconder a barra de endereço num site; só instalando (Tela de Início) o app abre em tela cheia */
+if(isIOS){ const ua=navigator.userAgent, v=+((/OS (\d+)_/.exec(ua)||[])[1]||0);
+  const inApp=/FBAN|FBAV|Instagram|WhatsApp|Line\/|GSA\/|LinkedInApp|Snapchat|TikTok/i.test(ua), chrome=/CriOS/.test(ua), ff=/FxiOS/.test(ua), edge=/EdgiOS/.test(ua);
+  const SH='<span class="ios-ic" aria-hidden="true">⎙</span>';
+  let h='';
+  if(inApp) h=`<p><b>Você abriu o link dentro de outro app</b> (WhatsApp, Instagram…). Daqui não dá para instalar.</p><ol><li>Toque em <b>⋯</b> ou no ícone de navegador e escolha <b>Abrir no Safari</b> — ou copie o link abaixo e cole no Safari.</li><li>No Safari, siga os passos de instalação que vão aparecer.</li></ol><button class="btn" id="iosCopy">Copiar link do app</button>`;
+  else if(chrome||edge||ff) h=`<p>No ${chrome?'Chrome':edge?'Edge':'Firefox'} do iPhone:</p><ol><li>Toque no botão <b>Compartilhar</b> ${SH} ${chrome?'na barra de endereço, lá em cima à direita':'no menu do navegador'}.</li><li>Role e toque em <b>Adicionar à Tela de Início</b>.</li><li>Toque em <b>Adicionar</b>.</li></ol><p class="src">Se não aparecer a opção, abra este site no <b>Safari</b> e faça por lá.</p>`;
+  else if(v>=26) h=`<p>No Safari do iPhone:</p><ol><li>Toque em <b>⋯</b> (três pontinhos) ao lado da barra de endereço, embaixo.</li><li>Toque em <b>Compartilhar</b> ${SH}.</li><li>Role e toque em <b>Adicionar à Tela de Início</b>.</li><li>Deixe ligado <b>Abrir como App Web</b> e toque em <b>Adicionar</b>.</li></ol>`;
+  else h=`<p>No Safari do iPhone:</p><ol><li>Toque no botão <b>Compartilhar</b> ${SH} (quadrado com seta para cima) na barra de baixo.</li><li>Role e toque em <b>Adicionar à Tela de Início</b>.</li><li>Toque em <b>Adicionar</b>.</li></ol>`;
+  h+=`<p class="src">Depois abra pelo ícone <b>Worship Church</b> na tela do iPhone: ele abre em <b>tela cheia</b>, sem a barra de endereço, e funciona sem internet.</p><p class="src"><b>Importante:</b> no iPhone o app instalado guarda os dados separados do Safari. Antes, entre com a <b>conta Google</b> (botão do usuário, lá em cima) aqui no Safari e depois de novo no app instalado — suas músicas e playlists vão junto.</p>`;
+  $('#installIos').innerHTML=h;
+  const cp=$('#iosCopy'); if(cp) cp.onclick=async()=>{ const u=location.origin+location.pathname; try{ await navigator.clipboard.writeText(u); toast('Link copiado ✔ Cole no Safari'); }catch(e){ prompt('Copie o link:', u); } };
+  $('#installBar small').textContent='No iPhone, instale na Tela de Início para usar em tela cheia, sem a barra de endereço.'; $('#installYes').textContent='Como instalar'; }
 function maybeInstallBanner(){ if(isStandalone()) return; const d=store.get('installDismissed',0); if(d && Date.now()-d < 7*864e5) return;
   if(installEvt || isIOS) $('#installBar').classList.add('show'); }
 syncInstall(); setTimeout(maybeInstallBanner, 1500);

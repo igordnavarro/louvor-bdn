@@ -1,4 +1,5 @@
 {
+  "id": "./",
   "name": "Worship Church — Cifras, BPM e Pads",
   "short_name": "Worship Church",
   "start_url": "./",
@@ -32,5 +33,9 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
+  ],
+  "display_override": [
+    "standalone",
+    "fullscreen"
   ]
 }
