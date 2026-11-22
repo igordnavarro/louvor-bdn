@@ -30,14 +30,14 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#14110f; --surface:#1d1916; --surface-2:#27211d; --line:#352d27;
+    --bg:#0e0c0b; --surface:#171412; --surface-2:#221d1a; --line:#2e2824;
     --text:#f3ece4; --muted:#a59888; --accent:#f08a3c; --accent-2:#ffa35c; --accent-ink:#1b0f05;
     --chord:#ff9a4d; --section:#e1b37f; --note-bg:#3a2617; --note-ink:#ffc896;
     --good:#5fcf8e; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#14110f; --surface:#1d1916; --surface-2:#27211d; --line:#352d27;
+  --bg:#0e0c0b; --surface:#171412; --surface-2:#221d1a; --line:#2e2824;
   --text:#f3ece4; --muted:#a59888; --accent:#f08a3c; --accent-2:#ffa35c; --accent-ink:#1b0f05;
   --chord:#ff9a4d; --section:#e1b37f; --note-bg:#3a2617; --note-ink:#ffc896;
   --good:#5fcf8e; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
@@ -456,6 +456,214 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 }
 .ios-ic{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;border:1px solid var(--line);font-size:13px;vertical-align:-4px}
 #installIos ol{padding-left:20px;line-height:1.55}
+/* ================= layout profissional (v25) ================= */
+#viewTabs,#setBtn{display:none!important}
+.sidenav,.tabbar,.sside{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* cabeçalho da música */
+.sh-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sh-t{min-width:0;flex:1}
+.sh-t h1{margin:0}
+.sh-back{display:none}
+body.song-open .sh-back{display:grid}
+.sh-top .facts{margin:0}
+.sacts{display:flex;gap:8px;align-items:center}
+.btn.sa{height:40px;padding:0 13px;display:inline-flex;align-items:center;gap:7px}
+.btn.sa.full{height:44px;padding:0 18px;font-size:15px}
+.nico{display:block;flex:none}
+/* botão de baixar (diretório) */
+.dlb{flex:none;align-self:center;height:36px;min-width:36px;width:auto;padding:0;border-radius:999px;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:700;
+  border:1.5px solid color-mix(in srgb,var(--accent) 55%,transparent);background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);transition:background .15s,padding .15s}
+.dlb .dlt{display:none}
+.dlb.got{border-color:transparent;background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.dlb.ld{border:2.5px solid var(--surface-2);border-top-color:var(--accent);background:none;animation:spin .8s linear infinite}
+@media (hover:hover){ .irow:hover .dlb:not(.got):not(.ld),.hm-nw:hover .dlb:not(.ld){background:var(--accent);color:var(--accent-ink);border-color:var(--accent);padding:0 13px} .irow:hover .dlt,.hm-nw:hover .dlt{display:inline} }
+.list .item{padding:10px 14px}
+.list .item .k{width:42px;height:42px}
+/* início */
+.hm-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:4px 0 18px}
+.hm-head>div{flex:1;min-width:200px}
+.hm-d{color:var(--muted);font-size:14px}
+.hm-h{margin:2px 0 0;font-size:28px;letter-spacing:-.3px}
+.hm-search{flex:1 1 320px;max-width:520px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--muted);text-align:left}
+.hm-search span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-search kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+.hm-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-bottom:22px}
+.hm-next{border-radius:18px;padding:20px;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 15%,var(--surface)),var(--surface) 60%);min-width:0}
+.hm-lbl{font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:var(--accent);font-weight:700}
+.hm-t{font-size:24px;font-weight:700;margin-top:6px}
+.hm-sub{color:var(--muted);margin:3px 0 14px}
+.hm-set{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.hm-si{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface-2) 70%,transparent);border-radius:11px;padding:5px 12px 5px 5px;max-width:100%}
+.hm-si b{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-si .k,.hm-rc .k,.hm-nw .k{width:30px;height:30px;border-radius:8px;background:var(--surface-2);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:11.5px;color:var(--accent);flex:none}
+.hm-acts{display:flex;gap:8px;flex-wrap:wrap}.btn.big{height:44px;padding:0 18px}
+.hm-card{border-radius:18px;border:1px solid var(--line);background:var(--surface);padding:16px;min-width:0}
+.hm-card .item{border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;padding:10px 0}
+.hm-rec{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.hm-rc{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:14px;min-width:0}
+.hm-rc:hover,.hm-nwb:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.hm-rt{display:flex;justify-content:space-between;width:100%;margin-bottom:10px}.hm-rt small{color:var(--muted);font-size:12px}
+.hm-rc b{font-size:15px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hm-rc>span{color:var(--muted);font-size:13px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-news{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.hm-nw{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:8px 10px 8px 8px;min-width:0}
+.hm-nwb{flex:1;min-width:0;display:flex;align-items:center;gap:10px;text-align:left;border:0;background:none;padding:2px}
+.hm-nwb .t{min-width:0}.hm-nwb b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hm-nwb small{color:var(--muted);font-size:12.5px}
+.hsec{margin-bottom:22px}
+/* tela cheia: uma barra só */
+.stage-bar{flex-wrap:nowrap!important;gap:8px;padding:calc(8px + env(safe-area-inset-top)) 14px 8px}
+.stage-t{flex:0 1 auto!important;min-width:0}
+.stage-t b{color:var(--text)!important;font-size:19px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stage-t span{color:var(--muted)!important;font-size:12.5px}
+.stage-tools{flex-basis:auto!important;flex-wrap:nowrap!important;gap:2px!important;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:3px}
+.stage-tools .sbtn{border:0;background:transparent;height:36px}
+.stage-tools .sbtn.on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.st-div{width:1px;height:30px;background:var(--line);flex:none}
+.stage-ctl{margin-left:0!important;display:flex!important;gap:8px}
+.cbtn{height:46px;font-size:14px;box-shadow:none}
+.cbtn.nav,.cbtn.sp{width:auto!important;padding:0 16px}
+#stagePrev{background:var(--surface-2);color:var(--text)}
+/* ---------- celular ---------- */
+@media (max-width:899px){
+  body:not(.song-open) .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+  .tabbar button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);padding:4px 0}
+  .tabbar button.on{color:var(--accent)}
+  #library{padding-bottom:96px}
+  body.song-open .top{display:none}
+  #song{padding-top:calc(8px + env(safe-area-inset-top))}
+  .sh-top{gap:8px}
+  .sh-t h1{font-size:20px}
+  .sh-top .facts{order:9;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .sh-top .spacer{display:none}
+  .sacts .lg2{display:none}
+  .btn.sa{width:40px;padding:0;justify-content:center}.btn.sa.full{width:auto;padding:0 12px;font-size:14px}
+  .artist-row .favbtn{height:28px;padding:0 9px;font-size:12.5px}
+  .yt-top{height:28px;padding:0 10px;font-size:12.5px}
+  .hm-h{font-size:24px}.hm-search kbd{display:none}
+  .hm-rec{display:flex;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}.hm-rc{flex:0 0 150px}
+}
+@media (max-width:700px){
+  .stage-t{flex:1 1 auto!important}
+  .stage-ctl{gap:6px}
+  .cbtn{font-size:0!important;width:42px!important;height:42px;padding:0!important;border-radius:11px}
+  .cbtn .ic{font-size:17px!important}.cbtn svg{width:16px;height:16px}
+  .stage-tools{position:fixed;right:10px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:3;box-shadow:var(--shadow)}
+  .st-div,.stage-bar>.spacer{display:none}
+}
+/* ---------- computador e tablet ---------- */
+@media (min-width:900px){
+  body.wide{--sw:240px;--rw:300px;padding-left:var(--sw)}
+  body.wide.side-mini{--sw:72px}
+  body.wide.ss-mini{--rw:72px}
+  .top{display:none}
+  main.wrap{max-width:none;padding:0 28px}
+  #library{padding:24px 0 40px}
+  .sidenav{display:flex;flex-direction:column;gap:2px;position:fixed;left:0;top:0;bottom:0;width:var(--sw);z-index:35;background:color-mix(in srgb,var(--bg) 70%,var(--surface-2));border-right:1px solid var(--line);padding:calc(16px + env(safe-area-inset-top)) 12px 14px;overflow:hidden}
+  .sn-logo{display:flex;align-items:center;gap:10px;padding:2px 6px 16px;font-weight:700;font-size:16.5px;white-space:nowrap}
+  .sn-logo img{border-radius:9px;box-shadow:0 0 0 1px var(--line);flex:none}
+  .sn-t small{display:block;color:var(--muted);font-weight:500;font-size:11px}
+  .sn-it{display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;border-radius:10px;border:0;background:none;color:var(--muted);font-weight:600;font-size:14.5px;text-align:left;white-space:nowrap}
+  .sn-it:hover{background:var(--surface-2);color:var(--text)}
+  .sn-it.on{background:var(--surface-2);color:var(--text)}.sn-it.on .nico{color:var(--accent)}
+  .sn-it em{margin-left:auto;font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .sn-h{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:var(--muted);padding:18px 12px 6px;font-weight:700;white-space:nowrap}
+  .sn-pl{display:flex;gap:10px;align-items:center;border:0;background:none;padding:7px 10px;border-radius:10px;text-align:left;width:100%}
+  .sn-pl:hover{background:var(--surface-2)}
+  .sn-pl>b{width:30px;height:30px;border-radius:8px;background:var(--surface-2);display:grid;place-items:center;font-size:12px;color:var(--accent);font-family:var(--mono);flex:none}
+  .sn-pl span{min-width:0}.sn-pl i{display:block;font-style:normal;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sn-pl small{color:var(--muted);font-size:11.5px}
+  .sn-none{color:var(--muted);font-size:12.5px;padding:2px 12px}
+  .sn-grow{flex:1}
+  .sn-me{display:flex;align-items:center;gap:10px;margin-top:8px;padding:9px;border-radius:12px;border:1px solid var(--line);background:var(--surface);text-align:left;white-space:nowrap}
+  .sn-av{width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;flex:none}
+  .sn-mt{min-width:0;line-height:1.2}.sn-mt b{display:block;overflow:hidden;text-overflow:ellipsis}.sn-mt small{color:var(--muted);font-size:11.5px}.sn-mt small.ok{color:var(--good)}
+  body.side-mini .sidenav{padding-left:12px;padding-right:12px;align-items:center}
+  body.side-mini .sn-t,body.side-mini .sn-it span,body.side-mini .sn-it em,body.side-mini .sn-h,body.side-mini #snUp,body.side-mini .sn-mt{display:none}
+  body.side-mini .sn-logo{padding:2px 0 16px}
+  body.side-mini .sn-it{width:46px;padding:0;justify-content:center}
+  body.side-mini .sn-me{border:0;background:none;padding:4px}
+  /* biblioteca */
+  .hm-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+  @media (min-width:1300px){ #list{grid-template-columns:repeat(2,minmax(0,1fr))} #list>.list-h,#list>.empty{grid-column:1/-1} }
+  /* música */
+  body.song-open main.wrap{padding-right:calc(var(--rw) + 28px)}
+  #song{padding:18px 0 40px}
+  .dock{display:none!important}
+  .sh-top{flex-wrap:nowrap;gap:14px}
+  .sh-t{flex:0 1 auto}
+  .sh-t h1{font-size:26px}
+  .sh-top .facts{flex-wrap:nowrap}
+  .song-head .artist-row{gap:8px}
+  body.song-open .sside{display:flex;flex-direction:column;gap:12px;position:fixed;right:0;top:0;bottom:0;width:var(--rw);z-index:30;background:color-mix(in srgb,var(--bg) 70%,var(--surface-2));border-left:1px solid var(--line);padding:calc(14px + env(safe-area-inset-top)) 14px 14px;overflow:auto}
+  .ss-h{display:flex;align-items:center;justify-content:space-between}
+  .ss-lbl{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .ss-tg{width:34px;height:34px}
+  #ssBody{display:flex;flex-direction:column;gap:10px}
+  #ssBody .unit{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px}
+  #ssBody .tools{flex-direction:column;flex-wrap:nowrap;gap:8px;margin:4px 0 0;padding:0;overflow:visible}
+  #ssBody .tools>*{width:100%}
+  #ssBody .group{justify-content:space-between;padding:4px}
+  #ssBody .group label{display:block!important}
+  #ssBody .key-select{flex:1}
+  #ssBody .group .seg{flex:1}#ssBody .group .seg button{flex:1}
+  #ssBody .reset{text-align:center}
+  #ssPl{display:flex;flex-direction:column;gap:2px}
+  #ssPl .ss-lbl{padding:6px 2px}
+  .ss-it{display:flex;gap:10px;align-items:center;border:0;background:none;padding:8px 10px;border-radius:9px;color:var(--muted);text-align:left;font-size:13.5px}
+  .ss-it:hover{background:var(--surface-2)}
+  .ss-it b{font-family:var(--mono);width:16px}.ss-it span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ss-it em{font-style:normal;font-family:var(--mono)}
+  .ss-it.on{background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--text);font-weight:600}.ss-it.on b,.ss-it.on em{color:var(--accent)}
+  body.ss-mini .sside{padding-left:8px;padding-right:8px;align-items:center}
+  body.ss-mini .ss-lbl,body.ss-mini #ssPl,body.ss-mini #ssBody .tools,body.ss-mini #ssBody .unit .mini,body.ss-mini .unit .lbl,body.ss-mini .unit .beats,body.ss-mini .unit .padwave,body.ss-mini .unit .val small{display:none}
+  body.ss-mini .ss-h{justify-content:center}
+  body.ss-mini #ssBody .unit{flex-direction:column;padding:8px 4px;gap:4px;width:56px}
+  body.ss-mini .unit .info{text-align:center}.body.ss-mini .unit .val{justify-content:center}
+  body.ss-mini .unit .val{font-size:14px;justify-content:center}
+  .plbar{border-radius:12px;padding:8px 12px}
+  .stage-cifra{padding-bottom:30px}
+}
+
+/* ajustes v25b */
+.sh-t h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song-head .artist-row{flex-wrap:nowrap}
+.song-head .artist{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.stage-t span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (min-width:900px) and (max-width:1439px){ .sh-top{flex-wrap:wrap!important} .sh-top .facts{order:9;flex-basis:100%} .sh-t{flex:1 1 auto!important;min-width:0} }
+@media (min-width:900px){
+  .plbar{flex-wrap:nowrap!important;gap:12px;margin:10px 0}
+  .plb-t{flex:1 1 auto!important;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.plb-t small{display:inline!important}
+}
+@media (max-width:899px){
+  .yt-top .lg2{display:none}.yt-top{width:34px;padding:0;justify-content:center}
+  .favbtn .lg2{display:none}.artist-row .favbtn{width:30px;padding:0;justify-content:center}
+  .plbar{padding:8px 10px;font-size:13px;gap:6px;margin:8px 0}.plb-t small{font-size:11.5px}.plb-auto{font-size:11px}.plb-auto .tg{height:26px;padding:0 8px;font-size:11px}.plbar .btn.sm{height:32px}
+  .notebox{padding:8px 10px;font-size:13px;margin-top:8px}
+  .stage-bar{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--bg)!important}
+}
+@media (max-width:560px){
+  .dock .inner{grid-template-columns:1fr 1fr!important;gap:6px}
+  .dock{padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
+  .unit{padding:5px!important;gap:6px!important;border-radius:13px}
+  .unit .play{width:42px;height:42px}
+  .unit .mini.minus,.unit .mini.plus{display:none}
+  .unit .val{font-size:17px!important}.unit .val small{display:none}
+  #song{padding-bottom:110px}
+}
+
+@media (max-width:560px){
+  .sacts{display:contents}
+  .sh-back{order:0}.sh-t{order:1}#stageBtn{order:2}
+  .sh-top .facts{order:3!important;flex-basis:calc(100% - 96px)!important;min-width:0}
+  #editBtn{order:4}#addPlBtn{order:5}
+  .plb-t{flex-basis:100%}.plb-auto{flex-wrap:nowrap;flex:1}.plb-auto>span{display:none}
+}
+.facts .fact{white-space:nowrap;flex:none}
+@media (max-width:700px){
+  .stage-ctl .cbtn{flex:none!important;width:42px!important;min-width:42px;height:42px!important;font-size:0!important;padding:0!important;gap:0!important}
+  .stage-ctl .cbtn span:not(.ic){display:none}
+  .stage-ctl{flex:none}
+  .stage-t b{font-size:16px}
+}
+@media (max-width:700px){ .stage-ctl .cbtn.sp{flex-direction:column!important;gap:1px!important} #stagePad::after,#stageMetro::after{font-size:8.5px;font-weight:800;letter-spacing:.4px} #stagePad::after{content:"PAD"} #stageMetro::after{content:"METRÔ"} }
 @media print{.top,.dock,.tools,.pager,.links{display:none!important}.sheet{box-shadow:none;border:0}}
 #splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(circle at 50% 38%,#26272b,#0b0b0c 55%,#000);color:#e8eaed;transition:opacity .45s ease,visibility .45s}
 #splash img{border-radius:30px;box-shadow:0 18px 50px rgba(0,0,0,.6);animation:splashIn .7s ease both}
@@ -467,6 +675,26 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 </head>
 <body>
 <div id="splash" aria-hidden="true"><img src="icon.svg?v=2" alt="" width="132" height="132"><b>Worship Church</b><small>cifras · tom · bpm · pad</small></div>
+<nav class="sidenav" id="sidenav" aria-label="Navegação">
+  <div class="sn-logo"><img src="icon.svg?v=2" alt="" width="32" height="32"><div class="sn-t">Worship Church<small>cifras · tom · bpm · pad</small></div></div>
+  <button class="sn-it" data-nav="home"><svg class="nico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg><span>Início</span></button>
+  <button class="sn-it" data-nav="songs"><svg class="nico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Músicas</span><em id="snNSongs"></em></button>
+  <button class="sn-it" data-nav="pl"><svg class="nico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span>Playlists</span><em id="snNPl"></em></button>
+  <div class="sn-h">Próximos cultos</div>
+  <div id="snUp"></div>
+  <div class="sn-grow"></div>
+  <button class="sn-it" data-nav="set"><svg class="nico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Ajustes</span></button>
+  <button class="sn-it" id="snToggle" title="Recolher / expandir o menu"><svg class="nico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg><span>Recolher menu</span></button>
+  <button class="sn-me" id="snMe"><span class="sn-av" id="snAv">P</span><span class="sn-mt"><b id="snName">Principal</b><small id="snSync">neste aparelho</small></span></button>
+</nav>
+<nav class="tabbar" id="tabbar" aria-label="Navegação">
+  <button data-nav="home"><svg class="nico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg><span>Início</span></button><button data-nav="songs"><svg class="nico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Músicas</span></button><button data-nav="pl"><svg class="nico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span>Playlists</span></button><button data-nav="set"><svg class="nico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Ajustes</span></button>
+</nav>
+<aside class="sside" id="sside" aria-label="Ajustes da música">
+  <div class="ss-h"><span class="ss-lbl">Ajustes da música</span><button class="icon-btn ss-tg" id="ssToggle" title="Recolher / expandir o painel"><svg class="nico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button></div>
+  <div id="ssBody"></div>
+  <div id="ssPl"></div>
+</aside>
 <header class="top">
   <div class="wrap">
     <button class="icon-btn home" id="homeBtn" aria-label="Ir para o início" title="Início"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg></button>
@@ -477,10 +705,6 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
     <button class="icon-btn install-btn" title="Instalar como app" aria-label="Instalar como app" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
     <button class="icon-btn" id="setBtn" aria-label="Configurações" title="Configurações"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
     <button class="icon-btn prof" id="profBtn" aria-label="Usuário">P</button>
-    <button class="icon-btn" id="themeBtn" aria-label="Alternar tema claro/escuro" title="Tema claro/escuro">
-      <svg id="icoMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      <svg id="icoSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-    </button>
   </div>
 </header>
 
@@ -516,16 +740,25 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 
   <section id="song" aria-live="polite">
     <div class="song-head">
-      <h1 id="sTitle"></h1>
-      <div class="artist-row"><div class="artist" id="sArtist"></div><button class="favbtn" id="favBtn">☆ Favoritar</button><a class="yt-top" id="ytTop" target="_blank" rel="noopener" aria-label="Ver vídeo no YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>YouTube</a></div>
+      <div class="sh-top">
+      <button class="icon-btn sh-back" id="songBack" aria-label="Voltar"><svg class="nico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="sh-t"><h1 id="sTitle"></h1>
+      <div class="artist-row"><div class="artist" id="sArtist"></div><button class="favbtn" id="favBtn">☆ Favoritar</button><a class="yt-top" id="ytTop" target="_blank" rel="noopener" aria-label="Ver vídeo no YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg><span class="lg2">YouTube</span></a></div>
+      </div>
       <div class="facts" id="facts"></div>
+      <div class="spacer"></div>
+      <div class="sacts" id="songActs">
+        <button class="btn sa" id="editBtn" title="Editar letra, tom, BPM…"><svg class="nico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span class="lg2">Editar</span></button>
+        <button class="btn sa" id="addPlBtn" title="Adicionar a uma playlist"><svg class="nico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="lg2">Playlist</span></button>
+        <button class="btn primary sa full" id="stageBtn" title="Mostrar a cifra na tela toda (tecla F)"><svg class="nico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Tela cheia</span></button>
+      </div>
+      </div>
       <div class="verbar" id="verBar" style="display:none"></div>
       <div class="dlbar" id="dlBar" style="display:none"></div>
       <div id="sNote"></div>
     </div>
     <div class="plbar" id="plBar" style="display:none"></div>
-    <div class="tools">
-      <button class="btn edit primary" id="stageBtn" title="Mostrar a cifra na tela toda">⛶ Tela cheia</button>
+    <div class="tools" id="tools">
       <div class="group keygrp" title="Mudar o tom da música">
         <label>Tom</label>
         <button class="g-btn" id="keyDown" aria-label="Meio tom abaixo">−</button>
@@ -543,8 +776,6 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
         <button class="g-btn" id="fontDown" aria-label="Diminuir fonte">A−</button>
         <button class="g-btn" id="fontUp" aria-label="Aumentar fonte">A+</button>
       </div>
-      <button class="btn edit" id="editBtn">✎ Editar<span class="lg"> letra, tom, BPM…</span></button>
-      <button class="btn edit" id="addPlBtn">＋ Playlist</button>
       <div class="group" title="Como a cifra aparece na tela">
         <label>Encaixe</label>
         <div class="seg" id="layoutSeg"><button data-v="scroll">☰ Rolar</button><button data-v="fit">▦ Caber<span class="lg"> na tela</span></button></div>
@@ -622,7 +853,10 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 
 <div class="panel big" id="setPanel" role="dialog" aria-modal="true" aria-label="Configurações">
   <div class="card">
-    <div class="ed-head"><h3>Configurações</h3><button class="icon-btn" data-close aria-label="Fechar">✕</button></div>
+    <div class="ed-head"><h3>Ajustes</h3><button class="icon-btn" data-close aria-label="Fechar">✕</button></div>
+    <h4 class="sethd">Aparência</h4>
+    <div class="row"><div class="l">Tema<small>Automático segue o tema do aparelho</small></div><div class="seg" id="themeSeg"><button data-v="auto">Automático</button><button data-v="light">☀ Claro</button><button data-v="dark">☾ Escuro</button></div></div>
+    <div class="row"><div class="l">Usuário e conta Google<small>Trocar de usuário, sincronizar, backup</small></div><button class="btn" id="setProf">Abrir</button></div>
     <h4 class="sethd">Pads por tom</h4>
     <p class="src" style="margin-top:-4px">Escolha o timbre de pad para cada tom do pad (o tom mostrado em “Pad” na música). Vale para todas as músicas daquele tom e fica salvo no seu usuário. Se você escolher outro timbre dentro de uma música, o da música vale primeiro. ▶ ouve uma amostra.</p>
     <div class="row"><div class="l">Timbre padrão<small>Usado nos tons em "Padrão"</small></div><select id="setFam" class="fullsel"></select></div>
@@ -726,20 +960,21 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
   <div class="stage-bar">
     <button class="sbtn" id="stageClose" aria-label="Sair da tela cheia">✕</button>
     <div class="stage-t"><b id="stageTitle"></b><span id="stageKey"></span></div>
+    <span class="spacer"></span>
+    <div class="stage-tools">
+      <button class="sbtn" id="stageFDown" aria-label="Diminuir letra">A−</button>
+      <button class="sbtn" id="stageFUp" aria-label="Aumentar letra">A+</button>
+      <button class="sbtn wide" id="stageLayout" title="Alternar: música inteira na tela / rolar">▦<span class="lbl"> Encaixado</span></button>
+            <button class="sbtn" id="stageSlower" title="Rolagem mais lenta">«</button>
+      <button class="sbtn" id="stageScroll" title="Rolagem automática">⇣</button>
+      <button class="sbtn" id="stageFaster" title="Rolagem mais rápida">»</button>
+    </div>
+    <span class="st-div"></span>
     <div class="stage-ctl" role="group" aria-label="Controles da música">
       <button class="cbtn nav pl-nav" id="stagePrev" aria-label="Voltar música da playlist"><span class="ic">⏮</span><span>Voltar música</span></button>
       <button class="cbtn nav pl-nav" id="stageNext" aria-label="Passar música da playlist"><span>Passar música</span><span class="ic">⏭</span></button>
       <button class="cbtn sp" id="stagePad" title="Tocar/pausar o pad"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Pad</button>
       <button class="cbtn sp" id="stageMetro" title="Tocar/pausar o metrônomo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Metrônomo</button>
-    </div>
-    <div class="stage-tools">
-      <button class="sbtn" id="stageFDown" aria-label="Diminuir letra">A−</button>
-      <button class="sbtn" id="stageFUp" aria-label="Aumentar letra">A+</button>
-      <button class="sbtn wide" id="stageLayout" title="Alternar: música inteira na tela / rolar">▦<span class="lbl"> Encaixado</span></button>
-      <button class="sbtn" id="stageFit" title="Ajustar">↔</button>
-      <button class="sbtn" id="stageSlower" title="Rolagem mais lenta">«</button>
-      <button class="sbtn" id="stageScroll" title="Rolagem automática">⇣</button>
-      <button class="sbtn" id="stageFaster" title="Rolagem mais rápida">»</button>
     </div>
   </div>
   <div class="cifra stage-cifra" id="stageCifra"></div>
@@ -774,8 +1009,8 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display
 <div class="toast" id="toast" role="status"></div>
 <div class="ytbox" id="ytBox"><div id="ytPlayer"></div><div class="ytbar"><span id="ytKey">Pad</span><button id="ytStop" aria-label="Parar pad">■</button></div></div>
 
-<script src="config.js?v=24"></script>
-<script src="songs.js?v=24"></script>
-<script src="app.js?v=24"></script>
+<script src="config.js?v=25"></script>
+<script src="songs.js?v=25"></script>
+<script src="app.js?v=25"></script>
 </body>
 </html>

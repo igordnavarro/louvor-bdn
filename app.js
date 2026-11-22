@@ -28,14 +28,11 @@ const uset = (k,v) => store.set('u:'+profile+':'+k, v);
 function applyTheme(t){
   if(t) document.documentElement.setAttribute('data-theme', t); else document.documentElement.removeAttribute('data-theme');
   const dark = t ? t==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  $('#icoMoon').style.display = dark ? 'none' : '';
-  $('#icoSun').style.display = dark ? '' : 'none';
+  document.querySelectorAll('meta[name=theme-color]').forEach(m=>m.setAttribute('content', dark?'#0e0c0b':'#f6f1ea'));
+  document.querySelectorAll('#themeSeg button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===(t||'auto')));
 }
 applyTheme(store.get('theme', null));
-$('#themeBtn').onclick = () => {
-  const c = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
-  const n = c==='dark' ? 'light' : 'dark'; store.set('theme', n); applyTheme(n);
-};
+{ const ts=document.getElementById('themeSeg'); if(ts) ts.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; const v=b.dataset.v==='auto'?null:b.dataset.v; store.set('theme', v); applyTheme(v); }; }
 
 /* ================= music theory ================= */
 const SHARP=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
@@ -240,8 +237,8 @@ function renderList(){
     el.onclick = () => openSong(s.id);
     if(dir && !s.custom){ const row=document.createElement('div'); row.className='irow'; row.appendChild(el);
       const d=document.createElement('button'); d.className='dlb'+(got?' got':''); d.setAttribute('aria-label', got?'Já está no seu app':'Baixar para o meu app');
-      d.innerHTML = got ? '✓<small>no app</small>' : '⬇<small>baixar</small>';
-      d.onclick = async () => { if(got){ toast('Já está no seu app — toque na música para abrir'); return; } d.disabled=true; d.innerHTML='…'; await addToLib([s.id]); };
+      d.innerHTML = got ? '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>' : DL_SVG+'<span class="dlt">Baixar</span>'; d.title = got?'Já está no seu app':'Baixar para o meu app';
+      d.onclick = async () => { if(got){ toast('Já está no seu app — toque na música para abrir'); return; } d.disabled=true; d.classList.add('ld'); d.innerHTML=''; await addToLib([s.id]); };
       row.appendChild(d); frag.appendChild(row); }
     else frag.appendChild(el);
   };
@@ -265,6 +262,7 @@ function lyricSnippet(s, phrase, words){
   return '“'+h+'”';
 }
 $('#q').addEventListener('input', renderList);
+const DL_SVG='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
 let libMode = store.get('libMode', 'mine'); if(libMode!=='dir') libMode='mine';
 function setLibMode(m){ libMode=m; store.set('libMode', m); window.scrollTo(0,0); if(m==='dir') commRefresh(); renderList(); }
 function renderLibSeg(){ const n=SONGS.filter(isDl).length, nd=new Set(SONGS.map(s=>s._gk)).size;
@@ -296,7 +294,7 @@ function openSong(id, push=true, ctxPl){
   const it = plCtx ? plCtx.pl.items[plCtx.idx] : null;
   semi = it && it.semi!=null ? it.semi : (o.semi||0); bpm = bpmOf(s) || 120;
   renderPlBar();
-  document.body.classList.add('song-open');
+  document.body.classList.add('song-open'); if(typeof syncNav==='function') syncNav();
   if(push) history.pushState({id}, '', '#m'+id);
   $('#tTitle').textContent = s.title; $('#tArtist').textContent = s.artist;
   $('#sTitle').textContent = s.title; $('#sArtist').textContent = s.artist;
@@ -309,11 +307,12 @@ function openSong(id, push=true, ctxPl){
   } else if(pad.on) pad.retune(true);
 }
 function closeSong(push=true){
-  document.body.classList.remove('song-open'); cur=null; document.title='Worship Church';
+  document.body.classList.remove('song-open'); cur=null; document.title='Worship Church'; if(typeof syncNav==='function') syncNav();
   if(push) history.pushState({}, '', location.pathname+location.search);
   metro.stop(); pad.stop(); renderList();
 }
 $('#homeBtn').onclick = () => { closeSong(false); history.pushState({}, '', location.pathname+location.search); window.scrollTo(0,0); };
+$('#songBack').onclick = () => $('#backBtn').click();
 $('#backBtn').onclick = () => { if(history.state && history.state.id) history.back(); else closeSong(); };
 window.addEventListener('popstate', e => { const id = e.state && e.state.id; if(id) openSong(id,false); else if(cur) closeSong(false); });
 
@@ -393,7 +392,7 @@ function renderCifra(body, shift, flats){
 }
 
 /* ---------- encaixe: rolar vs. caber na tela ---------- */
-if(!prefs.layout) prefs.layout='scroll';
+if(!prefs.layout || !prefs.layoutMig25){ if(!prefs.layoutMig25 && innerWidth>=900) prefs.layout='fit'; if(!prefs.layout) prefs.layout='scroll'; prefs.layoutMig25=1; }
 if(prefs.fitAdj==null) prefs.fitAdj=0;
 if(prefs.stageLayout==null) prefs.stageLayout='fit';
 // Finds the largest font (and number of columns) that shows the whole song inside box w×h.
@@ -427,15 +426,16 @@ function applySongLayout(){
   $$('#layoutSeg button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===prefs.layout));
   if(prefs.layout!=='fit' || !cur._has){ unfit(el); sheet.style.height=''; $('#fitInfo').textContent=''; return; }
   const top=$('.top').getBoundingClientRect().height, dock=$('#dock').getBoundingClientRect().height||0;
-  const H=Math.max(220, window.innerHeight-top-dock-18);
+  let H=Math.max(220, window.innerHeight-top-dock-18);
+  if(document.body.classList.contains('wide')){ const st=sheet.getBoundingClientRect().top+window.scrollY; if(st < window.innerHeight*0.6) H=Math.max(260, window.innerHeight-st-14); }
   sheet.style.height=H+'px';
   const cs=getComputedStyle(sheet), padX=parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight), padY=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);
   const r=fitInto(el, sheet.clientWidth-padX, H-padY-2, prefs.fitAdj);
   $('#fitInfo').textContent='Encaixado: '+el.dataset.fit;
 }
 function scrollToSheet(){ const sh=$('.sheet'); const top=$('.top').getBoundingClientRect().height; window.scrollTo({top: sh.getBoundingClientRect().top+window.scrollY-top-8, behavior:'smooth'}); }
-function setLayout(v){ prefs.layout=v; savePrefs(); applySongLayout(); if(v==='fit') scrollToSheet(); }
-let fitT=0; window.addEventListener('resize',()=>{ clearTimeout(fitT); fitT=setTimeout(()=>{ if(cur) applySongLayout(); if($('#stage').classList.contains('open')) applyStageLayout(); },150); });
+function setLayout(v){ prefs.layout=v; savePrefs(); applySongLayout(); if(v==='fit' && !document.body.classList.contains('wide')) scrollToSheet(); }
+let fitT=0; window.addEventListener('resize',()=>{ clearTimeout(fitT); fitT=setTimeout(()=>{ if(typeof applyShell==='function') applyShell(); if(cur) applySongLayout(); if($('#stage').classList.contains('open')) applyStageLayout(); },150); });
 function renderSong(){
   const s=cur, k=curKey(), capo=capoOf(s), o=ov(s);
   const facts=[['Tom', k? keyName(k.r,k.minor) : '—']];
@@ -457,7 +457,7 @@ function renderSong(){
   requestAnimationFrame(applySongLayout);
   const q=encodeURIComponent((s.title.replace(/\(.*?\)/g,'')+' '+(s.artist||'')).trim());
   const yt = ytUrl(s); $('#ytTop').href = yt;
-  const fb=$('#favBtn'); fb.classList.toggle('on',favs.has(s.id)); fb.textContent=favs.has(s.id)?'★ Favorita':'☆ Favoritar'; fb.onclick=()=>{ toggleFav(s.id); renderSong(); toast(favs.has(s.id)?'Adicionada às favoritas de '+profile:'Removida das favoritas'); };
+  const fb=$('#favBtn'); fb.classList.toggle('on',favs.has(s.id)); fb.innerHTML=favs.has(s.id)?'★<span class="lg2"> Favorita</span>':'☆<span class="lg2"> Favoritar</span>'; fb.onclick=()=>{ toggleFav(s.id); renderSong(); toast(favs.has(s.id)?'Adicionada às favoritas de '+profile:'Removida das favoritas'); };
   $('#links').innerHTML = `<a class="btn yt" href="${yt}" target="_blank" rel="noopener">${YT_ICO} Ver no YouTube</a>
     <a class="btn" href="https://www.cifraclub.com.br/?q=${q}" target="_blank" rel="noopener">Abrir no Cifra Club ↗</a>
     <a class="btn" href="https://www.google.com/search?q=${q}+site%3Asongbpm.com" target="_blank" rel="noopener">Conferir BPM no SongBPM ↗</a>
@@ -767,25 +767,77 @@ let playlists = uget('playlists', []);
 function savePlaylists(){ uset('playlists', playlists); }
 let view='home';
 function setView(v){ view=v; $$('#viewTabs button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===v)); $('#homeView').style.display=v==='home'?'':'none'; $('#songsView').style.display=v==='songs'?'':'none'; $('#plView').style.display=v==='pl'?'':'none';
-  if(v==='pl') renderPlaylists(); if(v==='home') renderHome(); if(v==='songs') renderList(); store.set('view',v); }
+  if(v==='pl') renderPlaylists(); if(v==='home') renderHome(); if(v==='songs') renderList(); store.set('view',v); syncNav(); }
+function syncNav(){ const v=document.body.classList.contains('song-open') ? (plCtx?'pl':'songs') : view; $$('[data-nav]').forEach(b=>b.classList.toggle('on', b.dataset.nav===v)); renderSide(); }
+function goNav(v){ if(v==='set'){ openSettings(); return; } if(cur) closeSong(); setView(v); window.scrollTo(0,0); }
+$$('[data-nav]').forEach(b=>b.onclick=()=>goNav(b.dataset.nav));
+/* menu lateral (computador/tablet) */
+function upcoming(){ const t=today(); return [...playlists].filter(p=>p.date && p.date>=t).sort((a,b)=>a.date.localeCompare(b.date)); }
+function renderSide(){ const U=$('#snUp'); if(!U) return;
+  $('#snNSongs').textContent=SONGS.filter(isDl).length||''; $('#snNPl').textContent=playlists.length||'';
+  const up=upcoming().slice(0,4); U.innerHTML=up.length?'':'<div class="sn-none">Nenhum culto marcado</div>';
+  up.forEach(pl=>{ const b=document.createElement('button'); b.className='sn-pl';
+    b.innerHTML=`<b>${pl.date.slice(8,10)}</b><span><i></i><small>${fmtDate(pl.date).split(',')[0]} · ${pl.items.length} músicas</small></span>`; b.querySelector('i').textContent=pl.name;
+    b.onclick=()=>{ if(cur) closeSong(); setView('pl'); openPlEditor(pl); }; U.appendChild(b); });
+  let gm={}; try{ gm=GS.meta||{}; }catch(e){}
+  $('#snAv').textContent=(profile.trim()[0]||'?').toUpperCase(); $('#snName').textContent=gm.name||profile;
+  const on=!!gm.email; $('#snSync').textContent=on?'● sincronizado':'neste aparelho'; $('#snSync').classList.toggle('ok',on); }
+$('#snMe').onclick=()=>$('#profBtn').click();
+$('#snToggle').onclick=()=>{ prefs.sideMini = document.body.classList.contains('side-mini')?0:1; savePrefs(); applyShell(); };
+$('#ssToggle').onclick=()=>{ prefs.ssMini = prefs.ssMini?0:1; savePrefs(); applyShell(); if(cur) requestAnimationFrame(applySongLayout); };
+$('#setProf').onclick=()=>{ closePanels(); $('#profBtn').click(); };
+/* no computador e no tablet as ferramentas da música e o metrônomo/pad ficam no painel da direita */
+const mqWide=matchMedia('(min-width:900px)');
+function applyShell(){ const wide=mqWide.matches, B=document.body;
+  B.classList.toggle('wide', wide);
+  B.classList.toggle('side-mini', wide && (prefs.sideMini!=null ? !!prefs.sideMini : innerWidth<1200));
+  B.classList.toggle('ss-mini', wide && !!prefs.ssMini);
+  const ss=$('#ssBody'), tools=$('#tools'), mu=$('#metroUnit'), pu=$('#padUnit');
+  if(wide){ if(mu.parentElement!==ss){ ss.appendChild(mu); ss.appendChild(pu); ss.appendChild(tools); } }
+  else if(mu.parentElement===ss){ const inner=$('#dock .inner'); inner.appendChild(mu); inner.appendChild(pu); $('#plBar').after(tools); } }
+mqWide.addEventListener ? mqWide.addEventListener('change',()=>{ applyShell(); if(cur) requestAnimationFrame(applySongLayout); }) : mqWide.addListener(applyShell);
+function renderSsPl(){ const L=$('#ssPl'); if(!L) return; if(!plCtx){ L.innerHTML=''; return; }
+  L.innerHTML='<div class="ss-lbl">Na playlist</div>'; plCtx.pl.items.forEach((it,i)=>{ const s2=songById(it.id); if(!s2) return; const b=document.createElement('button'); b.className='ss-it'+(i===plCtx.idx?' on':'');
+    b.innerHTML=`<b>${i+1}</b><span></span><em>${songKeyLabel(s2,it.semi)}</em>`; b.querySelector('span').textContent=s2.title; b.onclick=()=>openSong(s2.id,true,{pl:plCtx.pl, idx:i}); L.appendChild(b); }); }
 /* ================= início ================= */
 function renderHome(){ const H=$('#homeView'); if(!H) return;
   const ago=t=>{ const m=Math.round((Date.now()-t)/60000); if(m<1) return 'agora'; if(m<60) return m+' min'; const h=Math.round(m/60); if(h<24) return h+' h'; const d=Math.round(h/24); return d===1?'ontem':d+' dias'; };
   const rs=recent.map(r=>({s:songById(r.id), t:r.t})).filter(x=>x.s).slice(0,8);
-  const pls=[...playlists].sort((a,b)=>(b.opened||b.created||0)-(a.opened||a.created||0)).slice(0,5);
-  const nDl=SONGS.filter(isDl).length;
-  H.innerHTML=`<div class="hstats"><button data-go="mine"><b>${nDl}</b><span>no meu app</span></button><button data-go="dir"><b>${new Set(SONGS.map(s=>s._gk)).size}</b><span>no diretório</span></button><button data-go="pl"><b>${playlists.length}</b><span>playlists</span></button></div>
-    <div class="hsec"><div class="hsec-h"><b>🕘 Últimas tocadas</b>${rs.length?'<button class="lnk" data-go="mine">Ver músicas ›</button>':''}</div><div class="list" id="homeRecent"></div></div>
-    <div class="hsec"><div class="hsec-h"><b>📋 Últimas playlists</b><button class="lnk" data-go="pl">Ver todas ›</button></div><div class="list" id="homePl"></div></div>`;
+  const up=upcoming(); const nx=up[0] || [...playlists].sort((a,b)=>(b.opened||b.created||0)-(a.opened||a.created||0))[0];
+  const others=[...playlists].filter(p=>p!==nx).sort((a,b)=>(b.date||'').localeCompare(a.date||'') || (b.created||0)-(a.created||0)).slice(0,4);
+  const hr=new Date().getHours(), hi=hr<12?'Bom dia':hr<18?'Boa tarde':'Boa noite';
+  let gm={}; try{ gm=GS.meta||{}; }catch(e){}
+  const nome=((gm.name||profile)+'').split(' ')[0];
+  const dia=new Date().toLocaleDateString('pt-BR',{weekday:'long', day:'numeric', month:'long'});
+  const news=[...SONGS].filter(s=>!isDl(s) && !s.custom).sort((a,b)=>(b.comm?1e9:+b.id||0)-(a.comm?1e9:+a.id||0)).slice(0,6);
+  H.innerHTML=`<div class="hm-head"><div><div class="hm-d">${esc(dia.charAt(0).toUpperCase()+dia.slice(1))}</div><h2 class="hm-h"></h2></div><button class="hm-search" id="hmSearch"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Buscar música, artista ou trecho da letra</span><kbd>Ctrl K</kbd></button></div>
+    <div class="hm-grid"><div class="hm-next" id="hmNext"></div><div class="hm-card"><div class="hsec-h"><b>Playlists</b><button class="lnk" data-go="pl">Ver todas ›</button></div><div id="hmPl"></div></div></div>
+    <div class="hsec"><div class="hsec-h"><b>Tocadas recentemente</b>${rs.length?'<button class="lnk" data-go="mine">Ver músicas ›</button>':''}</div><div class="hm-rec" id="homeRecent"></div></div>
+    <div class="hsec"><div class="hsec-h"><b>Novidades no diretório</b><button class="lnk" data-go="dir">Abrir diretório ›</button></div><div class="hm-news" id="hmNews"></div></div>`;
+  H.querySelector('.hm-h').textContent=`${hi}, ${nome} 👋`;
+  $('#hmSearch').onclick=()=>{ libMode='mine'; store.set('libMode','mine'); setView('songs'); $('#q').focus(); };
+  const N=$('#hmNext');
+  if(!nx) N.innerHTML=`<div class="hm-lbl">Próximo culto</div><div class="hm-t">Nenhuma playlist ainda</div><p class="hm-sub">Monte a escala do culto com a ordem e o tom de cada música.</p><button class="btn primary big" id="hmNew">＋ Nova playlist</button>`;
+  else { const its=nx.items.map(it=>({it,s:songById(it.id)})).filter(x=>x.s); const all=its.every(x=>isDl(x.s));
+    N.innerHTML=`<div class="hm-lbl">${up[0]?'Próximo culto · '+esc(fmtDate(nx.date)):'Última playlist'}</div><div class="hm-t"></div><p class="hm-sub">${its.length} música${its.length===1?'':'s'}${its.length?(all?' · todas baixadas ✓':' · algumas ainda no diretório'):''}</p>
+      <div class="hm-set">${its.map(({it,s},i)=>`<button class="hm-si" data-i="${i}"><span class="k">${songKeyLabel(s,it.semi)}</span><b></b></button>`).join('')}</div>
+      <div class="hm-acts"><button class="btn primary big" id="hmStart">▶ Iniciar playlist</button><button class="btn big" id="hmEdit">Editar</button></div>`;
+    N.querySelector('.hm-t').textContent=nx.name; N.querySelectorAll('.hm-si').forEach((b,i)=>{ b.querySelector('b').textContent=its[i].s.title; b.onclick=()=>{ plTouch(nx); openSong(its[i].s.id,true,{pl:nx, idx:nx.items.indexOf(its[i].it)}); }; });
+    $('#hmStart').onclick=()=>{ if(!its.length) return openPlEditor(nx); plTouch(nx); openSong(its[0].s.id,true,{pl:nx, idx:nx.items.indexOf(its[0].it)}); };
+    $('#hmEdit').onclick=()=>openPlEditor(nx); }
+  const hn=$('#hmNew'); if(hn) hn.onclick=()=>$('#plNew').click();
+  const P=$('#hmPl'); if(!others.length) P.innerHTML='<div class="empty sm">As outras playlists aparecem aqui.</div>'; others.forEach(pl=>P.appendChild(plItem(pl)));
   const R=$('#homeRecent');
   if(!rs.length) R.innerHTML=`<div class="empty sm">As músicas que você abrir aparecem aqui.<br><button class="btn primary" data-go="dir">🌐 Procurar no diretório</button></div>`;
-  rs.forEach(({s,t})=>{ const o=ov(s), pk=parseKey(s.key); const el=document.createElement('button'); el.className='item';
-    el.innerHTML=`<div class="k">${pk?keyName(pk.r+(o.semi||0),pk.minor):'–'}</div><div class="t"><b></b><span></span></div><div class="m">${bpmOf(s)?`<span class="bpm">${bpmOf(s)}</span> bpm`:'<span>sem bpm</span>'}<br><span>${ago(t)}</span></div>`;
-    el.querySelector('b').textContent=s.title; el.querySelector('.t span').textContent=s.artist||'—'; el.onclick=()=>openSong(s.id); R.appendChild(el); });
-  const P=$('#homePl');
-  if(!pls.length) P.innerHTML=`<div class="empty sm">Nenhuma playlist ainda.<br><button class="btn" id="homePlNew">＋ Nova playlist</button></div>`;
-  pls.forEach(pl=>P.appendChild(plItem(pl)));
-  const hn=$('#homePlNew'); if(hn) hn.onclick=()=>$('#plNew').click();
+  rs.forEach(({s,t})=>{ const o=ov(s), pk=parseKey(s.key); const el=document.createElement('button'); el.className='hm-rc';
+    el.innerHTML=`<div class="hm-rt"><span class="k">${pk?keyName(pk.r+(o.semi||0),pk.minor):'–'}</span><small>${ago(t)}</small></div><b></b><span class="hm-ra"></span>`;
+    el.querySelector('b').textContent=s.title; el.querySelector('.hm-ra').textContent=s.artist||'—'; el.onclick=()=>openSong(s.id); R.appendChild(el); });
+  const W=$('#hmNews'); if(!news.length) W.innerHTML='<div class="empty sm">Você já baixou tudo do diretório 🎉</div>';
+  news.forEach(s=>{ const pk=parseKey(s.key); const el=document.createElement('div'); el.className='hm-nw';
+    el.innerHTML=`<button class="hm-nwb"><span class="k">${pk?keyName(pk.r,pk.minor):'–'}</span><span class="t"><b></b><small></small></span></button><button class="dlb" title="Baixar para o meu app">${DL_SVG}<span class="dlt">Baixar</span></button>`;
+    el.querySelector('b').textContent=s.title; el.querySelector('small').textContent=(s.artist||'')+(s.comm?' · por '+(s.by||'comunidade'):'');
+    el.querySelector('.hm-nwb').onclick=()=>openSong(s.id); el.querySelector('.dlb').onclick=async e=>{ const d=e.currentTarget; d.disabled=true; d.classList.add('ld'); d.innerHTML=''; await addToLib([s.id]); };
+    W.appendChild(el); });
   H.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{ const g=b.dataset.go; if(g==='pl') setView('pl'); else { libMode=g; store.set('libMode',g); if(g==='dir') commRefresh(); setView('songs'); } }); }
 $('#viewTabs').onclick=e=>{ const b=e.target.closest('button'); if(b) setView(b.dataset.v); };
 const fmtDate = d => { if(!d) return ''; const [y,m,dd]=d.split('-'); const dt=new Date(+y,+m-1,+dd); return dt.toLocaleDateString('pt-BR',{weekday:'short', day:'2-digit', month:'2-digit'}); };
@@ -855,7 +907,7 @@ $('#plShare').onclick=async()=>{
   if(navigator.share){ try{ await navigator.share({title:plEd.name, text}); return; }catch(e){ if(e.name==='AbortError') return; } }
   try{ await navigator.clipboard.writeText(text); toast('Escala copiada — cole no WhatsApp ✔'); }catch(e){ prompt('Copie a escala:', text); } };
 if(prefs.autoPad==null) prefs.autoPad=1; if(prefs.autoMetro==null) prefs.autoMetro=1;
-function renderPlBar(){ const b=$('#plBar'); if(!plCtx){ b.style.display='none'; return; }
+function renderPlBar(){ const b=$('#plBar'); renderSsPl(); if(!plCtx){ b.style.display='none'; return; }
   const nx=plCtx.pl.items[plCtx.idx+1]; const ns=nx?SONGS.find(x=>x.id===nx.id):null;
   b.style.display=''; b.innerHTML=`<div class="plb-t"><span>▶ <b></b> · ${plCtx.idx+1} de ${plCtx.pl.items.length}</span>${ns?`<small>Próxima: <i></i> (${songKeyLabel(ns,nx.semi)}${bpmOf(ns)?' · '+bpmOf(ns)+' bpm':''})</small>`:'<small>Última música</small>'}</div>
     <div class="plb-auto"><span>Ao trocar:</span><button class="tg ${prefs.autoPad?'on':''}" data-k="autoPad" title="Pad continua tocando e muda de tom sozinho">Pad ${prefs.autoPad?'segue':'para'}</button><button class="tg ${prefs.autoMetro?'on':''}" data-k="autoMetro" title="Metrônomo continua tocando com o novo BPM">Metrônomo ${prefs.autoMetro?'segue':'para'}</button></div>
@@ -945,7 +997,7 @@ $('#stageClose').onclick=closeStage;
 $('#stageFDown').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=(prefs.stageFitAdj||0)-1; savePrefs(); applyStageLayout(); } else stageFont(prefs.stageFont-2); };
 $('#stageFUp').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=(prefs.stageFitAdj||0)+1; savePrefs(); applyStageLayout(); } else stageFont(prefs.stageFont+2); };
 $('#stageLayout').onclick=()=>{ prefs.stageLayout = prefs.stageLayout==='fit'?'scroll':'fit'; savePrefs(); applyStageLayout(); toast(prefs.stageLayout==='fit'?'Música inteira na tela':'Modo rolagem'); };
-$('#stageFit').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=0; savePrefs(); applyStageLayout(); toast('Encaixe automático'); } else fitStage(); };
+if($('#stageFit')) $('#stageFit').onclick=()=>{ if(prefs.stageLayout==='fit'){ prefs.stageFitAdj=0; savePrefs(); applyStageLayout(); toast('Encaixe automático'); } else fitStage(); };
 $('#stageScroll').onclick=()=> scrollOn?stopScroll():startScroll();
 $('#stageSlower').onclick=()=>{ prefs.scrollSpeed=Math.max(5,(prefs.scrollSpeed||30)-5); savePrefs(); toast('Rolagem: '+prefs.scrollSpeed); };
 $('#stageFaster').onclick=()=>{ prefs.scrollSpeed=Math.min(200,(prefs.scrollSpeed||30)+5); savePrefs(); toast('Rolagem: '+prefs.scrollSpeed); };
@@ -1480,17 +1532,18 @@ document.addEventListener('keydown',e=>{
 }, true);
 document.addEventListener('keyup',e=>{ if(spaceKey(e) && !typing(e.target)) e.preventDefault(); }, true);
 document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey) && (e.key==='k'||e.key==='K')){ e.preventDefault(); closePanels(); if(cur) closeSong(); setView('songs'); $('#q').focus(); return; }
   if(e.key==='Escape'){ if($('#stage').classList.contains('open')) closeStage(); closePanels(); return; }
   const pageKeys={PageDown:1,ArrowDown:1,ArrowRight:1,Enter:1,PageUp:-1,ArrowUp:-1,ArrowLeft:-1};
   if(($('#stage').classList.contains('open') || prefs.layout==='fit') && pageKeys[e.key] && !document.body.classList.contains('modal') || ($('#stage').classList.contains('open') && pageKeys[e.key])){ e.preventDefault(); turnPage(pageKeys[e.key]); return; }
   if($('#stage').classList.contains('open')){ if(e.key==='r'||e.key==='R'){ e.preventDefault(); scrollOn?stopScroll():startScroll(); } else if(e.key==='+'||e.key==='=') stageFont(prefs.stageFont+2); else if(e.key==='-') stageFont(prefs.stageFont-2); return; }
   if(!cur || document.body.classList.contains('modal') || /input|select|textarea/i.test(e.target.tagName)) return;
-  if(e.key==='p') pad.toggle();
+  if(e.key==='p') pad.toggle(); else if(e.key==='f'||e.key==='F'){ e.preventDefault(); $('#stageBtn').click(); }
   else if(e.key==='ArrowUp'){ bpm++; updateBpm(); } else if(e.key==='ArrowDown'){ bpm--; updateBpm(); } });
 document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && AC.state!=='running' && (metro.on||pad.on)){ AC.resume().catch(()=>{}); audioKeepAlive(true); } });
 
 /* ================= init ================= */
-renderProfileBtn(); drawBeats(-1); setView('home'); commRefresh(); setTimeout(syncLibBodies, 1500);
+renderProfileBtn(); drawBeats(-1); applyShell(); setView('home'); commRefresh(); setTimeout(syncLibBodies, 1500);
 
 /* ================= conta Google: sincroniza ajustes, medleys, playlists e favoritas ================= */
 // Os dados ficam num arquivo privado do app no Google Drive do usuário (pasta oculta "appDataFolder").
