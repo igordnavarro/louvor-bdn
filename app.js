@@ -1156,14 +1156,37 @@ function metroSound(a, out, t, lvl, kind){
 
 /* ================= audio ================= */
 let AC=null, master=null;
-function ctx(){ if(!AC){ AC=new (window.AudioContext||window.webkitAudioContext)(); master=AC.createGain(); master.connect(AC.destination); } if(AC.state==='suspended') AC.resume(); return AC; }
+/* iPhone: sem isso o som do navegador fica mudo com o iPhone no silencioso (botão de Ação / chave lateral) */
+try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){}
+const IOS_AUDIO = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+let keepAlive=null; // áudio silencioso em loop: no iOS mantém a sessão como "mídia" (toca no silencioso e não corta)
+function silentWavUrl(){ const sr=8000, n=sr/2, b=new ArrayBuffer(44+n*2), v=new DataView(b); const w=(o,t)=>{ for(let i=0;i<t.length;i++) v.setUint8(o+i,t.charCodeAt(i)); };
+  w(0,'RIFF'); v.setUint32(4,36+n*2,true); w(8,'WAVE'); w(12,'fmt '); v.setUint32(16,16,true); v.setUint16(20,1,true); v.setUint16(22,1,true); v.setUint32(24,sr,true); v.setUint32(28,sr*2,true); v.setUint16(32,2,true); v.setUint16(34,16,true); w(36,'data'); v.setUint32(40,n*2,true);
+  return URL.createObjectURL(new Blob([b],{type:'audio/wav'})); }
+function audioKeepAlive(on){ if(!IOS_AUDIO) return; try{ if(on){ if(!keepAlive){ keepAlive=new Audio(silentWavUrl()); keepAlive.loop=true; keepAlive.setAttribute('playsinline',''); keepAlive.volume=0.01; } const p=keepAlive.play(); if(p&&p.catch) p.catch(()=>{}); }
+  else if(keepAlive) keepAlive.pause(); }catch(e){} }
+function ctx(){ if(!AC){ const C=window.AudioContext||window.webkitAudioContext; try{ AC=new C({latencyHint:'interactive'}); }catch(e){ AC=new C(); }
+    master=AC.createGain(); master.connect(AC.destination);
+    AC.onstatechange=()=>{ if(AC.state!=='running' && AC.state!=='closed' && (metro.on||pad.on) && !document.hidden) AC.resume().catch(()=>{}); }; }
+  if(AC.state!=='running' && AC.state!=='closed'){ const r=AC.resume(); if(r&&r.catch) r.catch(()=>{}); }
+  return AC; }
+function audioCheck(){ setTimeout(()=>{ if(AC && AC.state!=='running' && (metro.on||pad.on)){ AC.resume().catch(()=>{}); toast('O aparelho bloqueou o som — toque no ▶ de novo e confira o volume'); } }, 900); }
+window.__wcAudio = () => AC ? AC.state : 'sem áudio';
+// destrava o áudio no primeiro toque (o iPhone só libera som dentro de um toque do usuário)
+function unlockAudio(){ try{ const a=ctx(); const s=a.createBufferSource(); s.buffer=a.createBuffer(1,1,22050); s.connect(a.destination); s.start(0); }catch(e){}
+  if(AC && AC.state==='running'){ ['touchend','pointerdown','keydown','click'].forEach(ev=>document.removeEventListener(ev,unlockAudio,true)); } }
+['touchend','pointerdown','keydown','click'].forEach(ev=>document.addEventListener(ev,unlockAudio,true));
 const metro = {
   on:false, next:0, beat:0, timer:null, queue:[], gain:null, raf:0,
-  start(){ const a=ctx(); if(!this.gain){ this.gain=a.createGain(); this.gain.connect(master); } this.gain.gain.value=prefs.mvol;
-    this.on=true; this.beat=0; this.next=a.currentTime+0.06; this.queue=[]; this.timer=setInterval(()=>this.tick(),25); this.tick(); this.draw(); setPlay('#metroBtn',true); },
-  stop(){ this.on=false; clearInterval(this.timer); cancelAnimationFrame(this.raf); setPlay('#metroBtn',false); drawBeats(-1); },
+  start(){ const a=ctx(); audioKeepAlive(true); if(!this.gain){ this.gain=a.createGain(); this.gain.connect(master); } this.gain.gain.value=prefs.mvol;
+    this.on=true; this.beat=0; this.queue=[]; clearInterval(this.timer); setPlay('#metroBtn',true);
+    const go=()=>{ if(!this.on) return; this.next=a.currentTime+0.06; clearInterval(this.timer); this.timer=setInterval(()=>this.tick(),25); this.tick(); this.draw(); };
+    if(a.state==='running') go(); else a.resume().then(go).catch(go); audioCheck(); },
+  stop(){ this.on=false; clearInterval(this.timer); cancelAnimationFrame(this.raf); setPlay('#metroBtn',false); drawBeats(-1); if(!pad.on) audioKeepAlive(false); },
   toggle(){ this.on?this.stop():this.start(); },
   tick(){ const a=AC, spb=60/bpm/prefs.sub, per=prefs.sig*prefs.sub;
+    if(a.state!=='running'){ a.resume().catch(()=>{}); return; }
+    if(this.next < a.currentTime-0.2) this.next=a.currentTime+0.05; // voltou de uma pausa (ligação, tela bloqueada): não dispara cliques atrasados
     while(this.next < a.currentTime+0.12){ const b=this.beat%per, main=b%prefs.sub===0, bn=Math.floor(b/prefs.sub);
       const lvl = !main ? 0.45 : (!prefs.accent ? 1 : (b===0 ? 2 : (prefs.sig===6 && bn===3 ? 1.5 : 1)));
       this.click(this.next,lvl); if(main) this.queue.push({t:this.next,b:bn}); this.next+=spb; this.beat++; } },
@@ -1328,11 +1351,11 @@ const filePad={ on:false, voice:null,
   async retune(){ if(!this.on) return; const p=padRoot(); if(!p) return this.stop(); const old=this.voice; try{ this.voice=await this.voiceFor(p.r, p.minor); }catch(e){} this.fade(old,2.4); } };
 
 const pad={ get on(){ return synth.on||ytPad.on||filePad.on; },
-  async start(){ if(!padRoot()) return; setPlay('#padBtn',true); $('#padUnit').classList.add('pad-on');
+  async start(){ if(!padRoot()) return; ctx(); audioKeepAlive(true); audioCheck(); setPlay('#padBtn',true); $('#padUnit').classList.add('pad-on');
     if(prefs.padSrc==='files'){ try{ await filePad.start(); return; }catch(e){ filePad.on=false; toast('Pad: '+e.message+' — usando pad sintetizado'); } }
     else if(prefs.padSrc!=='synth'){ try{ await ytPad.start(); return; }catch(e){ ytPad.on=false; $('#ytBox').classList.remove('show'); toast('Pad do YouTube indisponível ('+e.message+') — usando pad sintetizado'); } }
     synth.start(); },
-  stop(){ synth.stop(); ytPad.stop(); filePad.stop(); setPlay('#padBtn',false); $('#padUnit').classList.remove('pad-on'); },
+  stop(){ synth.stop(); ytPad.stop(); filePad.stop(); setPlay('#padBtn',false); $('#padUnit').classList.remove('pad-on'); if(!metro.on) audioKeepAlive(false); },
   retune(fast){ if(ytPad.on) ytPad.retune(); if(synth.on) synth.retune(fast); if(filePad.on) filePad.retune(); },
   restart(){ if(this.on){ synth.stop(); filePad.stop(); ytPad.on=false; try{ ytPad.player&&ytPad.player.pauseVideo(); }catch(e){} $('#ytBox').classList.remove('show'); this.start(); } },
   toggle(){ this.on?this.stop():this.start(); } };
@@ -1464,7 +1487,7 @@ document.addEventListener('keydown',e=>{
   if(!cur || document.body.classList.contains('modal') || /input|select|textarea/i.test(e.target.tagName)) return;
   if(e.key==='p') pad.toggle();
   else if(e.key==='ArrowUp'){ bpm++; updateBpm(); } else if(e.key==='ArrowDown'){ bpm--; updateBpm(); } });
-document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && AC.state==='suspended' && (metro.on||pad.on)) AC.resume(); });
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden && AC && AC.state!=='running' && (metro.on||pad.on)){ AC.resume().catch(()=>{}); audioKeepAlive(true); } });
 
 /* ================= init ================= */
 renderProfileBtn(); drawBeats(-1); setView('home'); commRefresh(); setTimeout(syncLibBodies, 1500);
