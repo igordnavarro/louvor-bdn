@@ -313,6 +313,7 @@ function closeSong(push=true){
 }
 $('#homeBtn').onclick = () => { closeSong(false); history.pushState({}, '', location.pathname+location.search); window.scrollTo(0,0); };
 $('#songBack').onclick = () => $('#backBtn').click();
+$('#songHome').onclick = () => { closeSong(false); history.pushState({}, '', location.pathname+location.search); setView('home'); window.scrollTo(0,0); };
 $('#backBtn').onclick = () => { if(history.state && history.state.id) history.back(); else closeSong(); };
 window.addEventListener('popstate', e => { const id = e.state && e.state.id; if(id) openSong(id,false); else if(cur) closeSong(false); });
 
